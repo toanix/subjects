@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz Tin học 10</title>
+    <title>Quiz Giáo dục Quốc phòng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +24,7 @@
         --leaf: #1d4ed8;
         --leaf-bright: #3b82f6;
         --rust: #0f172a;
-        --rust-bright: #1e293b;
+        --rust-bright: #a19a79;
         --cream: #eff6ff;
         --muted: #64748b;
       }
@@ -99,8 +99,8 @@
       .opt-btn.wrong {
         background: linear-gradient(135deg, var(--rust), #8f3a26) !important;
         border-color: var(--rust-bright) !important;
-        color: #fff !important;
-        box-shadow: 0 6px 22px -6px rgba(182, 83, 58, 0.5);
+        color: #fef7ed !important;
+        box-shadow: 0 6px 22px -6px rgba(182, 83, 58, 0.7);
       }
       .opt-btn.disabled {
         opacity: 0.65;
@@ -130,7 +130,7 @@
       .tf-btn.selected-false {
         background: linear-gradient(135deg, var(--rust), #8f3a26) !important;
         border-color: var(--rust-bright) !important;
-        color: #fff !important;
+        color: #f8f9fa !important;
         box-shadow: 0 5px 16px -4px rgba(182, 83, 58, 0.5);
       }
       .tf-btn.reveal-true {
@@ -141,7 +141,7 @@
       .tf-btn.reveal-false {
         background: linear-gradient(135deg, var(--rust), #8f3a26) !important;
         border-color: var(--rust-bright) !important;
-        color: #fff !important;
+        color: #f8f9fa !important;
       }
       @keyframes fadeSlideUp {
         from {
@@ -253,7 +253,7 @@
             <span
               class="font-display text-lg tracking-wide"
               style="color: var(--cream)"
-              >Tin học 11</span
+              >Giáo dục Quốc phòng</span
             >
           </div>
           <p
@@ -346,208 +346,283 @@
       const QUESTIONS = [
         {
           type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: 'Cho xâu:\n\ns = "ABCABC"\n\nLệnh:\n\ns.find("BC")\n\ntrả lời giá trị là bao nhiêu?',
-          opts: ["A. 1", "B. -1", "C. 0", "D. 2"],
-          ans: 0,
-        },
-        {
-          type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Trong Python, lệnh nào để nối các phần tử của danh sách thành một xâu?",
-          opts: ["A. join()", "B. in", "C. find()", "D. split()"],
-          ans: 0,
-        },
-        {
-          type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Trong Python, lệnh nào dùng để tách một xâu thành danh sách các từ?",
-          opts: ["A. in", "B. join()", "C. split()", "D. find()"],
+          part: "Trắc nghiệm",
+          q: "Công ước Liên hợp quốc về Luật Biển năm 1982 quy định về ?",
+          opts: ["A. ranh giới lãnh hải, vùng tiếp giáp, thềm lục địa; giải quyết các tranh chấp trên biển; bảo vệ môi trường biển.", "B. ranh giới lãnh hải, vùng tiếp giáp, thềm lục địa; vùng biển dùng chung; giải quyết các tranh chấp trên biển.", "C. ranh giới lãnh hải, vùng tiếp giáp, thềm lục địa; vùng biển dùng chung; giải quyết các tranh chấp trên biển; bảo vệ môi trường biển.", "D. ranh giới lãnh hải, vùng tiếp giáp, thềm lục địa; vùng biển dùng chung; bảo vệ môi trường biển."],
           ans: 2,
         },
         {
           type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Trong Python, để ghép hai xâu với nhau ta sử dụng toán tử nào?",
-          opts: ["A. in", "B. *", "C. +", "D. and"],
+          part: "Trắc nghiệm",
+          q: "Công ước Liên hợp quốc về Luật Biển năm 1982 gồm ?",
+          opts: ["A. 322 điều và 7 phụ lục.", "B. 321 điều và 8 phụ lục.", "C. 323 điều và 6 phụ lục.", "D. 320 điều và 9 phụ lục."],
+          ans: 0,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Vùng đặc quyền kinh tế là vùng biển tiếp liền và nằm ngoài lãnh hải Việt Nam, hợp với lãnh hải thành một vùng biển có chiều rộng tính từ đường cơ sở bao nhiêu hải lý ?",
+          opts: ["A. 212 hải lí.", "B. 224 hải lí.", "C. 350 hải lí.", "D. 200 hải lí."],
+          ans: 3,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Việc tuyển chọn và gọi công dân thực hiện nghĩa vụ tham gia Công an nhân dân theo quy định được tiến hành bởi…..?",
+          opts: ["A. Ban Chỉ huy quân sự cấp huyện.", "B. Bộ Chỉ huy quân sự cấp tỉnh.", "C. Công an cấp huyện.", "D. Công an cấp tỉnh."],
           ans: 2,
         },
         {
           type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Giả sử A là một danh sách các số, lệnh nào sau đây bổ sung số 100 vào đầu danh sách A?",
-          opts: [
-            "A. Del A[100]",
-            "B. A = A[:1] * 100",
-            "C. A = A + [100]",
-            "D. A = [100] + A",
-          ],
-          ans: 3,
-        },
-        {
-          type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: 'Trong Python, cho các xâu ký tự:\n\ns1 = "abc abc abcaa"\ns2 = "bc"\n\nLệnh:\n\ns1.find(s2, 1)\n\ntrả về kết quả là bao nhiêu?',
-          opts: ["A. 1", "B. 9", "C. 5", "D. -1"],
-          ans: 0,
-        },
-        {
-          type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Trong Python, lệnh nào dùng để tìm vị trí xuất hiện của một xâu trong xâu khác?",
-          opts: ["A. find()", "B. join()", "C. split()", "D. in"],
-          ans: 0,
-        },
-        {
-          type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Danh sách A trước và sau lệnh insert() là:\nTrước:\n\n[1, 3, 5, 0]\n\nSau:\n\n[1, 3, 4, 5, 0]\n\nLệnh đúng là:",
-          opts: [
-            "A. insert(2, 4)",
-            "B. insert(3, 4)",
-            "C. insert(4, 2)",
-            "D. insert(4, 3)",
-          ],
-          ans: 0,
-        },
-        {
-          type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Chọn phát biểu đúng khi nói về kiểu dữ liệu mảng (List) trong Python.",
-          opts: [
-            "A. Dữ liệu kiểu mảng là tập hợp các phần tử không có thứ tự và mỗi phần tử có cùng một kiểu dữ liệu.",
-            "B. Dữ liệu kiểu mảng là tập hợp các phần tử có thứ tự và mỗi phần tử trong mảng có thể có các kiểu dữ liệu khác nhau.",
-            "C. Dữ liệu kiểu mảng là tập hợp các phần tử có thứ tự và mỗi phần tử phải có cùng một kiểu dữ liệu.",
-            "D. Tất cả ý trên đều sai.",
-          ],
+          part: "Trắc nghiệm",
+          q: "Tệ nạn mại dâm là ?",
+          opts: ["A. các hành vi mua dâm, bán dâm, chứa mại dâm, môi giới mại dâm và cưỡng bức mại dâm.", "B. các hành vi mua dâm, bán dâm và các hành vi khác có liên quan đến mua dâm, bán dâm.", "C. các hành vi mua dâm, bán dâm, chứa mại dâm và môi giới mại dâm.", "D. các hành vi mua dâm, bán dâm và các hành vi khác liên động mại dâm theo quy định của pháp luật."],
           ans: 1,
         },
         {
           type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Lệnh lặp while kết thúc khi nào?",
-          opts: [
-            "A. Khi thực hiện xong khối lệnh lặp.",
-            "B. Khi điều kiện đúng.",
-            "C. Khi không còn lệnh để thực hiện.",
-            "D. Khi điều kiện không còn đúng.",
-          ],
+          part: "Trắc nghiệm",
+          q: "Tệ nạn mê tín dị đoan là ?",
+          opts: ["A. các hành vi thái quá, mù quáng dẫn đến cuồng tín, hành động trái với chuẩn mực xã hội.", "B. các hành vi thái quá, mù quáng, tin vào những điều mơ hồ dẫn đến hành động vi phạm pháp luật.", "C. các hành vi mù quảng, tin vào những điều mơ hồ dẫn đến cuồng tín.", "D. các hành vi thái quả, mù quáng, tin vào những điều mơ hồ dẫn đến cuồng tín, hành động trái với chuẩn mực xã hội, chuẩn mực đạo đức, vi phạm pháp luật."],
           ans: 3,
         },
         {
           type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Đâu là cách viết đúng lệnh lặp while trong Python?",
-          opts: [
-            "A. while a < b:\n    a = a + 1",
-            "B. while a + b:\n    a = a + 1",
-            "C. while a % b:\n    a = a + 1",
-            "D. while a = b:\n    a = a + 1",
-          ],
+          part: "Trắc nghiệm",
+          q: "Công dân là dân quân thường trực được công nhận hoàn thành nghĩa vụ quân sự tại ngũ trong thời bình khi có ít nhất bao nhiêu tháng phục vụ ?",
+          opts: ["A. 18 tháng phục vụ.", "B. 24 tháng phục vụ.", "C. 36 tháng phục vụ.", "D. 48 tháng phục vụ."],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Công dân được công nhận hoàn thành nghĩa vụ quân sự tại ngũ trong thời bình nếu hoàn thành nhiệm vụ tham gia Công an xã liên tục từ ….?",
+          opts: ["A. đủ 24 tháng trở lên.", "B. đủ 40 tháng trở lên.", "C. đủ 36 tháng trở lên.", "D. đủ 46 tháng trở lên."],
+          ans: 2,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Công dân được công nhận trong thời bình nếu phục vụ trên tàu kiểm ngư từ…..?",
+          opts: ["A. đủ 46 tháng trở lên.", "B. đủ 36 tháng trở lên.", "C. đủ 42 tháng trở lên.", "D. đủ 24 tháng trở lên."],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Hành vi nào sau đây là tệ nạn mê tín dị đoan ?",
+          opts: ["A. Tổ chức hội làng", "B. Bói toán", "C. Cúng giỗ tổ tiên", "D. Cúng ông Công ông Táo"],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Hành vi nào sau đây là tệ nạn mại dâm ?",
+          opts: ["A. Bảo kê mại dâm", "B. Kinh doanh dịch vụ vũ trường", "C. Truy cập các trang web đồi truy", "D. Kinh doanh dịch vụ karaoke"],
           ans: 0,
         },
         {
           type: "mcq",
-          part: "I. Trắc nghiệm",
-          q: "Trong Python, câu lệnh nào dùng để tính độ dài của xâu s?",
-          opts: ["A. s.length()", "B. len(s)", "C. s.len()", "D. length(s)"],
+          part: "Trắc nghiệm",
+          q: "Cho thông tin sau: Chiến lược bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa trong tình hình mới nêu: Những ai tôn trọng (.....), thiết lập và mở rộng quan hệ hữu nghị, hợp tác bình đẳng, cùng có lợi với Việt Nam đều là đối tác. Em hãy điền từ ngữ cần điền vào chỗ (.....) trong câu trên ?",
+          opts: ["A. độc lập, chủ quyền", "B. độc lập, tự do", "C. độc lập, chủ quyền, tự do", "D. độc lập, tự quyết, tự do"],
+          ans: 0,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Hằng năm, gọi công dân nhập ngũ một lần vào tháng nào trong năm ?",
+          opts: ["A. tháng Một.", "B. tháng Hai hoặc tháng Ba.", "C. tháng Một hoặc tháng Hai.", "D. tháng Hai."],
           ans: 1,
         },
         {
-          type: "tf",
-          part: "II. Đúng / Sai",
-          q: "Câu 1. Hãy đánh giá tính đúng sai của các nhận định sau:",
-          sub: [
-            {
-              text: "a) Toán tử in có thể được sử dụng để kiểm tra xem một xâu con có trong xâu cha hay không.",
-              ans: true,
-            },
-            { text: "b) Hàm trong Python không thể có tham số.", ans: false },
-            {
-              text: "c) Toán tử + có thể được sử dụng để nối hai xâu ký tự.",
-              ans: true,
-            },
-            {
-              text: "d) Trong Python, một hàm có thể gọi lại chính nó (đệ quy).",
-              ans: true,
-            },
-          ],
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Cho thông tin sau: “Vùng biển Việt Nam bao gồm nội thuỷ, lãnh hải, vùng tiếp giáp lãnh hải, vùng đặc quyền kinh tế và thềm lục địa thuộc (.....) của Việt Nam, được xác định theo pháp luật Việt Nam, điều ước quốc tế về biên giới lãnh thổ mà nước Cộng hoà xã hội chủ nghĩa Việt Nam là thành viên và phù hợp với Công ước của Liên hợp quốc về Luật Biển năm 1982”. Em hãy điền từ ngữ cần điền vào chỗ (.....) trong câu trên ?",
+          opts: ["A. quyền chủ quyền và quyền tài phán quốc gia", "B. chủ quyền, quyền chủ quyền và quyền tài phán quốc gia", "C. chủ quyền, quyền chủ quyền, quyền tài phán quốc gia và lãnh thổ", "D. chủ quyền và quyền chủ quyền quốc gia"],
+          ans: 1,
         },
         {
-          type: "tf",
-          part: "II. Đúng / Sai",
-          q: "Câu 2. Cho đoạn thông tin:\n\nTrong Python, chương trình con (function) là một khối lệnh được đặt tên, thực hiện một nhiệm vụ cụ thể và có thể được gọi lại nhiều lần trong chương trình.\n\nViệc sử dụng chương trình con giúp mã nguồn gọn gàng, dễ quản lý, tái sử dụng và giảm lặp code.\n\nHãy đánh giá tính đúng sai của các nhận định sau:",
-          sub: [
-            {
-              text: "a) Hàm print() trong Python là một chương trình con có sẵn.",
-              ans: true,
-            },
-            {
-              text: "b) Lệnh return có thể trả về nhiều giá trị cùng lúc.",
-              ans: true,
-            },
-            {
-              text: "c) Mọi chương trình con trong Python đều phải có tham số.",
-              ans: false,
-            },
-            {
-              text: "d) Có thể định nghĩa nhiều hàm có cùng tên trong một chương trình Python.",
-              ans: false,
-            },
-          ],
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Quy định về thực hiện nghĩa vụ tham gia Công an nhân dân được nêu tại ….?",
+          opts: ["A. Nghị định số 70/2016/NĐ-CP ngày 23-8-2016 của Chính phủ.", "B. Nghị định số 70/2017/NĐ-CP ngày 23-8-2017 của Chính phủ.", "C. Nghị định số 70/2019/NĐ-CP ngày 23-8-2019 của Chính phủ.", "D. Nghị định số 70/2018/NĐ-CP ngày 23-8-2018 của Chính phủ."],
+          ans: 3,
         },
         {
-          type: "tf",
-          part: "II. Đúng / Sai",
-          q: "Câu 3. Cho đoạn thông tin:\n\nTrong Python, câu lệnh while được sử dụng để tạo vòng lặp có điều kiện - chương trình sẽ lặp lại một khối lệnh miễn là điều kiện còn đúng (True).\n\nHãy đánh giá tính đúng sai của các nhận định sau:",
-          sub: [
-            {
-              text: "a) Vòng lặp while luôn thực hiện ít nhất một lần, ngay cả khi điều kiện ban đầu là sai.",
-              ans: false,
-            },
-            {
-              text: "b) Biến điều khiển trong vòng lặp while phải được thay đổi bên trong khối lệnh của vòng lặp để tránh vòng lặp vô hạn.",
-              ans: true,
-            },
-            {
-              text: "c) Câu lệnh while kiểm tra điều kiện sau khi thực hiện khối lệnh.",
-              ans: false,
-            },
-            {
-              text: "d) Vòng lặp while sẽ dừng lại khi điều kiện trở thành sai.",
-              ans: true,
-            },
-          ],
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Theo quy định của Luật Nghĩa vụ quân sự, đối tượng đăng kí nghĩa vụ quân sự gồm?",
+          opts: ["A. công dân nữ đủ 18 tuổi trở lên có ngành, nghề chuyên môn phù hợp yêu cầu của Quân đội nhân dân và công dân nam đủ 17 tuổi trở lên.", "B. công dân nam đủ 18 tuổi trở lên có ngành, nghề chuyên môn phù hợp yêu cầu của Quân đội nhân dân.", "C. công dân nam đủ 17 tuổi trở lên và công dân nữ đủ 18 tuổi trở lên.", "D. công dân đủ 17 tuổi trở lên có ngành, nghề chuyên môn phù hợp yêu cầu của Quân đội nhân dân."],
+          ans: 0,
         },
         {
-          type: "tf",
-          part: "II. Đúng / Sai",
-          q: "Câu 4. Cho đoạn thông tin:\n\nTrong Python, kiểu xâu (string) là kiểu dữ liệu dùng để lưu trữ chuỗi ký tự. Đây là một trong những kiểu dữ liệu cơ bản và được sử dụng rất thường xuyên khi xử lý văn bản.\n\nHãy đánh giá tính đúng sai của các nhận định sau:",
-          sub: [
-            {
-              text: "a) Xâu ký tự trong Python không thể lặp lại nhiều lần.",
-              ans: false,
-            },
-            {
-              text: "b) Chỉ số của phần tử trong danh sách luôn bắt đầu từ 1.",
-              ans: false,
-            },
-            {
-              text: "c) Câu lệnh len(s) trả về tổng giá trị các ký tự trong xâu.",
-              ans: false,
-            },
-            {
-              text: "d) Danh sách trong Python có thể chứa các phần tử thuộc nhiều kiểu dữ liệu khác nhau.",
-              ans: true,
-            },
-          ],
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Cho thông tin sau: “Luật Biển Việt Nam quy định đường cơ sở, nội thuỷ, lãnh hải, vùng tiếp giáp lãnh hải, vùng đặc quyền kinh tế, thềm lục địa, (.....) thuộc chủ quyền, quyền chủ quyền, quyền tài phán quốc gia của Việt Nam; hoạt động trong vùng biển Việt Nam; phát triển kinh tế biển; quản lí và bảo vệ biển, đảo”. Em hãy điền từ ngữ cần điền vào chỗ (.....) trong câu trên ?",
+          opts: ["A. các đảo, quần đảo", "B. các đảo, quần đảo Hoàng Sa, quần đảo Trường Sa và bán đảo", "C. các đảo, bán đảo và quần đảo", "D. các đảo, quần đảo Hoàng Sa, quần đảo Trường Sa và quần đảo khác"],
+          ans: 3,
         },
         {
-          type: "essay",
-          part: "III. Tự luận",
-          q: "Câu 1. Viết chương trình nhập số tự nhiên n từ bàn phím và in ra các số nguyên tố nhỏ hơn hoặc bằng n.",
-          sample:
-            'n = int(input("Nhập n: "))\ndef is_prime(x):\n    if x < 2: return False\n    for i in range(2, int(x**0.5)+1):\n        if x % i == 0: return False\n    return True\nfor i in range(2, n+1):\n    if is_prime(i):\n        print(i, end=" ")',
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Cho thông tin sau: “Một nội dung về quan điểm Chiến lược bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa trong tình hình mới là giữ vững (.....) đối với sự nghiệp bảo vệ Tổ quốc”. Em hãy điền từ ngữ cần điền vào chỗ (.....) trong câu trên ?",
+          opts: ["A. sự lãnh đạo trực tiếp của Đảng", "B. sự lãnh đạo tuyệt đối của Đảng", "C. sự lãnh đạo trực tiếp, tuyệt đối về mọi mặt của Đảng", "D. sự lãnh đạo tuyệt đối, toàn diện về mọi mặt của Đảng"],
+          ans: 2,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Độ tuổi tuyển chọn công dân và ngành nghề cần thiết để tuyển chọn công dân nữ thực hiện nghĩa vụ tham gia Công an nhân dân do ai quy định ?",
+          opts: ["A. Bộ trưởng Bộ Công an quy định cụ thể.", "B. Bộ trưởng Bộ Quốc phòng quy định cụ thể.", "C. Cục trưởng Cục Tổ chức cán bộ Bộ Công an quy định cụ thể.", "D. Bộ trưởng Bộ Nội vụ quy định cụ thể."],
+          ans: 0,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Cho thông tin sau: “Tệ nạn xã hội là hiện tượng xã hội tiêu cực, có tinh phổ biến, lan truyền, biểu hiện bằng những hành vi, vi phạm pháp luật, (.....). gây nguy hiểm cho xã hội”. Em hãy điền từ ngữ cần điền vào chỗ (....) trong câu trên để hoàn chỉnh khái niệm tệ nạn xã hội ?",
+          opts: ["A. lệch chuẩn mực xã hội", "B. lệch chuẩn mực xã hội, chuẩn mực đạo đức", "C. lệch chuẩn mực xã hội, chuẩn mực nhân cách", "D. lệch chuẩn mực đạo đức"],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Cho thông tin sau: “Công dân trong độ tuổi thực hiện nghĩa vụ quân sự, không phân biệt (.....) phải thực hiện nghĩa vụ quân sự theo quy định của Luật Nghĩa vụ quân sự”. Em hãy điền từ vào chỗ (.....) để hoàn chỉnh câu trên ?",
+          opts: ["A. dân tộc, thành phần xã hội, tín ngưỡng, tôn giáo, trình độ học vấn", "B. dân tộc, thành phần xã hội, tín ngưỡng, tôn giáo, trình độ học vấn, nghề nghiệp, nơi cư trú, nơi làm việc", "C. dân tộc, thành phần xã hội, tín ngưỡng, tôn giáo, trình độ học vấn, nghề nghiệp.", "D. dân tộc, thành phần xã hội, tín ngưỡng, tôn giáo, trình độ học vấn, nghề nghiệp, nơi cư trú"],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Cách thức hoạt động nào sau đây không phổ biến đối với tội phạm sử dụng công nghệ cao ?",
+          opts: ["A. Sử dụng phương tiện giao thông vận chuyển trái phép chất ma tuý", "B. Ngăn chặn truyền tải dữ liệu", "C. Lấy cắp thông tin thẻ ngân hàng, truy cập trái phép vào hệ thống tài khoản ngân hàng", "D. Sao chép các phần mềm độc hại vào các thiết bị kết nối máy tính"],
+          ans: 0,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Khu vực biên giới trên không gồm phần không gian dọc theo biên giới quốc gia có chiều rộng tính từ biên giới quốc gia trở vào là bao nhiêm km ?",
+          opts: ["A. 15 km.", "B. 10 km.", "C. 20 km.", "D. 25 km."],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Công dân được miễn gọi nhập ngũ nếu là một con của ?",
+          opts: ["A. bệnh binh suy giảm khả năng lao động từ 61 % trở lên.", "B. người nhiễm chất độc da cam suy giảm khả năng lao động từ 41 % trở lên.", "C. người nhiễm chất độc da cam suy giảm khả năng lao động từ 61 % trở lên.", "D. bệnh binh suy giảm khả năng lao động từ 81 % trở lên."],
+          ans: 2,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Học sinh trực tiếp đăng kí nghĩa vụ quân sự tại đâu ?",
+          opts: ["A. Ban Chỉ huy quân sự cấp huyện.", "B. nhà trường nơi đang học.", "C. Ban Chỉ huy quân sự cấp xã.", "D. Tổ dân phố hoặc thôn."],
+          ans: 2,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Hành vi nào sau đây không phải là tệ nạn cờ bạc?",
+          opts: ["A. Cá cược bằng tiền trong giải thi đấu bóng đá", "B. Cá cược ăn thua bằng tiền trong trò chơi chọi gà", "C. Chơi trò chơi trực tuyến có được thua bằng tiền", "D. Tổ chức trò chơi “Đố vui có thưởng” trong lễ hội"],
+          ans: 3,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Tệ nạn cờ bạc là ?",
+          opts: ["A. các hành vi lợi dụng trò chơi để cá cược, sát phạt được thua bằng tiền hoặc lợi ích vật chất khác trái pháp luật.", "B. các hành vi cá cược, sát phạt được thua bằng tiền hoặc lợi ích vật chất khác trái pháp luật.", "C. các hành vi cá cược, sát phạt được thua bằng tiền, đánh bạc, tổ chức đánh bạc trái pháp luật.", "D. các hành vi đánh bạc, tổ chức đánh bạc, lợi dụng trò chơi để cá cược, sát phạt được thua bằng tiền hoặc lợi ích vật chất khác trái pháp luật."],
+          ans: 3,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Công dân được đào tạo trình độ cao đẳng, đại học đã được tạm hoãn gọi nhập ngũ thì độ tuổi gọi nhập ngũ đến ?",
+          opts: ["A. hết 25 tuổi.", "B. hết 26 tuổi.", "C. hết 25 tuổi.", "D. hết 28 tuổi."],
+          ans: 3,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Luật Biển Việt Nam được Quốc hội thông qua ngày tháng năm nào ?",
+          opts: ["A. ngày 21-6-2013 và có hiệu lực thi hành từ ngày 01-01-2014.", "B. ngày 21-6-2012 và có hiệu lực thi hành từ ngày 01-01-2013.", "C. ngày 21-6-2014 và có hiệu lực thi hành từ ngày 01-01-2015.", "D. ngày 21-6-2011 và có hiệu lực thi hành từ ngày 01-01-2012."],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Lãnh hải là vùng biển tính từ đường cơ sở ra phía biển rộng bao nhiêu hải lý ?",
+          opts: ["A. 188 hải lí.", "B. 24 hải lí.", "C. 388 hải lí.", "D. 12 hải lí."],
+          ans: 3,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Cho thông tin sau: “Tệ nạn ma tuý là (.....) và các hành vi vi phạm pháp luật về ma tuý mà chưa đến mức hoặc không bị truy cứu trách nhiệm hình sự”. Em hãy điền từ ngữ cần điền vào chỗ (.....) trong câu trên để hoàn chỉnh khái niệm tệ nạn ma tuý ?",
+          opts: ["A. việc sử dụng trái phép chất ma tuý", "B. việc sử dụng trái phép chất ma tuý, nghiện ma tuý", "C. việc sử dụng trái phép chất ma tuý, phụ thuộc ma tuý", "D. việc sử dụng trái phép chất ma tuý, lạm dụng ma tuý"],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Vùng nội thủy là vùng nước.... ?",
+          opts: ["A. nằm trong đường cơ sở", "B. nằm ngoài đường cơ sở", "C. nằm trong vùng đặc quyền kinh tế", "D. nằm ngoài vùng lãnh hải"],
+          ans: 0,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Việc sơ tuyển về chiều cao, cân nặng, hình thể của công dân là đối tượng tuyển chọn thực hiện nghĩa vụ tham gia Công an nhân dân được tổ chức bởi ?",
+          opts: ["A. Công an cấp xã.", "B. Công an cấp huyện.", "C. Trung tâm y tế huyện có phòng khám đa khoa.", "D. Trạm y tế xã."],
+          ans: 3,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Hằng năm, Chỉ huy trưởng Ban chỉ huy quân sự cấp huyện ra lệnh gọi công dân đăng kí nghĩa vụ quân sự lần đầu vào ?",
+          opts: ["A. tháng Ba.", "B. tháng Năm.", "C. tháng Tư.", "D. tháng Hai."],
+          ans: 2,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Ngày truyền thống của Bộ đội biên phòng cũng là Ngày biên phòng toàn dân, đó là ngày nào ?",
+          opts: ["A. ngày 04 tháng 3 hằng năm.", "B. ngày 02 tháng 3 hằng năm", "C. ngày 03 tháng 3 hằng năm.", "D. ngày 05 tháng 3 hằng năm."],
+          ans: 2,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Cách thức hoạt động nào sau đây không phải là cách thức hoạt động phổ biến của tội phạm?",
+          opts: ["A. Sử dụng thủ đoạn giả mạo, giả danh, gian dối. Sử dụng vũ khí, công cụ, phương tiện", "B. Câu kết thành các băng nhóm, tổ chức. Sử dụng công nghệ cao", "C. Lưu động trên phạm vi một hoặc nhiều tỉnh, thành phố", "D. Hoạt động công khai, cho nhiều người biết, không giấu giếm"],
+          ans: 3,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Công dân nam được gọi nhập ngũ khi đủ bao nhiêu tuổi ?",
+          opts: ["A. đủ 18 tuổi.", "B. 17 tuổi.", "C. 18 tuổi.", "D. đủ 17 tuổi."],
+          ans: 0,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Vùng tiếp giáp lãnh hải là vùng biển tiếp liền và nằm ngoài lãnh hải của Việt Nam, có chiều rộng tính từ ranh giới ngoài của lãnh hải là bao nhiêu hải lý ?",
+          opts: ["A. 224 hải lí.", "B. 350 hải lí.", "C. 12 hải lí.", "D. 212 hải lí."],
+          ans: 2,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Hằng năm, công dân thuộc diện gọi nhập ngũ được gọi khám sức khoẻ trong khoảng thời gian nào ?",
+          opts: ["A. từ ngày 01 tháng 12 đến hết ngày 31 tháng 12.", "B. từ ngày 01 tháng 11 đến hết ngày 31 tháng 12.", "C. từ ngày 01 tháng 10 đến hết ngày 30 tháng 11.", "D. từ ngày 01 tháng 11 đến hết ngày 30 tháng 11."],
+          ans: 1,
+        },
+        {
+          type: "mcq",
+          part: "Trắc nghiệm",
+          q: "Luật Biển Việt Nam gồm mấy chương, mấy điều ?",
+          opts: ["A. 7 chương, 54 điều.", "B. 8 chương, 56 điều.", "C. 7 chương, 55 điều.", "D. 9 chương, 57 điều."],
+          ans: 2,
         },
       ];
 
@@ -786,16 +861,7 @@
             essT++;
           }
         });
-        qArea.innerHTML = `<div class="text-center py-8">
-        <div class="flex justify-center mb-4">${ICON.sprout}</div>
-        <h2 class="font-display text-3xl font-semibold" style="color:var(--cream)">Hoàn thành!</h2>
-        <p class="mt-2" style="color:var(--muted)">Kết quả làm bài của bạn</p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-          <div class="glass rounded-2xl p-5"><p class="text-2xl font-bold" style="color:var(--gold-bright)">${mcqC}/${mcqT}</p><p class="text-xs mt-1" style="color:var(--muted)">Trắc nghiệm</p></div>
-          <div class="glass rounded-2xl p-5"><p class="text-2xl font-bold" style="color:var(--leaf-bright)">${tfC}/${tfT}</p><p class="text-xs mt-1" style="color:var(--muted)">Đúng / Sai</p></div>
-          <div class="glass rounded-2xl p-5"><p class="text-2xl font-bold" style="color:var(--cream)">${essT > 0 ? Math.round(essS / essT) + "%" : "--"}</p><p class="text-xs mt-1" style="color:var(--muted)">Tự luận</p></div>
-        </div>
-      </div>`;
+        qArea.innerHTML = `<div class="text-center py-8">\n        <div class="flex justify-center mb-4">${ICON.sprout}</div>\n        <h2 class="font-display text-3xl font-semibold" style="color:var(--cream)">Hoàn thành!</h2>\n        <p class="mt-2" style="color:var(--muted)">Kết quả làm bài của bạn</p>\n        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">\n          ${mcqT > 0 ? `<div class="glass rounded-2xl p-5"><p class="text-2xl font-bold" style="color:var(--gold-bright)">${mcqC}/${mcqT}</p><p class="text-xs mt-1" style="color:var(--muted)">Trắc nghiệm</p></div>` : ''}\n          ${tfT > 0 ? `<div class="glass rounded-2xl p-5"><p class="text-2xl font-bold" style="color:var(--leaf-bright)">${tfC}/${tfT}</p><p class="text-xs mt-1" style="color:var(--muted)">Đúng / Sai</p></div>` : ''}\n          ${essT > 0 ? `<div class="glass rounded-2xl p-5"><p class="text-2xl font-bold" style="color:var(--cream)">${Math.round(essS / essT)}%</p><p class="text-xs mt-1" style="color:var(--muted)">Tự luận</p></div>` : ''}\n        </div>\n      </div>`;
         fbArea.classList.add("hidden");
         btnArea.innerHTML = `<button onclick="restart()" class="px-8 py-3 rounded-xl font-semibold transition-all duration-300 glow flex items-center gap-2" style="background:linear-gradient(135deg,var(--gold),#b3822d); color:#20140a;">Làm lại ${ICON.refresh}</button>`;
         updateProgress(100);
