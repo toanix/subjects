@@ -1,25 +1,3 @@
-Giờ cập nhật logic JS để hỗ trợ chọn phần và đảo thứ tự:
-
-Đã thêm xong vào C:\Users\letin\Desktop\LS\index.html.
-
-Bộ chọn phần (thanh mới nằm giữa thanh tiến trình và thẻ câu hỏi)
-Nút	Nội dung	Số câu
-Trắc nghiệm	50 câu MCQ (Bài 1–3)	1 / 50
-Đúng / Sai	9 câu, mỗi câu 4 ý (tổng 36 ý)	1 / 9
-Tất cả	59 câu, trộn lẫn MCQ + Đúng/Sai ngẫu nhiên	1 / 59
-Kèm công tắc "Đảo thứ tự ngẫu nhiên" (checkbox) — bật để xáo trộn thứ tự câu hỏi trong bất kỳ phần nào đang chọn. Nút "Tất cả" tự động bật công tắc này; bỏ chọn lại thì trả về thứ tự gốc.
-
-Nút đang chọn được tô đậm viền vàng; số câu hiện kèm theo từng nút (50 / 9 / 59).
-
-Hành vi đã kiểm thử trên trình duyệt
-Mặc định mở vào Trắc nghiệm, đếm đúng 1 / 50; bấm Đúng / Sai → 1 / 9, mỗi câu hiện đủ 4 ý với 2 nút Đúng/Sai.
-Bấm Tất cả → 1 / 59, thứ tự thực sự xen kẽ (mcq,mcq,mcq,mcq,tf,mcq,...), không bị trùng lặp.
-Bật/tắt công tắc đảo thứ tự → danh sách câu hỏi thay đổi, tắt → về đúng thứ tự gốc (Bài 1 Câu 1).
-Đổi phần giữa lúc làm bài sẽ reset về câu đầu của phần mới.
-Bảng kết quả tự ẩn/hiện thẻ cho đúng phần: chỉ Trắc nghiệm → 13/50; chỉ Đúng/Sai → 36/36; Tất cả → hiện cả hai thẻ 50/50 + 36/36, tiêu đề lần lượt là "Kết quả Trắc nghiệm" / "Kết quả Đúng / Sai" / "Kết quả tổng hợp".
-Không có lỗi console trong toàn bộ quá trình test.
-Nếu muốn thêm nút "Bài 1 / Bài 2 / Bài 3" để luyện theo từng bài thay vì gộp cả 3 bài lại, nói mình làm tiếp.
-
 <!doctype html>
 <html lang="vi">
   <head>
