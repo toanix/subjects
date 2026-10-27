@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ôn tập Vật lí 11 - Giữa kì I</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-1: #0b1026;
+        --bg-2: #10162b;
+        --bg-3: #0f1528;
+        --panel: rgba(148, 163, 184, 0.08);
+        --panel-strong: rgba(148, 163, 184, 0.12);
+        --panel-border: rgba(148, 163, 184, 0.18);
+        --accent: #38bdf8;
+        --accent-strong: #22d3ee;
+        --success: #22c55e;
+        --warning: #f59e0b;
+        --danger: #f43f5e;
+        --text-primary: #e2e8f0;
+        --text-secondary: #94a3b8;
+      }
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+      }
+      *::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      *::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      *::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.4);
+        border-radius: 999px;
+      }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 16px;
+        background:
+          radial-gradient(60% 60% at 10% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+          radial-gradient(55% 55% at 90% 10%, rgba(34, 211, 238, 0.1), transparent 70%),
+          radial-gradient(70% 70% at 50% 100%, rgba(14, 165, 233, 0.08), transparent 75%),
+          linear-gradient(160deg, var(--bg-2) 0%, var(--bg-1) 55%, var(--bg-3) 100%);
+        min-height: 100vh;
+        color: var(--text-primary);
+        line-height: 1.7;
+      }
+      @media (max-width: 640px) {
+        body {
+          font-size: 15px;
+        }
+        .font-display {
+          letter-spacing: -0.01em;
+        }
+        table {
+          font-size: 12px;
+        }
+        th,
+        td {
+          padding: 0.4rem 0.5rem;
+        }
+        .katex-display {
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding: 0.25rem 0;
+          -webkit-overflow-scrolling: touch;
+        }
+        .katex {
+          font-size: 0.97em;
+        }
+        .rounded-3xl {
+          border-radius: 1.1rem;
+        }
+        .rounded-2xl {
+          border-radius: 0.9rem;
+        }
+        .card-hover:hover {
+          transform: none;
+          box-shadow: none;
+        }
+        .option-btn:hover:not(:disabled) {
+          transform: none;
+        }
+        .tf-btn {
+          padding-left: 0.9rem;
+          padding-right: 0.9rem;
+        }
+      }
+      @media (max-width: 480px) {
+        header .glass-strong {
+          width: 100%;
+        }
+        .nav-link {
+          padding-left: 0.7rem;
+          padding-right: 0.7rem;
+        }
+      }
+      .font-display {
+        font-family: "Fraunces", serif;
+        font-optical-sizing: auto;
+      }
+      .glass {
+        background: var(--panel);
+        backdrop-filter: blur(18px);
+        border: 1px solid var(--panel-border);
+      }
+      .glass-strong {
+        background: var(--panel-strong);
+        backdrop-filter: blur(22px);
+        border: 1px solid var(--panel-border);
+        box-shadow: 0 40px 80px -60px rgba(14, 165, 233, 0.4);
+      }
+      .card-hover {
+        transition: all 0.25s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 40px 70px -50px rgba(56, 189, 248, 0.5);
+        border-color: rgba(56, 189, 248, 0.5);
+      }
+      .nav-link {
+        transition: all 0.2s ease;
+      }
+      .nav-link.active {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 165, 233, 0.18));
+        color: var(--text-primary);
+        border-color: rgba(56, 189, 248, 0.6);
+      }
+      .nav-link:not(.active):hover {
+        background: rgba(148, 163, 184, 0.12);
+      }
+      .fade-in {
+        animation: fade-in 0.4s ease forwards;
+      }
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .pill {
+        border: 1px solid rgba(148, 163, 184, 0.4);
+      }
+      .option-btn {
+        transition: all 0.2s ease;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        background: rgba(148, 163, 184, 0.08);
+      }
+      .option-btn:hover:not(:disabled) {
+        border-color: rgba(56, 189, 248, 0.6);
+        background: rgba(56, 189, 248, 0.16);
+        transform: translateX(4px);
+      }
+      .option-btn.selected {
+        border-color: rgba(56, 189, 248, 0.9);
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.28), rgba(14, 165, 233, 0.22));
+        box-shadow: 0 20px 40px -30px rgba(56, 189, 248, 0.9);
+      }
+      .option-btn.correct {
+        border-color: rgba(34, 197, 94, 0.9);
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.26), rgba(22, 163, 74, 0.2));
+      }
+      .option-btn.wrong {
+        border-color: rgba(244, 63, 94, 0.9);
+        background: linear-gradient(135deg, rgba(244, 63, 94, 0.24), rgba(225, 29, 72, 0.18));
+      }
+      .tf-btn {
+        transition: all 0.2s ease;
+        border: 1px solid rgba(148, 163, 184, 0.3);
+      }
+      .tf-btn.active-true {
+        border-color: rgba(34, 197, 94, 0.9);
+        background: rgba(34, 197, 94, 0.22);
+      }
+      .tf-btn.active-false {
+        border-color: rgba(244, 63, 94, 0.9);
+        background: rgba(244, 63, 94, 0.22);
+      }
+      .tf-btn.reveal-true {
+        border-color: rgba(34, 197, 94, 0.9);
+        background: rgba(34, 197, 94, 0.18);
+      }
+      .tf-btn.reveal-false {
+        border-color: rgba(244, 63, 94, 0.9);
+        background: rgba(244, 63, 94, 0.18);
+      }
+      table th,
+      table td {
+        border: 1px solid rgba(148, 163, 184, 0.25);
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <div class="absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-sky-400/10 to-transparent"></div>
+    <header class="relative z-10">
+      <div class="max-w-6xl mx-auto px-2.5 sm:px-6 lg:px-8 pt-2 sm:pt-6 lg:pt-10 pb-2 sm:pb-4 lg:pb-6">
+        <div class="flex flex-col gap-2 sm:gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div class="flex items-center gap-1.5 sm:gap-3">
+            <div class="hidden sm:flex items-center justify-center glass-strong rounded-lg sm:rounded-xl w-7 h-7 sm:w-9 sm:h-9 lg:w-11 lg:h-11 shrink-0">
+              <svg width="16" height="16" class="sm:w-5 sm:h-5 lg:w-6 lg:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent)">
+                <path d="M12 3v18"></path>
+                <path d="M5 7h14"></path>
+                <path d="M5 17h14"></path>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <p class="text-[9px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] hidden md:block" style="color: var(--text-secondary)">Trường THPT Nguyễn Tất Thành</p>
+              <h1 class="font-display text-base sm:text-2xl lg:text-4xl mt-0 sm:mt-1 lg:mt-2 leading-tight">Đề cương ôn tập giữa kỳ I – Vật lí 11</h1>
+              <p class="mt-0.5 text-[9px] sm:text-xs lg:text-sm hidden md:block" style="color: var(--text-secondary)">Chương: Dao động điều hòa • Nạp dữ liệu trực tiếp từ DATA.txt</p>
+            </div>
+          </div>
+          <div class="glass rounded-xl sm:rounded-2xl px-2 sm:px-3 lg:px-5 py-1.5 sm:py-3 lg:py-4 flex flex-wrap items-center gap-1.5 sm:gap-3 lg:gap-4">
+            <div>
+              <p class="text-[9px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Mục tiêu</p>
+              <p class="mt-0.5 text-[10px] sm:text-xs lg:text-sm">★ ≥6 điểm • ★★ 8 – 10 điểm</p>
+            </div>
+            <div class="h-6 sm:h-8 lg:h-10 w-px bg-white/10 hidden sm:block"></div>
+            <div>
+              <p class="text-[9px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Ghi chú</p>
+              <p class="mt-0.5 text-[10px] sm:text-xs lg:text-sm">Lấy π² = 10</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative z-10 pb-16">
+      <div class="max-w-6xl mx-auto px-2.5 sm:px-6 lg:px-8">
+        <div class="glass rounded-2xl sm:rounded-3xl p-0.5 sm:p-1 flex gap-0.5 sm:gap-1 mb-3 sm:mb-6 lg:mb-8 overflow-x-auto whitespace-nowrap -mx-2 px-2 sm:mx-0 sm:px-1">
+          <button class="nav-link active flex items-center gap-1 sm:gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-medium" data-view="dashboard">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="9"></rect>
+              <rect x="14" y="3" width="7" height="5"></rect>
+              <rect x="14" y="12" width="7" height="9"></rect>
+              <rect x="3" y="16" width="7" height="5"></rect>
+            </svg>
+            Dashboard
+          </button>
+          <button class="nav-link flex items-center gap-1 sm:gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-medium" data-view="theory">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            Lý thuyết
+          </button>
+          <button class="nav-link flex items-center gap-1 sm:gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-medium" data-view="formulas">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            Công thức
+          </button>
+          <button class="nav-link flex items-center gap-1 sm:gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-medium" data-view="mcq">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 1v6m0 6v6"></path>
+              <path d="m21 12-6 0m-6 0-6 0"></path>
+            </svg>
+            Trắc nghiệm
+          </button>
+          <button class="nav-link flex items-center gap-1 sm:gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-medium" data-view="tf">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+            Đúng / Sai
+          </button>
+          <button class="nav-link flex items-center gap-1 sm:gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-medium" data-view="short">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="17" y1="10" x2="3" y2="10"></line>
+              <line x1="21" y1="6" x2="3" y2="6"></line>
+              <line x1="21" y1="14" x2="3" y2="14"></line>
+              <line x1="17" y1="18" x2="3" y2="18"></line>
+            </svg>
+            Trả lời ngắn
+          </button>
+          <button class="nav-link flex items-center gap-1 sm:gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-medium" data-view="essay">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            Tự luận
+          </button>
+        </div>
+
+        <section id="view-dashboard" class="view fade-in">
+          <div class="grid gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <button class="glass-strong card-hover rounded-3xl p-5 sm:p-6 text-left" data-goto="theory">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Phần 1</p>
+                  <h3 class="font-display text-xl sm:text-2xl mt-2">Lý thuyết cần nhớ</h3>
+                  <p class="mt-2 text-sm" style="color: var(--text-secondary)">Dao động điều hòa, chu kỳ, vận tốc, gia tốc, năng lượng</p>
+                </div>
+                <div class="glass rounded-2xl p-2.5 sm:p-3">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent)">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <button class="glass-strong card-hover rounded-3xl p-6 text-left" data-goto="formulas">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)">Phần 2</p>
+                  <h3 class="font-display text-2xl mt-2">Công thức trọng tâm</h3>
+                  <p class="mt-2" style="color: var(--text-secondary)">Tóm tắt nhanh để ghi nhớ</p>
+                </div>
+                <div class="glass rounded-2xl p-3">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-strong)">
+                    <polyline points="4 17 10 11 14 15 20 9"></polyline>
+                    <polyline points="14 9 20 9 20 15"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <button class="glass-strong card-hover rounded-3xl p-6 text-left" data-goto="mcq">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)">Luyện tập</p>
+                  <h3 class="font-display text-2xl mt-2">Trắc nghiệm</h3>
+                  <p class="mt-2" style="color: var(--text-secondary)">15 câu – có đáp án và giải thích ngắn</p>
+                </div>
+                <div class="glass rounded-2xl p-3">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="19" cy="12" r="1"></circle>
+                    <circle cx="5" cy="12" r="1"></circle>
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <button class="glass-strong card-hover rounded-3xl p-6 text-left" data-goto="essay">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)">Vận dụng</p>
+                  <h3 class="font-display text-2xl mt-2">Tự luận + Đúng/Sai</h3>
+                  <p class="mt-2" style="color: var(--text-secondary)">Rèn kỹ năng trình bày</p>
+                </div>
+                <div class="glass rounded-2xl p-3">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <div class="grid gap-4 sm:gap-6 lg:grid-cols-[1.2fr_1fr] mt-6 sm:mt-8">
+            <section class="glass-strong rounded-3xl overflow-hidden">
+              <div class="px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Nội dung nhanh</p>
+                  <h2 class="font-display text-xl sm:text-2xl mt-2">Tóm tắt trọng tâm</h2>
+                </div>
+                <span class="pill rounded-full px-3 py-1 text-xs self-start sm:self-auto">Dao động điều hòa</span>
+              </div>
+              <div class="px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8 grid gap-3 sm:gap-4 sm:grid-cols-2">
+                <article class="glass rounded-2xl p-4 sm:p-5">
+                  <h3 class="font-semibold">Định nghĩa</h3>
+                  <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-secondary)">$x = A\cos(\omega t + \varphi)$. Vật dao động trên đoạn thẳng dài $2A$ quanh vị trí cân bằng.</p>
+                </article>
+                <article class="glass rounded-2xl p-4 sm:p-5">
+                  <h3 class="font-semibold">Chu kì – Tần số</h3>
+                  <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-secondary)">$T=\frac{t}{N}=\frac{1}{f}=\frac{2\pi}{\omega};\ f=\frac{N}{t}=\frac{\omega}{2\pi};\ \omega=2\pi f=\frac{2\pi}{T}$</p>
+                </article>
+                <article class="glass rounded-2xl p-4 sm:p-5">
+                  <h3 class="font-semibold">Vận tốc – Gia tốc</h3>
+                  <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-secondary)">$v=-\omega A\sin(\omega t+\varphi);\ a=-\omega^2 x$. Tại VTCB: $|v|_{max}=\omega A,\ a=0$. Tại biên: $v=0,\ |a|_{max}=\omega^2 A$</p>
+                </article>
+                <article class="glass rounded-2xl p-4 sm:p-5">
+                  <h3 class="font-semibold">Năng lượng</h3>
+                  <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-secondary)">$W=\frac{1}{2}m\omega^2 A^2=const$. $W_\text{đ}, W_t$ biến thiên chu kì $T/2$. $x=\pm\frac{A}{2}:\ W_t=\frac{W}{4},\ W_\text{đ}=\frac{3W}{4}$</p>
+                </article>
+              </div>
+            </section>
+            <section class="glass-strong rounded-3xl overflow-hidden">
+              <div class="px-6 sm:px-8 py-6">
+                <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)">Lỗi hay mất điểm</p>
+                <h2 class="font-display text-2xl mt-2">Cần lưu ý</h2>
+              </div>
+              <div class="px-6 sm:px-8 pb-8 space-y-3">
+                <div class="glass rounded-2xl p-4 flex gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-sky-400"></span>
+                  <p class="text-sm" style="color: var(--text-secondary)">Nhầm ω và f. ω = 2πf, đơn vị rad/s.</p>
+                </div>
+                <div class="glass rounded-2xl p-4 flex gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-sky-400"></span>
+                  <p class="text-sm" style="color: var(--text-secondary)">Quên bình phương ω trong a, Wt. Quên 1/2 trong năng lượng.</p>
+                </div>
+                <div class="glass rounded-2xl p-4 flex gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-sky-400"></span>
+                  <p class="text-sm" style="color: var(--text-secondary)">Không đổi cm → m khi tính J, m/s².</p>
+                </div>
+                <div class="glass rounded-2xl p-4 flex gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-sky-400"></span>
+                  <p class="text-sm" style="color: var(--text-secondary)">Đồ thị thế năng chu kì T/2, khác chu kì dao động T.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="view-theory" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-6 sm:px-8 py-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)">A. Kiến thức cần nhớ</p>
+                <h2 class="font-display text-2xl mt-2">Lý thuyết đầy đủ</h2>
+              </div>
+              <button class="glass rounded-full px-4 py-2 text-sm" data-goto="dashboard">← Quay về Dashboard</button>
+            </div>
+            <div class="px-6 sm:px-8 pb-10 space-y-10">
+              <article class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="pill rounded-full px-3 py-1 text-xs">1</span>
+                  <h3 class="font-display text-xl">Dao động điều hòa ★</h3>
+                </div>
+                <p>Dao động điều hòa là dao động trong đó li độ là hàm cosin (hoặc sin) của thời gian: $x = A\cos(\omega t + \varphi)$. Vật dao động trên đoạn thẳng dài $2A$ quanh vị trí cân bằng.</p>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead>
+                      <tr class="bg-white/5">
+                        <th class="px-4 py-2 text-left">Đại lượng</th>
+                        <th class="px-4 py-2 text-left">Tên gọi – đơn vị</th>
+                        <th class="px-4 py-2 text-left">Ý nghĩa</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td class="px-4 py-2">$x$</td><td class="px-4 py-2">Li độ (cm, m)</td><td class="px-4 py-2">Độ lệch của vật so với vị trí cân bằng, $-A \le x \le A$</td></tr>
+                      <tr class="bg-white/3"><td class="px-4 py-2">$A$</td><td class="px-4 py-2">Biên độ (cm, m), $A > 0$</td><td class="px-4 py-2">Li độ cực đại</td></tr>
+                      <tr><td class="px-4 py-2">$\omega$</td><td class="px-4 py-2">Tần số góc (rad/s)</td><td class="px-4 py-2">Quyết định chu kì, tần số của dao động</td></tr>
+                      <tr class="bg-white/3"><td class="px-4 py-2">$\omega t + \varphi$</td><td class="px-4 py-2">Pha dao động (rad)</td><td class="px-4 py-2">Xác định trạng thái dao động tại thời điểm $t$</td></tr>
+                      <tr><td class="px-4 py-2">$\varphi$</td><td class="px-4 py-2">Pha ban đầu (rad)</td><td class="px-4 py-2">Pha tại $t = 0$, xác định li độ và chiều chuyển động lúc đầu</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+
+              <article class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="pill rounded-full px-3 py-1 text-xs">2</span>
+                  <h3 class="font-display text-xl">Chu kì, tần số, tần số góc ★</h3>
+                </div>
+                <div class="glass rounded-2xl p-5 space-y-2 text-sm">
+                  <p>$T=\frac{t}{N}=\frac{1}{f}=\frac{2\pi}{\omega}$</p>
+                  <p>$f=\frac{N}{t}=\frac{\omega}{2\pi}$</p>
+                  <p>$\omega=2\pi f=\frac{2\pi}{T}$</p>
+                </div>
+              </article>
+
+              <article class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="pill rounded-full px-3 py-1 text-xs">3</span>
+                  <h3 class="font-display text-xl">Vận tốc, gia tốc ★</h3>
+                </div>
+                <div class="glass rounded-2xl p-5 space-y-2 text-sm">
+                  <p>$v = -\omega A\sin(\omega t + \varphi)$</p>
+                  <p>$a = -\omega^2 x$ (luôn hướng về vị trí cân bằng)</p>
+                </div>
+                <div class="grid gap-3 sm:grid-cols-2">
+                  <div class="glass rounded-2xl p-4">
+                    <p class="font-semibold">Tại vị trí cân bằng ($x=0$)</p>
+                    <p class="mt-2" style="color: var(--text-secondary)">$|v|_{max}=\omega A,\ a=0$</p>
+                  </div>
+                  <div class="glass rounded-2xl p-4">
+                    <p class="font-semibold">Tại biên ($x=\pm A$)</p>
+                    <p class="mt-2" style="color: var(--text-secondary)">$v=0,\ |a|_{max}=\omega^2 A$</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="pill rounded-full px-3 py-1 text-xs">4</span>
+                  <h3 class="font-display text-xl">Năng lượng ★</h3>
+                </div>
+                <div class="glass rounded-2xl p-5 space-y-2 text-sm">
+                  <p>$W_\text{đ}=\frac{1}{2}mv^2$</p>
+                  <p>$W_t=\frac{1}{2}m\omega^2 x^2$</p>
+                  <p>$W=W_\text{đ}+W_t=\frac{1}{2}m\omega^2 A^2=const$ (bỏ qua ma sát)</p>
+                </div>
+                <ul class="grid gap-2 text-sm" style="color: var(--text-secondary)">
+                  <li>• Động năng và thế năng biến thiên tuần hoàn với chu kì $T/2$ (tần số $2f$), chuyển hóa qua lại nhưng tổng không đổi.</li>
+                  <li>• Tại biên: $W_t=W$; tại vị trí cân bằng: $W_\text{đ}=W$.</li>
+                  <li>• Tại $x=\pm A/2$: $W_t=\frac{W}{4},\ W_\text{đ}=\frac{3W}{4}$.</li>
+                  <li>• Tổng quát: $W_\text{đ}=kW_t \Rightarrow W_t=\frac{W}{k+1}$.</li>
+                </ul>
+              </article>
+
+              <article class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="pill rounded-full px-3 py-1 text-xs">5</span>
+                  <h3 class="font-display text-xl">Các loại dao động</h3>
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                  <div class="glass rounded-2xl p-5">
+                    <p class="font-semibold">Dao động tắt dần</p>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary)">Biên độ và cơ năng giảm dần do lực cản. Lực cản càng lớn tắt dần càng nhanh.</p>
+                  </div>
+                  <div class="glass rounded-2xl p-5">
+                    <p class="font-semibold">Dao động cưỡng bức</p>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary)">Dưới tác dụng của ngoại lực tuần hoàn. Tần số bằng tần số lực cưỡng bức.</p>
+                  </div>
+                  <div class="glass rounded-2xl p-5">
+                    <p class="font-semibold">Hiện tượng cộng hưởng</p>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary)">Biên độ cực đại khi $f=f_0$ (tần số riêng). Có lợi hoặc có hại.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-formulas" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-6 sm:px-8 py-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)">Bảng công thức</p>
+                <h2 class="font-display text-2xl mt-2">Công thức cần thuộc</h2>
+              </div>
+              <button class="glass rounded-full px-4 py-2 text-sm" data-goto="dashboard">← Quay về Dashboard</button>
+            </div>
+            <div class="px-6 sm:px-8 pb-10 grid gap-4 md:grid-cols-2">
+              <div class="glass rounded-2xl p-6 space-y-2">
+                <h3 class="font-semibold">Cơ bản</h3>
+                <div class="text-sm space-y-1" style="color: var(--text-secondary)">
+                  <p>$x = A\cos(\omega t + \varphi)$</p>
+                  <p>$\omega = \frac{2\pi}{T} = 2\pi f$</p>
+                  <p>$T = \frac{1}{f}$</p>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-6 space-y-2">
+                <h3 class="font-semibold">Vận tốc – Gia tốc</h3>
+                <div class="text-sm space-y-1" style="color: var(--text-secondary)">
+                  <p>$v = -\omega A\sin(\omega t+\varphi),\ v_{max}=\omega A$</p>
+                  <p>$a = -\omega^2 x,\ a_{max}=\omega^2 A$</p>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-6 space-y-2">
+                <h3 class="font-semibold">Liên hệ $v,a,x$</h3>
+                <div class="text-sm space-y-1" style="color: var(--text-secondary)">
+                  <p>$v^2 + \omega^2 x^2 = \omega^2 A^2$</p>
+                  <p>$a = -\omega^2 x$</p>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-6 space-y-2">
+                <h3 class="font-semibold">Năng lượng</h3>
+                <div class="text-sm space-y-1" style="color: var(--text-secondary)">
+                  <p>$W=\frac{1}{2}m\omega^2 A^2=\frac{1}{2}kA^2$</p>
+                  <p>$W_t=\frac{1}{2}m\omega^2 x^2,\ W_\text{đ}=\frac{1}{2}mv^2$</p>
+                  <p>$W_t=W\cos^2\alpha,\ W_\text{đ}=W\sin^2\alpha$</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-mcq" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-6 sm:px-8 py-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)">Phần 1 – Trắc nghiệm</p>
+                <h2 class="font-display text-2xl mt-2">Luyện trắc nghiệm</h2>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="pill rounded-full px-3 py-1 text-xs" id="mcq-progress">Câu 1 / 15</span>
+                <button class="glass rounded-full px-4 py-2 text-sm" data-goto="dashboard">← Quay về Dashboard</button>
+              </div>
+            </div>
+            <div class="px-6 sm:px-8 pb-10">
+              <article class="glass rounded-3xl p-6 sm:p-8 space-y-6">
+                <div>
+                  <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)" id="mcq-tag">Trắc nghiệm</p>
+                  <h3 class="font-display text-xl sm:text-2xl mt-3 leading-relaxed" id="mcq-question"></h3>
+                </div>
+                <div class="space-y-3" id="mcq-options"></div>
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                  <button class="glass rounded-full px-5 py-2 text-sm disabled:opacity-40" id="mcq-prev">← Câu trước</button>
+                  <div class="flex items-center gap-3">
+                    <button class="rounded-full px-6 py-2 text-sm font-medium" style="background: linear-gradient(135deg, rgba(56,189,248,0.9), rgba(14,165,233,0.9)); color: #0b1026" id="mcq-check">Kiểm tra</button>
+                    <button class="glass rounded-full px-6 py-2 text-sm" id="mcq-next">Câu tiếp theo →</button>
+                  </div>
+                </div>
+                <div class="hidden rounded-2xl p-4 text-sm" id="mcq-feedback"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-tf" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Phần 2 – Đúng / Sai</p>
+                <h2 class="font-display text-xl sm:text-2xl mt-2">Luyện Đúng – Sai</h2>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="pill rounded-full px-3 py-1 text-xs" id="tf-progress">Câu 1 / 2</span>
+                <button class="glass rounded-full px-4 py-2 text-sm self-start sm:self-auto" data-goto="dashboard">← Quay về Dashboard</button>
+              </div>
+            </div>
+            <div class="px-3 sm:px-6 lg:px-8 pb-6 sm:pb-10">
+              <article class="glass rounded-2xl sm:rounded-3xl p-3 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
+                <div>
+                  <p class="text-[10px] sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em]" style="color: var(--text-secondary)" id="tf-tag">Câu A</p>
+                  <p class="mt-1 sm:mt-3 leading-relaxed text-sm sm:text-base" id="tf-intro">Vật $m=0,2\ kg$ dao động điều hòa, $A=5\ cm$, $\omega=20\ rad/s$, mốc thế năng tại vị trí cân bằng.</p>
+                </div>
+                <div class="space-y-2 sm:space-y-4" id="tf-items"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                  <button class="glass rounded-full px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm disabled:opacity-40" id="tf-prev">← Câu trước</button>
+                  <div class="flex items-center gap-1.5 sm:gap-3">
+                    <button class="rounded-full px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium" style="background: linear-gradient(135deg, rgba(56,189,248,0.9), rgba(14,165,233,0.9)); color: #0b1026" id="tf-check">Kiểm tra</button>
+                    <button class="glass rounded-full px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm" id="tf-next">Tiếp →</button>
+                    <button class="glass rounded-full px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm hidden" id="tf-reset">Làm lại</button>
+                  </div>
+                </div>
+                <div class="hidden rounded-2xl p-2.5 sm:p-4 text-xs sm:text-sm" id="tf-feedback"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-short" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Phần 3 – Trả lời ngắn</p>
+                <h2 class="font-display text-xl sm:text-2xl mt-2">Bài tập tính toán nhanh</h2>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="pill rounded-full px-3 py-1 text-xs" id="short-progress">Câu 1 / 6</span>
+                <button class="glass rounded-full px-4 py-2 text-sm self-start sm:self-auto" data-goto="dashboard">← Quay về Dashboard</button>
+              </div>
+            </div>
+            <div class="px-3 sm:px-6 lg:px-8 pb-6 sm:pb-10">
+              <article class="glass rounded-2xl sm:rounded-3xl p-3 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
+                <div>
+                  <p class="text-[10px] sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Trả lời ngắn</p>
+                  <h3 class="font-display text-base sm:text-xl mt-1 sm:mt-3 leading-relaxed" id="short-question"></h3>
+                </div>
+                <div class="space-y-2 sm:space-y-3">
+                  <input id="short-input" class="w-full rounded-xl px-3 sm:px-4 py-2 text-sm sm:text-base bg-transparent border border-white/10" placeholder="Nhập kết quả (có thể có đơn vị)..." />
+                  <button class="rounded-full px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium" style="background: linear-gradient(135deg, rgba(56,189,248,0.9), rgba(14,165,233,0.9)); color: #0b1026" id="short-check">Xem đáp án</button>
+                </div>
+                <div class="hidden rounded-2xl p-2.5 sm:p-4 text-xs sm:text-sm" id="short-feedback"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                  <button class="glass rounded-full px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm disabled:opacity-40" id="short-prev">← Câu trước</button>
+                  <button class="glass rounded-full px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm" id="short-next">Tiếp →</button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-essay" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl">
+            <div class="px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Phần 4 – Tự luận</p>
+                <h2 class="font-display text-xl sm:text-2xl mt-2">Rèn luyện tự luận</h2>
+              </div>
+              <button class="glass rounded-full px-4 py-2 text-sm self-start sm:self-auto" data-goto="dashboard">← Quay về Dashboard</button>
+            </div>
+            <div class="px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 flex flex-col gap-4 sm:gap-6">
+              <article class="glass rounded-3xl p-4 sm:p-6 lg:p-8 flex flex-col gap-4">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Câu 1 (★)</p>
+                    <h3 class="font-display text-lg sm:text-xl mt-2">Dao động cưỡng bức – Cộng hưởng</h3>
+                  </div>
+                  <span class="pill rounded-full px-3 py-1 text-xs self-start">Cơ bản</span>
+                </div>
+                <div class="flex flex-col gap-2 text-sm" style="color: var(--text-secondary)">
+                  <p>(a) Dao động cưỡng bức là gì? Biên độ của nó phụ thuộc vào những yếu tố nào?</p>
+                  <p>(b) Nêu một ví dụ cộng hưởng có hại và cách hạn chế.</p>
+                </div>
+                <button class="text-sm self-start" style="color: var(--accent)" data-essay-toggle="e1">Xem gợi ý / đáp án</button>
+                <div class="hidden flex flex-col gap-2 text-sm" style="color: var(--text-secondary)" data-essay-body="e1">
+                  <p><strong>(a)</strong> Dao động cưỡng bức là dao động chịu tác dụng của ngoại lực tuần hoàn. Biên độ phụ thuộc vào biên độ lực cưỡng bức và độ chênh lệch giữa tần số lực với tần số riêng $f_0$ của hệ.</p>
+                  <p><strong>(b)</strong> Ví dụ: Cầu rung mạnh khi đoàn người đi đều bước. Hạn chế: tránh để tần số kích thích trùng $f_0$, tăng ma sát hoặc dùng bộ giảm chấn.</p>
+                </div>
+              </article>
+
+              <article class="glass rounded-3xl p-4 sm:p-6 lg:p-8 flex flex-col gap-4">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Câu 2 (★★)</p>
+                    <h3 class="font-display text-lg sm:text-xl mt-2">Lập bảng, vẽ đồ thị $x-t,\ W_\text{đ}-t$</h3>
+                  </div>
+                  <span class="pill rounded-full px-3 py-1 text-xs self-start">Vận dụng cao</span>
+                </div>
+                <p class="text-sm" style="color: var(--text-secondary)">Vật $m=0,4\ kg$ dao động điều hòa theo phương trình $x=8\cos(5\pi t - \frac{\pi}{2})\ (cm)$.</p>
+                <div class="flex flex-col gap-2 text-sm" style="color: var(--text-secondary)">
+                  <p>(a) Lập bảng li độ tại $t=0;\ T/4;\ T/2;\ 3T/4;\ T$ rồi vẽ đồ thị $x-t$ trong một chu kì.</p>
+                  <p>(b) Tính cơ năng và vẽ đồ thị động năng theo thời gian trong cùng khoảng.</p>
+                </div>
+                <button class="text-sm self-start" style="color: var(--accent)" data-essay-toggle="e2">Xem gợi ý / đáp án</button>
+                <div class="hidden flex flex-col gap-2 text-sm" style="color: var(--text-secondary)" data-essay-body="e2">
+                  <p>$T=0,4\ s,\ A=8\ cm,\ x=8\sin(5\pi t)\ cm,\ \omega^2=250,\ W=0,32\ J$. $W_\text{đ}=W\cos^2(5\pi t)$ chu kì $T/2$.</p>
+                </div>
+              </article>
+
+              <article class="glass rounded-3xl p-4 sm:p-6 lg:p-8 flex flex-col gap-4">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Câu 3 (★ / ★★)</p>
+                    <h3 class="font-display text-lg sm:text-xl mt-2">$v,\ W_\text{đ},\ W_t$</h3>
+                  </div>
+                  <span class="pill rounded-full px-3 py-1 text-xs self-start">Tính toán</span>
+                </div>
+                <p class="text-sm" style="color: var(--text-secondary)">Vật $m=0,2\ kg,\ A=10\ cm,\ \omega=10\ rad/s$.</p>
+                <div class="flex flex-col gap-2 text-sm" style="color: var(--text-secondary)">
+                  <p>(a) Tính $v$ khi $x=6\ cm$.</p>
+                  <p>(b) Tính $W_\text{đ}, W_t$, kiểm tra tổng bằng $W$.</p>
+                </div>
+                <button class="text-sm self-start" style="color: var(--accent)" data-essay-toggle="e3">Xem gợi ý / đáp án</button>
+                <div class="hidden flex flex-col gap-2 text-sm" style="color: var(--text-secondary)" data-essay-body="e3">
+                  <p>(a) $v=80\ cm/s$. (b) $W=0,1\ J,\ W_\text{đ}=0,064\ J,\ W_t=0,036\ J$.</p>
+                </div>
+              </article>
+
+              <article class="glass rounded-3xl p-4 sm:p-6 lg:p-8 flex flex-col gap-4">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Câu 4 (★★)</p>
+                    <h3 class="font-display text-lg sm:text-xl mt-2">Viết phương trình dao động</h3>
+                  </div>
+                  <span class="pill rounded-full px-3 py-1 text-xs self-start">Khó</span>
+                </div>
+                <p class="text-sm" style="color: var(--text-secondary)">Quỹ đạo $16\ cm,\ 10$ dao động/$6\ s,\ t=0:\ x=4\ cm,\ v>0$.</p>
+                <div class="flex flex-col gap-2 text-sm" style="color: var(--text-secondary)">
+                  <p>(a) Viết $x=A\cos(\omega t+\varphi),\ -\pi&lt;\varphi\le\pi$.</p>
+                  <p>(b) Thời điểm đầu tiên tới biên dương.</p>
+                </div>
+                <button class="text-sm self-start" style="color: var(--accent)" data-essay-toggle="e4">Xem gợi ý / đáp án</button>
+                <div class="hidden flex flex-col gap-2 text-sm" style="color: var(--text-secondary)" data-essay-body="e4">
+                  <p>(a) $x=8\cos\left(\frac{10\pi}{3}t-\frac{\pi}{3}\right)\ (cm)$. (b) $t=0,1\ s$.</p>
+                </div>
+              </article>
+
+              <article class="glass rounded-3xl p-4 sm:p-6 lg:p-8 flex flex-col gap-4">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Câu 5 (★★)</p>
+                    <h3 class="font-display text-lg sm:text-xl mt-2">Từ $v_{max}, a_{max}$</h3>
+                  </div>
+                  <span class="pill rounded-full px-3 py-1 text-xs self-start">Tổng hợp</span>
+                </div>
+                <p class="text-sm" style="color: var(--text-secondary)">$m=0,2\ kg,\ v_{max}=1\ m/s,\ |a|_{max}=20\ m/s^2$.</p>
+                <div class="flex flex-col gap-2 text-sm" style="color: var(--text-secondary)">
+                  <p>(a) Tính $\omega,A,W$.</p>
+                  <p>(b) Tính $W_\text{đ}$ khi $|x|=2,5\ cm$.</p>
+                </div>
+                <button class="text-sm self-start" style="color: var(--accent)" data-essay-toggle="e5">Xem gợi ý / đáp án</button>
+                <div class="hidden flex flex-col gap-2 text-sm" style="color: var(--text-secondary)" data-essay-body="e5">
+                  <p>(a) $\omega=20\ rad/s,\ A=5\ cm,\ W=0,1\ J$. (b) $W_\text{đ}=0,075\ J$.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const views = document.querySelectorAll(".view");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const gotoBtns = document.querySelectorAll("[data-goto]");
+
+      function triggerRenderForView(id) {
+        const target = document.getElementById(`view-${id}`);
+        setTimeout(() => renderMath(target), 30);
+        if (id === "dashboard") {
+          setTimeout(() => renderMath(target), 80);
+        }
+        if (id === "tf") {
+          tfIndex = 0;
+          renderTf();
+          setTimeout(() => renderMath(document.getElementById("view-tf")), 60);
+        }
+        if (id === "short") {
+          shortIndex = 0;
+          renderShort();
+          setTimeout(() => renderMath(document.getElementById("view-short")), 60);
+        }
+        if (id === "mcq") {
+          mcqIndex = 0;
+          renderMcq();
+          setTimeout(() => renderMath(document.getElementById("view-mcq")), 60);
+        }
+      }
+
+      function showView(id) {
+        views.forEach((view) => view.classList.add("hidden"));
+        const target = document.getElementById(`view-${id}`);
+        if (target) {
+          target.classList.remove("hidden");
+          target.classList.remove("fade-in");
+          void target.offsetWidth;
+          target.classList.add("fade-in");
+        }
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.dataset.view === id);
+        });
+        triggerRenderForView(id);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => showView(link.dataset.view));
+      });
+      gotoBtns.forEach((btn) => {
+        btn.addEventListener("click", () => showView(btn.dataset.goto));
+      });
+
+      const mcqList = [
+        { q: "Phương trình $x=7\\cos(3 \\pi t-\\frac{\\pi}{4})\\ (cm)$. Tần số góc của dao động là", opts: ["A. $7\\ rad/s$.", "B. $3\\pi\\ rad/s$.", "C. $\\frac{\\pi}{4}\\ rad/s$.", "D. $3\\pi t\\ rad/s$."], ans: 1 },
+        { q: "Vật thực hiện $40$ dao động toàn phần trong $16\\ s$. Tần số dao động là", opts: ["A. $0,4\\ Hz$.", "B. $2,5\\ Hz$.", "C. $640\\ Hz$.", "D. $25\\ Hz$."], ans: 1 },
+        { q: "Vật dao động điều hòa có chu kì $0,1\\ s$. Tần số góc của vật là", opts: ["A. $10\\pi\\ rad/s$.", "B. $20\\pi\\ rad/s$.", "C. $5\\pi\\ rad/s$.", "D. $0,2\\pi\\ rad/s$."], ans: 1 },
+        { q: "Biên độ $12\\ cm$, tần số góc $6\\ rad/s$. Tốc độ cực đại của vật là", opts: ["A. $2\\ cm/s$.", "B. $18\\ cm/s$.", "C. $72\\ cm/s$.", "D. $432\\ cm/s$."], ans: 2 },
+        { q: "Biên độ $3\\ cm$, tần số góc $10\\ rad/s$. Gia tốc cực đại của vật là", opts: ["A. $30\\ cm/s^2$.", "B. $13\\ cm/s^2$.", "C. $0,3\\ cm/s^2$.", "D. $300\\ cm/s^2$."], ans: 3 },
+        { q: "Tần số góc $5\\ rad/s$. Khi vật ở li độ $x=-6\\ cm$ thì gia tốc của vật là", opts: ["A. $+150\\ cm/s^2$.", "B. $-150\\ cm/s^2$.", "C. $+30\\ cm/s^2$.", "D. $-30\\ cm/s^2$."], ans: 0 },
+        { q: "Vật $m=0,5\\ kg$ dao động với $A=4\\ cm,\ \\omega=10\\ rad/s$. Cơ năng của vật là", opts: ["A. $0,04\\ J$.", "B. $0,4\\ J$.", "C. $4\\ J$.", "D. $0,02\\ J$."], ans: 0 },
+        { q: "Cơ năng của vật là $0,08\\ J$. Khi thế năng là $0,02\\ J$ thì động năng là", opts: ["A. $0,10\\ J$.", "B. $0,06\\ J$.", "C. $0,04\\ J$.", "D. $0,16\\ J$."], ans: 1 },
+        { q: "Khi vật đi từ vị trí cân bằng ra vị trí biên, đại lượng nào sau đây tăng?", opts: ["A. Động năng.", "B. Tốc độ.", "C. Thế năng.", "D. Cơ năng."], ans: 2 },
+        { q: "Vật dao động điều hòa với tần số $2\\ Hz$. Động năng của vật biến thiên tuần hoàn với tần số", opts: ["A. $2\\ Hz$.", "B. $4\\ Hz$.", "C. $1\\ Hz$.", "D. $8\\ Hz$."], ans: 1 },
+        { q: "Cửa tự động đóng êm nhờ bộ phận giảm chấn. Bộ phận này hoạt động dựa trên", opts: ["A. dao động tắt dần.", "B. hiện tượng cộng hưởng.", "C. dao động cưỡng bức.", "D. dao động điều hòa không ma sát."], ans: 0 },
+        { q: "Để xích đu dao động với biên độ lớn nhất, người đẩy cần tác dụng lực có tần số", opts: ["A. bằng tần số dao động riêng của xích đu.", "B. gấp đôi tần số riêng.", "C. bằng một nửa tần số riêng.", "D. rất lớn so với tần số riêng."], ans: 0 },
+        { q: "Đồ thị li độ – thời gian có li độ đạt cực đại dương tại $t=0$. Pha ban đầu của dao động là", opts: ["A. $0$.", "B. $\frac{\pi}{2}$.", "C. $\pi$.", "D. $-\frac{\pi}{2}$."], ans: 0 },
+        { q: "Tốc độ cực đại $60\\ cm/s$, biên độ $6\\ cm$. Tần số góc là", opts: ["A. $10\\ rad/s$.", "B. $360\\ rad/s$.", "C. $0,1\\ rad/s$.", "D. $54\\ rad/s$."], ans: 0 },
+        { q: "Đồ thị thế năng theo thời gian có chu kì $0,2\\ s$. Chu kì dao động của vật là", opts: ["A. $0,1\\ s$.", "B. $0,2\\ s$.", "C. $0,4\\ s$.",("A"), "D. $0,8\\ s$."], ans: 2 }
+      ];
+
+      let mcqIndex = 0;
+      let mcqSelected = null;
+      const mcqQuestion = document.getElementById("mcq-question");
+      const mcqOptions = document.getElementById("mcq-options");
+      const mcqProgress = document.getElementById("mcq-progress");
+      const mcqCheck = document.getElementById("mcq-check");
+      const mcqNext = document.getElementById("mcq-next");
+      const mcqPrev = document.getElementById("mcq-prev");
+      const mcqFeedback = document.getElementById("mcq-feedback");
+
+      function renderMcq() {
+        const item = mcqList[mcqIndex];
+        mcqSelected = null;
+        mcqQuestion.innerHTML = `${mcqIndex + 1}. ${item.q}`;
+        mcqProgress.textContent = `Câu ${mcqIndex + 1} / ${mcqList.length}`;
+        mcqOptions.innerHTML = "";
+        item.opts.forEach((opt, idx) => {
+          const btn = document.createElement("button");
+          btn.className = "option-btn w-full text-left rounded-2xl px-4 sm:px-5 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3";
+          btn.innerHTML = `<span class="h-7 w-7 sm:h-8 sm:w-8 rounded-full flex items-center justify-center text-xs sm:text-sm border border-white/20">${String.fromCharCode(65 + idx)}</span><span class="text-sm sm:text-base">${opt.replace(/^[A-D]\.\s*/, "")}</span>`;
+          btn.addEventListener("click", () => {
+            mcqOptions.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            mcqSelected = idx;
+            mcqFeedback.classList.add("hidden");
+          });
+          mcqOptions.appendChild(btn);
+        });
+        mcqPrev.disabled = mcqIndex === 0;
+        mcqNext.disabled = mcqIndex === mcqList.length - 1;
+        mcqFeedback.classList.add("hidden");
+        setTimeout(() => {
+          if (window.renderMathInElement) {
+            renderMathInElement(mcqQuestion.parentElement);
+            renderMathInElement(mcqOptions);
+          }
+          renderMath(mcqQuestion.parentElement);
+          renderMath(mcqOptions);
+        }, 10);
+      }
+
+      mcqCheck.addEventListener("click", () => {
+        if (mcqSelected === null) {
+          mcqFeedback.textContent = "Vui lòng chọn một đáp án trước khi kiểm tra.";
+          mcqFeedback.className = "rounded-2xl p-3 sm:p-4 text-xs sm:text-sm bg-amber-400/10 border border-amber-400/40";
+          mcqFeedback.classList.remove("hidden");
+          renderMath(mcqFeedback);
+          return;
+        }
+        const item = mcqList[mcqIndex];
+        mcqOptions.querySelectorAll(".option-btn").forEach((btn, idx) => {
+          btn.disabled = true;
+          btn.classList.remove("selected");
+          if (idx === item.ans) btn.classList.add("correct");
+          if (idx === mcqSelected && idx !== item.ans) btn.classList.add("wrong");
+        });
+        if (mcqSelected === item.ans) {
+          mcqFeedback.textContent = "Chính xác! Đáp án đúng.";
+          mcqFeedback.className = "rounded-2xl p-3 sm:p-4 text-xs sm:text-sm bg-emerald-400/10 border border-emerald-400/40";
+        } else {
+          mcqFeedback.innerHTML = `Chưa đúng. Đáp án đúng là: ${item.opts[item.ans]}`;
+          mcqFeedback.className = "rounded-2xl p-3 sm:p-4 text-xs sm:text-sm bg-rose-400/10 border border-rose-400/40";
+        }
+        mcqFeedback.classList.remove("hidden");
+        setTimeout(() => {
+          if (window.renderMathInElement) {
+            renderMathInElement(mcqOptions);
+            renderMathInElement(mcqFeedback);
+          }
+          renderMath(mcqOptions);
+          renderMath(mcqFeedback);
+        }, 10);
+      });
+
+      mcqNext.addEventListener("click", () => {
+        if (mcqIndex < mcqList.length - 1) {
+          mcqIndex++;
+          renderMcq();
+          setTimeout(() => {
+            if (window.renderMathInElement) renderMathInElement(document.getElementById("view-mcq"));
+            renderMath(document.getElementById("view-mcq"));
+          }, 20);
+        }
+      });
+      mcqPrev.addEventListener("click", () => {
+        if (mcqIndex > 0) {
+          mcqIndex--;
+          renderMcq();
+          setTimeout(() => {
+            if (window.renderMathInElement) renderMathInElement(document.getElementById("view-mcq"));
+            renderMath(document.getElementById("view-mcq"));
+          }, 20);
+        }
+      });
+
+      renderMcq();
+
+      function renderMath(root = document.body) {
+        if (!root) return;
+        if (window.renderMathInElement) {
+          try {
+            renderMathInElement(root, {
+              delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+              ],
+              throwOnError: false
+            });
+          } catch (e) {
+            // ignore
+          }
+        }
+      }
+
+      function triggerRenderForView(id) {
+        const target = document.getElementById(`view-${id}`);
+        setTimeout(() => renderMath(target), 40);
+        if (id === "tf") setTimeout(renderTf, 60);
+        if (id === "short") setTimeout(renderShort, 60);
+        if (id === "mcq") setTimeout(() => renderMath(document.getElementById("view-mcq")), 60);
+      }
+
+      renderMath(document.getElementById("view-dashboard"));
+      setTimeout(() => renderMath(document.getElementById("view-dashboard")), 200);
+      setTimeout(() => renderMath(document.body), 500);
+      document.querySelectorAll("[data-goto], .nav-link").forEach((el) => {
+        el.addEventListener("click", () => {
+          const id = el.dataset.view || el.dataset.goto;
+          if (id) {
+            triggerRenderForView(id);
+            setTimeout(() => {
+              const target = document.getElementById(`view-${id}`);
+              if (target) renderMath(target);
+              renderMath(document.body);
+            }, 100);
+          } else {
+            setTimeout(() => renderMath(document.body), 40);
+          }
+        });
+      });
+
+      const tfList = [
+        {
+          tag: "Câu A",
+          intro: "Vật $m=0,2\\ kg$ dao động điều hòa, $A=5\\ cm$, $\\omega=20\\ rad/s$, mốc thế năng tại vị trí cân bằng.",
+          items: [
+            { text: "a) Cơ năng là $0,1\\ J$.", ans: true },
+            { text: "b) Tốc độ cực đại là $1\\ m/s$.", ans: true },
+            { text: "c) Gia tốc cực đại là $10\\ m/s^2$.", ans: false },
+            { text: "d) Tại $x=2,5\\ cm$ động năng là $0,075\\ J$.", ans: true }
+          ]
+        },
+        {
+          tag: "Câu B",
+          intro: "",
+          items: [
+            { text: "a) Dao động cưỡng bức ổn định có tần số bằng tần số của lực cưỡng bức.", ans: true },
+            { text: "b) Khi cộng hưởng, biên độ dao động cưỡng bức đạt cực đại.", ans: true },
+            { text: "c) Trong dao động tắt dần cơ năng của vật không đổi.", ans: false },
+            { text: "d) Lực cản môi trường càng lớn thì biên độ khi cộng hưởng càng lớn.", ans: false }
+          ]
+        }
+      ];
+
+      let tfIndex = 0;
+      let tfChecked = false;
+      const tfTag = document.getElementById("tf-tag");
+      const tfIntro = document.getElementById("tf-intro");
+      const tfItems = document.getElementById("tf-items");
+      const tfProgress = document.getElementById("tf-progress");
+      const tfCheckBtn = document.getElementById("tf-check");
+      const tfNextBtn = document.getElementById("tf-next");
+      const tfPrevBtn = document.getElementById("tf-prev");
+      const tfResetBtn = document.getElementById("tf-reset");
+      const tfFeedback = document.getElementById("tf-feedback");
+
+      function renderTf() {
+        const item = tfList[tfIndex];
+        tfChecked = false;
+        tfTag.textContent = item.tag;
+        tfIntro.innerHTML = item.intro || "";
+        tfIntro.classList.toggle("hidden", !item.intro);
+        tfItems.innerHTML = "";
+        item.items.forEach((it, idx) => {
+          const row = document.createElement("div");
+          row.className = "glass rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4";
+          row.innerHTML = `<p class="flex-1 text-sm sm:text-base">${String.fromCharCode(97 + idx)}) ${it.text.replace(/^[a-d]\)\s*/, "")}</p><div class="flex gap-2"><button class="tf-btn rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm" data-tf-group="${tfIndex}-${idx}" data-val="true">Đúng</button><button class="tf-btn rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm" data-tf-group="${tfIndex}-${idx}" data-val="false">Sai</button></div>`;
+          tfItems.appendChild(row);
+        });
+        tfProgress.textContent = `Câu ${tfIndex + 1} / ${tfList.length}`;
+        tfPrevBtn.disabled = tfIndex === 0;
+        tfNextBtn.classList.toggle("hidden", tfIndex === tfList.length - 1);
+        tfResetBtn.classList.add("hidden");
+        tfFeedback.classList.add("hidden");
+        tfCheckBtn.classList.remove("hidden");
+        document.querySelectorAll(".tf-btn").forEach((btn) => {
+          btn.disabled = false;
+          btn.classList.remove("active-true", "active-false", "reveal-true", "reveal-false");
+          btn.dataset.selected = "";
+        });
+        setTimeout(() => {
+          if (window.renderMathInElement) {
+            renderMathInElement(tfItems);
+            if (tfIntro && tfIntro.innerHTML) renderMathInElement(tfIntro);
+            renderMathInElement(document.getElementById("view-tf"));
+          }
+          renderMath(tfItems);
+          if (tfIntro && tfIntro.innerHTML) renderMath(tfIntro);
+          renderMath(document.getElementById("view-tf"));
+        }, 10);
+      }
+
+      tfCheckBtn.addEventListener("click", () => {
+        const item = tfList[tfIndex];
+        let all = true;
+        item.items.forEach((_, idx) => {
+          const sel = document.querySelector(`.tf-btn[data-tf-group="${tfIndex}-${idx}"][data-selected="true"]`);
+          if (!sel) all = false;
+        });
+        if (!all) {
+          tfFeedback.textContent = "Vui lòng chọn Đúng/Sai cho tất cả ý.";
+          tfFeedback.className = "rounded-2xl p-3 sm:p-4 text-xs sm:text-sm bg-amber-400/10 border border-amber-400/40";
+          tfFeedback.classList.remove("hidden");
+          setTimeout(() => {
+            if (window.renderMathInElement) renderMathInElement(tfFeedback);
+            renderMath(tfFeedback);
+          }, 10);
+          return;
+        }
+        tfChecked = true;
+        let correct = 0;
+        item.items.forEach((it, idx) => {
+          const group = `${tfIndex}-${idx}`;
+          const selected = document.querySelector(`.tf-btn[data-tf-group="${group}"][data-selected="true"]`)?.dataset.val;
+          const buttons = document.querySelectorAll(`.tf-btn[data-tf-group="${group}"]`);
+          buttons.forEach((b) => {
+            b.disabled = true;
+            b.classList.remove("active-true", "active-false");
+            if (b.dataset.val === String(it.ans)) b.classList.add("reveal-true");
+            else if (b.dataset.val === selected && b.dataset.val !== String(it.ans)) b.classList.add("reveal-false");
+          });
+          if (selected === String(it.ans)) correct++;
+        });
+        tfFeedback.textContent = `Đúng ${correct} / ${item.items.length} ý.`;
+        tfFeedback.className = "rounded-2xl p-3 sm:p-4 text-xs sm:text-sm bg-sky-400/10 border border-sky-400/40";
+        tfFeedback.classList.remove("hidden");
+        if (tfIndex === tfList.length - 1) {
+          tfResetBtn.classList.remove("hidden");
+        }
+        setTimeout(() => {
+          if (window.renderMathInElement) {
+            renderMathInElement(tfItems);
+            renderMathInElement(tfFeedback);
+          }
+          renderMath(tfItems);
+          renderMath(tfFeedback);
+        }, 10);
+      });
+
+      tfNextBtn.addEventListener("click", () => {
+        if (tfIndex < tfList.length - 1) {
+          tfIndex++;
+          renderTf();
+          setTimeout(() => {
+            if (window.renderMathInElement) renderMathInElement(document.getElementById("view-tf"));
+            renderMath(document.getElementById("view-tf"));
+          }, 20);
+        }
+      });
+      tfPrevBtn.addEventListener("click", () => {
+        if (tfIndex > 0) {
+          tfIndex--;
+          renderTf();
+          setTimeout(() => {
+            if (window.renderMathInElement) renderMathInElement(document.getElementById("view-tf"));
+            renderMath(document.getElementById("view-tf"));
+          }, 20);
+        }
+      });
+      tfResetBtn.addEventListener("click", () => {
+        tfIndex = 0;
+        renderTf();
+        setTimeout(() => {
+          if (window.renderMathInElement) renderMathInElement(document.getElementById("view-tf"));
+          renderMath(document.getElementById("view-tf"));
+        }, 20);
+      });
+
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".tf-btn");
+        if (!btn) return;
+        const group = btn.dataset.tfGroup;
+        if (!group) return;
+        if (document.querySelector(`.tf-btn[data-tf-group="${group}"]:disabled`)) return;
+        document.querySelectorAll(`.tf-btn[data-tf-group="${group}"]`).forEach((b) => {
+          b.classList.remove("active-true", "active-false");
+          b.dataset.selected = "";
+        });
+        if (btn.dataset.val === "true") btn.classList.add("active-true");
+        else btn.classList.add("active-false");
+        btn.dataset.selected = btn.dataset.val;
+      });
+
+      renderTf();
+
+      const shortList = [
+        { q: "Vật thực hiện $36$ dao động toàn phần trong $12\\ s$. Tính tần số $f\\ (Hz)$.", ans: "3 Hz" },
+        { q: "$x=9\\cos(8\\pi t+\\frac{\\pi}{5})\\ (cm)$. Tính chu kì $T\\ (s)$.", ans: "$T=0,25\\ s$" },
+        { q: "$x=25\\cos(2t+1)\\ (cm)$. Tính tốc độ cực đại $v_{max}\\ (cm/s)$.", ans: "$v_{max}=50\\ cm/s$" },
+        { q: "$x=20\\cos(\\pi t-\\frac{\\pi}{3})\\ (cm)$. Tính li độ lúc $t=2\\ s\\ (cm)$.", ans: "$x=10\\ cm$" },
+        { q: "Vật $m=0,8\\ kg,\ A=10\\ cm,\ \\omega=5\\ rad/s$. Tính động năng khi li độ $x=5\\ cm\\ (J)$.", ans: "$W_\\text{đ}=0,075\\ J$" },
+        { q: "Vật có động năng bằng 3 lần thế năng, biên độ $A=8\\ cm$. Tính $|x|\\ (cm)$.", ans: "$|x|=4\\ cm$" }
+      ];
+      let shortIndex = 0;
+      const shortQuestion = document.getElementById("short-question");
+      const shortInput = document.getElementById("short-input");
+      const shortCheck = document.getElementById("short-check");
+      const shortFeedback = document.getElementById("short-feedback");
+      const shortPrev = document.getElementById("short-prev");
+      const shortNext = document.getElementById("short-next");
+      const shortProgress = document.getElementById("short-progress");
+
+      function renderShort() {
+        const item = shortList[shortIndex];
+        shortQuestion.innerHTML = `${shortIndex + 1}) ${item.q}`;
+        shortInput.value = "";
+        shortFeedback.classList.add("hidden");
+        shortProgress.textContent = `Câu ${shortIndex + 1} / ${shortList.length}`;
+        shortPrev.disabled = shortIndex === 0;
+        shortNext.disabled = shortIndex === shortList.length - 1;
+        setTimeout(() => {
+          if (window.renderMathInElement) {
+            renderMathInElement(shortQuestion.parentElement);
+            renderMathInElement(document.getElementById("view-short"));
+          }
+          renderMath(shortQuestion.parentElement);
+          renderMath(document.getElementById("view-short"));
+        }, 10);
+      }
+
+      shortCheck.addEventListener("click", () => {
+        const item = shortList[shortIndex];
+        shortFeedback.innerHTML = `Đáp án: ${item.ans}`;
+        shortFeedback.className = "rounded-2xl p-3 sm:p-4 text-xs sm:text-sm bg-sky-400/10 border border-sky-400/40";
+        shortFeedback.classList.remove("hidden");
+        setTimeout(() => {
+          if (window.renderMathInElement) {
+            renderMathInElement(shortFeedback);
+            renderMathInElement(document.getElementById("view-short"));
+          }
+          renderMath(shortFeedback);
+          renderMath(document.getElementById("view-short"));
+        }, 10);
+      });
+      shortNext.addEventListener("click", () => {
+        if (shortIndex < shortList.length - 1) {
+          shortIndex++;
+          renderShort();
+          setTimeout(() => {
+            if (window.renderMathInElement) renderMathInElement(document.getElementById("view-short"));
+            renderMath(document.getElementById("view-short"));
+          }, 20);
+        }
+      });
+      shortPrev.addEventListener("click", () => {
+        if (shortIndex > 0) {
+          shortIndex--;
+          renderShort();
+          setTimeout(() => {
+            if (window.renderMathInElement) renderMathInElement(document.getElementById("view-short"));
+            renderMath(document.getElementById("view-short"));
+          }, 20);
+        }
+      });
+      renderShort();
+      renderTf();
+
+      document.querySelectorAll("[data-essay-toggle]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.essayToggle;
+          const body = document.querySelector(`[data-essay-body="${id}"]`);
+          body.classList.toggle("hidden");
+          btn.textContent = body.classList.contains("hidden") ? "Xem gợi ý / đáp án" : "Ẩn đáp án";
+          if (window.renderMathInElement && !body.classList.contains("hidden")) {
+            renderMathInElement(body);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
