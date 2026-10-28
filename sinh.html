@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ôn tập Sinh học 11 - Giữa kì I</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-1: #0b1026;
+        --bg-2: #10162b;
+        --bg-3: #0f1528;
+        --panel: rgba(148, 163, 184, 0.08);
+        --panel-strong: rgba(148, 163, 184, 0.12);
+        --panel-border: rgba(148, 163, 184, 0.22);
+        --accent: #38bdf8;
+        --accent-strong: #22d3ee;
+        --success: #22c55e;
+        --warning: #f59e0b;
+        --danger: #f43f5e;
+        --text-primary: #e2e8f0;
+        --text-secondary: #94a3b8;
+      }
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+      }
+      *::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      *::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      *::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.4);
+        border-radius: 999px;
+      }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 16px;
+        background:
+          radial-gradient(60% 60% at 10% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+          radial-gradient(55% 55% at 90% 10%, rgba(34, 211, 238, 0.1), transparent 70%),
+          radial-gradient(70% 70% at 50% 100%, rgba(14, 165, 233, 0.08), transparent 75%),
+          linear-gradient(160deg, var(--bg-2) 0%, var(--bg-1) 55%, var(--bg-3) 100%);
+        min-height: 100vh;
+        color: var(--text-primary);
+        line-height: 1.7;
+      }
+      .font-display {
+        font-family: "Fraunces", serif;
+        font-optical-sizing: auto;
+      }
+      .glass {
+        background: var(--panel);
+        backdrop-filter: blur(18px);
+        border: 1px solid var(--panel-border);
+      }
+      .glass-strong {
+        background: var(--panel-strong);
+        backdrop-filter: blur(22px);
+        border: 1px solid var(--panel-border);
+        box-shadow: 0 40px 80px -60px rgba(56, 189, 248, 0.35);
+      }
+      .card-hover {
+        transition: all 0.25s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 40px 70px -50px rgba(56, 189, 248, 0.4);
+        border-color: rgba(56, 189, 248, 0.45);
+      }
+      .nav-link {
+        transition: all 0.2s ease;
+      }
+      .nav-link.active {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 165, 233, 0.18));
+        color: var(--text-primary);
+        border-color: rgba(56, 189, 248, 0.6);
+      }
+      .nav-link:not(.active):hover {
+        background: rgba(148, 163, 184, 0.12);
+      }
+      .fade-in {
+        animation: fade-in 0.4s ease forwards;
+      }
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .pill {
+        border: 1px solid rgba(148, 163, 184, 0.4);
+      }
+      .custom-select {
+        position: relative;
+      }
+      .custom-select-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        cursor: pointer;
+        user-select: none;
+      }
+      .custom-select-trigger svg {
+        transition: transform 0.2s ease;
+      }
+      .custom-select.open .custom-select-trigger svg {
+        transform: rotate(180deg);
+      }
+      .custom-select-dropdown {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 0;
+        right: 0;
+        min-width: 150px;
+        z-index: 50;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        backdrop-filter: blur(28px) saturate(1.1);
+        -webkit-backdrop-filter: blur(28px) saturate(1.1);
+        background: rgba(15, 23, 42, 0.94);
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        box-shadow: 0 30px 60px -40px rgba(56, 189, 248, 0.6);
+      }
+      .custom-select.open .custom-select-dropdown {
+        display: flex;
+        animation: dropdown-fade 0.2s ease forwards;
+      }
+      @keyframes dropdown-fade {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .custom-select-option {
+        padding: 0.5rem 0.875rem;
+        cursor: pointer;
+        font-size: 0.75rem;
+        transition: background 0.15s ease;
+        border: none;
+        background: transparent;
+        color: var(--text-primary);
+        text-align: left;
+      }
+      @media (min-width: 640px) {
+        .custom-select-option {
+          font-size: 0.875rem;
+        }
+      }
+      .custom-select-option:hover {
+        background: rgba(56, 189, 248, 0.18);
+      }
+      .custom-select-option.active {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.26), rgba(14, 165, 233, 0.2));
+      }
+      .option-btn {
+        transition: all 0.2s ease;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        background: rgba(148, 163, 184, 0.08);
+        border-radius: 0.875rem;
+      }
+      .option-btn:hover:not(:disabled) {
+        border-color: rgba(56, 189, 248, 0.7);
+        background: rgba(56, 189, 248, 0.16);
+        transform: translateX(3px);
+      }
+      .option-btn.selected {
+        border-color: rgba(56, 189, 248, 0.9);
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.24), rgba(14, 165, 233, 0.18));
+      }
+      .option-btn.correct {
+        border-color: rgba(34, 197, 94, 0.9);
+        background: rgba(34, 197, 94, 0.22);
+      }
+      .option-btn.wrong {
+        border-color: rgba(239, 68, 68, 0.9);
+        background: rgba(239, 68, 68, 0.2);
+      }
+      .tf-btn {
+        transition: all 0.2s ease;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        background: rgba(148, 163, 184, 0.08);
+        border-radius: 0.75rem;
+      }
+      .tf-btn:hover:not(:disabled) {
+        border-color: rgba(56, 189, 248, 0.7);
+        background: rgba(56, 189, 248, 0.16);
+      }
+      .tf-btn.active-true {
+        border-color: rgba(56, 189, 248, 0.9);
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 165, 233, 0.2));
+      }
+      .tf-btn.active-false {
+        border-color: rgba(56, 189, 248, 0.9);
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 165, 233, 0.2));
+      }
+      .tf-btn.reveal-true {
+        border-color: rgba(34, 197, 94, 0.9);
+        background: rgba(34, 197, 94, 0.22);
+      }
+      .tf-btn.reveal-false {
+        border-color: rgba(239, 68, 68, 0.9);
+        background: rgba(239, 68, 68, 0.2);
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.35), rgba(22, 163, 74, 0.25));
+        border-color: rgba(74, 222, 128, 0.8);
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <div class="absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-sky-400/10 to-transparent"></div>
+    <header class="relative z-10">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-10 pb-3 sm:pb-4 lg:pb-6">
+        <div class="flex flex-col gap-3 sm:gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div class="flex items-center gap-2 sm:gap-3">
+            <div class="flex items-center justify-center glass-strong rounded-xl w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent)">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <p class="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.4em] hidden md:block" style="color: var(--text-secondary)">Trường THPT Nguyễn Tất Thành</p>
+              <h1 class="font-display text-lg sm:text-2xl lg:text-4xl mt-0.5 sm:mt-1 lg:mt-2 leading-tight">Đề cương ôn tập giữa kỳ I – Sinh học 11</h1>
+              <p class="mt-0.5 text-[10px] sm:text-xs lg:text-sm hidden md:block" style="color: var(--text-secondary)">90 câu Trắc nghiệm + 10 câu Tự luận • Theo bài học</p>
+            </div>
+          </div>
+          <div class="glass rounded-xl sm:rounded-2xl px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 flex flex-wrap items-center gap-2 sm:gap-3 lg:gap-4">
+            <div>
+              <p class="text-[9px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Nội dung</p>
+              <p class="mt-0.5 text-[10px] sm:text-xs lg:text-sm">Bài 1, 2, 4, 6</p>
+            </div>
+            <div class="h-6 sm:h-8 lg:h-10 w-px bg-white/10 hidden sm:block"></div>
+            <div>
+              <p class="text-[9px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Tính năng</p>
+              <p class="mt-0.5 text-[10px] sm:text-xs lg:text-sm">Lọc theo bài • Xáo trộn linh hoạt</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative z-10 pb-16">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div class="glass rounded-2xl sm:rounded-3xl p-1 sm:p-1.5 flex gap-1 mb-4 sm:mb-6 lg:mb-8 overflow-x-auto whitespace-nowrap -mx-3 px-3 sm:mx-0 sm:px-1.5">
+          <button class="nav-link active flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium" data-view="dashboard">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="9"></rect>
+              <rect x="14" y="3" width="7" height="5"></rect>
+              <rect x="14" y="12" width="7" height="9"></rect>
+              <rect x="3" y="16" width="7" height="5"></rect>
+            </svg>
+            Dashboard
+          </button>
+          <button class="nav-link flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium" data-view="mcq">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 1v6m0 6v6"></path>
+              <path d="m21 12-6 0m-6 0-6 0"></path>
+            </svg>
+            Trắc nghiệm
+          </button>
+          <button class="nav-link flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium" data-view="tf">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+            Đúng / Sai
+          </button>
+          <button class="nav-link flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium" data-view="short">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="17" y1="10" x2="3" y2="10"></line>
+              <line x1="21" y1="6" x2="3" y2="6"></line>
+              <line x1="21" y1="14" x2="3" y2="14"></line>
+              <line x1="17" y1="18" x2="3" y2="18"></line>
+            </svg>
+            Trả lời ngắn
+          </button>
+          <button class="nav-link flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium" data-view="essay">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            Tự luận
+          </button>
+        </div>
+
+        <!-- Dashboard -->
+        <section id="view-dashboard" class="view fade-in">
+          <div class="grid gap-4 sm:gap-6 lg:grid-cols-[1.2fr_1fr]">
+            <section class="glass-strong rounded-3xl overflow-hidden">
+              <div class="px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Tổng quan</p>
+                <h2 class="font-display text-xl sm:text-2xl lg:text-3xl mt-2">Ôn tập giữa kỳ I - Sinh học 11</h2>
+                <p class="mt-2 text-sm sm:text-base" style="color: var(--text-secondary)">Nạp đầy đủ từ DATA.txt và ANSWER.txt</p>
+              </div>
+              <div class="px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8 grid gap-3 sm:gap-4 sm:grid-cols-2">
+                <article class="glass rounded-2xl p-4 sm:p-5 card-hover">
+                  <h3 class="font-semibold text-lg">Bài 1: Khái quát về TĐC và chuyển hóa năng lượng</h3>
+                  <p class="mt-2 text-sm" style="color: var(--text-secondary)">20 câu (12 TN + 3 Đ/S + 3 ngắn + 2 tự luận)</p>
+                </article>
+                <article class="glass rounded-2xl p-4 sm:p-5 card-hover">
+                  <h3 class="font-semibold text-lg">Bài 2: Trao đổi nước và khoáng ở thực vật</h3>
+                  <p class="mt-2 text-sm" style="color: var(--text-secondary)">32 câu (18 TN + 6 Đ/S + 5 ngắn + 3 tự luận)</p>
+                </article>
+                <article class="glass rounded-2xl p-4 sm:p-5 card-hover">
+                  <h3 class="font-semibold text-lg">Bài 4: Quang hợp ở thực vật</h3>
+                  <p class="mt-2 text-sm" style="color: var(--text-secondary)">23 câu (14 TN + 4 Đ/S + 3 ngắn + 2 tự luận)</p>
+                </article>
+                <article class="glass rounded-2xl p-4 sm:p-5 card-hover">
+                  <h3 class="font-semibold text-lg">Bài 6: Hô hấp ở thực vật</h3>
+                  <p class="mt-2 text-sm" style="color: var(--text-secondary)">25 câu (14 TN + 5 Đ/S + 3 ngắn + 3 tự luận)</p>
+                </article>
+              </div>
+            </section>
+            <section class="glass-strong rounded-3xl overflow-hidden">
+              <div class="px-6 sm:px-8 py-6">
+                <p class="text-sm uppercase tracking-[0.3em]" style="color: var(--text-secondary)">Hướng dẫn</p>
+                <h2 class="font-display text-2xl mt-2">Cách sử dụng</h2>
+              </div>
+              <div class="px-6 sm:px-8 pb-8 space-y-3">
+                <div class="glass rounded-2xl p-4 flex gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-green-400"></span>
+                  <p class="text-sm" style="color: var(--text-secondary)"><strong>Trắc nghiệm:</strong> Chọn bài muốn ôn, có thể xáo trộn câu và đáp án</p>
+                </div>
+                <div class="glass rounded-2xl p-4 flex gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-green-400"></span>
+                  <p class="text-sm" style="color: var(--text-secondary)"><strong>Đúng/Sai:</strong> Chọn Đúng hoặc Sai cho từng ý a,b,c,d</p>
+                </div>
+                <div class="glass rounded-2xl p-4 flex gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-green-400"></span>
+                  <p class="text-sm" style="color: var(--text-secondary)"><strong>Trả lời ngắn:</strong> Tự điền đáp án rồi xem kết quả</p>
+                </div>
+                <div class="glass rounded-2xl p-4 flex gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-green-400"></span>
+                  <p class="text-sm" style="color: var(--text-secondary)"><strong>Tự luận:</strong> Xem gợi ý/đáp án để đối chiếu</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- MCQ -->
+        <section id="view-mcq" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Phần 1 – Trắc nghiệm 1 phương án</p>
+                <h2 class="font-display text-xl sm:text-2xl mt-2">Luyện trắc nghiệm</h2>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <div class="custom-select" data-select="mcq-filter">
+                  <div class="custom-select-trigger glass rounded-full px-3 py-1.5 text-xs sm:text-sm">
+                    <span class="custom-select-value">Tất cả các bài</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                  <div class="custom-select-dropdown glass rounded-xl">
+                    <button class="custom-select-option active" data-value="all">Tất cả các bài</button>
+                    <button class="custom-select-option" data-value="1">Bài 1</button>
+                    <button class="custom-select-option" data-value="2">Bài 2</button>
+                    <button class="custom-select-option" data-value="4">Bài 4</button>
+                    <button class="custom-select-option" data-value="6">Bài 6</button>
+                  </div>
+                  <input type="hidden" id="mcq-filter" value="all" />
+                </div>
+                <label class="flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-xs sm:text-sm cursor-pointer select-none">
+                  <input type="checkbox" id="mcq-shuffle-q" class="accent-green-400" />
+                  <span>Xáo trộn thứ tự câu</span>
+                </label>
+                <label class="flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-xs sm:text-sm cursor-pointer select-none">
+                  <input type="checkbox" id="mcq-shuffle-a" class="accent-green-400" />
+                  <span>Xáo trộn thứ tự đáp án</span>
+                </label>
+                <span class="pill rounded-full px-3 py-1 text-xs" id="mcq-progress">Câu 1 / 0</span>
+              </div>
+            </div>
+            <div class="px-3 sm:px-6 lg:px-8 pb-6 sm:pb-10">
+              <article class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6">
+                <div>
+                  <p class="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em]" style="color: var(--text-secondary)" id="mcq-tag">Trắc nghiệm</p>
+                  <h3 class="font-display text-lg sm:text-xl lg:text-2xl mt-2 sm:mt-3 leading-relaxed" id="mcq-question"></h3>
+                </div>
+                <div class="space-y-2 sm:space-y-3" id="mcq-options"></div>
+                <div class="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
+                  <button class="rounded-full px-5 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium disabled:opacity-40" style="background: linear-gradient(135deg, rgba(56,189,248,0.9), rgba(14,165,233,0.9)); color: #0f172a" id="mcq-check">Kiểm tra</button>
+                  <button class="hidden glass rounded-full px-5 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm disabled:opacity-40" id="mcq-next">Câu tiếp theo →</button>
+                </div>
+                <div class="hidden rounded-2xl p-3 sm:p-4 text-xs sm:text-sm" id="mcq-feedback"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- True/False -->
+        <section id="view-tf" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Phần 2 – Trắc nghiệm Đúng/Sai</p>
+                <h2 class="font-display text-xl sm:text-2xl mt-2">Luyện Đúng – Sai</h2>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <div class="custom-select" data-select="tf-filter">
+                  <div class="custom-select-trigger glass rounded-full px-3 py-1.5 text-xs sm:text-sm">
+                    <span class="custom-select-value">Tất cả các bài</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                  <div class="custom-select-dropdown glass rounded-xl">
+                    <button class="custom-select-option active" data-value="all">Tất cả các bài</button>
+                    <button class="custom-select-option" data-value="1">Bài 1</button>
+                    <button class="custom-select-option" data-value="2">Bài 2</button>
+                    <button class="custom-select-option" data-value="4">Bài 4</button>
+                    <button class="custom-select-option" data-value="6">Bài 6</button>
+                  </div>
+                  <input type="hidden" id="tf-filter" value="all" />
+                </div>
+                <label class="flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-xs sm:text-sm cursor-pointer select-none">
+                  <input type="checkbox" id="tf-shuffle-q" class="accent-green-400" />
+                  <span>Xáo trộn thứ tự câu</span>
+                </label>
+                <label class="flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-xs sm:text-sm cursor-pointer select-none">
+                  <input type="checkbox" id="tf-shuffle-i" class="accent-green-400" />
+                  <span>Xáo trộn thứ tự ý</span>
+                </label>
+                <span class="pill rounded-full px-3 py-1 text-xs" id="tf-progress">Câu 1 / 0</span>
+              </div>
+            </div>
+            <div class="px-3 sm:px-6 lg:px-8 pb-6 sm:pb-10">
+              <article class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
+                <div>
+                  <p class="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em]" style="color: var(--text-secondary)" id="tf-tag"></p>
+                  <p class="mt-2 sm:mt-3 leading-relaxed text-sm sm:text-base" id="tf-intro"></p>
+                </div>
+                <div class="space-y-2 sm:space-y-3" id="tf-items"></div>
+                <div class="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
+                  <button class="rounded-full px-5 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium disabled:opacity-40" style="background: linear-gradient(135deg, rgba(56,189,248,0.9), rgba(14,165,233,0.9)); color: #0f172a" id="tf-check">Kiểm tra</button>
+                  <button class="hidden glass rounded-full px-5 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm disabled:opacity-40" id="tf-next">Câu tiếp theo →</button>
+                  <button class="glass rounded-full px-5 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm hidden" id="tf-reset">Làm lại</button>
+                </div>
+                <div class="hidden rounded-2xl p-3 sm:p-4 text-xs sm:text-sm" id="tf-feedback"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Short -->
+        <section id="view-short" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Phần 3 – Trả lời ngắn</p>
+                <h2 class="font-display text-xl sm:text-2xl mt-2">Trả lời ngắn / Điền số</h2>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <div class="custom-select" data-select="short-filter">
+                  <div class="custom-select-trigger glass rounded-full px-3 py-1.5 text-xs sm:text-sm">
+                    <span class="custom-select-value">Tất cả các bài</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                  <div class="custom-select-dropdown glass rounded-xl">
+                    <button class="custom-select-option active" data-value="all">Tất cả các bài</button>
+                    <button class="custom-select-option" data-value="1">Bài 1</button>
+                    <button class="custom-select-option" data-value="2">Bài 2</button>
+                    <button class="custom-select-option" data-value="4">Bài 4</button>
+                    <button class="custom-select-option" data-value="6">Bài 6</button>
+                  </div>
+                  <input type="hidden" id="short-filter" value="all" />
+                </div>
+                <label class="flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-xs sm:text-sm cursor-pointer select-none">
+                  <input type="checkbox" id="short-shuffle-q" class="accent-green-400" />
+                  <span>Xáo trộn thứ tự câu</span>
+                </label>
+                <span class="pill rounded-full px-3 py-1 text-xs" id="short-progress">Câu 1 / 0</span>
+              </div>
+            </div>
+            <div class="px-3 sm:px-6 lg:px-8 pb-6 sm:pb-10">
+              <article class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
+                <div>
+                  <p class="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Trả lời ngắn</p>
+                  <h3 class="font-display text-lg sm:text-xl mt-2 sm:mt-3 leading-relaxed" id="short-question"></h3>
+                </div>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                  <input id="short-input" type="text" class="glass rounded-full px-4 py-2 text-sm flex-1 focus:outline-none" placeholder="Nhập đáp án..." autocomplete="off" />
+                </div>
+                <div class="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
+                  <button class="rounded-full px-5 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium disabled:opacity-40" style="background: linear-gradient(135deg, rgba(56,189,248,0.9), rgba(14,165,233,0.9)); color: #0f172a" id="short-check">Kiểm tra</button>
+                  <button class="hidden glass rounded-full px-5 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm disabled:opacity-40" id="short-next">Câu tiếp theo →</button>
+                </div>
+                <div class="hidden rounded-2xl p-3 sm:p-4 text-xs sm:text-sm" id="short-feedback"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Essay -->
+        <section id="view-essay" class="view hidden fade-in">
+          <div class="glass-strong rounded-3xl overflow-hidden">
+            <div class="px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em]" style="color: var(--text-secondary)">Phần 4 – Tự luận</p>
+                <h2 class="font-display text-xl sm:text-2xl mt-2">Ôn tập tự luận</h2>
+              </div>
+              <div class="custom-select" data-select="essay-filter">
+                <div class="custom-select-trigger glass rounded-full px-3 py-1.5 text-xs sm:text-sm">
+                  <span class="custom-select-value">Tất cả các bài</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <div class="custom-select-dropdown glass rounded-xl">
+                  <button class="custom-select-option active" data-value="all">Tất cả các bài</button>
+                  <button class="custom-select-option" data-value="1">Bài 1</button>
+                  <button class="custom-select-option" data-value="2">Bài 2</button>
+                  <button class="custom-select-option" data-value="4">Bài 4</button>
+                  <button class="custom-select-option" data-value="6">Bài 6</button>
+                </div>
+                <input type="hidden" id="essay-filter" value="all" />
+              </div>
+            </div>
+            <div class="px-3 sm:px-6 lg:px-8 pb-6 sm:pb-10 flex flex-col gap-4" id="essay-container"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const views = document.querySelectorAll(".view");
+      const navLinks = document.querySelectorAll(".nav-link");
+      function showView(id) {
+        views.forEach((view) => view.classList.add("hidden"));
+        const target = document.getElementById(`view-${id}`);
+        if (target) {
+          target.classList.remove("hidden");
+          target.classList.remove("fade-in");
+          void target.offsetWidth;
+          target.classList.add("fade-in");
+        }
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.dataset.view === id);
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => showView(link.dataset.view));
+      });
+
+      // Data
+      const mcqAll = [
+        // Bài 1
+        {bai:1, q:"Sinh vật tự dưỡng là nhóm sinh vật có khả năng", opts:["A. tự tổng hợp chất hữu cơ từ các chất vô cơ.","B. phân giải xác sinh vật khác để lấy chất hữu cơ.","C. sử dụng sẵn chất hữu cơ từ sinh vật khác.","D. phân giải chất hữu cơ thành năng lượng nhiệt."], ans:0},
+        {bai:1, q:"Dấu hiệu nào sau đây thể hiện đặc trưng của quá trình trao đổi chất và chuyển hóa năng lượng ở cơ thể sinh vật?", opts:["A. Thu nhận các chất từ môi trường, biến đổi và đào thải chất thải.","B. Tự di chuyển và tự thay đổi cấu trúc gen theo ý muốn.","C. Ngừng trao đổi chất hoàn toàn khi môi trường biến động.","D. Chỉ giải phóng nhiệt năng mà không tích lũy năng lượng."], ans:0},
+        {bai:1, q:"Phương thức dinh dưỡng của sinh vật sử dụng nguồn carbon vô cơ (CO2) và năng lượng ánh sáng để tổng hợp chất hữu cơ gọi là", opts:["A. quang tự dưỡng.","B. hóa tự dưỡng.","C. quang dị dưỡng.","D. hóa dị dưỡng."], ans:0},
+        {bai:1, q:"Mối quan hệ giữa trao đổi chất và chuyển hóa năng lượng ở cấp độ tế bào diễn ra như thế nào?", opts:["A. Đồng hóa tích lũy năng lượng, dị dưỡng giải phóng năng lượng.","B. Đồng hóa giải phóng năng lượng, dị hóa tích lũy năng lượng.","C. Đồng hóa và dị hóa diễn ra độc lập không liên quan.","D. Đồng hóa dừng lại hoàn toàn khi tế bào bắt đầu dị hóa."], ans:0},
+        {bai:1, q:"Trong ba giai đoạn của quá trình chuyển hóa năng lượng trong sinh giới, giai đoạn tổng hợp có bản chất là", opts:["A. chuyển hóa quang năng hoặc hóa năng thành hóa năng tích lũy trong các hợp chất hữu cơ.","B. biến đổi năng lượng tích lũy trong ATP thành nhiệt năng thoát ra môi trường.","C. phân giải các chất hữu cơ phức tạp thành chất vô cơ đơn giản để giải phóng ATP.","D. huy động năng lượng ATP cho các hoạt động vận động và sinh sản của cơ thể."], ans:0},
+        {bai:1, q:"Sinh vật phân giải (nấm, vi khuẩn dị dưỡng) có vai trò sinh học quan trọng nào trong hệ sinh thái?", opts:["A. Phân giải chất hữu cơ thành chất vô cơ trả lại cho môi trường.","B. Cung cấp O2 chính cho bầu khí quyển quả đất.","C. Trực tiếp cố định năng lượng mặt trời thành chất hữu cơ.","D. Tổng hợp sucrose cung cấp cho các động vật ăn thực vật."], ans:0},
+        {bai:1, q:"Nhóm sinh vật nào sau đây gồm toàn các sinh vật tự dưỡng?", opts:["A. Cây lúa, tảo lục, vi khuẩn lam.","B. Con bò, nấm rơm, vi khuẩn E. coli.","C. Cây hổ nhĩ, con hổ, vi khuẩn lam.","D. Tảo đỏ, con mèo, nấm men."], ans:0},
+        {bai:1, q:"Quá trình trao đổi chất và chuyển hóa năng lượng ở cấp độ tế bào và cấp độ cơ thể có mối quan hệ phụ thuộc lẫn nhau như thế nào?", opts:["A. Cơ thể cung cấp chất dinh dưỡng cho tế bào, tế bào cung cấp năng lượng cho cơ thể.","B. Tế bào cung cấp chất vô cơ cho cơ thể, cơ thể bài tiết chất hữu cơ.","C. Cơ thể tự tổng hợp chất dinh dưỡng mà không cần hoạt động tế bào.","D. Tế bào chỉ hoạt động khi cơ thể ngừng trao đổi chất với môi trường."], ans:0},
+        {bai:1, q:"Khi con người vận động mạnh, nhiệt độ cơ thể tăng lên và mồ hôi tiết ra nhiều. Hiện tượng này thể hiện dấu hiệu đặc trưng nào?", opts:["A. Biến đổi các chất kèm theo giải phóng nhiệt năng và điều hòa môi trường trong.","B. Thu nhận chất dinh dưỡng và tăng khả năng sinh sản tế bào.","C. Cố định năng lượng mặt trời và đào thải chất độc qua đường hô hấp.","D. Ngừng hoạt động trao đổi chất để tiết kiệm năng lượng."], ans:0},
+        {bai:1, q:"Vì sao quá trình dị hóa ở tế bào lại có vai trò quyết định đối với sự tồn tại của tế bào?", opts:["A. Dị hóa phân giải chất hữu cơ tạo ra ATP cung cấp cho mọi hoạt động sống.","B. Dị hóa giúp tế bào tích lũy thêm các dung lượng chất hữu cơ trữ lượng lớn.","C. Dị hóa làm giảm nhiệt độ tế bào xuống mức 0 độ C.","D. Dị hóa ngăn cản sự xâm nhập của các chất độc từ môi trường ngoài."], ans:0},
+        {bai:1, q:"Giai đoạn huy động năng lượng trong sinh giới diễn ra khi năng lượng ATP được sử dụng cho hoạt động nào?", opts:["A. Sự co cơ, vận chuyển chủ động các chất và tổng hợp chất mới.","B. Quang phân li nước trong lục lạp.","C. Hấp thụ ánh sáng mặt trời của diệp lục.","D. Cố định khí CO2 trong pha tối quang hợp."], ans:0},
+        {bai:1, q:"Một chậu cây bị thiếu ánh sáng lâu ngày sẽ có biểu hiện lá bị vàng nhạt và thân kéo dài. Hiện tượng này chứng minh vai trò của yếu tố nào?", opts:["A. Ánh sáng cung cấp năng lượng cho quang hợp tổng hợp sắc tố diệp lục.","B. Nước thúc đẩy quá trình phân giải chất dinh dưỡng ở thân.","C. Nhiệt độ cao làm phân hủy hoàn toàn khí CO2 trong lá.","D. Đất thiếu chất khoáng làm cây không hút được nước."], ans:0},
+        // Bài 2
+        {bai:2, q:"Ở thực vật trên cạn, cơ quan chuyên trách làm nhiệm vụ hấp thụ nước và ion khoáng từ đất là", opts:["A. lá cây.","B. lông hút ở rễ.","C. hoa và quả.","D. cành và thân."], ans:1},
+        {bai:2, q:"Nước và các ion khoáng sau khi vào tế bào lông hút, khi di chuyển theo con đường gian bào đến lớp nội bì thì bị chặn lại bởi cấu trúc nào?", opts:["A. Màng sinh chất.","B. Đai Caspary.","C. Mạch gỗ.","D. Lỗ khí khổng."], ans:1},
+        {bai:2, q:"Giải thích vì sao khi bón phân hóa học quá liều lượng cho cây trồng sẽ khiến cây bị héo và chết?", opts:["A. Nồng độ dịch đất trở nên ưu trương hơn dịch tế bào rễ, làm rễ không hút được nước và mất nước.","B. Phân bón làm nhiệt độ đất tăng cao gây tổn thương trực tiếp đến thành tế bào rễ.","C. Cây bị ngộ độc vì hấp thụ quá nhiều chất khoáng vào màng tế bào.","D. Phân bón ngăn cản sự trao đổi khí O2 ở lá làm cây ngưng quá trình quang hợp."], ans:0},
+        {bai:2, q:"Dòng vận chuyển chất hữu cơ (sucrose, amino acid) từ lá xuống các cơ quan dự trữ trong cây được thực hiện qua", opts:["A. mạch gỗ.","B. mạch rây.","C. khí khổng.","D. màng cutin."], ans:1},
+        {bai:2, q:"Động lực chính đóng vai trò kéo cột nước và ion khoáng từ rễ lên tận các lá ở đỉnh cây gỗ cao hàng chục mét là", opts:["A. lực đẩy của áp suất rễ.","B. lực kéo do thoát hơi nước ở lá.","C. lực bám giữa các phân tử nước.","D. lực liên kết giữa nước với vách tế bào."], ans:1},
+        {bai:2, q:"Nguyên tố khoáng nào sau đây là thành phần cấu tạo bắt buộc của phân tử diệp lục (chlorophyll)?", opts:["A. Magnesium (Mg).","B. Phosphorus (P).","C. Calcium (Ca).","D. Potassium (K)."], ans:0},
+        {bai:2, q:"Các ion khoáng được hấp thụ từ dung dịch đất vào tế bào lông hút theo cơ chế chủ động cần điều kiện nào?", opts:["A. Ngược gradient nồng độ và tiêu tốn năng lượng ATP.","B. Cùng gradient nồng độ và không tiêu tốn ATP.","C. Thông qua sự biến dạng hoàn toàn của màng tế bào.","D. Nhờ lực kéo liên tục của quá trình thoát hơi nước."], ans:0},
+        {bai:2, q:"Thành phần chủ yếu của dịch mạch gỗ gồm có", opts:["A. nước và các ion khoáng.","B. sucrose và amino acid.","C. hormone sinh trưởng và vitamin.","D. protein cấu trúc và lipid."], ans:0},
+        {bai:2, q:"Biểu hiện đặc trưng của cây khi thiếu nguyên tố Nitrogen (N) là", opts:["A. lá có màu vàng nhạt, cây sinh trưởng kém, cằn cỗi.","B. lá có màu dải tím ở mép lá.","C. lá có chấm đốm đen đốm đỏ.","D. ngọn cây bị thối đen và rụng lá."], ans:0},
+        {bai:2, q:"Phương pháp trồng cây trong dung dịch dinh dưỡng không cần đất gọi là", opts:["A. thủy canh.","B. khí canh.","C. nông nghiệp hữu cơ.","D. luân canh."], ans:0},
+        // Bài 4
+        {bai:4, q:"Bào quan thực hiện chức năng quang hợp chủ yếu ở tế bào thực vật là", opts:["A. ti thể.","B. lục lạp.","C. không bào.","D. lưới nội chất."], ans:1},
+        {bai:4, q:"Sắc tố quang hợp trực tiếp tham gia chuyển hóa năng lượng ánh sáng thành năng lượng hóa học (ATP, NADPH) là", opts:["A. diệp lục a ở trung tâm phản ứng.","B. diệp lục b.","C. carotenoid.","D. xanthophyll."], ans:0},
+        {bai:4, q:"Sự thích nghi quang hợp của thực vật CAM giúp chúng tồn tại được ở vùng hoang mạc khô hạn là do", opts:["A. cố định CO2 ban đêm khi khí khổng mở và thực hiện chu trình Calvin ban ngày khi khí khổng đóng.","B. đóng khí khổng hoàn toàn cả ngày lẫn đêm không cần trao đổi khí.","C. chỉ thực hiện pha sáng mà không cần pha tối.","D. sử dụng O2 thay thế cho CO2 trong quang hợp."], ans:0},
+        {bai:4, q:"Sản phẩm của pha sáng quang hợp được sử dụng làm nguyên liệu cho pha tối bao gồm", opts:["A. ATP, NADPH và O2.","B. ATP và NADPH.","C. CO2 và H2O.","D. Glucose và O2."], ans:1},
+        {bai:4, q:"O2 giải phóng trong quá trình quang hợp có nguồn gốc từ phân tử nào?", opts:["A. H2O qua quá trình quang phân li nước ở pha sáng.","B. CO2 qua chu trình Calvin ở pha tối.","C. Glucose bị phân giải.","D. RuBP bị oxy hóa."], ans:0},
+        {bai:4, q:"Nơi diễn ra pha sáng và pha tối của quang hợp ở tế bào thực vật lần lượt là", opts:["A. màng thylakoid và chất nền (stroma) của lục lạp.","B. chất nền (stroma) và màng thylakoid.","C. ti thể và tế bào chất.","D. màng sinh chất và không bào."], ans:0},
+        {bai:4, q:"Loại cây nào sau đây thuộc nhóm thực vật C4?", opts:["A. Ngô, mía, rau dền, cao lương.","B. Lúa nước, đậu tương, cam, chanh.","C. Xương rồng, thanh long, dứa, lá bỏng.","D. Rêu, dương xỉ, thông, pơmu."], ans:0},
+        // Bài 6
+        {bai:6, q:"Giai đoạn đường phân trong hô hấp tế bào ở thực vật diễn ra tại vị trí nào?", opts:["A. Chất nền ti thể.","B. Màng trong ti thể.","C. Tế bào chất (bào tương).","D. Màng thylakoid."], ans:2},
+        {bai:6, q:"Tại sao trong bảo quản hạt nông sản người ta phải phơi hoặc sấy khô hạt đến độ ẩm an toàn?", opts:["A. Giảm hàm lượng nước để hạ cường độ hô hấp tế bào xuống mức tối thiểu, tránh tiêu hao chất hữu cơ.","B. Tiêu diệt toàn bộ tế bào phôi khiến hạt không thể nảy mầm trong kho.","C. Ngăn cản tuyệt đối sự xâm nhập của ánh sáng mặt trời.","D. Chuyển con đường hô hấp hiếu khí thành con đường lên men rượu."], ans:0},
+        {bai:6, q:"Trong hô hấp hiếu khí ở thực vật, chu trình Krebs diễn ra tại cấu trúc nào của tế bào?", opts:["A. Tế bào chất.","B. Chất nền ti thể.","C. Màng trong ti thể.","D. Không bào."], ans:1},
+        {bai:6, q:"Phương trình tổng quát của quá trình hô hấp hiếu khí ở thực vật là", opts:["A. C6H12O6 + 6O2 -> 6CO2 + 6H2O + Năng lượng (ATP + Nhiệt).","B. 6CO2 + 12H2O -> C6H12O6 + 6O2 + 6H2O.","C. C6H12O6 -> 2 C2H5OH + 2 CO2 + Năng lượng.","D. C6H12O6 -> 2 C3H6O3 + Năng lượng."], ans:0},
+        {bai:6, q:"Nơi diễn ra chuỗi truyền electron hô hấp ở tế bào thực vật là", opts:["A. màng trong ti thể.","B. chất nền ti thể.","C. tế bào chất.","D. lưới nội chất."], ans:0},
+        {bai:6, q:"Mối quan hệ giữa quang hợp và hô hấp ở thực vật là", opts:["A. Sản phẩm của quang hợp là nguyên liệu cho hô hấp, sản phẩm hô hấp là nguyên liệu cho quang hợp.","B. Hai quá trình này hoàn toàn loại trừ nhau.","C. Quang hợp chỉ diễn ra ban đêm, hô hấp chỉ diễn ra ban ngày.","D. Hô hấp tiêu diệt sản phẩm quang hợp khiến cây cằn cỗi."], ans:0},
+      ];
+
+      const tfAll = [
+        {bai:1, tag:"Câu 13", intro:"Khi nghiên cứu về quá trình trao đổi chất và chuyển hóa năng lượng ở sinh vật:", items:[
+          {text:"a) Sinh vật tự dưỡng có khả năng tự tổng hợp chất hữu cơ từ các chất vô cơ nhờ năng lượng ánh sáng hoặc năng lượng hóa học.", ans:true},
+          {text:"b) Quá trình đồng hóa luôn gắn liền với sự giải phóng năng lượng dưới dạng nhiệt.", ans:false},
+          {text:"c) Tất cả các loài động vật và nấm đều thuộc nhóm sinh vật hóa dị dưỡng.", ans:true},
+          {text:"d) Sự trao đổi chất giữa tế bào với môi trường trong cơ thể là cơ sở cho sự trao đổi chất giữa cơ thể với môi trường ngoài.", ans:true},
+        ]},
+        {bai:1, tag:"Câu 14", intro:"Xét các dấu hiệu đặc trưng của quá trình trao đổi chất và chuyển hóa năng lượng ở sinh vật:", items:[
+          {text:"a) Sinh vật thu nhận các chất từ môi trường và vận chuyển chúng đến các tế bào.", ans:true},
+          {text:"b) Trong tế bào, các chất được biến đổi qua quá trình đồng hóa và dị hóa.", ans:true},
+          {text:"c) Chỉ có sinh vật tự dưỡng mới có khả năng điều hòa môi trường trong cơ thể.", ans:false},
+          {text:"d) Các chất không sử dụng và chất độc hại được đào thải ra môi trường ngoài.", ans:true},
+        ]},
+        {bai:2, tag:"Câu 39", intro:"Nồng độ ion K+ trong dịch tế bào lông hút là 0,4%, trong dung dịch đất là 0,1%:", items:[
+          {text:"a) Tế bào lông hút sẽ hấp thụ ion K+ từ dung dịch đất vào rễ theo cơ chế vận chuyển chủ động.", ans:true},
+          {text:"b) Quá trình hấp thụ ion K+ đòi hỏi tế bào rễ phải tiêu tốn năng lượng ATP.", ans:true},
+          {text:"c) Nếu môi trường đất bị thiếu O2 do ngập úng, tốc độ hấp thụ ion K+ của rễ cây sẽ bị giảm sút mạnh.", ans:true},
+          {text:"d) Hiện tượng ứ giọt ở mép lá cây xoài chứng minh cho lực kéo thoát hơi nước ở lá diễn ra rất mạnh.", ans:false},
+        ]},
+        {bai:2, tag:"Câu 40", intro:"Về hai con đường vận chuyển nước và ion khoáng từ lông hút vào mạch gỗ:", items:[
+          {text:"a) Con đường gian bào vận chuyển nước qua khoảng không gian giữa các tế bào và thành tế bào.", ans:true},
+          {text:"b) Đai Caspary nằm ở lớp nội bì có vai trò chặn con đường gian bào, buộc nước chuyển sang con đường tế bào chất.", ans:true},
+          {text:"c) Con đường gian bào giúp kiểm soát chặt chẽ các ion khoáng độc hại trước khi vào mạch gỗ hơn con đường tế bào chất.", ans:false},
+          {text:"d) Trồng cây trên đất mặn (ưu trương) sẽ làm tăng tốc độ hút nước của con đường tế bào chất ở rễ.", ans:false},
+        ]},
+        {bai:4, tag:"Câu 67", intro:"Về quá trình quang hợp ở thực vật C4 và CAM:", items:[
+          {text:"a) Thực vật C4 và CAM đều có giai đoạn cố định CO2 đầu tiên tạo ra sản phẩm ổn định 4 carbon (OAA).", ans:true},
+          {text:"b) Ở thực vật C4, quá trình cố định CO2 diễn ra ở hai loại tế bào khác nhau.", ans:true},
+          {text:"c) Ở thực vật CAM, cả hai lần cố định CO2 đều diễn ra trong cùng một tế bào mô giậu nhưng khác nhau về thời gian.", ans:true},
+          {text:"d) Thực vật C3 có năng suất sinh học cao hơn thực vật C4 trong điều kiện khí hậu nóng ẩm rực nắng.", ans:false},
+        ]},
+        {bai:6, tag:"Câu 90", intro:"Về con đường hô hấp hiếu khí ở tế bào thực vật:", items:[
+          {text:"a) Đường phân diễn ra trong tế bào chất, biến đổi 1 phân tử Glucose thành 2 phân tử Pyruvate.", ans:true},
+          {text:"b) Chu trình Krebs diễn ra ở chất nền ti thể, giải phóng CO2 và tạo ra NADH, FADH2 và ATP.", ans:true},
+          {text:"c) Chuỗi truyền electron hô hấp diễn ra ở màng trong ti thể là giai đoạn tạo ra nhiều năng lượng ATP nhất.", ans:true},
+          {text:"d) Nếu không có khí O2, tế bào thực vật sẽ chuyển ngay sang chu trình Krebs để tiếp tục hô hấp hiếu khí.", ans:false},
+        ]},
+      ];
+
+      const shortAll = [
+        {bai:1, q:"Trong các dấu hiệu sau: (1) Thu nhận các chất từ môi trường; (2) Vận chuyển các chất; (3) Biến đổi các chất kèm chuyển hóa năng lượng; (4) Đào thải các chất thải; (5) Điều hòa môi trường trong; (6) Khả năng tự di chuyển xa. Có bao nhiêu dấu hiệu đặc trưng của quá trình trao đổi chất và chuyển hóa năng lượng ở sinh vật?", ans:"5"},
+        {bai:1, q:"Trong các giai đoạn chuyển hóa năng lượng: (1) Tổng hợp; (2) Phân giải; (3) Huy động năng lượng. Giai đoạn trực tiếp tạo ra các phân tử ATP từ quá trình hô hấp tế bào là giai đoạn số mấy?", ans:"2"},
+        {bai:1, q:"Trong các sinh vật sau: (1) Cây ngô; (2) Vi khuẩn nitrat hóa; (3) Nấm rơm; (4) Tảo lục; (5) Con hươu; (6) Vi khuẩn lam. Có bao nhiêu sinh vật thuộc nhóm sinh vật TỰ DƯỠNG?", ans:"4"},
+        {bai:2, q:"Trong các nguyên tố dinh dưỡng khoáng: N, P, K, Ca, Mg, Fe, Mn, Zn, Cu, Mo. Có bao nhiêu nguyên tố thuộc nhóm nguyên tố ĐA LƯỢNG?", ans:"5"},
+        {bai:2, q:"Một nhà nông học đo lượng đạm bón cho 1 hécta lúa. Biết cây lúa cần 120 kg N/ha, nhưng hệ số sử dụng đạm của cây chỉ đạt 60%. Tổng lượng phân đạm N thực tế cần phải bón cho 1 ha là bao nhiêu kg?", ans:"200"},
+        {bai:4, q:"Để tổng hợp hoàn chỉnh 1 phân tử glucose (C6H12O6) ở pha tối, chu trình Calvin cần tiêu tốn tổng cộng bao nhiêu phân tử ATP?", ans:"18"},
+        {bai:4, q:"Trong chu trình Calvin ở thực vật C3, để tạo ra 1 phân tử đường Glucose, tế bào cần sử dụng tổng cộng bao nhiêu phân tử NADPH từ pha sáng?", ans:"12"},
+        {bai:6, q:"Xét 1 phân tử glucose đi vào quá trình phân giải hiếu khí hoàn toàn. Tổng số phân tử ATP tối đa thu được là bao nhiêu?", ans:"32"},
+        {bai:6, q:"Số phân tử ATP tích lũy tối đa thu được từ con đường lên men (hô hấp kị khí) từ 1 phân tử Glucose là bao nhiêu?", ans:"2"},
+      ];
+
+      const essayAll = [
+        {bai:1, q:"Câu 19. Trình bày 5 dấu hiệu đặc trưng của quá trình trao đổi chất và chuyển hóa năng lượng ở sinh vật. Cho ví dụ minh họa về quá trình đào thải chất thải ở cơ thể thực vật và động vật.", ans:"- 5 dấu hiệu: Thu nhận chất từ môi trường, vận chuyển chất, biến đổi chất kèm chuyển hóa năng lượng, đào thải chất thải, điều hòa môi trường trong.\n- Thực vật: thải hơi nước, O2 qua khí khổng; động vật: thải CO2 qua phổi/ mang, nước tiểu qua thận..."},
+        {bai:1, q:"Câu 20. Phân tích mối quan hệ giữa trao đổi chất và chuyển hóa năng lượng ở cấp độ tế bào với cấp độ cơ thể. Tại sao nói quá trình trao đổi chất và chuyển hóa năng lượng là đặc trưng cơ bản của sự sống?", ans:"- Cấp tế bào: đồng hóa - dị hóa xảy ra trong tế bào, cung cấp nguyên liệu và năng lượng.\n- Cấp cơ thể: trao đổi chất với môi trường ngoài đảm bảo cung cấp cho tế bào và đào thải chất thải.\n- Là đặc trưng cơ bản vì mọi sinh vật đều có, đảm bảo duy trì sự sống, lớn lên, sinh sản."},
+        {bai:2, q:"Câu 50. Nêu các con đường thoát hơi nước ở lá thực vật và so sánh vai trò của chúng. Tại sao nói thoát hơi nước là 'tai họa tất yếu' của cây xanh?", ans:"- 2 con đường: qua cutin (bề mặt lá) và qua khí khổng (chủ yếu).\n- Qua khí khổng chiếm tỉ lệ lớn, điều hòa được; qua cutin ít, khó điều hòa.\n- 'Tai họa tất yếu' vì không thể tránh được để hấp thụ CO2 cho quang hợp nhưng gây mất nước."},
+        {bai:2, q:"Câu 51. Phân tích cơ chế đóng mở khí khổng ở lá cây. Tại sao khi cây bị thiếu nước nghiêm trọng, khí khổng lại đóng lại?", ans:"- Khi tế bào khí khổng no nước: thành mỏng căng, thành dày cong -> lỗ mở.\n- Khi mất nước: tế bào xẹp -> lỗ đóng.\n- Thiếu nước -> hormone ABA tăng -> kích thích đóng khí khổng để giảm mất nước, tránh héo."},
+        {bai:2, q:"Câu 52. Trình bày quá trình cố định nitrogen sinh học và vai trò của vi khuẩn nốt sần họ Đậu. Nêu 3 biện pháp nâng cao hiệu quả hấp thụ khoáng.", ans:"- Vi khuẩn Rhizobium cố định N2 -> NH3/NH4+ nhờ nitrogenase.\n- Cung cấp đạm tự nhiên cho cây, giảm bón phân hóa học.\n- Biện pháp: làm đất tơi xốp, bón phân cân đối, cung cấp đủ nước, trồng xen canh họ Đậu..."},
+        {bai:4, q:"Câu 74. Viết phương trình tổng quát của quá trình quang hợp. So sánh pha tối giữa C3, C4, CAM.", ans:"6CO2 + 12H2O --ánh sáng--> C6H12O6 + 6O2 + 6H2O\n- C3: CO2 + RuBP (5C) --RuBisCO--> 2 PGA (3C)\n- C4: CO2 + PEP (3C) --PEP carboxylase--> OAA (4C) ở tế bào mô giậu, sau đó vào tế bào bao mạch\n- CAM: Cố định ban đêm (CO2 + PEP), pha tối ban ngày trong cùng tế bào"},
+        {bai:4, q:"Câu 75. Giải thích cơ sở khoa học của việc trồng cây theo đúng thời vụ và tăng năng suất thông qua điều khiển diện tích lá và mật độ gieo trồng.", ans:"- Thời vụ: phù hợp nhu cầu ánh sáng, nhiệt, nước theo sinh trưởng phát dục\n- Diện tích lá: đủ để quang hợp hiệu quả, tránh che lấp quá mức\n- Mật độ: cân đối giữa số cây và khả năng quang hợp, giảm cạnh tranh"},
+        {bai:6, q:"Câu 98. Viết phương trình hô hấp tế bào. Trình bày ý nghĩa thực tiễn của hô hấp đối với đời sống cây xanh.", ans:"C6H12O6 + 6O2 -> 6CO2 + 6H2O + năng lượng (ATP + nhiệt)\n- Cung cấp ATP cho các hoạt động sống: hấp thụ khoáng chủ động, tổng hợp, vận chuyển\n- Tham gia chuyển hóa vật chất\n- Tạo sản phẩm trung gian cho tổng hợp"},
+        {bai:6, q:"Câu 99. Giải thích nguyên lý sinh học của bảo quản lạnh, bảo quản khô, bảo quản CO2 cao. Tại sao hạt giống cần bảo quản khô còn rau quả tươi không thể sấy khô?", ans:"- Lạnh: giảm cường độ hô hấp\n- Khô: giảm nước -> giảm hô hấp, ức chế vi sinh vật\n- CO2 cao: ức chế hô hấp hiếu khí\n- Hạt giống cần hô hấp yếu để duy trì sống; rau quả tươi có nhiều nước, sấy khô làm hỏng cấu trúc, mất chất lượng"},
+        {bai:6, q:"Câu 100. Tại sao cây bị ngập úng lâu ngày sẽ bị héo và chết? Đề xuất 2 biện pháp chống ngập úng.", ans:"- Ngập úng -> thiếu O2 -> hô hấp kị khí -> tạo ethanol độc, thiếu ATP -> lông hút chết -> không hút nước được -> héo, chết\n- Biện pháp: làm thoát nước, kê cao luống, trồng giống chịu ngập, cải tạo đất thoáng"},
+      ];
+
+      function shuffleArray(arr){
+        const a = Array.isArray(arr) ? [...arr] : [];
+        for(let i = a.length - 1; i > 0; i--){
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      // Custom dropdowns
+      document.querySelectorAll(".custom-select").forEach((select) => {
+        const trigger = select.querySelector(".custom-select-trigger");
+        const valueEl = select.querySelector(".custom-select-value");
+        const input = select.querySelector("input[type='hidden']");
+        const options = select.querySelectorAll(".custom-select-option");
+        trigger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          document.querySelectorAll(".custom-select").forEach((s) => {
+            if (s !== select) s.classList.remove("open");
+          });
+          select.classList.toggle("open");
+        });
+        options.forEach((opt) => {
+          opt.addEventListener("click", (e) => {
+            e.stopPropagation();
+            options.forEach((o) => o.classList.remove("active"));
+            opt.classList.add("active");
+            valueEl.textContent = opt.textContent;
+            if (input) {
+              input.value = opt.dataset.value;
+              input.dispatchEvent(new Event("change", { bubbles: true }));
+            }
+            select.classList.remove("open");
+          });
+        });
+      });
+      document.addEventListener("click", () => {
+        document.querySelectorAll(".custom-select").forEach((s) => s.classList.remove("open"));
+      });
+
+      // MCQ logic
+      let mcqList = [...mcqAll];
+      let mcqIndex = 0;
+      let mcqSelected = null;
+      let mcqChecked = false;
+      const mcqQ = document.getElementById("mcq-question");
+      const mcqOpts = document.getElementById("mcq-options");
+      const mcqProg = document.getElementById("mcq-progress");
+      const mcqCheck = document.getElementById("mcq-check");
+      const mcqNext = document.getElementById("mcq-next");
+      const mcqFeed = document.getElementById("mcq-feedback");
+      const mcqFilter = document.getElementById("mcq-filter");
+      const mcqShuffleQCheck = document.getElementById("mcq-shuffle-q");
+      const mcqShuffleACheck = document.getElementById("mcq-shuffle-a");
+      let mcqBaseList = [...mcqAll];
+      let mcqCurrentList = [...mcqAll];
+
+      function shuffleArray(arr){
+        const a = Array.isArray(arr) ? [...arr] : [];
+        for(let i = a.length - 1; i > 0; i--){
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      function prepareMcqList(){
+        const f = mcqFilter ? mcqFilter.value : "all";
+        let list = f === "all" ? [...mcqCurrentList] : mcqCurrentList.filter(x => x.bai == f);
+        list = list.map(item=>{
+          if(mcqShuffleACheck && mcqShuffleACheck.checked){
+            const pairs = item.opts.map((o,i)=>({o,i}));
+            for(let i=pairs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pairs[i],pairs[j]]=[pairs[j],pairs[i]];}
+            return {...item, optsShuffled: pairs.map(p=>p.o), ansShuffled: pairs.findIndex(p=>p.i===item.ans)};
+          }
+          return {...item, optsShuffled: undefined, ansShuffled: undefined};
+        });
+        mcqList = list;
+        if(mcqIndex >= mcqList.length){
+          mcqIndex = 0;
+        }
+      }
+
+      function rebuildMcqCurrentList(){
+        const f = mcqFilter ? mcqFilter.value : "all";
+        if(f === "all"){
+          mcqCurrentList = [...mcqBaseList];
+        } else {
+          mcqCurrentList = mcqBaseList.filter(x => x.bai == f);
+        }
+        if(mcqShuffleQCheck && mcqShuffleQCheck.checked){
+          mcqCurrentList = shuffleArray(mcqCurrentList);
+        }
+      }
+
+      function applyMcqFilter() {
+        rebuildMcqCurrentList();
+        prepareMcqList();
+        mcqIndex = 0;
+        renderMcq();
+      }
+      if (mcqFilter) mcqFilter.addEventListener("change", applyMcqFilter);
+      if (mcqShuffleQCheck) {
+        mcqShuffleQCheck.addEventListener("change", ()=>{
+          rebuildMcqCurrentList();
+          prepareMcqList();
+          mcqIndex = 0;
+          renderMcq();
+        });
+      }
+      if (mcqShuffleACheck) mcqShuffleACheck.addEventListener("change", ()=>{ prepareMcqList(); renderMcq(); });
+
+      function renderMcq(){
+        if(mcqList.length===0){mcqQ.textContent="Không có câu hỏi";mcqOpts.innerHTML="";mcqProg.textContent="0 / 0";mcqNext.classList.add("hidden"); mcqCheck.classList.remove("hidden"); mcqCheck.disabled = true; return;}
+        const item = mcqList[mcqIndex];
+        const opts = item.optsShuffled || item.opts;
+        const ans = item.ansShuffled !== undefined ? item.ansShuffled : item.ans;
+        mcqSelected=null;
+        mcqChecked=false;
+        mcqQ.textContent = (mcqIndex+1) + ". " + item.q;
+        mcqProg.textContent = `Câu ${mcqIndex+1} / ${mcqList.length} (Bài ${item.bai})`;
+        mcqOpts.innerHTML="";
+        opts.forEach((opt,idx)=>{
+          const btn=document.createElement("button");
+          btn.className="option-btn w-full text-left rounded-xl px-4 py-3 flex items-start gap-3";
+          btn.innerHTML=`<span class="h-7 w-7 rounded-full flex items-center justify-center text-xs border border-white/25 mt-0.5">${String.fromCharCode(65+idx)}</span><span class="text-sm sm:text-base flex-1">${opt.replace(/^[A-D]\.\s*/,"")}</span>`;
+          btn.addEventListener("click",()=>{
+            if(mcqChecked) return;
+            mcqOpts.querySelectorAll(".option-btn").forEach(b=>b.classList.remove("selected"));
+            btn.classList.add("selected");
+            mcqSelected=idx;
+            mcqFeed.classList.add("hidden");
+          });
+          mcqOpts.appendChild(btn);
+        });
+        mcqNext.classList.add("hidden");
+        mcqCheck.classList.remove("hidden");
+        mcqCheck.disabled = false;
+        mcqFeed.classList.add("hidden");
+        mcqCheck.onclick=()=>{
+          if(mcqChecked) return;
+          if(mcqSelected===null){mcqFeed.textContent="Vui lòng chọn một đáp án.";mcqFeed.className="rounded-2xl p-3 text-sm bg-amber-400/10 border border-amber-400/40";mcqFeed.classList.remove("hidden");return;}
+          mcqOpts.querySelectorAll(".option-btn").forEach((btn,idx)=>{
+            btn.disabled=true; btn.classList.remove("selected");
+            if(idx===ans) btn.classList.add("correct");
+            if(idx===mcqSelected && idx!==ans) btn.classList.add("wrong");
+          });
+          if(mcqSelected===ans){mcqFeed.textContent="Chính xác! Đáp án đúng.";mcqFeed.className="rounded-2xl p-3 text-sm bg-emerald-400/10 border border-emerald-400/40";}
+          else {mcqFeed.innerHTML=`Chưa đúng. Đáp án đúng là: <strong>${opts[ans]}</strong>`;mcqFeed.className="rounded-2xl p-3 text-sm bg-rose-400/10 border border-rose-400/40";}
+          mcqFeed.classList.remove("hidden");
+          mcqChecked = true;
+          mcqCheck.classList.add("hidden");
+          mcqNext.classList.remove("hidden");
+        };
+      }
+      mcqNext.addEventListener("click",()=>{
+        if(mcqList.length === 0) return;
+        if(mcqIndex < mcqList.length - 1){
+          mcqIndex++;
+          if(mcqShuffleACheck && mcqShuffleACheck.checked){
+            prepareMcqList();
+          }
+          renderMcq();
+          return;
+        }
+      });
+      rebuildMcqCurrentList();
+      prepareMcqList();
+      mcqIndex = 0;
+      renderMcq();
+
+      // TF
+      let tfList=[...tfAll];
+      let tfIndex=0;
+      let tfBaseList=[...tfAll];
+      let tfCurrentList=[...tfAll];
+      const tfTagEl=document.getElementById("tf-tag"), tfIntroEl=document.getElementById("tf-intro"), tfItemsEl=document.getElementById("tf-items");
+      const tfProg=document.getElementById("tf-progress"), tfCk=document.getElementById("tf-check"), tfN=document.getElementById("tf-next"), tfR=document.getElementById("tf-reset"), tfF=document.getElementById("tf-feedback");
+      const tfFilter=document.getElementById("tf-filter");
+      const tfShuffleQCheck=document.getElementById("tf-shuffle-q");
+      const tfShuffleICheck=document.getElementById("tf-shuffle-i");
+
+      function prepareTfList(){
+        const f = tfFilter ? tfFilter.value : "all";
+        let list = f === "all" ? [...tfCurrentList] : tfCurrentList.filter(x => x.bai == f);
+        list = list.map(item=>{
+          if(tfShuffleICheck && tfShuffleICheck.checked){
+            return {...item, itemsShuffled: shuffleArray(item.items)};
+          }
+          return {...item, itemsShuffled: undefined};
+        });
+        tfList = list;
+        if(tfIndex >= tfList.length){
+          tfIndex = 0;
+        }
+      }
+
+      function rebuildTfCurrentList(){
+        const f = tfFilter ? tfFilter.value : "all";
+        if(f === "all"){
+          tfCurrentList = [...tfBaseList];
+        } else {
+          tfCurrentList = tfBaseList.filter(x => x.bai == f);
+        }
+        if(tfShuffleQCheck && tfShuffleQCheck.checked){
+          tfCurrentList = shuffleArray(tfCurrentList);
+        }
+      }
+
+      if (tfFilter) tfFilter.addEventListener("change", ()=>{rebuildTfCurrentList(); prepareTfList(); tfIndex=0; renderTf();});
+      if (tfShuffleQCheck) {
+        tfShuffleQCheck.addEventListener("change", ()=>{
+          rebuildTfCurrentList();
+          prepareTfList();
+          tfIndex=0;
+          renderTf();
+        });
+      }
+      if (tfShuffleICheck) tfShuffleICheck.addEventListener("change", ()=>{ prepareTfList(); renderTf(); });
+
+      let tfChecked = false;
+      function renderTf(){
+        if(tfList.length===0){tfTagEl.textContent="";tfIntroEl.textContent="Không có câu hỏi";tfItemsEl.innerHTML="";tfProg.textContent="0/0";tfCk.classList.add("hidden");tfN.classList.add("hidden"); return;}
+        const item=tfList[tfIndex];
+        const items = item.itemsShuffled || item.items;
+        tfTagEl.textContent=item.tag + " (Bài " + item.bai + ")";
+        tfIntroEl.textContent=item.intro||"";
+        tfIntroEl.classList.toggle("hidden",!item.intro);
+        tfItemsEl.innerHTML="";
+        tfChecked = false;
+        items.forEach((it,idx)=>{
+          const row=document.createElement("div");
+          row.className="glass rounded-xl p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3";
+          row.innerHTML=`<p class="flex-1 text-sm sm:text-base">${String.fromCharCode(97+idx)}) ${it.text.replace(/^[a-d]\)\s*/,"")}</p><div class="flex gap-2"><button class="tf-btn px-4 py-1.5 text-xs" data-g="${tfIndex}-${idx}" data-v="true">Đúng</button><button class="tf-btn px-4 py-1.5 text-xs" data-g="${tfIndex}-${idx}" data-v="false">Sai</button></div>`;
+          tfItemsEl.appendChild(row);
+        });
+        tfProg.textContent=`Câu ${tfIndex+1} / ${tfList.length}`;
+        tfN.classList.add("hidden");
+        tfR.classList.add("hidden"); 
+        tfF.classList.add("hidden"); 
+        tfCk.classList.remove("hidden");
+        tfCk.disabled = false;
+        document.querySelectorAll(".tf-btn").forEach(b=>{b.disabled=false;b.classList.remove("active-true","active-false","reveal-true","reveal-false");b.dataset.sel="";});
+      }
+      document.addEventListener("click",e=>{
+        const btn=e.target.closest(".tf-btn"); if(!btn)return; const g=btn.dataset.g; if(!g)return;
+        if(tfChecked) return;
+        if(document.querySelector(`.tf-btn[data-g="${g}"]:disabled`))return;
+        document.querySelectorAll(`.tf-btn[data-g="${g}"]`).forEach(b=>{b.classList.remove("active-true","active-false");b.dataset.sel="";});
+        if(btn.dataset.v==="true") btn.classList.add("active-true"); else btn.classList.add("active-false");
+        btn.dataset.sel=btn.dataset.v;
+      });
+      tfCk.addEventListener("click",()=>{
+        if(tfChecked) return;
+        const item=tfList[tfIndex];
+        const items = item.itemsShuffled || item.items;
+        let all=true;
+        items.forEach((_,idx)=>{if(!document.querySelector(`.tf-btn[data-g="${tfIndex}-${idx}"][data-sel="true"]`))all=false;});
+        if(!all){tfF.textContent="Vui lòng chọn Đúng/Sai cho tất cả các ý a), b), c), d).";tfF.className="rounded-2xl p-3 text-sm bg-amber-400/10 border border-amber-400/40";tfF.classList.remove("hidden");return;}
+        let correct=0;
+        items.forEach((it,idx)=>{
+          const g=`${tfIndex}-${idx}`; const sel=document.querySelector(`.tf-btn[data-g="${g}"][data-sel="true"]`).dataset.v;
+          document.querySelectorAll(`.tf-btn[data-g="${g}"]`).forEach(b=>{b.disabled=true;b.classList.remove("active-true","active-false"); if(b.dataset.v===String(it.ans)) b.classList.add("reveal-true"); else if(b.dataset.v===sel && b.dataset.v!==String(it.ans)) b.classList.add("reveal-false");});
+          if(sel===String(it.ans)) correct++;
+        });
+        tfF.textContent=`Đúng ${correct} / ${items.length} ý.`;tfF.className="rounded-2xl p-3 text-sm bg-emerald-400/10 border border-emerald-400/40";tfF.classList.remove("hidden");
+        tfChecked = true;
+        tfCk.classList.add("hidden");
+        tfN.classList.remove("hidden");
+        if(tfIndex===tfList.length-1) tfR.classList.remove("hidden");
+      });
+      tfN.addEventListener("click",()=>{if(tfList.length===0) return; if(tfIndex<tfList.length-1){tfIndex++; if(tfShuffleICheck && tfShuffleICheck.checked){prepareTfList();} renderTf(); return;}});
+      tfR.addEventListener("click",()=>{rebuildTfCurrentList(); prepareTfList(); tfIndex=0; renderTf();});
+      rebuildTfCurrentList(); prepareTfList(); tfIndex=0; renderTf();
+
+      // Short
+      let shortList=[...shortAll];
+      let shortIndex=0;
+      let shortBaseList=[...shortAll];
+      let shortCurrentList=[...shortAll];
+      const shortQ=document.getElementById("short-question"), shortCk=document.getElementById("short-check"), shortF=document.getElementById("short-feedback"), shortN2=document.getElementById("short-next"), shortProg2=document.getElementById("short-progress"), shortInp=document.getElementById("short-input");
+      const shortFilter=document.getElementById("short-filter");
+      const shortShuffleQCheck=document.getElementById("short-shuffle-q");
+
+      function prepareShortList(){
+        const f = shortFilter ? shortFilter.value : "all";
+        if(f === "all"){
+          shortList = [...shortCurrentList];
+        } else {
+          shortList = shortCurrentList.filter(x => x.bai == f);
+        }
+        if(shortIndex >= shortList.length){
+          shortIndex = 0;
+        }
+      }
+
+      function rebuildShortCurrentList(){
+        const f = shortFilter ? shortFilter.value : "all";
+        if(f === "all"){
+          shortCurrentList = [...shortBaseList];
+        } else {
+          shortCurrentList = shortBaseList.filter(x => x.bai == f);
+        }
+        if(shortShuffleQCheck && shortShuffleQCheck.checked){
+          shortCurrentList = shuffleArray(shortCurrentList);
+        }
+      }
+
+      if (shortFilter) shortFilter.addEventListener("change", ()=>{rebuildShortCurrentList(); prepareShortList(); shortIndex=0; renderShort();});
+      if (shortShuffleQCheck) {
+        shortShuffleQCheck.addEventListener("change", ()=>{
+          rebuildShortCurrentList();
+          prepareShortList();
+          shortIndex=0;
+          renderShort();
+        });
+      }
+
+      let shortChecked = false;
+      function normalize(s){
+        return (s||"").toString().toLowerCase().replace(/\s+/g,"").replace(/[.,;:]/g,"");
+      }
+      function renderShort(){
+        if(shortList.length===0){shortQ.textContent="Không có câu hỏi";shortF.classList.add("hidden");shortProg2.textContent="0/0";shortN2.classList.add("hidden"); shortCk.classList.remove("hidden"); shortCk.disabled = true; if(shortInp){shortInp.value=""; shortInp.disabled=true;} return;}
+        const item=shortList[shortIndex];
+        shortQ.textContent=`Câu ${shortIndex+1} (Bài ${item.bai}): ${item.q}`;
+        shortF.classList.add("hidden");
+        shortProg2.textContent=`Câu ${shortIndex+1} / ${shortList.length}`;
+        shortN2.classList.add("hidden");
+        shortChecked = false;
+        shortCk.classList.remove("hidden");
+        shortCk.disabled = false;
+        if(shortInp){shortInp.value=""; shortInp.disabled=false; shortInp.focus();}
+        shortCk.onclick=()=>{
+          if(shortChecked) return;
+          const user = normalize(shortInp ? shortInp.value : "");
+          const ansNorm = normalize(item.ans);
+          if(shortInp) shortInp.disabled = true;
+          if(user && ansNorm && user===ansNorm){
+            shortF.innerHTML="Chính xác!";
+            shortF.className="rounded-2xl p-3 text-sm bg-emerald-400/10 border border-emerald-400/40";
+          } else {
+            shortF.innerHTML=`Chưa đúng. Đáp án đúng là: <strong>${item.ans}</strong>`;
+            shortF.className="rounded-2xl p-3 text-sm bg-rose-400/10 border border-rose-400/40";
+          }
+          shortF.classList.remove("hidden");
+          shortChecked = true;
+          shortCk.classList.add("hidden");
+          shortN2.classList.remove("hidden");
+        };
+      }
+      shortN2.addEventListener("click",()=>{if(shortList.length===0) return; if(shortIndex<shortList.length-1){shortIndex++; renderShort();}});
+      rebuildShortCurrentList(); prepareShortList(); shortIndex=0; renderShort();
+
+      // Essay
+      const essayCont=document.getElementById("essay-container");
+      const essayFilter=document.getElementById("essay-filter");
+      function renderEssay(){
+        const f=essayFilter ? essayFilter.value : "all";
+        const list=f==="all"?essayAll:essayAll.filter(x=>x.bai==f);
+        if(!essayCont) return;
+        essayCont.innerHTML="";
+        list.forEach((item,idx)=>{
+          const art=document.createElement("article");
+          art.className="glass rounded-2xl p-4 sm:p-6 flex flex-col gap-3";
+          art.innerHTML=`<div class="flex items-start justify-between gap-3"><div><p class="text-xs uppercase tracking-[0.25em]" style="color:var(--text-secondary)">Bài ${item.bai}</p><h3 class="font-display text-lg sm:text-xl mt-1.5 leading-relaxed">${item.q}</h3></div></div><button class="text-sm self-start" style="color:var(--accent)" data-e="${idx}">Xem gợi ý / đáp án</button><div class="hidden rounded-xl p-3 sm:p-4 text-sm whitespace-pre-line" style="color:var(--text-secondary); background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.28)" data-eb="${idx}">${item.ans}</div>`;
+          essayCont.appendChild(art);
+        });
+        document.querySelectorAll("[data-e]").forEach(btn=>{
+          btn.addEventListener("click",()=>{
+            const id=btn.dataset.e;
+            const body=document.querySelector(`[data-eb="${id}"]`);
+            if(!body) return;
+            body.classList.toggle("hidden");
+            btn.textContent = body.classList.contains("hidden") ? "Xem gợi ý / đáp án" : "Ẩn đáp án";
+          });
+        });
+      }
+      if (essayFilter) essayFilter.addEventListener("change",renderEssay);
+      renderEssay();
+    </script>
+  </body>
+</html>
