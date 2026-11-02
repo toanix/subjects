@@ -1,0 +1,3552 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#eef2f8" />
+  <title>Ôn tập Công nghệ 11 (Chăn nuôi) - Giữa học kỳ I</title>
+  <meta name="description" content="Hệ thống câu hỏi ôn tập giữa học kỳ I môn Công nghệ 11 – Chăn nuôi (Trắc nghiệm, Đúng/Sai và Tự luận) theo chuẩn chương trình mới với giao diện Fluent Design." />
+  <meta property="og:title" content="Ôn tập Công nghệ 11 (Chăn nuôi) - Giữa học kỳ I" />
+  <meta property="og:description" content="Hệ thống câu hỏi ôn tập giữa kì I môn Công nghệ 11 – Chăn nuôi, giao diện Fluent Design hiện đại." />
+  <style>
+    @property --p {
+      syntax: "<number>";
+      inherits: false;
+      initial-value: 0;
+    }
+    :root {
+      --bg: #eef2f8;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-2: rgba(255, 255, 255, 0.55);
+      --surface-3: rgba(9, 30, 66, 0.045);
+      --surface-solid: #ffffff;
+      --border: rgba(9, 30, 66, 0.09);
+      --border-2: rgba(9, 30, 66, 0.17);
+      --hover: rgba(9, 30, 66, 0.055);
+      --text: #17202b;
+      --text-2: #566273;
+      --text-3: #8692a3;
+      --accent: #0067c0;
+      --accent-2: #2b93e8;
+      --accent-soft: rgba(0, 103, 192, 0.1);
+      --on-accent: #ffffff;
+      --success: #0f7b0f;
+      --success-soft: rgba(15, 123, 15, 0.1);
+      --on-success: #ffffff;
+      --danger: #c42b1c;
+      --danger-soft: rgba(196, 43, 28, 0.1);
+      --on-danger: #ffffff;
+      --warning: #8a6100;
+      --warning-soft: rgba(196, 140, 0, 0.13);
+      --track: rgba(9, 30, 66, 0.09);
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 14px 34px -14px rgba(16, 24, 40, 0.2);
+      --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+      --hero: linear-gradient(130deg, #07549c 0%, #0a6fc2 48%, #2f9de8 100%);
+      --hero-text: #ffffff;
+      --blur: blur(28px) saturate(155%);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Inter", sans-serif;
+      --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, "Inter", sans-serif;
+    }
+    [data-theme="dark"] {
+      --bg: #1a1a1f;
+      --surface: rgba(255, 255, 255, 0.055);
+      --surface-2: rgba(255, 255, 255, 0.035);
+      --surface-3: rgba(255, 255, 255, 0.075);
+      --surface-solid: #2b2b2f;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-2: rgba(255, 255, 255, 0.17);
+      --hover: rgba(255, 255, 255, 0.07);
+      --text: #f4f5f7;
+      --text-2: #bdc3cc;
+      --text-3: #8f97a3;
+      --accent: #60cdff;
+      --accent-2: #38b6ea;
+      --accent-soft: rgba(96, 205, 255, 0.13);
+      --on-accent: #04263a;
+      --success: #6ccb5f;
+      --success-soft: rgba(108, 203, 95, 0.12);
+      --on-success: #0b2b0b;
+      --danger: #ff99a4;
+      --danger-soft: rgba(255, 153, 164, 0.12);
+      --on-danger: #3a0a0f;
+      --warning: #f5d76e;
+      --warning-soft: rgba(245, 215, 110, 0.12);
+      --track: rgba(255, 255, 255, 0.11);
+      --shadow: 0 2px 6px rgba(0, 0, 0, 0.28), 0 18px 44px -18px rgba(0, 0, 0, 0.55);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --hero: linear-gradient(130deg, #0a3355 0%, #0b4a72 50%, #0f6788 100%);
+      --hero-text: #f0fbff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    [hidden] {
+      display: none !important;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      min-height: 100vh;
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(900px 620px at 6% -12%, rgba(66, 146, 255, 0.22), transparent 62%),
+        radial-gradient(820px 560px at 102% -4%, rgba(150, 104, 255, 0.16), transparent 62%),
+        radial-gradient(900px 700px at 46% 112%, rgba(56, 196, 255, 0.17), transparent 66%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    [data-theme="dark"] body {
+      background-image:
+        radial-gradient(900px 620px at 6% -12%, rgba(32, 104, 190, 0.25), transparent 62%),
+        radial-gradient(820px 560px at 102% -4%, rgba(104, 62, 186, 0.2), transparent 62%),
+        radial-gradient(900px 700px at 46% 112%, rgba(0, 128, 168, 0.16), transparent 66%);
+    }
+    ::selection {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    button, input, select {
+      font: inherit;
+      color: inherit;
+    }
+    button {
+      cursor: pointer;
+    }
+    svg {
+      display: block;
+    }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---------- Layout ---------- */
+    .layout {
+      display: grid;
+      grid-template-columns: 275px minmax(0, 1fr);
+      gap: 18px;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 18px;
+      min-height: 100vh;
+    }
+    .main {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1;
+      padding-bottom: 26px;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 18px 14px 14px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 2px 6px 4px;
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: #fff;
+      background: linear-gradient(145deg, #107c41, #008272);
+      box-shadow: 0 6px 14px -6px rgba(16, 124, 65, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    [data-theme="dark"] .brand-icon {
+      color: var(--on-accent);
+      background: linear-gradient(145deg, #60cdff, #107c41);
+    }
+    .brand-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+    .brand-text strong {
+      font-family: var(--font-display);
+      font-size: 15.5px;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+    }
+    .brand-text span {
+      font-size: 11px;
+      color: var(--text-3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      overflow-y: auto;
+      flex: 1;
+      padding: 0 2px;
+    }
+    .nav-label {
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      padding: 12px 10px 5px;
+    }
+    .nav-label:first-child {
+      padding-top: 2px;
+    }
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      width: 100%;
+      padding: 8.5px 11px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 13.5px;
+      font-weight: 500;
+      text-align: left;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .nav-item svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      opacity: 0.9;
+    }
+    .nav-item:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+    .nav-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .nav-item.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 3px;
+      height: 16px;
+      border-radius: 2px;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+    .nav-badge {
+      margin-left: auto;
+      padding: 1px 7px;
+      border-radius: 20px;
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 10.5px;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+    .nav-item.active .nav-badge {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    .sidebar-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 12px 6px 2px;
+      border-top: 1px solid var(--border);
+    }
+    .side-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 10px 11px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+    .side-progress-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-2);
+    }
+    .side-progress-row strong {
+      font-size: 12.5px;
+      color: var(--text);
+      font-weight: 650;
+    }
+    .bar {
+      height: 5px;
+      border-radius: 20px;
+      background: var(--track);
+      overflow: hidden;
+    }
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .side-note {
+      font-size: 10.5px;
+      color: var(--text-3);
+      text-align: center;
+      line-height: 1.45;
+      padding: 0 4px 2px;
+    }
+
+    /* ---------- Topbar ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 8px 14px;
+      margin: 0 -8px 14px;
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.3vw, 26px);
+      font-weight: 650;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      margin-top: 4px;
+    }
+    .page-desc {
+      margin-top: 3px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      max-width: 650px;
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex: none;
+      padding-bottom: 2px;
+    }
+    .icon-btn {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: none;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-2);
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .icon-btn:hover {
+      background: var(--hover);
+      color: var(--text);
+      border-color: var(--border-2);
+    }
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+    .sun { display: none; }
+    [data-theme="dark"] .sun { display: block; }
+    [data-theme="dark"] .moon { display: none; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease, filter 0.15s ease;
+    }
+    .btn:active:not(:disabled) { transform: translateY(1px); }
+    .btn:disabled { opacity: 0.42; cursor: default; }
+    .btn svg { width: 15px; height: 15px; }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--accent-2), var(--accent));
+      color: var(--on-accent);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+    .btn-primary:hover:not(:disabled) { filter: brightness(1.07); }
+    .btn-secondary {
+      background: var(--surface-2);
+      border-color: var(--border-2);
+      color: var(--text);
+    }
+    .btn-secondary:hover:not(:disabled) { background: var(--hover); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-2);
+      border-color: transparent;
+    }
+    .btn-ghost:hover:not(:disabled) { background: var(--hover); color: var(--text); }
+    .btn-danger {
+      background: var(--danger-soft);
+      border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+      color: var(--danger);
+    }
+    .btn-danger:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 18%, transparent); }
+    .btn-light {
+      background: #ffffff;
+      color: #09518c;
+      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.45);
+    }
+    .btn-light:hover:not(:disabled) { background: #f2f9ff; }
+    .btn-hero-ghost {
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.34);
+      color: #fff;
+      backdrop-filter: blur(8px);
+    }
+    .btn-hero-ghost:hover:not(:disabled) { background: rgba(255, 255, 255, 0.22); }
+    .btn.full { width: 100%; }
+
+    /* ---------- Cards & common ---------- */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    .card-pad { padding: 22px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 9px;
+      border-radius: 20px;
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 10.5px;
+      font-weight: 600;
+      line-height: 1.7;
+      white-space: nowrap;
+    }
+    .chip.accent { background: var(--accent-soft); color: var(--accent); }
+    .chip.green { background: var(--success-soft); color: var(--success); }
+    .chip.red { background: var(--danger-soft); color: var(--danger); }
+    .chip.amber { background: var(--warning-soft); color: var(--warning); }
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .card-head h3, .card-head h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+    }
+    .card-head h4 { font-size: 14px; }
+    .sep { height: 1px; background: var(--border); margin: 14px 0; }
+
+    /* ---------- Dashboard ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 30px;
+      padding: 34px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: var(--hero);
+      color: var(--hero-text);
+      box-shadow: 0 24px 48px -26px rgba(0, 74, 148, 0.6);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(460px 280px at 82% 18%, rgba(255, 255, 255, 0.17), transparent 70%),
+        radial-gradient(360px 260px at 6% 108%, rgba(255, 255, 255, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-copy, .hero-progress { position: relative; z-index: 1; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.13);
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hero h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.4vw, 36px);
+      font-weight: 650;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 15px 0 10px;
+      max-width: 600px;
+    }
+    .hero-desc {
+      max-width: 560px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .hero-meta {
+      margin-top: 14px;
+      font-size: 11.5px;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    .hero-progress {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 11px;
+      flex: none;
+      padding-right: 6px;
+    }
+    .ring {
+      --p: 0;
+      display: grid;
+      place-items: center;
+      width: 134px;
+      height: 134px;
+      border-radius: 50%;
+      background: conic-gradient(#ffffff calc(var(--p) * 1%), rgba(255, 255, 255, 0.2) 0);
+      transition: --p 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 8px 28px -12px rgba(0, 0, 0, 0.45);
+    }
+    .ring-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: rgba(5, 39, 70, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      line-height: 1.15;
+    }
+    .ring-inner strong { font-family: var(--font-display); font-size: 25px; font-weight: 650; }
+    .ring-inner span { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255, 255, 255, 0.66); }
+    .hero-progress p { font-size: 11.5px; color: rgba(255, 255, 255, 0.72); text-align: center; }
+    .hero-progress p strong { color: #fff; font-weight: 650; }
+    .hero-deco {
+      position: absolute;
+      right: -62px;
+      bottom: -78px;
+      width: 300px;
+      height: 300px;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .stat {
+      padding: 16px 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .stat:hover { border-color: var(--border-2); transform: translateY(-2px); }
+    .stat-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .stat-label { font-size: 11.5px; font-weight: 500; color: var(--text-2); }
+    .stat-icon {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      flex: none;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .stat-icon svg { width: 16px; height: 16px; }
+    .stat-icon.green { background: var(--success-soft); color: var(--success); }
+    .stat-icon.amber { background: var(--warning-soft); color: var(--warning); }
+    .stat-icon.purple { background: rgba(138, 43, 226, 0.12); color: #8a2be2; }
+    .stat-value {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-family: var(--font-display);
+      font-size: 27px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .stat-value small { font-size: 12px; font-weight: 500; color: var(--text-3); letter-spacing: 0; }
+    .stat-foot { font-size: 10.5px; color: var(--text-3); }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .topic-list { display: flex; flex-direction: column; margin-top: 8px; }
+    .topic {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 2px;
+      border-bottom: 1px solid var(--border);
+    }
+    .topic:last-child { border-bottom: 0; padding-bottom: 2px; }
+    .topic-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      flex: none;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .topic:nth-child(2) .topic-icon { background: var(--success-soft); color: var(--success); }
+    .topic:nth-child(3) .topic-icon { background: var(--warning-soft); color: var(--warning); }
+    .topic:nth-child(4) .topic-icon { background: rgba(138, 43, 226, 0.12); color: #8a2be2; }
+    .topic-icon svg { width: 17px; height: 17px; }
+    .topic-body { min-width: 0; flex: 1; }
+    .topic-body strong { display: block; font-size: 13px; font-weight: 600; line-height: 1.45; }
+    .topic-body p { font-size: 11.5px; color: var(--text-3); line-height: 1.5; margin-top: 2px; }
+
+    .tips { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    .tip { display: flex; gap: 10px; font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
+    .tip-num {
+      display: grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      flex: none;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 10.5px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .plan { margin-top: 14px; }
+    .plan-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(80px, 1fr) auto auto;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .plan-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-size: 13px;
+      font-weight: 550;
+    }
+    .plan-name svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
+    .plan-name span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .plan-count { font-size: 11.5px; color: var(--text-3); min-width: 48px; text-align: right; }
+    .plan .btn { height: 31px; font-size: 12px; padding: 0 12px; }
+
+    /* ---------- Quiz toolbar ---------- */
+    .quiz-toolbar {
+      position: relative;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      padding: 13px 18px;
+      margin-bottom: 14px;
+      overflow: visible;
+    }
+    .toolbar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 210px;
+    }
+    .toolbar-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+    .toolbar-sub { font-size: 11.5px; color: var(--text-3); }
+    .toolbar-bar { width: 100%; max-width: 340px; height: 4px; }
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      overflow: visible;
+    }
+    /* ---------- Fluent Combobox Dropdown ---------- */
+    select.filter-select {
+      display: none !important;
+    }
+    .fluent-combobox {
+      position: relative;
+      display: inline-block;
+      user-select: none;
+      z-index: auto;
+    }
+    .fluent-combobox.open {
+      z-index: 2000;
+    }
+    .combobox-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      height: 34px;
+      padding: 0 11px 0 13px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 550;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+    }
+    .combobox-trigger:hover {
+      background: var(--hover);
+      border-color: var(--border-2);
+    }
+    .combobox-trigger:focus-visible,
+    .fluent-combobox.open .combobox-trigger {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+      outline: none;
+    }
+    .combobox-label {
+      max-width: 175px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+    .combobox-chevron {
+      width: 13px;
+      height: 13px;
+      flex: none;
+      color: var(--text-3);
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.15s ease;
+    }
+    .fluent-combobox.open .combobox-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+    .combobox-menu {
+      position: absolute;
+      top: calc(100% + 5px);
+      right: 0;
+      z-index: 9999;
+      min-width: 100%;
+      width: max-content;
+      max-width: 290px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 4px;
+      border-radius: 8px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border-2);
+      box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.1);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      animation: combobox-pop 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    [data-theme="dark"] .combobox-menu {
+      background: #25262c;
+      box-shadow: 0 14px 34px -6px rgba(0, 0, 0, 0.65), 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+    @keyframes combobox-pop {
+      from { opacity: 0; transform: translateY(-4px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .combobox-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 11px;
+      border-radius: 5px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+    }
+    .combobox-item:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+    .combobox-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .combobox-check {
+      width: 13px;
+      height: 13px;
+      flex: none;
+      color: var(--accent);
+      opacity: 0;
+    }
+    .combobox-item.active .combobox-check {
+      opacity: 1;
+    }
+    .switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-2);
+      cursor: pointer;
+      user-select: none;
+    }
+    .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .switch-track {
+      position: relative;
+      width: 38px;
+      height: 20px;
+      flex: none;
+      border-radius: 20px;
+      background: var(--track);
+      border: 1px solid var(--border-2);
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .switch-thumb {
+      position: absolute;
+      top: 50%;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--text-2);
+      transform: translateY(-50%);
+      transition: left 0.18s ease, width 0.18s ease, background 0.18s ease;
+    }
+    .switch input:checked + .switch-track { background: var(--accent); border-color: transparent; }
+    .switch input:checked + .switch-track .switch-thumb { left: 21px; background: var(--on-accent); }
+    .switch input:focus-visible + .switch-track { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ---------- Quiz Layout ---------- */
+    .quiz-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 292px;
+      align-items: start;
+      gap: 14px;
+    }
+    .question-card {
+      padding: 26px 28px;
+      scroll-margin-top: 96px;
+    }
+    .q-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .q-eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .q-title {
+      font-family: var(--font-display);
+      font-size: clamp(17.5px, 2vw, 20.5px);
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      margin: 12px 0 20px;
+      text-wrap: pretty;
+    }
+    .options { display: flex; flex-direction: column; gap: 9px; }
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+    }
+    .option:hover:not(:disabled) { background: var(--hover); border-color: var(--border-2); }
+    .option:active:not(:disabled) { transform: scale(0.996); }
+    .option:disabled { cursor: default; }
+    .option .letter {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      flex: none;
+      margin-top: 1px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 650;
+    }
+    .option-text { flex: 1; min-width: 0; }
+    .option-mark { flex: none; align-self: center; font-size: 15px; font-weight: 700; line-height: 1; }
+    .option.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+    .option.selected .letter { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+    .option.correct {
+      border-color: var(--success);
+      background: var(--success-soft);
+      box-shadow: inset 0 0 0 1px var(--success);
+    }
+    .option.correct .letter { background: var(--success); border-color: transparent; color: var(--on-success); }
+    .option.correct .option-mark { color: var(--success); }
+    .option.wrong {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+      box-shadow: inset 0 0 0 1px var(--danger);
+    }
+    .option.wrong .letter { background: var(--danger); border-color: transparent; color: var(--on-danger); }
+    .option.wrong .option-mark { color: var(--danger); }
+    .option.muted { opacity: 0.52; }
+
+    .feedback {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 15px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .feedback-icon {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      flex: none;
+      margin-top: 1px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .feedback-body { min-width: 0; }
+    .feedback-body strong { font-weight: 650; }
+    .feedback.success { background: var(--success-soft); border-color: color-mix(in srgb, var(--success) 34%, transparent); }
+    .feedback.success .feedback-icon { background: var(--success); color: var(--on-success); }
+    .feedback.success strong { color: var(--success); }
+    .feedback.danger { background: var(--danger-soft); border-color: color-mix(in srgb, var(--danger) 34%, transparent); }
+    .feedback.danger .feedback-icon { background: var(--danger); color: var(--on-danger); }
+    .feedback.danger strong { color: var(--danger); }
+    .feedback-note {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .q-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .q-actions-right { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-left: auto; }
+    .shake { animation: shake 0.34s ease; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    /* ---------- Side panel ---------- */
+    .quiz-side { display: flex; flex-direction: column; gap: 12px; }
+    .navigator { padding: 18px; }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 5px;
+      max-height: 340px;
+      overflow-y: auto;
+      padding-right: 2px;
+      margin-top: 12px;
+    }
+    .nav-cell {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 11px;
+      font-weight: 600;
+      transition: background 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+    }
+    .nav-cell:hover { border-color: var(--border-2); background: var(--hover); }
+    .nav-cell.done-correct {
+      background: var(--success-soft);
+      color: var(--success);
+      border-color: color-mix(in srgb, var(--success) 28%, transparent);
+    }
+    .nav-cell.done-wrong {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border-color: color-mix(in srgb, var(--danger) 28%, transparent);
+    }
+    .nav-cell.done-partial {
+      background: var(--warning-soft);
+      color: var(--warning);
+      border-color: color-mix(in srgb, var(--warning) 28%, transparent);
+    }
+    .nav-cell.current { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 8px;
+      margin-top: 13px;
+      font-size: 10.5px;
+      color: var(--text-3);
+    }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-2);
+    }
+    .legend i.ok { background: var(--success-soft); border-color: var(--success); }
+    .legend i.bad { background: var(--danger-soft); border-color: var(--danger); }
+    .legend i.now { background: transparent; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .mini-score {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 14px;
+      padding-top: 13px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .mini-score div { display: flex; flex-direction: column; gap: 1px; }
+    .mini-score span { font-size: 10px; color: var(--text-3); }
+    .mini-score strong { font-family: var(--font-display); font-size: 16px; font-weight: 650; }
+    .mini-score div:nth-child(1) strong { color: var(--success); }
+    .mini-score div:nth-child(2) strong { color: var(--danger); }
+    .shortcut-card { padding: 16px 18px; }
+    .shortcut { display: flex; align-items: center; gap: 6px; margin-top: 9px; font-size: 11px; color: var(--text-3); }
+    .shortcut span { margin-left: auto; text-align: right; }
+    kbd {
+      display: inline-grid;
+      place-items: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      border-radius: 4px;
+      border: 1px solid var(--border-2);
+      border-bottom-width: 2px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    /* ---------- True / False ---------- */
+    .tf-intro { margin: 10px 0 17px; font-size: 14px; line-height: 1.65; color: var(--text-2); }
+    .tf-list { display: flex; flex-direction: column; gap: 9px; }
+    .tf-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 18px;
+      flex-wrap: wrap;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .tf-row.ok {
+      border-color: color-mix(in srgb, var(--success) 30%, transparent);
+      background: color-mix(in srgb, var(--success-soft) 55%, var(--surface-2));
+    }
+    .tf-row.bad {
+      border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+      background: color-mix(in srgb, var(--danger-soft) 55%, var(--surface-2));
+    }
+    .tf-text { display: flex; gap: 9px; flex: 1; min-width: 230px; font-size: 13.5px; line-height: 1.55; }
+    .tf-letter { flex: none; font-weight: 700; color: var(--accent); }
+    .tf-controls { display: flex; align-items: center; gap: 9px; flex: none; }
+    .segmented {
+      display: inline-flex;
+      gap: 2px;
+      padding: 2px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-3);
+    }
+    .seg {
+      padding: 5px 13px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 600;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .seg:hover:not(:disabled) { color: var(--text); }
+    .seg.sel { background: var(--accent); color: var(--on-accent); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16); }
+    .seg.correct { background: var(--success); color: var(--on-success); }
+    .seg.wrong { background: var(--danger); color: var(--on-danger); }
+    .seg:disabled { cursor: default; }
+    .tf-status {
+      display: grid;
+      place-items: center;
+      width: 23px;
+      height: 23px;
+      flex: none;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .tf-status.ok { background: var(--success-soft); color: var(--success); }
+    .tf-status.bad { background: var(--danger-soft); color: var(--danger); }
+    .tf-nav { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; max-height: 330px; overflow-y: auto; padding-right: 2px; }
+    .tf-dot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 11px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 550;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .tf-dot:hover { background: var(--hover); border-color: var(--border-2); }
+    .tf-dot.current { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+    .tf-dot .score { font-size: 10.5px; color: var(--text-3); font-weight: 600; }
+    .tf-dot.done .score { color: var(--success); }
+    .tf-explain-box {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: var(--surface-3);
+      font-size: 11.5px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    /* ---------- Short Answer view ---------- */
+    .short-input-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0 10px;
+      flex-wrap: wrap;
+    }
+    .short-input {
+      flex: 1;
+      min-width: 200px;
+      height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      font-size: 14.5px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .short-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--surface);
+    }
+    .short-input:disabled { opacity: 0.65; }
+
+    /* ---------- Essay view ---------- */
+    .essay-card {
+      padding: 24px;
+      margin-bottom: 14px;
+    }
+    .essay-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .essay-q {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .essay-toggle-btn {
+      margin-bottom: 14px;
+    }
+    .essay-answer-box {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .essay-answer-box h4 {
+      font-size: 14px;
+      font-weight: 650;
+      margin: 10px 0 6px;
+      color: var(--accent);
+    }
+    .essay-answer-box h4:first-child { margin-top: 0; }
+    .essay-answer-box ul { padding-left: 20px; margin: 6px 0; }
+    .essay-answer-box li { margin-bottom: 4px; }
+
+    /* ---------- Bank ---------- */
+    .bank-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .search {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+    .search svg {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      color: var(--text-3);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .search input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px 0 35px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search input::placeholder { color: var(--text-3); }
+    .search input:hover { border-color: var(--border-2); }
+    .search input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--surface);
+    }
+    .filter-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+    .filter-chip {
+      height: 32px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 550;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .filter-chip:hover { border-color: var(--border-2); }
+    .filter-chip.active { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+    .bank-count { font-size: 11.5px; color: var(--text-3); margin: 0 2px 10px; }
+    .bank-list { display: flex; flex-direction: column; gap: 10px; }
+    .bank-item { padding: 18px 20px; }
+    .bank-item-head { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .bank-q {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.55;
+      margin: 9px 0 12px;
+      text-wrap: pretty;
+    }
+    .bank-options { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 10px; }
+    .bank-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 9px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+    .bank-option .letter { flex: none; font-size: 11px; font-weight: 700; color: var(--text-3); min-width: 13px; }
+    .bank-option.correct { background: var(--success-soft); color: var(--text); }
+    .bank-option.correct .letter { color: var(--success); }
+    .bank-tf-list { display: flex; flex-direction: column; gap: 5px; }
+    .bank-tf {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: var(--surface-2);
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+    .bank-tf .tf-letter { font-size: 11px; }
+    .bank-note {
+      margin-top: 9px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: var(--warning-soft);
+      color: var(--text-2);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+    .empty { padding: 42px 20px; text-align: center; color: var(--text-3); font-size: 13px; }
+    .empty svg { width: 34px; height: 34px; margin: 0 auto 10px; opacity: 0.5; }
+
+    /* ---------- Dialog & toast ---------- */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(8, 14, 24, 0.42);
+      backdrop-filter: blur(5px);
+      animation: fade-in 0.16s ease;
+    }
+    .dialog {
+      width: min(420px, 100%);
+      padding: 24px;
+      border-radius: 12px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.5);
+      animation: pop-in 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .dialog-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--danger-soft);
+      color: var(--danger);
+      margin-bottom: 12px;
+    }
+    .dialog-icon svg { width: 19px; height: 19px; }
+    .dialog h3 { font-family: var(--font-display); font-size: 18px; font-weight: 650; }
+    .dialog p { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--text-2); }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      z-index: 120;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.35);
+      font-size: 12.5px;
+      color: var(--text);
+      transform: translateX(-50%);
+      animation: toast-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      max-width: calc(100vw - 32px);
+    }
+    .toast svg { width: 16px; height: 16px; flex: none; color: var(--accent); }
+    @keyframes toast-in {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ---------- Views ---------- */
+    .view { display: none; }
+    .view.active { display: block; animation: view-in 0.28s cubic-bezier(0.2, 0.7, 0.2, 1); }
+    @keyframes view-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-tabs { display: none; }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 4px 4px;
+      margin-top: 6px;
+      border-top: 1px solid var(--border);
+      font-size: 10.5px;
+      color: var(--text-3);
+    }
+    .footer span { display: inline-flex; align-items: center; gap: 6px; }
+    .footer svg { width: 13px; height: 13px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1180px) {
+      .quiz-layout { grid-template-columns: minmax(0, 1fr) 260px; }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 1000px) {
+      .layout { display: block; padding: 0 12px 22px; }
+      .sidebar { display: none; }
+      .topbar {
+        position: static;
+        padding: 16px 4px 10px;
+        margin: 0 0 4px;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: 0;
+      }
+      .mobile-tabs {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        padding: 7px;
+        margin-bottom: 13px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        backdrop-filter: blur(18px) saturate(150%);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        scrollbar-width: none;
+      }
+      .mobile-tabs::-webkit-scrollbar { display: none; }
+      .mobile-tabs .nav-item { width: auto; flex: none; padding: 7px 11px; font-size: 12.5px; white-space: nowrap; }
+      .mobile-tabs .nav-item.active::before { display: none; }
+      .mobile-tabs .nav-item svg { width: 16px; height: 16px; }
+      .mobile-tabs .nav-badge { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 28px 26px; gap: 22px; }
+      .hero-progress { flex-direction: row; align-items: center; gap: 16px; padding: 0; }
+      .ring { width: 90px; height: 90px; }
+      .ring-inner { width: 72px; height: 72px; }
+      .ring-inner strong { font-size: 18px; }
+      .ring-inner span { font-size: 8.5px; }
+      .hero-progress p { text-align: left; }
+      .quiz-layout { grid-template-columns: 1fr; }
+      .quiz-side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+      .shortcut-card { display: none; }
+      .navigator { grid-column: 1 / -1; }
+      .nav-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 26px; }
+      .hero-desc { font-size: 12.5px; }
+      .plan-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; }
+      .plan-row .bar { grid-column: 1 / -1; order: 3; }
+      .plan-count { text-align: right; }
+      .plan-row .btn { grid-column: 2; grid-row: 1; }
+      .bank-options { grid-template-columns: 1fr; }
+      .question-card { padding: 20px 18px; }
+      .q-title { font-size: 17.5px; }
+      .option { padding: 11px 12px; font-size: 13.5px; }
+      .tf-row { align-items: flex-start; }
+      .tf-controls { width: 100%; justify-content: flex-end; }
+      .page-desc { display: none; }
+      .top-cta { display: none; }
+      .topbar { align-items: center; }
+      .stats-grid { gap: 9px; }
+      .stat { padding: 13px 14px; }
+      .stat-value { font-size: 23px; }
+      .combobox-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: calc(100vw - 28px);
+        width: auto;
+      }
+      @keyframes combobox-pop {
+        from { opacity: 0; transform: translate(-50%, -4px) scale(0.97); }
+        to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+      }
+    }
+    @media (max-width: 520px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 24px 20px; }
+      .hero-actions .btn { flex: 1; min-width: 140px; }
+      .toolbar-right { gap: 8px; }
+      .toolbar-right .switch span { display: none; }
+      .quiz-side { grid-template-columns: 1fr; }
+      .nav-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+      .q-actions .btn { flex: 1; }
+      .q-actions-right { width: 100%; }
+      .q-actions-right .btn { flex: 1; }
+      .bank-toolbar { gap: 9px; }
+      .bank-item { padding: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Điều hướng chính">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
+            <path d="M12 6v12"></path>
+            <path d="M16 10l-4-4-4 4"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Công nghệ NN 11</strong>
+          <span>Ôn tập Giữa kỳ I</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <p class="nav-label">Học tập</p>
+        <button class="nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 21v-7h6v7"></path></svg>
+          <span>Tổng quan</span>
+        </button>
+        <button class="nav-item" data-view="mcq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path><path d="M8 15h8"></path></svg>
+          <span>Trắc nghiệm</span>
+          <span class="nav-badge">35</span>
+        </button>
+        <button class="nav-item" data-view="tf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <span>Đúng / Sai</span>
+          <span class="nav-badge">10</span>
+        </button>
+        <button class="nav-item" data-view="short">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Điền số / Ngắn</span>
+          <span class="nav-badge">0</span>
+        </button>
+        <button class="nav-item" data-view="essay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Tự luận khoa học</span>
+          <span class="nav-badge">6</span>
+        </button>
+        <p class="nav-label">Tra cứu</p>
+        <button class="nav-item" data-view="bank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+          <span>Ngân hàng câu hỏi</span>
+          <span class="nav-badge">51</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="side-progress">
+          <div class="side-progress-row"><span>Tiến độ tổng</span><strong id="sidePct">0%</strong></div>
+          <div class="bar"><span id="sideBar"></span></div>
+          <div class="side-progress-row"><span id="sideDone">0 / 45 câu</span><span>đã hoàn thành</span></div>
+        </div>
+        <button class="btn btn-ghost full" id="sideReset" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+          Đặt lại tiến độ
+        </button>
+        <p class="side-note">Tiến độ được tự động lưu trên trình duyệt của bạn</p>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="crumb">Công nghệ NN 11 • Đề cương Giữa kỳ I</p>
+          <h1 class="page-title" id="pageTitle">Tổng quan ôn tập</h1>
+          <p class="page-desc" id="pageDesc">Hệ thống câu hỏi đề cương Giữa kì I: Trắc nghiệm 1 phương án, Đúng / Sai và Tự luận.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="Đổi giao diện sáng / tối" title="Đổi giao diện sáng / tối">
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          </button>
+          <button class="btn btn-primary top-cta" type="button" data-go="mcq">Luyện trắc nghiệm</button>
+        </div>
+      </header>
+
+      <nav class="mobile-tabs" aria-label="Điều hướng trên thiết bị di động">
+        <button class="nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 21v-7h6v7"></path></svg>
+          <span>Tổng quan</span>
+        </button>
+        <button class="nav-item" data-view="mcq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path></svg>
+          <span>Trắc nghiệm</span>
+        </button>
+        <button class="nav-item" data-view="tf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+          <span>Đúng/Sai</span>
+        </button>
+        <button class="nav-item" data-view="short">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+          <span>Điền số</span>
+        </button>
+        <button class="nav-item" data-view="essay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path></svg>
+          <span>Tự luận</span>
+        </button>
+        <button class="nav-item" data-view="bank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle></svg>
+          <span>Ngân hàng</span>
+        </button>
+      </nav>
+
+      <main class="content">
+        <!-- Dashboard -->
+        <section class="view active" id="view-dashboard">
+          <div class="hero card">
+            <div class="hero-copy">
+              <div class="hero-badges">
+                <span class="hero-badge">Đề cương chuẩn</span>
+                <span class="hero-badge">51 câu hỏi</span>
+                <span class="hero-badge">5 bài trọng tâm</span>
+              </div>
+              <h2>Ôn tập Công nghệ 11<br />Chăn nuôi – Giữa Học Kỳ I</h2>
+              <p class="hero-desc">Hệ thống đầy đủ câu hỏi từ đề cương chính thức: Vai trò và triển vọng chăn nuôi, Giống vật nuôi, Chọn giống, Nhân giống và Phương thức chăn nuôi. Làm bài và đối chiếu đáp án chi tiết tức thì.</p>
+              <div class="hero-actions">
+                <button class="btn btn-light" type="button" data-go="mcq">Bắt đầu Trắc nghiệm (35 câu)
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+                </button>
+                <button class="btn btn-hero-ghost" type="button" data-go="tf">Luyện Đúng / Sai (10 câu)
+                </button>
+                <button class="btn btn-hero-ghost" type="button" data-go="essay">Tự luận khoa học (6 câu)
+                </button>
+              </div>
+              <p class="hero-meta">35 Trắc nghiệm 1 lựa chọn • 10 Đúng / Sai (40 nhận định) • 6 Tự luận</p>
+            </div>
+            <div class="hero-progress">
+              <div class="ring" id="heroRing" aria-hidden="true">
+                <div class="ring-inner">
+                  <strong id="heroPct">0%</strong>
+                  <span>hoàn thành</span>
+                </div>
+              </div>
+              <p>Đã làm <strong id="heroDone">0</strong> / 45 câu</p>
+            </div>
+            <svg class="hero-deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
+              <path d="M12 6v12"></path>
+              <path d="M16 10l-4-4-4 4"></path>
+            </svg>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Tổng câu đã làm</span>
+                <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statDone">0</span><small>/ 45</small></div>
+              <p class="stat-foot">câu hỏi trên toàn bộ hệ thống</p>
+            </article>
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Độ chính xác TN</span>
+                <span class="stat-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg></span>
+              </div>
+              <div class="stat-value"><span id="statAcc">&mdash;</span></div>
+              <p class="stat-foot">tính trên phần trắc nghiệm đã làm</p>
+            </article>
+            <article class="stat card" data-stat="tf">
+              <div class="stat-top">
+                <span class="stat-label">Đúng / Sai đạt chuẩn</span>
+                <span class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statTF">0</span><small>/ 10</small></div>
+              <p class="stat-foot">câu đúng trọn vẹn cả 4 ý</p>
+            </article>
+            <article class="stat card" data-stat="essay">
+              <div class="stat-top">
+                <span class="stat-label">Tự luận đã nắm</span>
+                <span class="stat-icon purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
+              </div>
+              <div class="stat-value"><span id="statShort">0</span><small>/ 6</small></div>
+              <p class="stat-foot">câu tự luận đã đánh dấu hiểu</p>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Cấu trúc đề cương</p>
+                  <h3 style="margin-top: 4px">5 bài trọng tâm thi Giữa kỳ I</h3>
+                </div>
+                <span class="chip">51 câu</span>
+              </div>
+              <div class="topic-list">
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 1 — Vai trò, triển vọng của chăn nuôi</strong>
+                    <p>Vai trò với đời sống và kinh tế - xã hội, xu hướng phát triển chăn nuôi công nghiệp, tuần hoàn, bền vững.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c6.667-6 13.333 0 20-6"></path><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"></path><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"></path><path d="M17 6l-2.5-2.5"></path><path d="M14 8l-1-1"></path><path d="M7 18l2.5 2.5"></path><path d="M3.5 14.5l.5.5"></path><path d="M20 9l.5.5"></path><path d="M6.5 12.5l1 1"></path><path d="M16.5 10.5l1 1"></path><path d="M10 16l1 1"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 2 — Giống vật nuôi</strong>
+                    <p>Khái niệm giống, vật nuôi; điều kiện công nhận giống; phân loại giống và vai trò quyết định của giống.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 3 — Chọn giống vật nuôi</strong>
+                    <p>Chỉ tiêu chọn giống (ngoại hình, thể chất, sinh trưởng – phát dục, khả năng sản xuất); chọn lọc hàng loạt và cá thể.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"></path><path d="M14 9.3V1.99"></path><path d="M8.5 2h7"></path><path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path><path d="M5.52 16h12.96"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 4 — Nhân giống vật nuôi</strong>
+                    <p>Nhân giống thuần chủng, lai giống, ưu thế lai, thụ tinh nhân tạo và công nghệ cấy truyền phôi.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"></path><path d="M6 18h12"></path><path d="M6 14h12"></path><rect width="12" height="12" x="6" y="10"></rect></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 5 — Phương thức chăn nuôi</strong>
+                    <p>Chăn thả tự do, bán công nghiệp, công nghiệp; ưu nhược điểm và lựa chọn phương thức phù hợp.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Chiến lược học tập</p>
+                  <h3 style="margin-top: 4px">Kinh nghiệm giải đề Công nghệ NN 11</h3>
+                </div>
+                <span class="chip accent">Chuẩn SGD</span>
+              </div>
+              <div class="tips">
+                <div class="tip"><span class="tip-num">1</span><span><strong>Nắm chắc khái niệm giống vật nuôi::</strong> Cùng loài, cùng nguồn gốc, chung ngoại hình – cấu trúc di truyền – năng suất, được hình thành và cố định qua chọn lọc.</span></div>
+                <div class="tip"><span class="tip-num">2</span><span><strong>Phân biệt 4 phương pháp nhân giống::</strong> Nhân giống thuần chủng (cùng giống), lai kinh tế (khác giống, dùng F1 thương phẩm), lai cải tạo (thay đổi cơ bản giống kém), lai xa (khác loài).</span></div>
+                <div class="tip"><span class="tip-num">3</span><span><strong>Hai phương pháp chọn lọc::</strong> Chọn lọc hàng loạt: đàn lớn, đơn giản, chi phí thấp, hiệu quả trung bình. Chọn lọc cá thể: đánh giá tổ tiên – bản thân – đời sau, độ chính xác cao.</span></div>
+                <div class="tip"><span class="tip-num">4</span><span><strong>Sử dụng phím tắt::</strong> Bấm 1–4 hoặc A–D để chọn đáp án, Enter để kiểm tra / chuyển câu, ← → để đổi câu nhanh.</span></div>
+              </div>
+              <div class="sep"></div>
+              <button class="btn btn-secondary full" type="button" id="dashBrowse">Tra cứu toàn bộ 51 câu hỏi</button>
+            </section>
+          </div>
+
+          <section class="card card-pad plan">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Tiến độ theo dạng</p>
+                <h3 style="margin-top: 4px">Các phần kiểm tra</h3>
+              </div>
+            </div>
+                        <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path></svg>
+                <span>Phần I — Trắc nghiệm 1 lựa chọn</span>
+              </div>
+              <div class="bar"><span id="barMcq"></span></div>
+              <span class="plan-count" id="countMcq">0 / 35</span>
+              <button class="btn btn-secondary" type="button" data-go="mcq">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+                <span>Phần II — Trắc nghiệm Đúng / Sai</span>
+              </div>
+              <div class="bar"><span id="barTf"></span></div>
+              <span class="plan-count" id="countTf">0 / 10</span>
+              <button class="btn btn-secondary" type="button" data-go="tf">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span>Phần III — Điền số / Trả lời ngắn</span>
+              </div>
+              <div class="bar"><span id="barShort"></span></div>
+              <span class="plan-count" id="countShort">0 / 0</span>
+              <button class="btn btn-secondary" type="button" data-go="short">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path></svg>
+                <span>Phần IV — Tự luận</span>
+              </div>
+              <div class="bar"><span id="barEssay"></span></div>
+              <span class="plan-count" id="countEssay">0 / 6</span>
+              <button class="btn btn-secondary" type="button" data-go="essay">Ôn ngay</button>
+            </div>
+          </section>
+        </section>
+
+        <!-- Trắc nghiệm (MCQ) -->
+        <section class="view" id="view-mcq">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="mcqChip">Câu 1 / 35</span>
+                <span class="toolbar-sub" id="mcqLessonName">Bài 1: Khái quát về TĐC &amp; CHNL</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="mcqBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="mcqLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (35 câu)</option>
+                <option value="1">Bài 1: Vai trò, triển vọng chăn nuôi (3 câu)</option>
+                <option value="2">Bài 2: Giống vật nuôi (9 câu)</option>
+                <option value="3">Bài 3: Chọn giống vật nuôi (8 câu)</option>
+                <option value="4">Bài 4: Nhân giống vật nuôi (8 câu)</option>
+                <option value="5">Bài 5: Phương thức chăn nuôi (7 câu)</option>
+              </select>
+              <label class="switch">
+                <input type="checkbox" id="mcqShuffleQ" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn câu</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" id="mcqShuffleA" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn đáp án</span>
+              </label>
+              <button class="icon-btn" type="button" id="mcqRestart" title="Làm lại phần trắc nghiệm" aria-label="Làm lại phần trắc nghiệm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="mcqCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="mcqEyebrow">Câu hỏi 1</span>
+                <span class="chip" id="mcqType">Trắc nghiệm</span>
+              </div>
+              <h2 class="q-title" id="mcqTitle"></h2>
+              <div class="options" id="mcqOptions"></div>
+              <div class="feedback" id="mcqFeedback" hidden></div>
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="mcqPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="mcqUndo" hidden>Làm lại</button>
+                  <button class="btn btn-primary" type="button" id="mcqCheck">Kiểm tra</button>
+                  <button class="btn btn-secondary" type="button" id="mcqNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Bảng câu hỏi</h4>
+                  <span class="chip" id="mcqNavStat">0 / 35</span>
+                </div>
+                <div class="nav-grid" id="mcqNavGrid"></div>
+                <div class="legend">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Đúng</span>
+                  <span><i class="bad"></i>Sai</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+                <div class="mini-score">
+                  <div><span>Đúng</span><strong id="mcqCorrect">0</strong></div>
+                  <div><span>Sai</span><strong id="mcqWrong">0</strong></div>
+                  <div><span>Còn lại</span><strong id="mcqLeft">35</strong></div>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Phím tắt nhanh</h4>
+                <div class="shortcut"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><span>chọn đáp án A, B, C, D</span></div>
+                <div class="shortcut"><kbd>Enter</kbd><span>kiểm tra / câu tiếp theo</span></div>
+                <div class="shortcut"><kbd>&larr;</kbd><kbd>&rarr;</kbd><span>chuyển câu trước / sau</span></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Đúng / Sai (TF) -->
+        <section class="view" id="view-tf">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="tfChip">Câu 1 / 10</span>
+                <span class="toolbar-sub" id="tfLessonName">Bài 1: Khái quát về TĐC &amp; CHNL</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="tfBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="tfLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (10 câu)</option>
+                <option value="1">Bài 1: Vai trò, triển vọng chăn nuôi (1 câu)</option>
+                <option value="2">Bài 2: Giống vật nuôi (2 câu)</option>
+                <option value="3">Bài 3: Chọn giống vật nuôi (2 câu)</option>
+                <option value="4">Bài 4: Nhân giống vật nuôi (3 câu)</option>
+                <option value="5">Bài 5: Phương thức chăn nuôi (2 câu)</option>
+              </select>
+              <label class="switch">
+                <input type="checkbox" id="tfShuffleQ" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn câu</span>
+              </label>
+              <button class="icon-btn" type="button" id="tfRestart" title="Làm lại phần Đúng / Sai" aria-label="Làm lại phần Đúng / Sai">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="tfCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="tfEyebrow">Câu hỏi 13</span>
+                <span class="chip" id="tfType">Đúng / Sai &bull; 4 nhận định</span>
+              </div>
+              <p class="tf-intro" id="tfIntro"></p>
+              <div class="tf-list" id="tfItems"></div>
+              <div class="feedback" id="tfFeedback" hidden></div>
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="tfPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="tfUndo" hidden>Làm lại</button>
+                  <button class="btn btn-primary" type="button" id="tfCheck">Kiểm tra</button>
+                  <button class="btn btn-secondary" type="button" id="tfNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Danh sách câu</h4>
+                  <span class="chip" id="tfNavStat">0 / 10</span>
+                </div>
+                <div class="tf-nav" id="tfNav"></div>
+                <div class="sep"></div>
+                <div class="legend" style="margin-top: 0">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Đúng cả 4</span>
+                  <span><i class="bad"></i>Có ý sai</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Quy tắc chấm Đúng/Sai</h4>
+                <p style="margin-top: 7px; font-size: 11.5px; line-height: 1.55; color: var(--text-3)">Mỗi câu gồm 4 nhận định a, b, c, d. Bấm nút Đúng hoặc Sai cho đủ cả 4 ý rồi bấm Kiểm tra để xem đối chiếu giải thích chi tiết theo ANSWER.txt.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Điền số / Trả lời ngắn (Short) -->
+        <section class="view" id="view-short">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="shortChip">Câu 1 / 0</span>
+                <span class="toolbar-sub" id="shortLessonName">Điền số / Trả lời ngắn</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="shortBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="shortLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (0 câu)</option>
+              </select>
+              <button class="icon-btn" type="button" id="shortRestart" title="Làm lại phần Điền số" aria-label="Làm lại phần Điền số">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="shortCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="shortEyebrow">Câu hỏi 16</span>
+                <span class="chip" id="shortType">Điền số / Trả lời ngắn</span>
+              </div>
+              <h2 class="q-title" id="shortTitle"></h2>
+              
+              <div class="short-input-row">
+                <input type="text" class="short-input" id="shortInput" placeholder="Nhập đáp số hoặc số lượng cần tìm..." autocomplete="off" />
+                <button class="btn btn-primary" type="button" id="shortCheck">Kiểm tra</button>
+              </div>
+
+              <div class="feedback" id="shortFeedback" hidden></div>
+
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="shortPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="shortUndo" hidden>Làm lại</button>
+                  <button class="btn btn-secondary" type="button" id="shortNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Danh sách câu</h4>
+                  <span class="chip" id="shortNavStat">0 / 0</span>
+                </div>
+                <div class="nav-grid" id="shortNavGrid"></div>
+                <div class="legend">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Chính xác</span>
+                  <span><i class="bad"></i>Chưa đúng</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Gợi ý làm bài</h4>
+                <p style="margin-top: 7px; font-size: 11.5px; line-height: 1.55; color: var(--text-3)">Chỉ cần nhập chữ số (ví dụ: <kbd>5</kbd>, <kbd>2</kbd>, <kbd>4</kbd>, <kbd>200</kbd>, <kbd>18</kbd>, <kbd>32</kbd>). Hệ thống tự nhận diện và giải thích các bước tính toán chi tiết.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Tự luận khoa học (Essay) -->
+        <section class="view" id="view-essay">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent">Tự luận khoa học</span>
+                <span class="toolbar-sub">6 câu hỏi &bull; Hướng dẫn chấm &amp; Đáp án chi tiết</span>
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="essayLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (6 câu)</option>
+                <option value="1">Bài 1: Vai trò, triển vọng chăn nuôi (1 câu)</option>
+                <option value="4">Bài 4: Nhân giống vật nuôi (3 câu)</option>
+                <option value="5">Bài 5: Phương thức chăn nuôi (2 câu)</option>
+              </select>
+              <button class="btn btn-secondary" type="button" id="essayToggleAll">Hiện tất cả đáp án</button>
+            </div>
+          </div>
+
+          <div id="essayList"></div>
+        </section>
+
+        <!-- Ngân hàng câu hỏi (Bank) -->
+        <section class="view" id="view-bank">
+          <div class="bank-toolbar card">
+            <label class="search">
+              <span class="sr-only">Tìm câu hỏi</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+              <input type="search" id="bankSearch" placeholder="Tìm theo nội dung câu hỏi, từ khóa Công nghệ chăn nuôi..." autocomplete="off" />
+            </label>
+            <div class="filter-chips" id="bankTypeFilters">
+              <button class="filter-chip active" type="button" data-type="all">Tất cả (51)</button>
+              <button class="filter-chip" type="button" data-type="mcq">Trắc nghiệm (35)</button>
+              <button class="filter-chip" type="button" data-type="tf">Đúng / Sai (10)</button>
+              <button class="filter-chip" type="button" data-type="short">Điền số / Ngắn (0)</button>
+              <button class="filter-chip" type="button" data-type="essay">Tự luận khoa học (6)</button>
+            </div>
+            <select class="filter-select" id="bankLessonFilter" aria-label="Lọc theo bài">
+              <option value="all">Mọi bài học</option>
+              <option value="1">Bài 1: Vai trò, triển vọng chăn nuôi</option>
+              <option value="2">Bài 2: Giống vật nuôi</option>
+              <option value="3">Bài 3: Chọn giống vật nuôi</option>
+              <option value="4">Bài 4: Nhân giống vật nuôi</option>
+              <option value="5">Bài 5: Phương thức chăn nuôi</option>
+            </select>
+            <label class="switch">
+              <input type="checkbox" id="bankShowAns" />
+              <span class="switch-track"><span class="switch-thumb"></span></span>
+              <span>Hiện đáp án</span>
+            </label>
+          </div>
+          <p class="bank-count" id="bankCount"></p>
+          <div class="bank-list" id="bankList"></div>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Đề cương ôn tập Công nghệ 11 – Chăn nuôi • Biên soạn theo đề cương Giữa kỳ I
+        </span>
+        <span>Thiết kế theo chuẩn Fluent Design &bull; Tương thích mọi thiết bị</span>
+      </footer>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+      <div class="dialog-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v5M14 11v5"></path></svg>
+      </div>
+      <h3 id="dialogTitle">Đặt lại toàn bộ tiến độ?</h3>
+      <p id="dialogBody">Toàn bộ câu đã làm ở các phần Trắc nghiệm, Đúng/Sai, Điền số sẽ được xóa trắng khỏi thiết bị này.</p>
+      <div class="dialog-actions">
+        <button class="btn btn-secondary" type="button" id="dialogCancel">Hủy</button>
+        <button class="btn btn-danger" type="button" id="dialogConfirm">Đặt lại</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+    <span id="toastText"></span>
+  </div>
+
+  <script>
+    "use strict";
+
+    /* ===== DỮ LIỆU SINH HỌC 11: DATA.txt + ANSWER.txt ===== */
+    const MCQ = [{"n":1,"lesson":2,"q":"Giống vật nuôi là gì?","o":["Những con vật có ngoại hình đẹp nhất trong đàn.","Con lai giữa hai loài động vật khác nhau.","Quần thể vật nuôi cùng loài, cùng nguồn gốc, có chung những đặc điểm ngoại hình, cấu trúc di truyền và năng suất giống nhau, được hình thành và cố định qua chọn lọc.","Tất cả các cá thể cùng loài sống trong một khu vực địa lý nhất định."],"a":2,"exp":"Giống vật nuôi là quần thể vật nuôi cùng loài, cùng nguồn gốc, có chung đặc điểm ngoại hình, cấu trúc di truyền và năng suất; được hình thành, củng cố và cố định qua quá trình chọn lọc.","lessonName":"Bài 2: Giống vật nuôi"},{"n":2,"lesson":4,"q":"Nhân giống thuần chủng là phương pháp phối giống giữa:","o":["Các cá thể đực và cái thuộc các giống khác nhau hoàn toàn.","Các loài động vật khác họ với nhau.","Con đực giống cao sản với con cái địa phương tầm vóc nhỏ.","Các cá thể đực và cái trong cùng một giống vật nuôi."],"a":3,"exp":"Nhân giống thuần chủng là cho phối giống giữa các cá thể đực và cái trong cùng một giống nhằm củng cố, duy trì và nhân nhanh các đặc tính tốt của giống đó.","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":3,"lesson":2,"q":"Phát biểu nào sau đây nêu đúng bản chất của khái niệm “giống vật nuôi”?","o":["Là tập hợp tất cả các con vật có cùng màu sắc lông sống trong một khu rừng.","Là những cá thể vật nuôi được sinh ra trong cùng một năm tại một hộ gia đình.","Là quần thể vật nuôi cùng loài, cùng nguồn gốc, có chung đặc điểm ngoại hình, di truyền và năng suất được hình thành qua chọn lọc.","Là con lai được tạo ra giữa hai loài động vật hoàn toàn khác nhau."],"a":2,"exp":"Bản chất của giống vật nuôi là một quần thể cùng loài, cùng nguồn gốc, có ngoại hình, cấu trúc di truyền và năng suất đặc trưng, được hình thành và cố định qua chọn lọc.","lessonName":"Bài 2: Giống vật nuôi"},{"n":4,"lesson":5,"q":"Phương thức chăn nuôi công nghiệp (nuôi nhốt hoàn toàn) có ưu điểm nổi bật nào sau đây?","o":["Năng suất chăn nuôi cao, kiểm soát tốt dịch bệnh và môi trường nuôi dưỡng.","Vật nuôi tự do kiếm ăn ngoài tự nhiên nên tiết kiệm chi phí thức ăn.","Không phụ thuộc vào trình độ quản lý và kĩ thuật của người nuôi.","Không tốn chi phí đầu tư xây dựng chuồng trại ban đầu."],"a":0,"exp":"Chăn nuôi công nghiệp nuôi nhốt hoàn toàn trong chuồng kín, chủ động thức ăn, tiểu khí hậu và vệ sinh thú y nên cho năng suất cao, kiểm soát dịch bệnh và môi trường tốt. Nhược điểm là chi phí đầu tư ban đầu lớn.","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":5,"lesson":2,"q":"Trong các giống vật nuôi dưới đây, giống nào là vật nuôi ngoại nhập?","o":["Lợn Ỉ","Vịt Bầu","Lợn Yorkshire","Gà Đông Tảo"],"a":2,"exp":"Lợn Yorkshire (Landrace – Đại Bạch) có nguồn gốc từ nước ngoài nên là giống ngoại nhập. Lợn Ỉ, vịt Bầu, gà Đông Tảo là các giống vật nuôi nội địa của Việt Nam.","lessonName":"Bài 2: Giống vật nuôi"},{"n":6,"lesson":5,"q":"Các trang trại chăn nuôi công nghiệp thường được đặt ở vị trí nào sau đây?","o":["Ngay cạnh các tuyến đường giao thông chính.","Xen kẽ trong khu dân cư đông đúc.","Xa khu dân cư, xa đường giao thông.","Gần khu dân cư, gần chợ đầu mối."],"a":2,"exp":"Trang trại công nghiệp cần vị trí xa khu dân cư và xa đường giao thông chính để hạn chế ô nhiễm, tiếng ồn và lây lan dịch bệnh, đồng thời bảo đảm an toàn sinh học.","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":7,"lesson":1,"q":"Ý nào sau đây là vai trò của chăn nuôi đối với đời sống kinh tế - xã hội?","o":["Phục vụ cho tham quan, du lịch, lưu giữ nét văn hóa truyền thống.","Cung cấp thiết bị cho các ngành nghề khác.","Giảm sức lao động, tăng năng suất và tiết kiệm tài nguyên.","Cung cấp thực phẩm dinh dưỡng cao cho con người."],"a":3,"exp":"Chăn nuôi cung cấp nguồn thực phẩm giàu dinh dưỡng (thịt, trứng, sữa), tạo việc làm và thu nhập, góp phần phát triển kinh tế - xã hội ở nông thôn.","lessonName":"Bài 1: Vai trò, triển vọng chăn nuôi"},{"n":8,"lesson":2,"q":"Việc chia vật nuôi thành gia súc và gia cầm là cách phân loại dựa vào căn cứ nào sau đây?","o":["Đặc tính sinh vật học.","Nguồn gốc của giống.","Mục đích sử dụng.","Phương thức chăn nuôi."],"a":0,"exp":"Gia súc và gia cầm được phân biệt dựa trên đặc tính sinh vật học (đặc điểm loài, hình thái, sinh sản…), không dựa vào mục đích sử dụng hay phương thức nuôi.","lessonName":"Bài 2: Giống vật nuôi"},{"n":9,"lesson":2,"q":"Giống vật nuôi được phân loại dựa vào các căn cứ nào sau đây?","o":["Màu lông, giới tính, tuổi của vật nuôi.","Nguồn gốc, mức độ hoàn thiện, mục đích khai thác.","Quy mô đàn, giá bán, nơi tiêu thụ sản phẩm.","Kiểu chuồng, loại thức ăn, cách chăm sóc."],"a":1,"exp":"Các căn cứ phân loại giống vật nuôi gồm: nguồn gốc (nội địa/ngoại nhập), mức độ hoàn thiện của giống và mục đích khai thác (hướng sản xuất).","lessonName":"Bài 2: Giống vật nuôi"},{"n":10,"lesson":3,"q":"Phương pháp chọn lọc hàng loạt thường được áp dụng trong trường hợp nào sau đây?","o":["Khi chọn lọc các cá thể đực giống hạt nhân mang giá trị di truyền đặc biệt cao.","Khi áp dụng các kĩ thuật di truyền phân tử phức tạp.","Chọn lọc đối với đàn vật nuôi số lượng lớn, yêu cầu kĩ thuật đơn giản, chi phí thấp và hiệu quả chọn lọc ở mức trung bình.","Khi cần kiểm tra chính xác năng suất đời con của từng cá thể."],"a":2,"exp":"Chọn lọc hàng loạt dựa vào kiểu hình và năng suất bản thân, áp dụng cho đàn lớn, kĩ thuật đơn giản, chi phí thấp nhưng hiệu quả và độ chính xác chỉ ở mức trung bình.","lessonName":"Bài 3: Chọn giống vật nuôi"},{"n":11,"lesson":4,"q":"Trong quy trình cấy truyền phôi ở động vật, vai trò của “con cái nhận phôi” (con mẹ nuôi dưỡng) là gì?","o":["Mang thai, nuôi dưỡng phôi và sinh con ra thay thế cho con cái cho phôi.","Cung cấp toàn bộ vật liệu di truyền (ADN) cho phôi.","Chỉ làm nhiệm vụ cho sữa sau khi sinh mà không mang thai.","Trực tiếp tạo ra tinh trùng trong cơ thể để thụ tinh."],"a":0,"exp":"Con cái nhận phôi mang thai, nuôi dưỡng phôi và sinh ra con non; vật liệu di truyền của phôi do con cái cho phôi và con đực cung cấp, không phải con nhận phôi.","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":12,"lesson":1,"q":"Vai trò quyết định của chăn nuôi trong nền kinh tế nông nghiệp nước ta là gì?","o":["Cung cấp nguyên liệu làm đồ thủ công mỹ nghệ.","Cung cấp phân bón hữu cơ cho trồng trọt.","Cung cấp sức kéo cho sản xuất nông nghiệp.","Cung cấp nguồn thực phẩm có giá trị dinh dưỡng cao cho con người và nguyên liệu cho công nghiệp chế biến."],"a":3,"exp":"Chăn nuôi cung cấp thực phẩm giàu dinh dưỡng (thịt, trứng, sữa) và nguyên liệu cho công nghiệp chế biến, chế tạo dược phẩm, da giày… Đây là vai trò quan trọng hàng đầu.","lessonName":"Bài 1: Vai trò, triển vọng chăn nuôi"},{"n":13,"lesson":3,"q":"Hiệu quả chọn lọc không cao và không ổn định là nhược điểm của phương pháp chọn lọc giống vật nuôi nào sau đây?","o":["Chọn lọc đời sau.","Chọn lọc hàng loạt.","Chọn lọc cá thể.","Chọn lọc từng bước."],"a":1,"exp":"Chọn lọc hàng loạt chỉ dựa vào kiểu hình bản thân, chịu ảnh hưởng của môi trường nên hiệu quả chọn lọc không cao và không ổn định bằng chọn lọc cá thể.","lessonName":"Bài 3: Chọn giống vật nuôi"},{"n":14,"lesson":4,"q":"Kỹ thuật sinh học nào giúp khai thác triệt để tiềm năng di truyền của một con đực giống có giá trị cao để phối giống cho hàng nghìn con cái mà không cần cho giao phối trực tiếp?","o":["Kỹ thuật nuôi cấy tế bào thực vật.","Kỹ thuật cắt ghép gen trực tiếp.","Kỹ thuật nhân bản vô tính toàn thể.","Kỹ thuật thụ tinh nhân tạo (AI)."],"a":3,"exp":"Thụ tinh nhân tạo (AI) thu tinh dịch của đực giống, bảo quản và phối cho nhiều con cái, giúp khai thác tối đa tiềm năng di truyền của đực giống cao sản.","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":15,"lesson":3,"q":"Giống bò Holstein Friesian nuôi tại Việt Nam có sản lượng sữa khoảng 3.500 – 4.000 kg/chu kì. Nội dung trên thể hiện chỉ tiêu chọn giống nào sau đây?","o":["Khả năng sản xuất.","Sinh trưởng, phát dục.","Thể chất.","Ngoại hình."],"a":0,"exp":"Sản lượng sữa là chỉ tiêu đánh giá khả năng sản xuất của vật nuôi (khối lượng, chất lượng sản phẩm như sữa, thịt, trứng).","lessonName":"Bài 3: Chọn giống vật nuôi"},{"n":16,"lesson":5,"q":"Hạn chế của phương thức chăn thả tự do là gì?","o":["Ít gây ô nhiễm môi trường","Mức đầu tư thấp","Tận dụng được nguồn thức ăn tự nhiên và phụ phẩm nông nghiệp","Năng suất thấp, hiệu quả kinh tế thấp"],"a":3,"exp":"Chăn thả tự do tận dụng thức ăn tự nhiên, đầu tư thấp nhưng vật nuôi khó kiểm soát dịch bệnh, chịu ảnh hưởng thời tiết và cho năng suất thấp, hiệu quả kinh tế không cao.","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":17,"lesson":4,"q":"Ưu điểm nổi bật nhất thường thấy ở thế hệ con lai F1 trong phép lai kinh tế là gì?","o":["Giảm sức sống và khả năng chống chịu so với bố mẹ.","Cố định hoàn toàn bộ gen không bao giờ thay đổi ở các đời sau.","Biểu hiện hiện tượng ưu thế lai (sinh trưởng nhanh, chống chịu tốt, năng suất cao).","Mất hoàn toàn khả năng sinh sản ở giai đoạn trưởng thành."],"a":2,"exp":"Con lai F1 trong lai kinh tế biểu hiện ưu thế lai rõ nhất: sinh trưởng nhanh, sức sống và khả năng chống chịu tốt, năng suất cao hơn bố mẹ.","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":18,"lesson":4,"q":"Hình thức phối giống giữa các cá thể đực và cái thuộc cùng một giống vật nuôi nhằm mục đích củng cố và duy trì các đặc tính tốt có sẵn được gọi là gì?","o":["Lai xa giữa các loài.","Lai kinh tế.","Nhân giống thuần chủng.","Lai cải tạo giống."],"a":2,"exp":"Nhân giống thuần chủng là phối giống giữa các cá thể cùng giống, nhằm giữ vững và củng cố các đặc tính tốt, đồng thời tăng số lượng cá thể của giống.","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":19,"lesson":4,"q":"Ưu điểm nổi bật của phương pháp cấy truyền phôi ở động vật là gì?","o":["Cho phép con đực mang thai và sinh con thay cho con cái.","Biến đổi hoàn toàn bộ gen của vật nuôi theo ý muốn trong vài giờ.","Giúp tăng nhanh số lượng đời con từ một con cái có giá trị di truyền cao trong thời gian ngắn.","Giảm chi phí đầu tư chuồng trại xuống mức bằng không."],"a":2,"exp":"Cấy truyền phôi khai thác triệt để tiềm năng sinh sản của con cái cao sản: một con cái có thể cho nhiều phôi, nhiều con nhận phôi cùng mang thai, nhờ đó tăng nhanh số lượng đời con.","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":20,"lesson":5,"q":"Hình thức chăn nuôi nào sau đây gắn liền với việc ứng dụng hệ thống chuồng trại khép kín, tự động hóa và kiểm soát nghiêm ngặt các tiêu chuẩn an toàn sinh học?","o":["Chăn nuôi thả rông tự nhiên.","Chăn nuôi trang trại công nghiệp.","Chăn nuôi du mục.","Chăn nuôi nông hộ truyền thống."],"a":1,"exp":"Chăn nuôi trang trại công nghiệp sử dụng chuồng kín, hệ thống tự động hóa (cho ăn, uống, làm mát, xử lý chất thải) và quy trình an toàn sinh học nghiêm ngặt.","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":21,"lesson":5,"q":"Việc phát triển các mô hình chăn nuôi tuần hoàn (như dùng chất thải chăn nuôi làm biogas và nuôi trùn quế) mang lại ý nghĩa kinh tế và xã hội nào sau đây?","o":["Làm giảm năng suất và chất lượng sản phẩm thịt, sữa của vật nuôi.","Làm tăng lượng chất thải xả trực tiếp ra môi trường tự nhiên.","Tăng chi phí mua năng lượng hóa thạch từ bên ngoài cho trang trại.","Giảm thiểu ô nhiễm môi trường, tiết kiệm chi phí và nâng cao hiệu quả kinh tế."],"a":3,"exp":"Chăn nuôi tuần hoàn biến chất thải thành nguồn năng lượng (biogas), phân bón hữu cơ (trùn quế), giúp giảm ô nhiễm, tiết kiệm chi phí và tăng hiệu quả kinh tế.","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":22,"lesson":2,"q":"Vật nuôi là gì?","o":["Các loài động vật hoang dã được nuôi nhốt trong vườn thú.","Tất cả các loài động vật sống trong tự nhiên chưa được con người thuần hóa.","Chỉ bao gồm các loài gia súc lớn trâu, bò, lợn.","Những động vật được con người thuần hóa và nuôi dưỡng nhằm mục đích phục vụ lợi ích của con người."],"a":3,"exp":"Vật nuôi là những động vật đã được con người thuần hóa, nuôi dưỡng để lấy thịt, sữa, trứng, sức kéo, da lông hoặc phục vụ các mục đích khác của con người.","lessonName":"Bài 2: Giống vật nuôi"},{"n":23,"lesson":4,"q":"Kỹ thuật nào sau đây là ứng dụng công nghệ sinh học phổ biến trong chọn và nhân giống vật nuôi?","o":["Kỹ thuật thụ tinh nhân tạo (AI).","Kỹ thuật tiêm phòng vắc-xin định kỳ.","Kỹ thuật xây dựng chuồng trại khép kín mát.","Kỹ thuật cho vật nuôi ăn thức ăn hỗn hợp dạng viên."],"a":0,"exp":"Thụ tinh nhân tạo là ứng dụng công nghệ sinh học trong sinh sản, giúp nhân nhanh giống tốt. Tiêm vắc-xin, chuồng trại và thức ăn thuộc lĩnh vực nuôi dưỡng, thú y.","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":24,"lesson":1,"q":"Vì sao ngành chăn nuôi ở nước ta hiện nay đang có xu hướng dịch chuyển mạnh mẽ từ chăn nuôi nông hộ sang chăn nuôi trang trại, công nghiệp?","o":["Do chăn nuôi trang trại giúp kiểm soát dịch bệnh tốt hơn, nâng cao năng suất, chất lượng sản phẩm và đáp ứng yêu cầu an toàn vệ sinh thực phẩm.","Do nhà nước cấm hoàn toàn hình thức chăn nuôi nông hộ nhỏ lẻ.","Do quỹ đất dành cho chăn nuôi nông hộ đã hoàn toàn bị thu hồi.","Do chăn nuôi nông hộ không còn mang lại bất kỳ lợi ích kinh tế nào."],"a":0,"exp":"Chăn nuôi trang trại, công nghiệp kiểm soát dịch bệnh tốt, nâng cao năng suất và chất lượng, bảo đảm an toàn thực phẩm, đáp ứng nhu cầu tiêu dùng và xuất khẩu.","lessonName":"Bài 1: Vai trò, triển vọng chăn nuôi"},{"n":25,"lesson":3,"q":"Vịt Biển 15 – Đại Xuyên, vịt Trời và hai nhóm vịt lai giữa chúng (BT: đực vịt Biển × cái vịt Trời; TB: đực vịt Trời × cái vịt Biển) được nuôi theo cùng một quy trình chăm sóc, nuôi dưỡng. Kết quả cho thấy năng suất trứng giảm dần theo thứ tự: vịt lai BT > vịt lai TB > vịt Biển 15 – Đại Xuyên > vịt Trời (các chữ cái khác nhau thể hiện sai khác có ý nghĩa thống kê với P<0,05). Theo kết quả trên, nhận định nào sau đây giải thích đúng sự khác nhau về năng suất trứng giữa các nhóm vịt?","o":["Vịt lai BT đẻ nhiều trứng hơn vịt Trời do khác giống.","Vịt Trời đẻ nhiều trứng hơn vịt Biển 15 – Đại Xuyên do khác giống.","Vịt lai TB đẻ nhiều trứng hơn vịt lai BT do khác giống.","Vịt Biển 15 – Đại Xuyên đẻ nhiều trứng hơn vịt lai TB do khác giống."],"a":0,"exp":"Cùng quy trình nuôi dưỡng nên sự khác nhau về năng suất trứng chủ yếu do yếu tố giống quy định. Vịt lai BT có năng suất trứng cao nhất và cao hơn vịt Trời rõ rệt.","lessonName":"Bài 3: Chọn giống vật nuôi"},{"n":26,"lesson":3,"q":"Phát biểu nào sau đây đúng về mối quan hệ giữa sinh trưởng và phát dục của vật nuôi?","o":["Hai quá trình giống nhau, đều làm tăng khối lượng cơ thể.","Hai quá trình độc lập, không ảnh hưởng đến nhau.","Hai quá trình khác nhau nhưng thống nhất, diễn ra đồng thời.","Hai quá trình nối tiếp, sinh trưởng xong mới phát dục."],"a":2,"exp":"Sinh trưởng (tăng khối lượng, kích thước) và phát dục (biến đổi về cấu trúc, chức năng) là hai quá trình khác nhau nhưng thống nhất, diễn ra đồng thời và tác động qua lại.","lessonName":"Bài 3: Chọn giống vật nuôi"},{"n":27,"lesson":2,"q":"Ví dụ nào sau đây thể hiện rõ vai trò quyết định của giống vật nuôi đến năng suất sản phẩm?","o":["Bò được tiêm vắc-xin đầy đủ sẽ ít mắc bệnh hơn bò không tiêm.","Chuồng trại thoáng mát giúp vật nuôi giảm căng thẳng (stress) trong mùa nóng.","Gà Lương Phượng có khả năng tăng trọng nhanh hơn gà Ri trong cùng một điều kiện nuôi dưỡng.","Lợn được cung cấp đầy đủ thức ăn sẽ lớn nhanh hơn lợn bị bỏ đói."],"a":2,"exp":"Cùng một điều kiện nuôi dưỡng nhưng gà Lương Phượng tăng trọng nhanh hơn gà Ri đã chứng minh giống quyết định tiềm năng năng suất. Các phương án còn lại nói về ảnh hưởng của thú y, chuồng trại, thức ăn.","lessonName":"Bài 2: Giống vật nuôi"},{"n":28,"lesson":2,"q":"Vai trò của giống vật nuôi trong chăn nuôi quyết định yếu tố nào sau đây?","o":["Quyết định hoàn toàn đến thời tiết khí hậu của vùng chăn nuôi.","Quyết định đến năng suất và chất lượng sản phẩm chăn nuôi.","Quyết định hoàn toàn đến giá cả thị trường của thịt lợn.","Thay thế hoàn toàn vai trò của thức ăn và thú y."],"a":1,"exp":"Giống quyết định tiềm năng năng suất và chất lượng sản phẩm chăn nuôi. Thức ăn, chuồng trại, thú y và thị trường là các yếu tố ảnh hưởng nhưng không thay thế được giống.","lessonName":"Bài 2: Giống vật nuôi"},{"n":29,"lesson":4,"q":"Phương pháp dùng một giống để thay đổi cơ bản một giống khác không đáp ứng được yêu cầu sản xuất là","o":["Lai xa.","Nhân giống thuần chủng.","Lai kinh tế.","Lai cải tạo."],"a":3,"exp":"Lai cải tạo dùng một giống tốt (giống cải tạo) để cải tạo, thay đổi cơ bản giống địa phương không còn đáp ứng yêu cầu sản xuất, sau đó chọn lọc và nhân giống.","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":30,"lesson":3,"q":"Mục đích chính của công tác chọn giống vật nuôi là gì?","o":["Giữ nguyên các đặc điểm ban đầu của giống mà không cần cải tiến.","Loại bỏ toàn bộ các giống vật nuôi cũ ra khỏi sản xuất.","Làm cho vật nuôi ngày càng đa dạng về màu sắc lông.","Giữ lại và phát triển những cá thể vật nuôi mang các đặc điểm mong muốn để làm giống cho thế hệ sau, nhằm nâng cao năng suất và chất lượng."],"a":3,"exp":"Chọn giống nhằm chọn lọc, giữ lại những cá thể có đặc điểm di truyền mong muốn làm giống, nâng cao năng suất, chất lượng và hiệu quả chăn nuôi qua các thế hệ.","lessonName":"Bài 3: Chọn giống vật nuôi"},{"n":31,"lesson":2,"q":"Vai trò của giống trong chăn nuôi là?\n1. Giống vật nuôi quyết định đến năng suất chăn nuôi.\n2. Giống vật nuôi quyết định chất lượng sản phẩm chăn nuôi.\n3. Giống vật nuôi quyết định số lượng vật nuôi.\n4. Giống vật nuôi quyết định quy mô chăn nuôi.","o":["1, 2 đúng","1, 3 đúng","2, 4 đúng","1, 4 đúng"],"a":0,"exp":"Giống quyết định năng suất và chất lượng sản phẩm chăn nuôi. Số lượng vật nuôi và quy mô chăn nuôi do đầu tư, điều kiện kinh tế, kỹ thuật quyết định.","lessonName":"Bài 2: Giống vật nuôi"},{"n":32,"lesson":5,"q":"Phương thức chăn nuôi thả rông (chăn thả tự nhiên) có đặc điểm nào sau đây?","o":["Vật nuôi được nuôi trong chuồng kín hoàn toàn với hệ thống tiểu khí hậu tự động.","Vật nuôi tự kiếm thức ăn trong tự nhiên là chính, ít chịu sự can thiệp của con người về chuồng trại và thức ăn tinh.","Thức ăn hoàn toàn là thức ăn công nghiệp đậm đặc.","Năng suất chăn nuôi rất cao và không bị ảnh hưởng bởi điều kiện thời tiết tự nhiên."],"a":1,"exp":"Chăn thả tự do để vật nuôi tự kiếm ăn ngoài tự nhiên, đầu tư thấp, ít can thiệp về chuồng trại và thức ăn tinh; đổi lại năng suất thấp và phụ thuộc thời tiết.","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":33,"lesson":5,"q":"Một số phương thức chăn nuôi chủ yếu ở Việt Nam gồm những phương thức nào sau đây?","o":["Chăn nuôi bán công nghiệp, chăn nuôi thông minh, chăn nuôi bền vững.","Chăn thả tự do, chăn nuôi công nghiệp, chăn nuôi bán công nghiệp.","Chăn thả tự do, chăn nuôi bền vững, chăn nuôi thông minh.","Chăn nuôi công nghiệp, chăn nuôi bền vững, chăn nuôi thông minh."],"a":1,"exp":"Ba phương thức chăn nuôi chủ yếu ở nước ta là chăn thả tự do, chăn nuôi công nghiệp (nuôi nhốt hoàn toàn) và chăn nuôi bán công nghiệp (bán chăn thả).","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":34,"lesson":3,"q":"Vì sao chọn lọc cá thể có hiệu quả chọn lọc cao?","o":["Vì chọn được nhiều cá thể làm giống trong thời gian ngắn.","Vì con vật chỉ được đánh giá qua kiểu hình bên ngoài.","Vì con vật được chọn ngay trong đàn của các nông hộ.","Vì con vật được đánh giá qua tổ tiên, bản thân và đời sau."],"a":3,"exp":"Chọn lọc cá thể đánh giá con vật toàn diện qua tổ tiên, bản thân và đời con nên xác định được giá trị di truyền chính xác, hiệu quả chọn lọc cao.","lessonName":"Bài 3: Chọn giống vật nuôi"},{"n":35,"lesson":3,"q":"Các chỉ tiêu cơ bản để chọn giống vật nuôi gồm những chỉ tiêu nào sau đây?","o":["Ngoại hình; thể chất; sinh trưởng, phát dục; khả năng sản xuất.","Giá bán con giống; nơi mua con giống; mùa sinh sản; thời gian nuôi.","Nguồn gốc giống; mục đích khai thác; mức độ hoàn thiện; phương thức nuôi.","Quy mô đàn; kiểu chuồng nuôi; loại thức ăn; phương thức chăn nuôi."],"a":0,"exp":"Bốn chỉ tiêu cơ bản khi chọn giống vật nuôi: ngoại hình, thể chất, khả năng sinh trưởng – phát dục và khả năng sản xuất.","lessonName":"Bài 3: Chọn giống vật nuôi"}];
+    const TF = [{"n":1,"lesson":4,"intro":"Khi tìm hiểu về các phương pháp nhân giống vật nuôi, các phát biểu sau đây Đúng hay Sai?","items":[{"text":"Lai kinh tế là phương pháp cho phối giống giữa các cá thể cùng một giống để tạo ra thế hệ con có sức sống kém hơn.","a":false,"exp":"Lai kinh tế là lai giữa các cá thể khác giống để tạo con lai F1 có ưu thế lai, sức sống và năng suất cao hơn bố mẹ. Phối giống cùng giống là nhân giống thuần chủng."},{"text":"Ưu thế lai thường biểu hiện rõ nhất ở đời con thứ nhất (F1) và giảm dần ở các thế hệ tiếp theo.","a":true,"exp":"Ưu thế lai biểu hiện rõ nhất ở F1, sau đó giảm dần ở F2, F3… do mức độ dị hợp tử giảm."},{"text":"Lai giống giữa các giống khác nhau có thể tạo ra con lai mang những ưu điểm vượt trội từ cả bố và mẹ.","a":true,"exp":"Lai giống tạo con lai tổ hợp được các gen tốt của cả bố và mẹ, biểu hiện ưu thế lai."},{"text":"Nhân giống thuần chủng nhằm mục đích nhân nhanh số lượng cá thể của một giống mà vẫn giữ vững các đặc tính tốt của giống đó.","a":true,"exp":"Nhân giống thuần chủng giữ vững và củng cố đặc tính tốt, đồng thời tăng số lượng cá thể của giống."}],"lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":2,"lesson":2,"intro":"Khi nghiên cứu về khái niệm, điều kiện công nhận và vai trò của giống vật nuôi đối với sản xuất, các phát biểu sau đây Đúng hay Sai?","items":[{"text":"Một trang trại chăn nuôi bò sữa nhập khẩu giống bò Holstein Friesian (HF) có tiềm năng cho năng suất sữa rất cao. Để đạt hiệu quả kinh tế tối ưu, trang trại chỉ cần chú trọng mua con giống đắt tiền mà không cần cải thiện chế độ dinh dưỡng và hệ thống làm mát chuồng trại.","a":false,"exp":"Giống chỉ quy định tiềm năng; dinh dưỡng, chuồng trại và thú y quyết định việc phát huy tiềm năng đó. Bò HF chịu nóng kém nên rất cần hệ thống làm mát."},{"text":"Một quần thể vật nuôi được công nhận là một giống khi các cá thể có cùng nguồn gốc, ngoại hình đồng nhất và cấu trúc di truyền tương tự nhau.","a":true,"exp":"Đó là các điều kiện cơ bản để một quần thể vật nuôi được công nhận là giống."},{"text":"Điều kiện nuôi dưỡng, chăm sóc và thú y tốt là chiếc chìa khóa giúp vật nuôi khai thác và phát huy tối đa tiềm năng năng suất do giống quy định.","a":true,"exp":"Điều kiện nuôi dưỡng tốt giúp vật nuôi phát huy tối đa tiềm năng di truyền của giống."},{"text":"Giống vật nuôi đóng vai trò quyết định đến năng suất và chất lượng sản phẩm chăn nuôi; nếu không có giống tốt thì dù chăm sóc kĩ đến đâu cũng không thể vượt quá giới hạn năng suất do giống quy định.","a":true,"exp":"Giống quyết định giới hạn năng suất; chăm sóc tốt chỉ giúp đạt tới giới hạn đó."}],"lessonName":"Bài 2: Giống vật nuôi"},{"n":3,"lesson":4,"intro":"Khi tìm hiểu về các phương pháp nhân giống và ứng dụng ưu thế lai trong chăn nuôi, các phát biểu sau đây Đúng hay Sai?","items":[{"text":"Lai kinh tế là phương pháp cho phối giống giữa các cá thể thuộc các giống khác nhau để tạo ra con lai F1 mang hiện tượng ưu thế lai (lớn nhanh, sức chống chịu tốt, tiêu tốn thức ăn thấp).","a":true,"exp":"Đúng với khái niệm và mục đích của lai kinh tế."},{"text":"Nhân giống thuần chủng là phương pháp phối giống giữa các cá thể đực và cái thuộc cùng một giống nhằm bảo tồn và củng cố các đặc tính tốt của giống đó.","a":true,"exp":"Đúng với khái niệm nhân giống thuần chủng."},{"text":"Để tận dụng ưu thế lai nâng cao hiệu quả kinh tế, người chăn nuôi nên giữ lại các con lai F1 từ phép lai kinh tế để tiếp tục cho phối giống làm con giống cho thế hệ sau.","a":false,"exp":"Ưu thế lai giảm dần ở các thế hệ sau, nên con lai F1 chỉ dùng để nuôi thương phẩm, không giữ làm giống."},{"text":"Trong chăn nuôi lợn thịt thương phẩm, người ta thường dùng con lợn nái ngoại (như Landrace hoặc Yorkshire) phối với con lợn đực Duroc để tạo ra con lai F1 nuôi lấy thịt nhằm đạt năng suất và tỉ lệ nạc cao.","a":true,"exp":"Đây là ví dụ điển hình của lai kinh tế ở lợn thịt, tạo con lai F1 sinh trưởng nhanh, tỉ lệ nạc cao."}],"lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":4,"lesson":4,"intro":"Quan sát hình ảnh về phép lai kinh tế tạo bò lai F1 (bò đực ngoại × bò cái vàng Việt Nam). Theo em nhận định nào đúng, nhận định nào sai?","items":[{"text":"Lai kinh tế là phương pháp lai giữa các cá thể khác giống để tạo ra con lai có khả năng sản xuất cao hơn.","a":true,"exp":"Lai kinh tế tạo con lai F1 có ưu thế lai, khả năng sản xuất cao hơn bố mẹ."},{"text":"Con lai F1 không thích nghi với khí hậu Việt Nam.","a":false,"exp":"Con lai F1 thường thích nghi tốt, kết hợp được khả năng chống chịu của giống địa phương và năng suất của giống ngoại."},{"text":"Đây là phương pháp lai kinh tế đơn giản.","a":true,"exp":"Lai kinh tế giữa hai giống là hình thức lai đơn giản, dễ áp dụng ở nông hộ."},{"text":"F1 là con lai thương phẩm: cho nhiều sữa và thích nghi với khí hậu Việt Nam.","a":true,"exp":"F1 được dùng làm con thương phẩm, cho năng suất sữa/thịt cao và thích nghi với điều kiện địa phương."}],"lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":5,"lesson":5,"intro":"Khi tìm hiểu về phân loại vật nuôi và các phương thức chăn nuôi phổ biến ở nước ta, các phát biểu sau đây Đúng hay Sai?","items":[{"text":"Chăn nuôi bán chăn thả vừa tận dụng được nguồn thức ăn tự nhiên sẵn có, vừa bổ sung được thức ăn công nghiệp giúp nâng cao năng suất và chất lượng sản phẩm.","a":true,"exp":"Bán chăn thả kết hợp nuôi nhốt và thả vườn, tận dụng thức ăn tự nhiên đồng thời bổ sung thức ăn công nghiệp."},{"text":"Phương thức chăn nuôi công nghiệp (nuôi nhốt hoàn toàn) ít phụ thuộc vào điều kiện thời tiết tự nhiên, kiểm soát dịch bệnh tốt hơn nhưng đòi hỏi chi phí đầu tư ban đầu về chuồng trại và thiết bị cao.","a":true,"exp":"Đúng với ưu, nhược điểm của chăn nuôi công nghiệp."},{"text":"Việc chia vật nuôi thành gia súc và gia cầm là cách phân loại dựa trên đặc tính sinh vật học của vật nuôi.","a":true,"exp":"Gia súc, gia cầm được phân loại theo đặc tính sinh vật học."},{"text":"Một hộ gia đình ở vùng trung du có diện tích đồi rừng rộng muốn phát triển chăn nuôi gà thịt chất lượng cao, chi phí đầu tư chuồng trại vừa phải thì nên lựa chọn phương thức chăn nuôi công nghiệp khép kín hoàn toàn.","a":false,"exp":"Với đồi rừng rộng và chi phí vừa phải, nên chọn chăn thả tự do hoặc bán chăn thả để tận dụng thức ăn tự nhiên, nâng cao chất lượng thịt và giảm đầu tư."}],"lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":6,"lesson":5,"intro":"Khi tìm hiểu về các phương thức chăn nuôi phổ biến hiện nay, các nhận định sau đây Đúng hay Sai?","items":[{"text":"Lựa chọn phương thức chăn nuôi phụ thuộc vào điều kiện kinh tế, quy mô vốn đầu tư và đặc điểm sinh học của từng loài vật nuôi.","a":true,"exp":"Đó là các căn cứ quan trọng để lựa chọn phương thức chăn nuôi phù hợp."},{"text":"Chăn nuôi bán chăn thả kết hợp giữa nuôi nhốt và thả vườn, giúp vật nuôi vận động nhiều, chất lượng thịt thơm ngon hơn so với nuôi nhốt hoàn toàn.","a":true,"exp":"Vận động nhiều giúp vật nuôi phát triển cơ, thịt săn chắc và thơm ngon hơn."},{"text":"Chăn nuôi khép kín (công nghiệp) áp dụng hệ thống tự động hóa cao giúp tiết kiệm lao động và kiểm soát dịch bệnh hiệu quả.","a":true,"exp":"Tự động hóa giảm nhân công, chuồng kín giúp kiểm soát dịch bệnh và tiểu khí hậu."},{"text":"Phương thức chăn thả tự do đòi hỏi người chăn nuôi phải đầu tư hệ thống điều hòa nhiệt độ và máng ăn tự động đắt tiền cho từng cá thể.","a":false,"exp":"Chăn thả tự do có mức đầu tư thấp; hệ thống điều hòa, máng ăn tự động là đặc trưng của chăn nuôi công nghiệp."}],"lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":7,"lesson":1,"intro":"Sau khi học xong Bài 1: Vai trò, triển vọng của chăn nuôi, theo em nhận định nào đúng, nhận định nào sai?","items":[{"text":"Chăn nuôi là một ngành sản xuất công nghiệp cao, đòi hỏi nhiều thiết bị tân tiến và hiện đại.","a":false,"exp":"Chăn nuôi là ngành sản xuất nông nghiệp; chỉ chăn nuôi công nghiệp mới cần nhiều thiết bị hiện đại, không phải mọi hình thức chăn nuôi."},{"text":"Người chăn nuôi phải có kiến thức, hiểu biết, có tính nhân đạo và yêu thương động vật.","a":true,"exp":"Kiến thức kỹ thuật và phẩm chất nhân đạo, yêu thương động vật rất cần thiết với người chăn nuôi."},{"text":"Chăn nuôi có vai trò quan trọng đối với đời sống con người và phát triển kinh tế xã hội.","a":true,"exp":"Chăn nuôi cung cấp thực phẩm, nguyên liệu, việc làm và thu nhập, góp phần phát triển kinh tế - xã hội."},{"text":"Muốn học nghề liên quan đến chăn nuôi học sinh cần tìm hiểu và thi vào các trường đại học Nông Lâm, khoa Chăn nuôi.","a":true,"exp":"Các trường đại học Nông Lâm, khoa Chăn nuôi – Thú y là nơi đào tạo nghề liên quan đến chăn nuôi."}],"lessonName":"Bài 1: Vai trò, triển vọng chăn nuôi"},{"n":8,"lesson":3,"intro":"Xét về các chỉ tiêu và phương pháp chọn giống vật nuôi trong thực tiễn, các nhận định sau đây Đúng hay Sai?","items":[{"text":"Kiểm tra đời sau là phương pháp đánh giá chính xác chất lượng giống của con đực thông qua năng suất của các con cái do nó sinh ra.","a":true,"exp":"Kiểm tra đời sau đánh giá con đực dựa trên năng suất của đời con, cho độ chính xác cao."},{"text":"Chọn giống vật nuôi chỉ cần quan tâm đến ngoại hình bên ngoài mà không cần quan tâm đến khả năng sinh trưởng hay phẩm chất sản phẩm.","a":false,"exp":"Chọn giống phải kết hợp ngoại hình, thể chất, sinh trưởng – phát dục và khả năng sản xuất."},{"text":"Chọn lọc hàng loạt là phương pháp dựa vào năng suất và các chỉ tiêu chọn giống của bản thân cá thể trong điều kiện cụ thể để chọn ra những con tốt nhất làm giống.","a":true,"exp":"Chọn lọc hàng loạt chọn theo kiểu hình và năng suất bản thân trong điều kiện nuôi dưỡng cụ thể."},{"text":"Sức sống, khả năng kháng bệnh và khả năng sinh sản là những chỉ tiêu quan trọng cần xem xét trong quá trình chọn giống.","a":true,"exp":"Đây là các chỉ tiêu thuộc thể chất và khả năng sản xuất, rất quan trọng khi chọn giống."}],"lessonName":"Bài 3: Chọn giống vật nuôi"},{"n":9,"lesson":2,"intro":"Khi nghiên cứu về khái niệm và vai trò của giống vật nuôi trong sản xuất, các phát biểu sau đây Đúng hay Sai?","items":[{"text":"Phân loại giống vật nuôi có thể dựa vào mức độ hoàn thiện giống, nguồn gốc địa lý hoặc hướng sản xuất.","a":true,"exp":"Đó là các căn cứ phân loại giống vật nuôi."},{"text":"Giống vật nuôi đóng vai trò quyết định đến năng suất chăn nuôi, các yếu tố thức ăn và chăm sóc chỉ đóng vai trò hỗ trợ phát huy tiềm năng đó.","a":true,"exp":"Giống quy định tiềm năng, thức ăn và chăm sóc giúp phát huy tiềm năng đó."},{"text":"Một giống vật nuôi tốt là giống có khả năng thích nghi cao với điều kiện sinh thái địa phương và mang lại hiệu quả kinh tế cao.","a":true,"exp":"Giống tốt phải thích nghi với điều kiện địa phương và cho hiệu quả kinh tế cao."},{"text":"Khi thay đổi điều kiện chăm sóc nuôi dưỡng tốt hơn, tất cả các giống vật nuôi đều có năng suất tăng lên vô hạn như nhau.","a":false,"exp":"Mỗi giống có giới hạn năng suất khác nhau; cải thiện chăm sóc chỉ giúp đạt tới giới hạn do giống quy định, không tăng vô hạn."}],"lessonName":"Bài 2: Giống vật nuôi"},{"n":10,"lesson":3,"intro":"Khi đánh giá về các chỉ tiêu và phương pháp chọn giống vật nuôi trong thực tiễn, các phát biểu sau đây Đúng hay Sai?","items":[{"text":"Chọn lọc cá thể là phương pháp đánh giá dựa trên thành tích bản thân con vật kết hợp với kiểm tra đời sau, cho độ chính xác cao nên thích hợp chọn làm đực giống hoặc giống hạt nhân.","a":true,"exp":"Chọn lọc cá thể đánh giá toàn diện (tổ tiên, bản thân, đời sau) nên độ chính xác cao, dùng chọn đực giống, giống hạt nhân."},{"text":"Trong chọn giống vật nuôi, ngoại hình và thể chất của con vật không có bất kỳ mối liên hệ nào với khả năng sản xuất và sức khỏe của chúng.","a":false,"exp":"Ngoại hình và thể chất có quan hệ rõ rệt với sức khỏe, khả năng sinh trưởng và sản xuất của vật nuôi."},{"text":"Chọn lọc hàng loạt áp dụng cho đàn vật nuôi số lượng lớn, quy trình đơn giản, tốn ít thời gian nhưng độ chính xác không cao bằng chọn lọc cá thể.","a":true,"exp":"Đúng với ưu, nhược điểm của chọn lọc hàng loạt."},{"text":"Các chỉ tiêu cơ bản để đánh giá và chọn giống vật nuôi bao gồm: ngoại hình, thể chất; khả năng sinh trưởng, phát dục và khả năng sản xuất.","a":true,"exp":"Đó là bốn nhóm chỉ tiêu cơ bản khi chọn giống vật nuôi."}],"lessonName":"Bài 3: Chọn giống vật nuôi"}];
+    const SHORT = [];
+    const ESSAY = [{"n":1,"lesson":5,"topic":"So sánh chăn nuôi nông hộ và chăn nuôi trang trại","q":"Hãy so sánh sự khác nhau giữa chăn nuôi nông hộ và chăn nuôi trang trại (công nghiệp) về quy mô và mức độ đầu tư, khả năng kiểm soát dịch bệnh, năng suất và chất lượng sản phẩm, cũng như tác động đến môi trường.","content":"\n      <h4>1. Quy mô và mức độ đầu tư</h4>\n      <ul>\n        <li><strong>Chăn nuôi nông hộ:</strong> quy mô nhỏ lẻ, số lượng ít; chi phí và mức độ đầu tư chuồng trại, thiết bị thấp.</li>\n        <li><strong>Chăn nuôi trang trại (công nghiệp):</strong> quy mô lớn, tập trung; vốn đầu tư cao, trang thiết bị hiện đại, tự động hóa.</li>\n      </ul>\n      <h4>2. Khả năng kiểm soát dịch bệnh</h4>\n      <ul>\n        <li><strong>Nông hộ:</strong> khó kiểm soát dịch bệnh do chuồng trại hở, quy trình an toàn sinh học chưa nghiêm ngặt.</li>\n        <li><strong>Trang trại:</strong> kiểm soát dịch bệnh tốt, quy trình phòng bệnh nghiêm ngặt, an toàn sinh học cao.</li>\n      </ul>\n      <h4>3. Năng suất và chất lượng sản phẩm</h4>\n      <ul>\n        <li><strong>Nông hộ:</strong> năng suất thấp, không đồng đều, chủ yếu tự cung tự cấp hoặc bán trong nội địa.</li>\n        <li><strong>Trang trại:</strong> năng suất cao, chất lượng đồng đều, đáp ứng tiêu chuẩn an toàn thực phẩm và xuất khẩu.</li>\n      </ul>\n      <h4>4. Tác động đến môi trường</h4>\n      <ul>\n        <li><strong>Nông hộ:</strong> chất thải chưa được xử lý triệt để, dễ gây ô nhiễm môi trường xung quanh.</li>\n        <li><strong>Trang trại:</strong> có hệ thống xử lý chất thải hiện đại (biogas, đệm lót sinh học), giảm ô nhiễm.</li>\n      </ul>\n      <p><strong>Kết luận:</strong> chăn nuôi trang trại, công nghiệp có nhiều ưu thế vượt trội về năng suất, dịch bệnh và môi trường, nhưng đòi hỏi vốn đầu tư và trình độ kỹ thuật cao.</p>\n    ","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":2,"lesson":4,"topic":"Thụ tinh trong ống nghiệm ở động vật","q":"Em hãy trình bày các bước tiến hành và ý nghĩa thực tiễn của phương pháp thụ tinh trong ống nghiệm ở động vật.","content":"\n      <h4>1. Các bước tiến hành</h4>\n      <ul>\n        <li><strong>Bước 1:</strong> Thu nhận trứng từ con cái và tinh trùng từ con đực.</li>\n        <li><strong>Bước 2:</strong> Cho trứng và tinh trùng kết hợp với nhau trong môi trường nuôi cấy chuyên dụng (ống nghiệm) để thụ tinh tạo thành phôi.</li>\n        <li><strong>Bước 3:</strong> Nuôi cấy phôi ở giai đoạn thích hợp trong phòng thí nghiệm.</li>\n        <li><strong>Bước 4:</strong> Cấy phôi đã phát triển vào tử cung của con cái nhận phôi để mang thai và sinh con.</li>\n      </ul>\n      <h4>2. Ý nghĩa thực tiễn</h4>\n      <ul>\n        <li>Nâng cao hiệu quả thụ tinh, tận dụng tối đa nguồn gen từ những cá thể bố mẹ có giá trị cao, kể cả khi chúng gặp vấn đề về sinh sản tự nhiên.</li>\n        <li>Hỗ trợ đắc lực cho nghiên cứu khoa học, bảo tồn và nhân giống các loài vật nuôi quý hiếm.</li>\n        <li>Rút ngắn thời gian nhân giống, tăng nhanh số lượng con giống có năng suất cao.</li>\n      </ul>\n    ","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":3,"lesson":1,"topic":"Xu hướng chuyển dịch cơ cấu chăn nuôi","q":"Tại sao hiện nay ngành chăn nuôi ở Việt Nam lại có xu hướng dịch chuyển mạnh mẽ từ chăn nuôi nông hộ sang chăn nuôi trang trại, công nghiệp? Xu hướng này mang lại những lợi ích gì?","content":"\n      <h4>1. Nguyên nhân chuyển dịch</h4>\n      <ul>\n        <li>Chăn nuôi nông hộ nhỏ lẻ bộc lộ nhiều hạn chế: hiệu quả kinh tế thấp, khó kiểm soát dịch bệnh, gây ô nhiễm môi trường.</li>\n        <li>Chăn nuôi trang trại, công nghiệp áp dụng khoa học kỹ thuật giúp tối ưu hóa năng suất, hạ giá thành và đáp ứng tiêu chuẩn an toàn thực phẩm.</li>\n        <li>Nhu cầu tiêu dùng thực phẩm sạch, có truy xuất nguồn gốc ngày càng tăng, đặc biệt ở đô thị và thị trường xuất khẩu.</li>\n      </ul>\n      <h4>2. Lợi ích mang lại</h4>\n      <ul>\n        <li>Kiểm soát tốt an toàn dịch bệnh và bảo đảm an toàn sinh học.</li>\n        <li>Nâng cao chất lượng sản phẩm, tạo ra lượng hàng hóa lớn phục vụ tiêu dùng trong nước và hướng tới xuất khẩu.</li>\n        <li>Giảm chi phí sản xuất nhờ tự động hóa, tăng hiệu quả kinh tế và thu nhập cho người chăn nuôi.</li>\n        <li>Giảm ô nhiễm môi trường nhờ hệ thống xử lý chất thải hiện đại.</li>\n      </ul>\n    ","lessonName":"Bài 1: Vai trò, triển vọng chăn nuôi"},{"n":4,"lesson":4,"topic":"Công nghệ cấy truyền phôi","q":"Công nghệ cấy truyền phôi là gì? Công nghệ cấy truyền phôi có ý nghĩa gì trong công tác nhân giống vật nuôi?","content":"\n      <h4>1. Khái niệm</h4>\n      <p>Công nghệ cấy truyền phôi là quá trình đưa phôi được tạo ra từ cá thể cái này (cá thể cho phôi) vào tử cung của cá thể cái khác (cá thể nhận phôi) để con nhận phôi mang thai và sinh con.</p>\n      <h4>2. Ý nghĩa trong công tác nhân giống</h4>\n      <ul>\n        <li>Khai thác triệt để tiềm năng di truyền của những giống vật nuôi cái cao sản, vật nuôi quý hiếm cần được bảo tồn.</li>\n        <li>Nâng cao năng suất sinh sản, tăng số lượng con sinh ra từ một con cái giống cao sản; nhanh chóng thay đổi chất lượng đàn giống.</li>\n        <li>Dễ dàng, thuận lợi trong việc xuất, nhập, vận chuyển và trao đổi con giống giữa các nước, các vùng, các địa phương.</li>\n        <li>Giảm chi phí nuôi dưỡng con giống cao sản, đồng thời có thể tạo nhiều đời con trong thời gian ngắn.</li>\n      </ul>\n    ","lessonName":"Bài 4: Nhân giống vật nuôi"},{"n":5,"lesson":5,"topic":"Chọn phương thức chăn nuôi phù hợp","q":"a) Nêu phương thức chăn nuôi đang được áp dụng phổ biến ở địa phương em, ưu và nhược điểm của phương thức chăn nuôi đó.\nb) Theo em phương thức chăn nuôi nào phù hợp với nuôi gà lấy trứng? Vì sao?","content":"\n      <h4>a) Phương thức chăn nuôi phổ biến ở địa phương</h4>\n      <p>Ở nhiều địa phương nước ta hiện nay, phương thức phổ biến là <strong>chăn nuôi bán công nghiệp (bán chăn thả)</strong>.</p>\n      <ul>\n        <li><strong>Ưu điểm:</strong> tận dụng được thức ăn tự nhiên và phụ phẩm nông nghiệp; vật nuôi vận động nhiều nên chất lượng thịt tốt; chi phí đầu tư vừa phải, phù hợp quy mô hộ gia đình.</li>\n        <li><strong>Nhược điểm:</strong> năng suất không cao và chưa ổn định; khó kiểm soát dịch bệnh; chịu ảnh hưởng của thời tiết; chất thải chưa được xử lý triệt để.</li>\n      </ul>\n      <h4>b) Phương thức phù hợp với nuôi gà lấy trứng</h4>\n      <p>Nên chọn <strong>chăn nuôi công nghiệp hoặc bán công nghiệp</strong>.</p>\n      <ul>\n        <li>Gà đẻ cần chế độ dinh dưỡng, ánh sáng, nhiệt độ và vệ sinh chuồng trại được kiểm soát chặt chẽ để duy trì năng suất trứng ổn định.</li>\n        <li>Nuôi nhốt có kiểm soát giúp dễ thu trứng, phòng bệnh và quản lý đàn hiệu quả.</li>\n        <li>Quy mô trang trại cho năng suất và hiệu quả kinh tế cao hơn chăn thả tự do.</li>\n      </ul>\n    ","lessonName":"Bài 5: Phương thức chăn nuôi"},{"n":6,"lesson":4,"topic":"Ứng dụng cấy truyền phôi để cải thiện đàn bò thịt","q":"Gia đình bác A nuôi bò lấy thịt đã hơn 10 năm nay. Số lượng đàn bò thường dao động từ 65 – 80 con, trong đó có khoảng 20 con bò cái giống. Hiện nay nhu cầu sử dụng thịt bò của người dân tăng lên. Đàn bò nhà bác A khỏe mạnh, ăn khỏe nhưng năng suất thịt vẫn không cao. Bác A muốn cải thiện đàn bò nhà mình cho năng suất thịt tốt hơn. Em hãy đề xuất giúp bác A sử dụng công nghệ sinh học nào để cải thiện đàn bò thịt năng suất cao hơn. Giải thích tại sao em chọn công nghệ đó.","content":"\n      <h4>1. Đề xuất công nghệ</h4>\n      <p>Bác A nên sử dụng <strong>công nghệ cấy truyền phôi</strong> để cải thiện đàn bò thịt theo hướng năng suất cao hơn.</p>\n      <h4>2. Cách thực hiện</h4>\n      <ul>\n        <li>Mua phôi của giống bò thịt cao sản (ví dụ phôi bò BBB, Brahman, Droughtmaster…) từ cơ sở nhân giống uy tín.</li>\n        <li>Cấy phôi vào tử cung của những bò cái giống hiện có trong đàn (20 con bò cái) để chúng mang thai và sinh ra bê con.</li>\n        <li>Bê con sinh ra mang đặc tính di truyền của giống bò cao sản, lớn nhanh, cho năng suất thịt cao.</li>\n      </ul>\n      <h4>3. Lý do chọn công nghệ này</h4>\n      <ul>\n        <li>Tận dụng được đàn bò cái giống sẵn có làm mẹ nuôi, không cần mua nhiều bò cái cao sản đắt tiền.</li>\n        <li>Nhanh chóng cải thiện chất lượng đàn giống, tăng năng suất thịt trong thời gian ngắn.</li>\n        <li>Khai thác triệt để tiềm năng di truyền của giống bò cao sản, giảm chi phí so với nhập bò giống sống.</li>\n        <li>Phù hợp với quy mô đàn 65 – 80 con và điều kiện chăn nuôi hiện có của gia đình bác A.</li>\n      </ul>\n    ","lessonName":"Bài 4: Nhân giống vật nuôi"}];
+
+    const LETTERS = ["A", "B", "C", "D"];
+    const TOTAL = MCQ.length + TF.length + SHORT.length;
+    const STORE_KEY = "cnn11.fluent.v1";
+    const DEFAULT_STATE = {
+      theme: null,
+      mcq: {},
+      tf: {},
+      short: {},
+      essayMastered: {},
+      pref: { shuffleQ: false, shuffleA: false, tfShuffleQ: false },
+      bankShow: false
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+    function clone(obj) { return JSON.parse(JSON.stringify(obj)); }
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORE_KEY);
+        if (!raw) return clone(DEFAULT_STATE);
+        const saved = JSON.parse(raw);
+        return {
+          ...clone(DEFAULT_STATE),
+          ...saved,
+          mcq: saved.mcq || {},
+          tf: saved.tf || {},
+          short: saved.short || {},
+          essayMastered: saved.essayMastered || {},
+          pref: { ...clone(DEFAULT_STATE.pref), ...(saved.pref || {}) }
+        };
+      } catch (err) {
+        return clone(DEFAULT_STATE);
+      }
+    }
+    let state = loadState();
+    function saveState() {
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      } catch (err) {}
+    }
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (ch) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[ch]));
+    }
+    function shuffle(list) {
+      const arr = [...list];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    /* ---------- Toast ---------- */
+    let toastTimer = null;
+    function showToast(message) {
+      const el = $("toast");
+      $("toastText").textContent = message;
+      el.hidden = false;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => { el.hidden = true; }, 2800);
+    }
+
+    /* ---------- Dialog ---------- */
+    let dialogAction = null;
+    function openDialog(options) {
+      $("dialogTitle").textContent = options.title || "Xác nhận";
+      $("dialogBody").textContent = options.body || "";
+      $("dialogConfirm").textContent = options.confirmText || "Xác nhận";
+      dialogAction = options.onConfirm || null;
+      $("overlay").hidden = false;
+      setTimeout(() => $("dialogCancel").focus(), 30);
+    }
+    function closeDialog() {
+      $("overlay").hidden = true;
+      dialogAction = null;
+    }
+    $("dialogCancel").addEventListener("click", closeDialog);
+    $("dialogConfirm").addEventListener("click", () => {
+      const action = dialogAction;
+      closeDialog();
+      if (action) action();
+    });
+    $("overlay").addEventListener("click", (event) => {
+      if (event.target === $("overlay")) closeDialog();
+    });
+
+    /* ---------- Theme ---------- */
+    const mediaTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", theme === "dark" ? "#1a1a1f" : "#eef2f8");
+    }
+    applyTheme(state.theme || (mediaTheme.matches ? "dark" : "light"));
+    $("themeBtn").addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      state.theme = next;
+      saveState();
+      applyTheme(next);
+      showToast(next === "dark" ? "Đã chuyển sang giao diện tối" : "Đã chuyển sang giao diện sáng");
+    });
+    mediaTheme.addEventListener("change", (event) => {
+      if (!state.theme) applyTheme(event.matches ? "dark" : "light");
+    });
+
+    /* ---------- Stats ---------- */
+    function getStats() {
+      const mcqEntries = Object.entries(state.mcq).filter(([, v]) => v && typeof v.sel === "number");
+      const mcqDone = mcqEntries.length;
+      const mcqCorrect = mcqEntries.filter(([, v]) => v.ok).length;
+
+      const tfEntries = Object.entries(state.tf).filter(([, v]) => v && Array.isArray(v.sel));
+      const tfDone = tfEntries.length;
+      const tfPerfect = tfEntries.filter(([, v]) => v.correct === 4).length;
+
+      const shortEntries = Object.entries(state.short).filter(([, v]) => v && v.done);
+      const shortDone = shortEntries.length;
+      const shortCorrect = shortEntries.filter(([, v]) => v.ok).length;
+
+      const essayCount = Object.keys(state.essayMastered || {}).length;
+
+      const done = mcqDone + tfDone + shortDone;
+      const totalScore = done;
+      const pct = Math.round((done / TOTAL) * 100);
+
+      return {
+        mcqDone,
+        mcqCorrect,
+        mcqWrong: mcqDone - mcqCorrect,
+        tfDone,
+        tfPerfect,
+        shortDone,
+        shortCorrect,
+        essayCount,
+        done,
+        pct,
+        acc: mcqDone ? Math.round((mcqCorrect / mcqDone) * 100) : null
+      };
+    }
+
+    function syncStats() {
+      const s = getStats();
+      const set = (id, val) => { const el = $(id); if (el) el.textContent = val; };
+      set("sidePct", s.pct + "%");
+      set("sideDone", s.done + " / " + TOTAL + " câu");
+      const sideBar = $("sideBar");
+      if (sideBar) sideBar.style.width = s.pct + "%";
+
+      set("heroPct", s.pct + "%");
+      set("heroDone", s.done);
+      const ring = $("heroRing");
+      if (ring) ring.style.setProperty("--p", String(s.pct));
+
+      set("statDone", s.done);
+      set("statAcc", s.acc === null ? "—" : s.acc + "%");
+      set("statTF", s.tfPerfect);
+      set("statShort", s.essayCount);
+
+      set("countMcq", s.mcqDone + " / " + MCQ.length);
+      set("countTf", s.tfDone + " / " + TF.length);
+      set("countShort", s.shortDone + " / " + SHORT.length);
+      set("countEssay", s.essayCount + " / " + ESSAY.length);
+
+      const bM = $("barMcq"); if (bM) bM.style.width = (s.mcqDone / MCQ.length) * 100 + "%";
+      const bT = $("barTf"); if (bT) bT.style.width = (s.tfDone / TF.length) * 100 + "%";
+      const bS = $("barShort"); if (bS) bS.style.width = (s.shortDone / SHORT.length) * 100 + "%";
+      const bE = $("barEssay"); if (bE) bE.style.width = (s.essayCount / ESSAY.length) * 100 + "%";
+    }
+
+
+    function applySectionVisibility() {
+      const hideSection = (key, count) => {
+        if (count > 0) return;
+        const view = $("view-" + key);
+        if (view) view.style.display = "none";
+        $$('[data-view="' + key + '"]').forEach((el) => { el.style.display = "none"; });
+        $$('[data-go="' + key + '"]').forEach((el) => {
+          const row = el.closest(".plan-row");
+          if (row) row.style.display = "none";
+          else el.style.display = "none";
+        });
+        $$('[data-stat="' + key + '"]').forEach((el) => { el.style.display = "none"; });
+        $$('[data-type="' + key + '"]').forEach((el) => { el.style.display = "none"; });
+      };
+      hideSection("mcq", MCQ.length);
+      hideSection("tf", TF.length);
+      hideSection("short", SHORT.length);
+      hideSection("essay", ESSAY.length);
+    }
+
+    /* ---------- Navigation ---------- */
+    const VIEW_META = {
+      dashboard: { title: "Tổng quan ôn tập", desc: "Hệ thống câu hỏi đề cương Giữa kì I: Trắc nghiệm 1 phương án, Đúng / Sai và Tự luận." },
+      mcq: { title: "Trắc nghiệm 1 lựa chọn", desc: "35 câu • Chọn một đáp án đúng, kiểm tra ngay kèm lời giải chi tiết." },
+      tf: { title: "Trắc nghiệm Đúng – Sai", desc: "10 câu (40 nhận định) • Xác định Đúng/Sai cho từng nhận định a, b, c, d." },
+      short: { title: "Điền số & Trả lời ngắn", desc: "0 câu • Nhập đáp số, tự kiểm tra và xem hướng dẫn giải chi tiết." },
+      essay: { title: "Tự luận", desc: "6 câu • Hướng dẫn chấm và đáp án chi tiết." },
+      bank: { title: "Ngân hàng câu hỏi", desc: "Tra cứu toàn diện toàn bộ đề cương ôn tập kèm đáp án chuẩn." }
+    };
+
+    function navigate(view, options) {
+      const meta = VIEW_META[view] || VIEW_META.dashboard;
+      $$(".view").forEach((section) => section.classList.toggle("active", section.id === "view-" + view));
+      $$("[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === view));
+      $("pageTitle").textContent = meta.title;
+      $("pageDesc").innerHTML = meta.desc;
+
+      if (!options || !options.keepScroll) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      if (view === "dashboard") syncStats();
+      if (view === "mcq") renderMcq();
+      if (view === "tf") renderTf();
+      if (view === "short") renderShort();
+      if (view === "essay") renderEssay();
+      if (view === "bank") renderBank();
+    }
+
+    document.addEventListener("click", (event) => {
+      const viewButton = event.target.closest("[data-view]");
+      if (viewButton) { navigate(viewButton.dataset.view); return; }
+      const goButton = event.target.closest("[data-go]");
+      if (goButton) navigate(goButton.dataset.go);
+    });
+    const dashBrowse = $("dashBrowse");
+    if (dashBrowse) dashBrowse.addEventListener("click", () => navigate("bank"));
+
+    /* =========================================================================
+       1. TRẮC NGHIỆM 1 LỰA CHỌN (MCQ) - 58 CÂU
+       ========================================================================= */
+    let mcqFiltered = [...MCQ];
+    let mcqOrder = [];
+    let mcqPos = 0;
+    const mcqPending = {};
+    let optionOrders = {};
+
+    function applyMcqFilter() {
+      const filter = $("mcqLessonFilter").value;
+      if (filter === "all") {
+        mcqFiltered = [...MCQ];
+      } else {
+        mcqFiltered = MCQ.filter((item) => item.lesson === Number(filter));
+      }
+      buildMcqOrder();
+    }
+
+    function buildMcqOrder(preserveId) {
+      const ids = mcqFiltered.map((item) => item.n);
+      mcqOrder = state.pref.shuffleQ ? shuffle(ids) : ids;
+      if (preserveId !== undefined && preserveId !== null) {
+        const at = mcqOrder.indexOf(preserveId);
+        mcqPos = at >= 0 ? at : 0;
+      } else {
+        const firstNew = mcqOrder.findIndex((id) => !state.mcq[id]);
+        mcqPos = firstNew >= 0 ? firstNew : 0;
+      }
+    }
+
+    function currentMcq() {
+      return MCQ.find((item) => item.n === mcqOrder[mcqPos]);
+    }
+
+    function getOptionOrder(question) {
+      if (!state.pref.shuffleA) return [0, 1, 2, 3];
+      if (!optionOrders[question.n]) optionOrders[question.n] = shuffle([0, 1, 2, 3]);
+      return optionOrders[question.n];
+    }
+
+    function renderMcq() {
+      if (!mcqOrder.length) buildMcqOrder();
+      const question = currentMcq();
+      if (!question) {
+        $("mcqTitle").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        $("mcqOptions").innerHTML = "";
+        return;
+      }
+      const rec = state.mcq[question.n];
+      const pending = rec ? rec.sel : mcqPending[question.n];
+      const order = getOptionOrder(question);
+
+      $("mcqEyebrow").textContent = "Câu " + question.n;
+      $("mcqLessonName").textContent = question.lessonName;
+      $("mcqChip").textContent = (mcqPos + 1) + " / " + mcqOrder.length;
+      $("mcqBar").style.width = ((mcqPos + 1) / mcqOrder.length) * 100 + "%";
+      $("mcqTitle").textContent = question.q;
+      $("mcqType").textContent = "Trắc nghiệm 1 lựa chọn";
+
+      const wrap = $("mcqOptions");
+      wrap.innerHTML = "";
+      order.forEach((orig, displayIndex) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option";
+        button.dataset.orig = String(orig);
+        let mark = "";
+        if (rec) {
+          button.disabled = true;
+          if (orig === question.a) {
+            button.classList.add("correct");
+            mark = "✓";
+          } else if (orig === rec.sel) {
+            button.classList.add("wrong");
+            mark = "✕";
+          } else {
+            button.classList.add("muted");
+          }
+        } else if (orig === pending) {
+          button.classList.add("selected");
+        }
+        button.innerHTML =
+          '<span class="letter">' + LETTERS[displayIndex] + "</span>" +
+          '<span class="option-text">' + escapeHtml(question.o[orig]) + "</span>" +
+          (mark ? '<span class="option-mark">' + mark + "</span>" : "");
+        wrap.appendChild(button);
+      });
+
+      const feedback = $("mcqFeedback");
+      if (rec) {
+        const correctDisplay = order.indexOf(question.a);
+        feedback.hidden = false;
+        feedback.className = "feedback " + (rec.ok ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (rec.ok ? "✓" : "✕") + "</span>" +
+          '<div class="feedback-body"><strong>' + (rec.ok ? "Chính xác!" : "Chưa chính xác.") + "</strong> " +
+          (rec.ok
+            ? "Bạn đã chọn đúng đáp án."
+            : "Đáp án đúng là <strong>" + LETTERS[correctDisplay] + ". " + escapeHtml(question.o[question.a]) + "</strong>.") +
+          (question.exp ? '<span class="feedback-note"><strong>Giải thích:</strong> ' + escapeHtml(question.exp) + "</span>" : "") +
+          "</div>";
+      } else {
+        feedback.hidden = true;
+        feedback.className = "feedback";
+        feedback.innerHTML = "";
+      }
+
+      $("mcqPrev").disabled = mcqPos === 0;
+      $("mcqNext").disabled = mcqPos === mcqOrder.length - 1;
+      $("mcqUndo").hidden = !rec;
+      $("mcqCheck").hidden = !!rec;
+
+      const nav = $("mcqNavGrid");
+      nav.innerHTML = "";
+      mcqOrder.forEach((id, index) => {
+        const record = state.mcq[id];
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "nav-cell";
+        if (record) cell.classList.add(record.ok ? "done-correct" : "done-wrong");
+        if (index === mcqPos) cell.classList.add("current");
+        cell.textContent = String(id);
+        cell.title = "Câu " + id + (record ? (record.ok ? " • Đúng" : " • Sai") : " • Chưa làm");
+        cell.setAttribute("aria-label", "Đi tới câu " + id);
+        cell.addEventListener("click", () => {
+          mcqPos = index;
+          renderMcq();
+        });
+        nav.appendChild(cell);
+      });
+
+      const s = getStats();
+      $("mcqNavStat").textContent = s.mcqDone + " / " + MCQ.length;
+      $("mcqCorrect").textContent = String(s.mcqCorrect);
+      $("mcqWrong").textContent = String(s.mcqWrong);
+      $("mcqLeft").textContent = String(MCQ.length - s.mcqDone);
+      syncStats();
+    }
+
+    function scrollCardOnMobile(id) {
+      if (!window.matchMedia("(max-width: 1000px)").matches) return;
+      const card = $(id);
+      if (card) card.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    function mcqNext() {
+      if (mcqPos < mcqOrder.length - 1) {
+        mcqPos++;
+        renderMcq();
+        scrollCardOnMobile("mcqCard");
+      }
+    }
+    function mcqPrev() {
+      if (mcqPos > 0) {
+        mcqPos--;
+        renderMcq();
+        scrollCardOnMobile("mcqCard");
+      }
+    }
+    function checkMcq() {
+      const question = currentMcq();
+      if (!question || state.mcq[question.n]) return;
+      const selected = mcqPending[question.n];
+      if (selected === undefined) {
+        const card = $("mcqCard");
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        showToast("Hãy chọn một đáp án trước khi kiểm tra.");
+        return;
+      }
+      state.mcq[question.n] = { sel: selected, ok: selected === question.a };
+      saveState();
+      renderMcq();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("mcqOptions").addEventListener("click", (event) => {
+      const button = event.target.closest(".option");
+      if (!button || button.disabled) return;
+      const question = currentMcq();
+      if (!question || state.mcq[question.n]) return;
+      mcqPending[question.n] = Number(button.dataset.orig);
+      renderMcq();
+    });
+    $("mcqCheck").addEventListener("click", checkMcq);
+    $("mcqNext").addEventListener("click", mcqNext);
+    $("mcqPrev").addEventListener("click", mcqPrev);
+    $("mcqUndo").addEventListener("click", () => {
+      const question = currentMcq();
+      if (!question) return;
+      delete state.mcq[question.n];
+      delete mcqPending[question.n];
+      saveState();
+      renderMcq();
+    });
+    $("mcqShuffleQ").addEventListener("change", (event) => {
+      const current = currentMcq();
+      state.pref.shuffleQ = event.target.checked;
+      saveState();
+      buildMcqOrder(current ? current.n : null);
+      renderMcq();
+    });
+    $("mcqShuffleA").addEventListener("change", (event) => {
+      state.pref.shuffleA = event.target.checked;
+      optionOrders = {};
+      saveState();
+      renderMcq();
+    });
+    $("mcqLessonFilter").addEventListener("change", () => {
+      applyMcqFilter();
+      renderMcq();
+    });
+    $("mcqRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần trắc nghiệm?",
+        body: "Toàn bộ 35 câu trắc nghiệm đã làm sẽ được đặt lại. Các phần khác không bị ảnh hưởng.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.mcq = {};
+          Object.keys(mcqPending).forEach((k) => delete mcqPending[k]);
+          optionOrders = {};
+          saveState();
+          buildMcqOrder();
+          renderMcq();
+          showToast("Đã làm mới phần trắc nghiệm.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       2. TRẮC NGHIỆM ĐÚNG / SAI (TF) - 18 CÂU (72 Ý)
+       ========================================================================= */
+    let tfFiltered = [...TF];
+    let tfOrder = [];
+    let tfPos = 0;
+    const tfPending = {};
+
+    function applyTfFilter() {
+      const filter = $("tfLessonFilter").value;
+      if (filter === "all") {
+        tfFiltered = [...TF];
+      } else {
+        tfFiltered = TF.filter((item) => item.lesson === Number(filter));
+      }
+      buildTfOrder();
+    }
+
+    function buildTfOrder(preserveId) {
+      const ids = tfFiltered.map((item) => item.n);
+      tfOrder = state.pref.tfShuffleQ ? shuffle(ids) : ids;
+      if (preserveId !== undefined && preserveId !== null) {
+        const at = tfOrder.indexOf(preserveId);
+        tfPos = at >= 0 ? at : 0;
+      } else {
+        const firstNew = tfOrder.findIndex((id) => !state.tf[id]);
+        tfPos = firstNew >= 0 ? firstNew : 0;
+      }
+    }
+
+    function currentTf() {
+      return TF.find((item) => item.n === tfOrder[tfPos]);
+    }
+
+    function renderTf() {
+      if (!tfOrder.length) buildTfOrder();
+      const question = currentTf();
+      if (!question) {
+        $("tfIntro").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        $("tfItems").innerHTML = "";
+        return;
+      }
+      const rec = state.tf[question.n];
+      const chosen = rec ? rec.sel : (tfPending[question.n] || []);
+
+      $("tfEyebrow").textContent = "Câu " + question.n;
+      $("tfLessonName").textContent = question.lessonName;
+      $("tfChip").textContent = (tfPos + 1) + " / " + tfOrder.length;
+      $("tfBar").style.width = ((tfPos + 1) / tfOrder.length) * 100 + "%";
+      $("tfIntro").textContent = question.intro;
+      $("tfType").textContent = "Đúng / Sai &bull; 4 nhận định";
+
+      const list = $("tfItems");
+      list.innerHTML = "";
+      question.items.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "tf-row";
+        const selected = chosen[index];
+        const isRight = rec && selected === item.a;
+        if (rec) row.classList.add(isRight ? "ok" : "bad");
+
+        const segTrue = document.createElement("button");
+        segTrue.type = "button";
+        segTrue.className = "seg";
+        segTrue.dataset.i = String(index);
+        segTrue.dataset.v = "true";
+        segTrue.textContent = "Đúng";
+
+        const segFalse = document.createElement("button");
+        segFalse.type = "button";
+        segFalse.className = "seg";
+        segFalse.dataset.i = String(index);
+        segFalse.dataset.v = "false";
+        segFalse.textContent = "Sai";
+
+        if (rec) {
+          segTrue.disabled = true;
+          segFalse.disabled = true;
+          if (item.a === true) segTrue.classList.add("correct");
+          if (item.a === false) segFalse.classList.add("correct");
+          if (selected === true && item.a !== true) segTrue.classList.add("wrong");
+          if (selected === false && item.a !== false) segFalse.classList.add("wrong");
+        } else {
+          if (selected === true) segTrue.classList.add("sel");
+          if (selected === false) segFalse.classList.add("sel");
+        }
+
+        const controls = document.createElement("div");
+        controls.className = "tf-controls";
+        const group = document.createElement("div");
+        group.className = "segmented";
+        group.append(segTrue, segFalse);
+        controls.appendChild(group);
+        if (rec) {
+          const status = document.createElement("span");
+          status.className = "tf-status " + (isRight ? "ok" : "bad");
+          status.textContent = isRight ? "✓" : "✕";
+          controls.appendChild(status);
+        }
+
+        const text = document.createElement("div");
+        text.className = "tf-text";
+        text.innerHTML =
+          '<span class="tf-letter">' + String.fromCharCode(97 + index) + ")</span>" +
+          '<div style="flex:1"><span>' + escapeHtml(item.text) + "</span>" +
+          (rec ? '<div class="tf-explain-box"><strong>' + (item.a ? "[ĐÚNG]" : "[SAI]") + "</strong> " + escapeHtml(item.exp) + "</div>" : "") +
+          "</div>";
+
+        row.append(text, controls);
+        list.appendChild(row);
+      });
+
+      const feedback = $("tfFeedback");
+      if (rec) {
+        const allRight = rec.correct === question.items.length;
+        feedback.hidden = false;
+        feedback.className = "feedback " + (allRight ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (allRight ? "✓" : "!") + "</span>" +
+          '<div class="feedback-body"><strong>Đúng ' + rec.correct + " / " + question.items.length + " nhận định.</strong> " +
+          (allRight ? "Bạn đã xác định chính xác toàn bộ 4 nhận định!" : "Xem lại lời giải chi tiết cho từng ý ở trên để nắm vững kiến thức.") +
+          "</div>";
+      } else {
+        feedback.hidden = true;
+        feedback.className = "feedback";
+        feedback.innerHTML = "";
+      }
+
+      $("tfPrev").disabled = tfPos === 0;
+      $("tfNext").disabled = tfPos === tfOrder.length - 1;
+      $("tfUndo").hidden = !rec;
+      $("tfCheck").hidden = !!rec;
+
+      const nav = $("tfNav");
+      nav.innerHTML = "";
+      tfOrder.forEach((id, index) => {
+        const item = TF.find((entry) => entry.n === id);
+        const record = state.tf[id];
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "tf-dot";
+        if (record) button.classList.add("done");
+        if (index === tfPos) button.classList.add("current");
+        const score = record ? record.correct + "/4" : "—";
+        button.innerHTML = '<span>Câu ' + id + '</span><span class="score">' + score + '</span>';
+        button.addEventListener("click", () => {
+          tfPos = index;
+          renderTf();
+        });
+        nav.appendChild(button);
+      });
+
+      $("tfNavStat").textContent = getStats().tfDone + " / " + TF.length;
+      syncStats();
+    }
+
+    function tfNext() {
+      if (tfPos < tfOrder.length - 1) {
+        tfPos++;
+        renderTf();
+        scrollCardOnMobile("tfCard");
+      }
+    }
+    function tfPrev() {
+      if (tfPos > 0) {
+        tfPos--;
+        renderTf();
+        scrollCardOnMobile("tfCard");
+      }
+    }
+    function checkTf() {
+      const question = currentTf();
+      if (!question || state.tf[question.n]) return;
+      const chosen = tfPending[question.n] || [];
+      const complete = question.items.every((_, index) => typeof chosen[index] === "boolean");
+      if (!complete) {
+        const card = $("tfCard");
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        showToast("Hãy chọn Đúng hoặc Sai cho đủ cả 4 nhận định.");
+        return;
+      }
+      const correct = question.items.reduce((total, item, index) => total + (chosen[index] === item.a ? 1 : 0), 0);
+      state.tf[question.n] = { sel: chosen.slice(), correct };
+      saveState();
+      renderTf();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("tfItems").addEventListener("click", (event) => {
+      const button = event.target.closest(".seg");
+      if (!button) return;
+      const question = currentTf();
+      if (!question || state.tf[question.n]) return;
+      const index = Number(button.dataset.i);
+      const value = button.dataset.v === "true";
+      const chosen = tfPending[question.n] ? [...tfPending[question.n]] : new Array(question.items.length).fill(undefined);
+      chosen[index] = value;
+      tfPending[question.n] = chosen;
+      const row = button.closest(".tf-row");
+      if (row) {
+        row.querySelectorAll(".seg").forEach((seg) => {
+          const active = chosen[Number(seg.dataset.i)] === (seg.dataset.v === "true");
+          seg.classList.toggle("sel", active);
+        });
+      }
+    });
+    $("tfCheck").addEventListener("click", checkTf);
+    $("tfNext").addEventListener("click", tfNext);
+    $("tfPrev").addEventListener("click", tfPrev);
+    $("tfUndo").addEventListener("click", () => {
+      const question = currentTf();
+      if (!question) return;
+      delete state.tf[question.n];
+      delete tfPending[question.n];
+      saveState();
+      renderTf();
+    });
+    $("tfShuffleQ").addEventListener("change", (event) => {
+      const current = currentTf();
+      state.pref.tfShuffleQ = event.target.checked;
+      saveState();
+      buildTfOrder(current ? current.n : null);
+      renderTf();
+    });
+    $("tfLessonFilter").addEventListener("change", () => {
+      applyTfFilter();
+      renderTf();
+    });
+    $("tfRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần Đúng / Sai?",
+        body: "Toàn bộ 10 câu Đúng/Sai đã làm sẽ được đặt lại. Các phần khác không bị ảnh hưởng.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.tf = {};
+          Object.keys(tfPending).forEach((k) => delete tfPending[k]);
+          saveState();
+          buildTfOrder();
+          renderTf();
+          showToast("Đã làm mới phần Đúng / Sai.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       3. ĐIỀN SỐ / TRẢ LỜI NGẮN (SHORT) - 14 CÂU
+       ========================================================================= */
+    let shortFiltered = [...SHORT];
+    let shortOrder = [];
+    let shortPos = 0;
+
+    function applyShortFilter() {
+      const filter = $("shortLessonFilter").value;
+      if (filter === "all") {
+        shortFiltered = [...SHORT];
+      } else {
+        shortFiltered = SHORT.filter((item) => item.lesson === Number(filter));
+      }
+      buildShortOrder();
+    }
+
+    function buildShortOrder() {
+      shortOrder = shortFiltered.map((item) => item.n);
+      const firstNew = shortOrder.findIndex((id) => !state.short[id]);
+      shortPos = firstNew >= 0 ? firstNew : 0;
+    }
+
+    function currentShort() {
+      return SHORT.find((item) => item.n === shortOrder[shortPos]);
+    }
+
+    function renderShort() {
+      if (!shortOrder.length) buildShortOrder();
+      const question = currentShort();
+      if (!question) {
+        $("shortTitle").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        return;
+      }
+      const rec = state.short[question.n];
+
+      $("shortEyebrow").textContent = "Câu " + question.n;
+      $("shortLessonName").textContent = question.lessonName;
+      $("shortChip").textContent = (shortPos + 1) + " / " + shortOrder.length;
+      $("shortBar").style.width = ((shortPos + 1) / shortOrder.length) * 100 + "%";
+      $("shortTitle").textContent = question.q;
+
+      const input = $("shortInput");
+      const checkBtn = $("shortCheck");
+      const undoBtn = $("shortUndo");
+      const feedback = $("shortFeedback");
+
+      if (rec) {
+        input.value = rec.val;
+        input.disabled = true;
+        checkBtn.hidden = true;
+        undoBtn.hidden = false;
+
+        feedback.hidden = false;
+        feedback.className = "feedback " + (rec.ok ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (rec.ok ? "✓" : "✕") + "</span>" +
+          '<div class="feedback-body"><strong>' + (rec.ok ? "Chính xác!" : "Chưa chính xác.") + "</strong> " +
+          "Đáp số đúng là: <strong>" + escapeHtml(question.ans) + "</strong>." +
+          '<span class="feedback-note"><strong>Hướng dẫn chi tiết:</strong> ' + escapeHtml(question.exp) + "</span>" +
+          "</div>";
+      } else {
+        input.value = "";
+        input.disabled = false;
+        checkBtn.hidden = false;
+        undoBtn.hidden = true;
+        feedback.hidden = true;
+        feedback.innerHTML = "";
+      }
+
+      $("shortPrev").disabled = shortPos === 0;
+      $("shortNext").disabled = shortPos === shortOrder.length - 1;
+
+      const nav = $("shortNavGrid");
+      nav.innerHTML = "";
+      shortOrder.forEach((id, index) => {
+        const record = state.short[id];
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "nav-cell";
+        if (record) cell.classList.add(record.ok ? "done-correct" : "done-wrong");
+        if (index === shortPos) cell.classList.add("current");
+        cell.textContent = String(id);
+        cell.addEventListener("click", () => {
+          shortPos = index;
+          renderShort();
+        });
+        nav.appendChild(cell);
+      });
+
+      $("shortNavStat").textContent = getStats().shortDone + " / " + SHORT.length;
+      syncStats();
+    }
+
+    function checkShort() {
+      const question = currentShort();
+      if (!question || state.short[question.n]) return;
+      const raw = $("shortInput").value.trim();
+      if (!raw) {
+        $("shortInput").focus();
+        showToast("Vui lòng nhập đáp số trước khi kiểm tra.");
+        return;
+      }
+      const normInput = raw.toLowerCase().replace(/,/g, ".").replace(/[^0-9.]/g, "");
+      const normAns = question.ans.toLowerCase().replace(/,/g, ".").replace(/[^0-9.]/g, "");
+      const isRight = normInput === normAns || raw.toLowerCase().includes(normAns);
+
+      state.short[question.n] = { val: raw, ok: isRight, done: true };
+      saveState();
+      renderShort();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("shortCheck").addEventListener("click", checkShort);
+    $("shortInput").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const question = currentShort();
+        if (state.short[question.n]) {
+          if (shortPos < shortOrder.length - 1) { shortPos++; renderShort(); }
+        } else {
+          checkShort();
+        }
+      }
+    });
+    $("shortNext").addEventListener("click", () => {
+      if (shortPos < shortOrder.length - 1) { shortPos++; renderShort(); scrollCardOnMobile("shortCard"); }
+    });
+    $("shortPrev").addEventListener("click", () => {
+      if (shortPos > 0) { shortPos--; renderShort(); scrollCardOnMobile("shortCard"); }
+    });
+    $("shortUndo").addEventListener("click", () => {
+      const question = currentShort();
+      if (!question) return;
+      delete state.short[question.n];
+      saveState();
+      renderShort();
+      $("shortInput").focus();
+    });
+    $("shortLessonFilter").addEventListener("change", () => {
+      applyShortFilter();
+      renderShort();
+    });
+    $("shortRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần Điền số?",
+        body: "Toàn bộ câu trả lời ngắn đã làm sẽ được đặt lại.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.short = {};
+          saveState();
+          buildShortOrder();
+          renderShort();
+          showToast("Đã làm mới phần Điền số.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       4. TỰ LUẬN KHOA HỌC (ESSAY) - 10 CÂU
+       ========================================================================= */
+    let essayShowAll = false;
+
+    function renderEssay() {
+      const filter = $("essayLessonFilter").value;
+      const list = $("essayList");
+      list.innerHTML = "";
+
+      const filtered = filter === "all" ? ESSAY : ESSAY.filter((item) => item.lesson === Number(filter));
+
+      filtered.forEach((item) => {
+        const article = document.createElement("article");
+        article.className = "card essay-card";
+        const isMastered = !!state.essayMastered[item.n];
+
+        article.innerHTML =
+          '<div class="essay-card-head">' +
+          '  <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap">' +
+          '    <span class="chip accent">Câu ' + item.n + '</span>' +
+          '    <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+          (isMastered ? '<span class="chip green">✓ Đã nắm vững</span>' : '') +
+          '  </div>' +
+          '  <button class="btn btn-ghost" type="button" data-master="' + item.n + '">' +
+          (isMastered ? 'Bỏ đánh dấu' : 'Đánh dấu đã hiểu') +
+          '  </button>' +
+          '</div>' +
+          '<h3 class="essay-q">' + escapeHtml(item.q) + '</h3>' +
+          '<button class="btn btn-secondary essay-toggle-btn" type="button" data-toggle-essay="' + item.n + '">' +
+          (essayShowAll ? 'Ẩn đáp án & biểu điểm' : 'Xem đáp án & biểu điểm chi tiết') +
+          '</button>' +
+          '<div class="essay-answer-box" id="essayAns-' + item.n + '" ' + (essayShowAll ? '' : 'hidden') + '>' +
+          item.content +
+          '</div>';
+
+        list.appendChild(article);
+      });
+      syncStats();
+    }
+
+    $("essayList").addEventListener("click", (e) => {
+      const toggleBtn = e.target.closest("[data-toggle-essay]");
+      if (toggleBtn) {
+        const id = toggleBtn.dataset.toggleEssay;
+        const box = $("essayAns-" + id);
+        if (box) {
+          const isHidden = box.hidden;
+          box.hidden = !isHidden;
+          toggleBtn.textContent = isHidden ? "Ẩn đáp án & biểu điểm" : "Xem đáp án & biểu điểm chi tiết";
+        }
+        return;
+      }
+      const masterBtn = e.target.closest("[data-master]");
+      if (masterBtn) {
+        const id = masterBtn.dataset.master;
+        if (state.essayMastered[id]) {
+          delete state.essayMastered[id];
+        } else {
+          state.essayMastered[id] = true;
+        }
+        saveState();
+        renderEssay();
+      }
+    });
+
+    $("essayLessonFilter").addEventListener("change", renderEssay);
+    $("essayToggleAll").addEventListener("click", () => {
+      essayShowAll = !essayShowAll;
+      $("essayToggleAll").textContent = essayShowAll ? "Ẩn tất cả đáp án" : "Hiện tất cả đáp án";
+      renderEssay();
+    });
+
+    /* =========================================================================
+       5. NGÂN HÀNG CÂU HỎI (BANK) - 100 CÂU
+       ========================================================================= */
+    let bankTypeFilter = "all";
+
+    function renderBank() {
+      const query = $("bankSearch").value.trim().toLowerCase();
+      const lessonFilter = $("bankLessonFilter").value;
+      const showAnswers = $("bankShowAns").checked;
+      const list = $("bankList");
+      list.innerHTML = "";
+      let count = 0;
+
+      const matchesQuery = (text) => !query || text.toLowerCase().includes(query);
+      const matchesLesson = (itemLesson) => lessonFilter === "all" || itemLesson === Number(lessonFilter);
+
+      // MCQ
+      if (bankTypeFilter === "all" || bankTypeFilter === "mcq") {
+        MCQ.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.o.join(" ") + " " + (item.exp || ""))) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          const options = item.o.map((text, index) =>
+            '<div class="bank-option' + (showAnswers && index === item.a ? " correct" : "") + '">' +
+            '<span class="letter">' + LETTERS[index] + "</span><span>" + escapeHtml(text) + "</span></div>"
+          ).join("");
+
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Trắc nghiệm</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            (showAnswers ? '<span class="chip green">Đáp án ' + LETTERS[item.a] + "</span>" : "") +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            '<div class="bank-options">' + options + '</div>' +
+            (showAnswers && item.exp ? '<div class="bank-note"><strong>Giải thích:</strong> ' + escapeHtml(item.exp) + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      // TF
+      if (bankTypeFilter === "all" || bankTypeFilter === "tf") {
+        TF.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.intro + " " + item.items.map((e) => e.text).join(" "))) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          const rows = item.items.map((entry, index) =>
+            '<div class="bank-tf"><span><span class="tf-letter">' + String.fromCharCode(97 + index) + ")</span> " +
+            escapeHtml(entry.text) + "</span>" +
+            (showAnswers
+              ? '<span class="chip ' + (entry.a ? "green" : "red") + '">' + (entry.a ? "Đúng" : "Sai") + "</span>"
+              : '<span class="chip">?</span>') +
+            "</div>" +
+            (showAnswers ? '<div class="tf-explain-box" style="margin-bottom:4px"><strong>' + (entry.a ? "[ĐÚNG]" : "[SAI]") + "</strong> " + escapeHtml(entry.exp) + "</div>" : "")
+          ).join("");
+
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Đúng / Sai</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            '</div>' +
+            '<p class="tf-intro" style="margin-bottom: 10px">' + escapeHtml(item.intro) + '</p>' +
+            '<div class="bank-tf-list">' + rows + '</div>';
+          list.appendChild(article);
+        });
+      }
+
+      // SHORT
+      if (bankTypeFilter === "all" || bankTypeFilter === "short") {
+        SHORT.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.exp)) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Điền số / Ngắn</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            (showAnswers ? '<span class="chip green">Đáp số: ' + escapeHtml(item.ans) + '</span>' : '') +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            (showAnswers ? '<div class="bank-note"><strong>Lời giải chi tiết:</strong> ' + escapeHtml(item.exp) + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      // ESSAY
+      if (bankTypeFilter === "all" || bankTypeFilter === "essay") {
+        ESSAY.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.content)) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Tự luận</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            (showAnswers ? '<div class="essay-answer-box" style="margin-top:10px">' + item.content + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      $("bankCount").textContent = count ? "Tìm thấy " + count + " câu hỏi phù hợp" : "";
+      if (!count) {
+        list.innerHTML =
+          '<div class="card empty">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>' +
+          "Không tìm thấy câu hỏi phù hợp. Thử từ khóa khác nhé.</div>";
+      }
+    }
+
+    $("bankSearch").addEventListener("input", renderBank);
+    $("bankShowAns").addEventListener("change", (e) => {
+      state.bankShow = e.target.checked;
+      saveState();
+      renderBank();
+    });
+    $("bankLessonFilter").addEventListener("change", renderBank);
+    $("bankTypeFilters").addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-type]");
+      if (!chip) return;
+      bankTypeFilter = chip.dataset.type;
+      $$("#bankTypeFilters .filter-chip").forEach((b) => b.classList.toggle("active", b === chip));
+      renderBank();
+    });
+
+    /* ---------- Reset tổng ---------- */
+    function resetAllProgress() {
+      openDialog({
+        title: "Đặt lại toàn bộ tiến độ?",
+        body: "Tất cả câu trả lời của các phần Trắc nghiệm, Đúng/Sai và Điền số sẽ bị xóa khỏi thiết bị này.",
+        confirmText: "Đặt lại tất cả",
+        onConfirm: () => {
+          state.mcq = {};
+          state.tf = {};
+          state.short = {};
+          state.essayMastered = {};
+          Object.keys(mcqPending).forEach((k) => delete mcqPending[k]);
+          Object.keys(tfPending).forEach((k) => delete tfPending[k]);
+          optionOrders = {};
+          saveState();
+          buildMcqOrder();
+          buildTfOrder();
+          buildShortOrder();
+          renderMcq();
+          renderTf();
+          renderShort();
+          renderEssay();
+          syncStats();
+          showToast("Đã đặt lại toàn bộ tiến độ học tập.");
+        }
+      });
+    }
+    $("sideReset").addEventListener("click", resetAllProgress);
+
+    /* ---------- Bàn phím ---------- */
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !$("overlay").hidden) {
+        closeDialog();
+        return;
+      }
+      const tag = (event.target.tagName || "").toLowerCase();
+      if (tag === "input" || tag === "textarea" || tag === "select") return;
+      const activeView = document.querySelector(".view.active");
+      if (!activeView) return;
+
+      if (activeView.id === "view-mcq") {
+        const question = currentMcq();
+        if (!question) return;
+        const rec = state.mcq[question.n];
+        if (!rec && /^[1-4]$/.test(event.key)) {
+          const displayIndex = Number(event.key) - 1;
+          const order = getOptionOrder(question);
+          if (displayIndex < order.length) {
+            event.preventDefault();
+            mcqPending[question.n] = order[displayIndex];
+            renderMcq();
+          }
+          return;
+        }
+        if (!rec && /^[a-dA-D]$/.test(event.key)) {
+          const displayIndex = LETTERS.indexOf(event.key.toUpperCase());
+          const order = getOptionOrder(question);
+          if (displayIndex >= 0 && displayIndex < order.length) {
+            event.preventDefault();
+            mcqPending[question.n] = order[displayIndex];
+            renderMcq();
+          }
+          return;
+        }
+        if (event.key === "Enter") {
+          event.preventDefault();
+          if (rec) mcqNext(); else checkMcq();
+          return;
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          mcqNext();
+          return;
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          mcqPrev();
+        }
+      } else if (activeView.id === "view-tf") {
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          tfNext();
+        } else if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          tfPrev();
+        }
+      } else if (activeView.id === "view-short") {
+        if (event.key === "ArrowRight" && shortPos < shortOrder.length - 1) {
+          event.preventDefault();
+          shortPos++;
+          renderShort();
+        } else if (event.key === "ArrowLeft" && shortPos > 0) {
+          event.preventDefault();
+          shortPos--;
+          renderShort();
+        }
+      }
+    });
+
+    /* ---------- Custom Fluent Combobox Dropdown ---------- */
+    function initCustomComboboxes() {
+      $$("select.filter-select").forEach((select) => {
+        if (select.dataset.customized === "true") return;
+        select.dataset.customized = "true";
+
+        const wrap = document.createElement("div");
+        wrap.className = "fluent-combobox";
+        wrap.dataset.selectId = select.id;
+
+        const trigger = document.createElement("button");
+        trigger.type = "button";
+        trigger.className = "combobox-trigger";
+        trigger.setAttribute("aria-haspopup", "listbox");
+        trigger.setAttribute("aria-expanded", "false");
+        trigger.setAttribute("title", select.getAttribute("aria-label") || "Lọc");
+
+        const label = document.createElement("span");
+        label.className = "combobox-label";
+        const curOpt = select.options[select.selectedIndex] || select.options[0];
+        label.textContent = curOpt ? curOpt.textContent : "";
+
+        trigger.appendChild(label);
+        trigger.insertAdjacentHTML(
+          "beforeend",
+          '<svg class="combobox-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="m6 9 6 6 6-6"></path></svg>'
+        );
+
+        const menu = document.createElement("div");
+        menu.className = "combobox-menu";
+        menu.setAttribute("role", "listbox");
+        menu.hidden = true;
+
+        Array.from(select.options).forEach((opt) => {
+          const item = document.createElement("div");
+          item.className = "combobox-item" + (opt.value === select.value ? " active" : "");
+          item.dataset.value = opt.value;
+          item.innerHTML =
+            '<span>' + escapeHtml(opt.textContent) + '</span>' +
+            '<svg class="combobox-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M20 6 9 17l-5-5"></path></svg>';
+
+          item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (select.value !== opt.value) {
+              select.value = opt.value;
+              select.dispatchEvent(new Event("change"));
+            }
+            label.textContent = opt.textContent;
+            menu.querySelectorAll(".combobox-item").forEach((it) => {
+              it.classList.toggle("active", it.dataset.value === opt.value);
+            });
+            closeCombobox(wrap);
+            trigger.focus();
+          });
+          menu.appendChild(item);
+        });
+
+        trigger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = wrap.classList.contains("open");
+          closeAllComboboxes();
+          if (!isOpen) {
+            wrap.classList.add("open");
+            trigger.setAttribute("aria-expanded", "true");
+            menu.hidden = false;
+          }
+        });
+
+        select.parentNode.insertBefore(wrap, select.nextSibling);
+        wrap.appendChild(trigger);
+        wrap.appendChild(menu);
+
+        select.addEventListener("change", () => {
+          const opt = select.options[select.selectedIndex];
+          if (opt) {
+            label.textContent = opt.textContent;
+            menu.querySelectorAll(".combobox-item").forEach((it) => {
+              it.classList.toggle("active", it.dataset.value === select.value);
+            });
+          }
+        });
+      });
+    }
+
+    function closeCombobox(wrap) {
+      wrap.classList.remove("open");
+      const trig = wrap.querySelector(".combobox-trigger");
+      const menu = wrap.querySelector(".combobox-menu");
+      if (trig) trig.setAttribute("aria-expanded", "false");
+      if (menu) menu.hidden = true;
+    }
+
+    function closeAllComboboxes() {
+      $$(".fluent-combobox.open").forEach(closeCombobox);
+    }
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".fluent-combobox")) {
+        closeAllComboboxes();
+      }
+    });
+
+    /* ---------- Khởi tạo ---------- */
+    $("mcqShuffleQ").checked = !!state.pref.shuffleQ;
+    $("mcqShuffleA").checked = !!state.pref.shuffleA;
+    $("tfShuffleQ").checked = !!state.pref.tfShuffleQ;
+    $("bankShowAns").checked = !!state.bankShow;
+
+    initCustomComboboxes();
+    buildMcqOrder();
+    buildTfOrder();
+    buildShortOrder();
+    renderMcq();
+    renderTf();
+    renderShort();
+    renderEssay();
+    renderBank();
+    syncStats();
+    applySectionVisibility();
+    navigate("dashboard", { keepScroll: true });
+  </script>
+</body>
+</html>

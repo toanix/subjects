@@ -1,0 +1,3532 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#eef2f8" />
+  <title>Ôn tập Tin học 11 - Giữa học kỳ I</title>
+  <meta name="description" content="Hệ thống câu hỏi ôn tập giữa học kỳ I môn Tin học 11 (Trắc nghiệm, Đúng/Sai, Điền số và Tự luận) theo chuẩn chương trình mới với giao diện Fluent Design." />
+  <meta property="og:title" content="Ôn tập Tin học 11 - Giữa học kỳ I" />
+  <meta property="og:description" content="Hệ thống câu hỏi ôn tập giữa kì I môn Tin học 11, giao diện Fluent Design hiện đại." />
+  <style>
+    @property --p {
+      syntax: "<number>";
+      inherits: false;
+      initial-value: 0;
+    }
+    :root {
+      --bg: #eef2f8;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-2: rgba(255, 255, 255, 0.55);
+      --surface-3: rgba(9, 30, 66, 0.045);
+      --surface-solid: #ffffff;
+      --border: rgba(9, 30, 66, 0.09);
+      --border-2: rgba(9, 30, 66, 0.17);
+      --hover: rgba(9, 30, 66, 0.055);
+      --text: #17202b;
+      --text-2: #566273;
+      --text-3: #8692a3;
+      --accent: #0067c0;
+      --accent-2: #2b93e8;
+      --accent-soft: rgba(0, 103, 192, 0.1);
+      --on-accent: #ffffff;
+      --success: #0f7b0f;
+      --success-soft: rgba(15, 123, 15, 0.1);
+      --on-success: #ffffff;
+      --danger: #c42b1c;
+      --danger-soft: rgba(196, 43, 28, 0.1);
+      --on-danger: #ffffff;
+      --warning: #8a6100;
+      --warning-soft: rgba(196, 140, 0, 0.13);
+      --track: rgba(9, 30, 66, 0.09);
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 14px 34px -14px rgba(16, 24, 40, 0.2);
+      --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+      --hero: linear-gradient(130deg, #07549c 0%, #0a6fc2 48%, #2f9de8 100%);
+      --hero-text: #ffffff;
+      --blur: blur(28px) saturate(155%);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Inter", sans-serif;
+      --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, "Inter", sans-serif;
+    }
+    [data-theme="dark"] {
+      --bg: #1a1a1f;
+      --surface: rgba(255, 255, 255, 0.055);
+      --surface-2: rgba(255, 255, 255, 0.035);
+      --surface-3: rgba(255, 255, 255, 0.075);
+      --surface-solid: #2b2b2f;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-2: rgba(255, 255, 255, 0.17);
+      --hover: rgba(255, 255, 255, 0.07);
+      --text: #f4f5f7;
+      --text-2: #bdc3cc;
+      --text-3: #8f97a3;
+      --accent: #60cdff;
+      --accent-2: #38b6ea;
+      --accent-soft: rgba(96, 205, 255, 0.13);
+      --on-accent: #04263a;
+      --success: #6ccb5f;
+      --success-soft: rgba(108, 203, 95, 0.12);
+      --on-success: #0b2b0b;
+      --danger: #ff99a4;
+      --danger-soft: rgba(255, 153, 164, 0.12);
+      --on-danger: #3a0a0f;
+      --warning: #f5d76e;
+      --warning-soft: rgba(245, 215, 110, 0.12);
+      --track: rgba(255, 255, 255, 0.11);
+      --shadow: 0 2px 6px rgba(0, 0, 0, 0.28), 0 18px 44px -18px rgba(0, 0, 0, 0.55);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --hero: linear-gradient(130deg, #0a3355 0%, #0b4a72 50%, #0f6788 100%);
+      --hero-text: #f0fbff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    [hidden] {
+      display: none !important;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      min-height: 100vh;
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(900px 620px at 6% -12%, rgba(66, 146, 255, 0.22), transparent 62%),
+        radial-gradient(820px 560px at 102% -4%, rgba(150, 104, 255, 0.16), transparent 62%),
+        radial-gradient(900px 700px at 46% 112%, rgba(56, 196, 255, 0.17), transparent 66%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    [data-theme="dark"] body {
+      background-image:
+        radial-gradient(900px 620px at 6% -12%, rgba(32, 104, 190, 0.25), transparent 62%),
+        radial-gradient(820px 560px at 102% -4%, rgba(104, 62, 186, 0.2), transparent 62%),
+        radial-gradient(900px 700px at 46% 112%, rgba(0, 128, 168, 0.16), transparent 66%);
+    }
+    ::selection {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    button, input, select {
+      font: inherit;
+      color: inherit;
+    }
+    button {
+      cursor: pointer;
+    }
+    svg {
+      display: block;
+    }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---------- Layout ---------- */
+    .layout {
+      display: grid;
+      grid-template-columns: 275px minmax(0, 1fr);
+      gap: 18px;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 18px;
+      min-height: 100vh;
+    }
+    .main {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1;
+      padding-bottom: 26px;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 18px 14px 14px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 2px 6px 4px;
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: #fff;
+      background: linear-gradient(145deg, #107c41, #008272);
+      box-shadow: 0 6px 14px -6px rgba(16, 124, 65, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    [data-theme="dark"] .brand-icon {
+      color: var(--on-accent);
+      background: linear-gradient(145deg, #60cdff, #107c41);
+    }
+    .brand-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+    .brand-text strong {
+      font-family: var(--font-display);
+      font-size: 15.5px;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+    }
+    .brand-text span {
+      font-size: 11px;
+      color: var(--text-3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      overflow-y: auto;
+      flex: 1;
+      padding: 0 2px;
+    }
+    .nav-label {
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      padding: 12px 10px 5px;
+    }
+    .nav-label:first-child {
+      padding-top: 2px;
+    }
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      width: 100%;
+      padding: 8.5px 11px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 13.5px;
+      font-weight: 500;
+      text-align: left;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .nav-item svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      opacity: 0.9;
+    }
+    .nav-item:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+    .nav-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .nav-item.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 3px;
+      height: 16px;
+      border-radius: 2px;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+    .nav-badge {
+      margin-left: auto;
+      padding: 1px 7px;
+      border-radius: 20px;
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 10.5px;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+    .nav-item.active .nav-badge {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    .sidebar-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 12px 6px 2px;
+      border-top: 1px solid var(--border);
+    }
+    .side-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 10px 11px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+    .side-progress-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-2);
+    }
+    .side-progress-row strong {
+      font-size: 12.5px;
+      color: var(--text);
+      font-weight: 650;
+    }
+    .bar {
+      height: 5px;
+      border-radius: 20px;
+      background: var(--track);
+      overflow: hidden;
+    }
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .side-note {
+      font-size: 10.5px;
+      color: var(--text-3);
+      text-align: center;
+      line-height: 1.45;
+      padding: 0 4px 2px;
+    }
+
+    /* ---------- Topbar ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 8px 14px;
+      margin: 0 -8px 14px;
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.3vw, 26px);
+      font-weight: 650;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      margin-top: 4px;
+    }
+    .page-desc {
+      margin-top: 3px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      max-width: 650px;
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex: none;
+      padding-bottom: 2px;
+    }
+    .icon-btn {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: none;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-2);
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .icon-btn:hover {
+      background: var(--hover);
+      color: var(--text);
+      border-color: var(--border-2);
+    }
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+    .sun { display: none; }
+    [data-theme="dark"] .sun { display: block; }
+    [data-theme="dark"] .moon { display: none; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease, filter 0.15s ease;
+    }
+    .btn:active:not(:disabled) { transform: translateY(1px); }
+    .btn:disabled { opacity: 0.42; cursor: default; }
+    .btn svg { width: 15px; height: 15px; }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--accent-2), var(--accent));
+      color: var(--on-accent);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+    .btn-primary:hover:not(:disabled) { filter: brightness(1.07); }
+    .btn-secondary {
+      background: var(--surface-2);
+      border-color: var(--border-2);
+      color: var(--text);
+    }
+    .btn-secondary:hover:not(:disabled) { background: var(--hover); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-2);
+      border-color: transparent;
+    }
+    .btn-ghost:hover:not(:disabled) { background: var(--hover); color: var(--text); }
+    .btn-danger {
+      background: var(--danger-soft);
+      border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+      color: var(--danger);
+    }
+    .btn-danger:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 18%, transparent); }
+    .btn-light {
+      background: #ffffff;
+      color: #09518c;
+      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.45);
+    }
+    .btn-light:hover:not(:disabled) { background: #f2f9ff; }
+    .btn-hero-ghost {
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.34);
+      color: #fff;
+      backdrop-filter: blur(8px);
+    }
+    .btn-hero-ghost:hover:not(:disabled) { background: rgba(255, 255, 255, 0.22); }
+    .btn.full { width: 100%; }
+
+    /* ---------- Cards & common ---------- */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    .card-pad { padding: 22px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 9px;
+      border-radius: 20px;
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 10.5px;
+      font-weight: 600;
+      line-height: 1.7;
+      white-space: nowrap;
+    }
+    .chip.accent { background: var(--accent-soft); color: var(--accent); }
+    .chip.green { background: var(--success-soft); color: var(--success); }
+    .chip.red { background: var(--danger-soft); color: var(--danger); }
+    .chip.amber { background: var(--warning-soft); color: var(--warning); }
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .card-head h3, .card-head h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+    }
+    .card-head h4 { font-size: 14px; }
+    .sep { height: 1px; background: var(--border); margin: 14px 0; }
+
+    /* ---------- Dashboard ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 30px;
+      padding: 34px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: var(--hero);
+      color: var(--hero-text);
+      box-shadow: 0 24px 48px -26px rgba(0, 74, 148, 0.6);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(460px 280px at 82% 18%, rgba(255, 255, 255, 0.17), transparent 70%),
+        radial-gradient(360px 260px at 6% 108%, rgba(255, 255, 255, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-copy, .hero-progress { position: relative; z-index: 1; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.13);
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hero h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.4vw, 36px);
+      font-weight: 650;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 15px 0 10px;
+      max-width: 600px;
+    }
+    .hero-desc {
+      max-width: 560px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .hero-meta {
+      margin-top: 14px;
+      font-size: 11.5px;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    .hero-progress {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 11px;
+      flex: none;
+      padding-right: 6px;
+    }
+    .ring {
+      --p: 0;
+      display: grid;
+      place-items: center;
+      width: 134px;
+      height: 134px;
+      border-radius: 50%;
+      background: conic-gradient(#ffffff calc(var(--p) * 1%), rgba(255, 255, 255, 0.2) 0);
+      transition: --p 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 8px 28px -12px rgba(0, 0, 0, 0.45);
+    }
+    .ring-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: rgba(5, 39, 70, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      line-height: 1.15;
+    }
+    .ring-inner strong { font-family: var(--font-display); font-size: 25px; font-weight: 650; }
+    .ring-inner span { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255, 255, 255, 0.66); }
+    .hero-progress p { font-size: 11.5px; color: rgba(255, 255, 255, 0.72); text-align: center; }
+    .hero-progress p strong { color: #fff; font-weight: 650; }
+    .hero-deco {
+      position: absolute;
+      right: -62px;
+      bottom: -78px;
+      width: 300px;
+      height: 300px;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .stat {
+      padding: 16px 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .stat:hover { border-color: var(--border-2); transform: translateY(-2px); }
+    .stat-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .stat-label { font-size: 11.5px; font-weight: 500; color: var(--text-2); }
+    .stat-icon {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      flex: none;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .stat-icon svg { width: 16px; height: 16px; }
+    .stat-icon.green { background: var(--success-soft); color: var(--success); }
+    .stat-icon.amber { background: var(--warning-soft); color: var(--warning); }
+    .stat-icon.purple { background: rgba(138, 43, 226, 0.12); color: #8a2be2; }
+    .stat-value {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-family: var(--font-display);
+      font-size: 27px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .stat-value small { font-size: 12px; font-weight: 500; color: var(--text-3); letter-spacing: 0; }
+    .stat-foot { font-size: 10.5px; color: var(--text-3); }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .topic-list { display: flex; flex-direction: column; margin-top: 8px; }
+    .topic {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 2px;
+      border-bottom: 1px solid var(--border);
+    }
+    .topic:last-child { border-bottom: 0; padding-bottom: 2px; }
+    .topic-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      flex: none;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .topic:nth-child(2) .topic-icon { background: var(--success-soft); color: var(--success); }
+    .topic:nth-child(3) .topic-icon { background: var(--warning-soft); color: var(--warning); }
+    .topic:nth-child(4) .topic-icon { background: rgba(138, 43, 226, 0.12); color: #8a2be2; }
+    .topic-icon svg { width: 17px; height: 17px; }
+    .topic-body { min-width: 0; flex: 1; }
+    .topic-body strong { display: block; font-size: 13px; font-weight: 600; line-height: 1.45; }
+    .topic-body p { font-size: 11.5px; color: var(--text-3); line-height: 1.5; margin-top: 2px; }
+
+    .tips { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    .tip { display: flex; gap: 10px; font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
+    .tip-num {
+      display: grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      flex: none;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 10.5px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .plan { margin-top: 14px; }
+    .plan-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(80px, 1fr) auto auto;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .plan-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-size: 13px;
+      font-weight: 550;
+    }
+    .plan-name svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
+    .plan-name span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .plan-count { font-size: 11.5px; color: var(--text-3); min-width: 48px; text-align: right; }
+    .plan .btn { height: 31px; font-size: 12px; padding: 0 12px; }
+
+    /* ---------- Quiz toolbar ---------- */
+    .quiz-toolbar {
+      position: relative;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      padding: 13px 18px;
+      margin-bottom: 14px;
+      overflow: visible;
+    }
+    .toolbar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 210px;
+    }
+    .toolbar-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+    .toolbar-sub { font-size: 11.5px; color: var(--text-3); }
+    .toolbar-bar { width: 100%; max-width: 340px; height: 4px; }
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      overflow: visible;
+    }
+    /* ---------- Fluent Combobox Dropdown ---------- */
+    select.filter-select {
+      display: none !important;
+    }
+    .fluent-combobox {
+      position: relative;
+      display: inline-block;
+      user-select: none;
+      z-index: auto;
+    }
+    .fluent-combobox.open {
+      z-index: 2000;
+    }
+    .combobox-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      height: 34px;
+      padding: 0 11px 0 13px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 550;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+    }
+    .combobox-trigger:hover {
+      background: var(--hover);
+      border-color: var(--border-2);
+    }
+    .combobox-trigger:focus-visible,
+    .fluent-combobox.open .combobox-trigger {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+      outline: none;
+    }
+    .combobox-label {
+      max-width: 175px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+    .combobox-chevron {
+      width: 13px;
+      height: 13px;
+      flex: none;
+      color: var(--text-3);
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.15s ease;
+    }
+    .fluent-combobox.open .combobox-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+    .combobox-menu {
+      position: absolute;
+      top: calc(100% + 5px);
+      right: 0;
+      z-index: 9999;
+      min-width: 100%;
+      width: max-content;
+      max-width: 290px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 4px;
+      border-radius: 8px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border-2);
+      box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.1);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      animation: combobox-pop 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    [data-theme="dark"] .combobox-menu {
+      background: #25262c;
+      box-shadow: 0 14px 34px -6px rgba(0, 0, 0, 0.65), 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+    @keyframes combobox-pop {
+      from { opacity: 0; transform: translateY(-4px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .combobox-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 11px;
+      border-radius: 5px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+    }
+    .combobox-item:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+    .combobox-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .combobox-check {
+      width: 13px;
+      height: 13px;
+      flex: none;
+      color: var(--accent);
+      opacity: 0;
+    }
+    .combobox-item.active .combobox-check {
+      opacity: 1;
+    }
+    .switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-2);
+      cursor: pointer;
+      user-select: none;
+    }
+    .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .switch-track {
+      position: relative;
+      width: 38px;
+      height: 20px;
+      flex: none;
+      border-radius: 20px;
+      background: var(--track);
+      border: 1px solid var(--border-2);
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .switch-thumb {
+      position: absolute;
+      top: 50%;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--text-2);
+      transform: translateY(-50%);
+      transition: left 0.18s ease, width 0.18s ease, background 0.18s ease;
+    }
+    .switch input:checked + .switch-track { background: var(--accent); border-color: transparent; }
+    .switch input:checked + .switch-track .switch-thumb { left: 21px; background: var(--on-accent); }
+    .switch input:focus-visible + .switch-track { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ---------- Quiz Layout ---------- */
+    .quiz-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 292px;
+      align-items: start;
+      gap: 14px;
+    }
+    .question-card {
+      padding: 26px 28px;
+      scroll-margin-top: 96px;
+    }
+    .q-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .q-eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .q-title {
+      font-family: var(--font-display);
+      font-size: clamp(17.5px, 2vw, 20.5px);
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      margin: 12px 0 20px;
+      text-wrap: pretty;
+    }
+    .options { display: flex; flex-direction: column; gap: 9px; }
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+    }
+    .option:hover:not(:disabled) { background: var(--hover); border-color: var(--border-2); }
+    .option:active:not(:disabled) { transform: scale(0.996); }
+    .option:disabled { cursor: default; }
+    .option .letter {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      flex: none;
+      margin-top: 1px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 650;
+    }
+    .option-text { flex: 1; min-width: 0; }
+    .option-mark { flex: none; align-self: center; font-size: 15px; font-weight: 700; line-height: 1; }
+    .option.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+    .option.selected .letter { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+    .option.correct {
+      border-color: var(--success);
+      background: var(--success-soft);
+      box-shadow: inset 0 0 0 1px var(--success);
+    }
+    .option.correct .letter { background: var(--success); border-color: transparent; color: var(--on-success); }
+    .option.correct .option-mark { color: var(--success); }
+    .option.wrong {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+      box-shadow: inset 0 0 0 1px var(--danger);
+    }
+    .option.wrong .letter { background: var(--danger); border-color: transparent; color: var(--on-danger); }
+    .option.wrong .option-mark { color: var(--danger); }
+    .option.muted { opacity: 0.52; }
+
+    .feedback {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 15px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .feedback-icon {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      flex: none;
+      margin-top: 1px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .feedback-body { min-width: 0; }
+    .feedback-body strong { font-weight: 650; }
+    .feedback.success { background: var(--success-soft); border-color: color-mix(in srgb, var(--success) 34%, transparent); }
+    .feedback.success .feedback-icon { background: var(--success); color: var(--on-success); }
+    .feedback.success strong { color: var(--success); }
+    .feedback.danger { background: var(--danger-soft); border-color: color-mix(in srgb, var(--danger) 34%, transparent); }
+    .feedback.danger .feedback-icon { background: var(--danger); color: var(--on-danger); }
+    .feedback.danger strong { color: var(--danger); }
+    .feedback-note {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .q-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .q-actions-right { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-left: auto; }
+    .shake { animation: shake 0.34s ease; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    /* ---------- Side panel ---------- */
+    .quiz-side { display: flex; flex-direction: column; gap: 12px; }
+    .navigator { padding: 18px; }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 5px;
+      max-height: 340px;
+      overflow-y: auto;
+      padding-right: 2px;
+      margin-top: 12px;
+    }
+    .nav-cell {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 11px;
+      font-weight: 600;
+      transition: background 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+    }
+    .nav-cell:hover { border-color: var(--border-2); background: var(--hover); }
+    .nav-cell.done-correct {
+      background: var(--success-soft);
+      color: var(--success);
+      border-color: color-mix(in srgb, var(--success) 28%, transparent);
+    }
+    .nav-cell.done-wrong {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border-color: color-mix(in srgb, var(--danger) 28%, transparent);
+    }
+    .nav-cell.done-partial {
+      background: var(--warning-soft);
+      color: var(--warning);
+      border-color: color-mix(in srgb, var(--warning) 28%, transparent);
+    }
+    .nav-cell.current { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 8px;
+      margin-top: 13px;
+      font-size: 10.5px;
+      color: var(--text-3);
+    }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-2);
+    }
+    .legend i.ok { background: var(--success-soft); border-color: var(--success); }
+    .legend i.bad { background: var(--danger-soft); border-color: var(--danger); }
+    .legend i.now { background: transparent; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .mini-score {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 14px;
+      padding-top: 13px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .mini-score div { display: flex; flex-direction: column; gap: 1px; }
+    .mini-score span { font-size: 10px; color: var(--text-3); }
+    .mini-score strong { font-family: var(--font-display); font-size: 16px; font-weight: 650; }
+    .mini-score div:nth-child(1) strong { color: var(--success); }
+    .mini-score div:nth-child(2) strong { color: var(--danger); }
+    .shortcut-card { padding: 16px 18px; }
+    .shortcut { display: flex; align-items: center; gap: 6px; margin-top: 9px; font-size: 11px; color: var(--text-3); }
+    .shortcut span { margin-left: auto; text-align: right; }
+    kbd {
+      display: inline-grid;
+      place-items: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      border-radius: 4px;
+      border: 1px solid var(--border-2);
+      border-bottom-width: 2px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    /* ---------- True / False ---------- */
+    .tf-intro { margin: 10px 0 17px; font-size: 14px; line-height: 1.65; color: var(--text-2); }
+    .tf-list { display: flex; flex-direction: column; gap: 9px; }
+    .tf-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 18px;
+      flex-wrap: wrap;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .tf-row.ok {
+      border-color: color-mix(in srgb, var(--success) 30%, transparent);
+      background: color-mix(in srgb, var(--success-soft) 55%, var(--surface-2));
+    }
+    .tf-row.bad {
+      border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+      background: color-mix(in srgb, var(--danger-soft) 55%, var(--surface-2));
+    }
+    .tf-text { display: flex; gap: 9px; flex: 1; min-width: 230px; font-size: 13.5px; line-height: 1.55; }
+    .tf-letter { flex: none; font-weight: 700; color: var(--accent); }
+    .tf-controls { display: flex; align-items: center; gap: 9px; flex: none; }
+    .segmented {
+      display: inline-flex;
+      gap: 2px;
+      padding: 2px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-3);
+    }
+    .seg {
+      padding: 5px 13px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 600;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .seg:hover:not(:disabled) { color: var(--text); }
+    .seg.sel { background: var(--accent); color: var(--on-accent); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16); }
+    .seg.correct { background: var(--success); color: var(--on-success); }
+    .seg.wrong { background: var(--danger); color: var(--on-danger); }
+    .seg:disabled { cursor: default; }
+    .tf-status {
+      display: grid;
+      place-items: center;
+      width: 23px;
+      height: 23px;
+      flex: none;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .tf-status.ok { background: var(--success-soft); color: var(--success); }
+    .tf-status.bad { background: var(--danger-soft); color: var(--danger); }
+    .tf-nav { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; max-height: 330px; overflow-y: auto; padding-right: 2px; }
+    .tf-dot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 11px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 550;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .tf-dot:hover { background: var(--hover); border-color: var(--border-2); }
+    .tf-dot.current { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+    .tf-dot .score { font-size: 10.5px; color: var(--text-3); font-weight: 600; }
+    .tf-dot.done .score { color: var(--success); }
+    .tf-explain-box {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: var(--surface-3);
+      font-size: 11.5px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    /* ---------- Short Answer view ---------- */
+    .short-input-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0 10px;
+      flex-wrap: wrap;
+    }
+    .short-input {
+      flex: 1;
+      min-width: 200px;
+      height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      font-size: 14.5px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .short-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--surface);
+    }
+    .short-input:disabled { opacity: 0.65; }
+
+    /* ---------- Essay view ---------- */
+    .essay-card {
+      padding: 24px;
+      margin-bottom: 14px;
+    }
+    .essay-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .essay-q {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .essay-toggle-btn {
+      margin-bottom: 14px;
+    }
+    .essay-answer-box {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .essay-answer-box h4 {
+      font-size: 14px;
+      font-weight: 650;
+      margin: 10px 0 6px;
+      color: var(--accent);
+    }
+    .essay-answer-box h4:first-child { margin-top: 0; }
+    .essay-answer-box ul { padding-left: 20px; margin: 6px 0; }
+    .essay-answer-box li { margin-bottom: 4px; }
+
+    /* ---------- Bank ---------- */
+    .bank-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .search {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+    .search svg {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      color: var(--text-3);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .search input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px 0 35px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search input::placeholder { color: var(--text-3); }
+    .search input:hover { border-color: var(--border-2); }
+    .search input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--surface);
+    }
+    .filter-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+    .filter-chip {
+      height: 32px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 550;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .filter-chip:hover { border-color: var(--border-2); }
+    .filter-chip.active { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+    .bank-count { font-size: 11.5px; color: var(--text-3); margin: 0 2px 10px; }
+    .bank-list { display: flex; flex-direction: column; gap: 10px; }
+    .bank-item { padding: 18px 20px; }
+    .bank-item-head { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .bank-q {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.55;
+      margin: 9px 0 12px;
+      text-wrap: pretty;
+    }
+    .bank-options { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 10px; }
+    .bank-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 9px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+    .bank-option .letter { flex: none; font-size: 11px; font-weight: 700; color: var(--text-3); min-width: 13px; }
+    .bank-option.correct { background: var(--success-soft); color: var(--text); }
+    .bank-option.correct .letter { color: var(--success); }
+    .bank-tf-list { display: flex; flex-direction: column; gap: 5px; }
+    .bank-tf {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: var(--surface-2);
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+    .bank-tf .tf-letter { font-size: 11px; }
+    .bank-note {
+      margin-top: 9px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: var(--warning-soft);
+      color: var(--text-2);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+    .empty { padding: 42px 20px; text-align: center; color: var(--text-3); font-size: 13px; }
+    .empty svg { width: 34px; height: 34px; margin: 0 auto 10px; opacity: 0.5; }
+
+    /* ---------- Dialog & toast ---------- */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(8, 14, 24, 0.42);
+      backdrop-filter: blur(5px);
+      animation: fade-in 0.16s ease;
+    }
+    .dialog {
+      width: min(420px, 100%);
+      padding: 24px;
+      border-radius: 12px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.5);
+      animation: pop-in 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .dialog-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--danger-soft);
+      color: var(--danger);
+      margin-bottom: 12px;
+    }
+    .dialog-icon svg { width: 19px; height: 19px; }
+    .dialog h3 { font-family: var(--font-display); font-size: 18px; font-weight: 650; }
+    .dialog p { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--text-2); }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      z-index: 120;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.35);
+      font-size: 12.5px;
+      color: var(--text);
+      transform: translateX(-50%);
+      animation: toast-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      max-width: calc(100vw - 32px);
+    }
+    .toast svg { width: 16px; height: 16px; flex: none; color: var(--accent); }
+    @keyframes toast-in {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ---------- Views ---------- */
+    .view { display: none; }
+    .view.active { display: block; animation: view-in 0.28s cubic-bezier(0.2, 0.7, 0.2, 1); }
+    @keyframes view-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-tabs { display: none; }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 4px 4px;
+      margin-top: 6px;
+      border-top: 1px solid var(--border);
+      font-size: 10.5px;
+      color: var(--text-3);
+    }
+    .footer span { display: inline-flex; align-items: center; gap: 6px; }
+    .footer svg { width: 13px; height: 13px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1180px) {
+      .quiz-layout { grid-template-columns: minmax(0, 1fr) 260px; }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 1000px) {
+      .layout { display: block; padding: 0 12px 22px; }
+      .sidebar { display: none; }
+      .topbar {
+        position: static;
+        padding: 16px 4px 10px;
+        margin: 0 0 4px;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: 0;
+      }
+      .mobile-tabs {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        padding: 7px;
+        margin-bottom: 13px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        backdrop-filter: blur(18px) saturate(150%);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        scrollbar-width: none;
+      }
+      .mobile-tabs::-webkit-scrollbar { display: none; }
+      .mobile-tabs .nav-item { width: auto; flex: none; padding: 7px 11px; font-size: 12.5px; white-space: nowrap; }
+      .mobile-tabs .nav-item.active::before { display: none; }
+      .mobile-tabs .nav-item svg { width: 16px; height: 16px; }
+      .mobile-tabs .nav-badge { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 28px 26px; gap: 22px; }
+      .hero-progress { flex-direction: row; align-items: center; gap: 16px; padding: 0; }
+      .ring { width: 90px; height: 90px; }
+      .ring-inner { width: 72px; height: 72px; }
+      .ring-inner strong { font-size: 18px; }
+      .ring-inner span { font-size: 8.5px; }
+      .hero-progress p { text-align: left; }
+      .quiz-layout { grid-template-columns: 1fr; }
+      .quiz-side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+      .shortcut-card { display: none; }
+      .navigator { grid-column: 1 / -1; }
+      .nav-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 26px; }
+      .hero-desc { font-size: 12.5px; }
+      .plan-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; }
+      .plan-row .bar { grid-column: 1 / -1; order: 3; }
+      .plan-count { text-align: right; }
+      .plan-row .btn { grid-column: 2; grid-row: 1; }
+      .bank-options { grid-template-columns: 1fr; }
+      .question-card { padding: 20px 18px; }
+      .q-title { font-size: 17.5px; }
+      .option { padding: 11px 12px; font-size: 13.5px; }
+      .tf-row { align-items: flex-start; }
+      .tf-controls { width: 100%; justify-content: flex-end; }
+      .page-desc { display: none; }
+      .top-cta { display: none; }
+      .topbar { align-items: center; }
+      .stats-grid { gap: 9px; }
+      .stat { padding: 13px 14px; }
+      .stat-value { font-size: 23px; }
+      .combobox-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: calc(100vw - 28px);
+        width: auto;
+      }
+      @keyframes combobox-pop {
+        from { opacity: 0; transform: translate(-50%, -4px) scale(0.97); }
+        to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+      }
+    }
+    @media (max-width: 520px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 24px 20px; }
+      .hero-actions .btn { flex: 1; min-width: 140px; }
+      .toolbar-right { gap: 8px; }
+      .toolbar-right .switch span { display: none; }
+      .quiz-side { grid-template-columns: 1fr; }
+      .nav-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+      .q-actions .btn { flex: 1; }
+      .q-actions-right { width: 100%; }
+      .q-actions-right .btn { flex: 1; }
+      .bank-toolbar { gap: 9px; }
+      .bank-item { padding: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <style>.brand-icon{background:linear-gradient(145deg,#0f6cbd,#2b88d8)!important;}</style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Điều hướng chính">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
+            <path d="M12 6v12"></path>
+            <path d="M16 10l-4-4-4 4"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Tin học 11</strong>
+          <span>Ôn tập Giữa kỳ I</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <p class="nav-label">Học tập</p>
+        <button class="nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 21v-7h6v7"></path></svg>
+          <span>Tổng quan</span>
+        </button>
+        <button class="nav-item" data-view="mcq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path><path d="M8 15h8"></path></svg>
+          <span>Trắc nghiệm</span>
+          <span class="nav-badge">21</span>
+        </button>
+        <button class="nav-item" data-view="tf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <span>Đúng / Sai</span>
+          <span class="nav-badge">7</span>
+        </button>
+        <button class="nav-item" data-view="short">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Điền số / Ngắn</span>
+          <span class="nav-badge">2</span>
+        </button>
+        <button class="nav-item" data-view="essay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Tự luận khoa học</span>
+          <span class="nav-badge">3</span>
+        </button>
+        <p class="nav-label">Tra cứu</p>
+        <button class="nav-item" data-view="bank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+          <span>Ngân hàng câu hỏi</span>
+          <span class="nav-badge">33</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="side-progress">
+          <div class="side-progress-row"><span>Tiến độ tổng</span><strong id="sidePct">0%</strong></div>
+          <div class="bar"><span id="sideBar"></span></div>
+          <div class="side-progress-row"><span id="sideDone">0 / 30 câu</span><span>đã hoàn thành</span></div>
+        </div>
+        <button class="btn btn-ghost full" id="sideReset" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+          Đặt lại tiến độ
+        </button>
+        <p class="side-note">Tiến độ được tự động lưu trên trình duyệt của bạn</p>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="crumb">Tin học 11 • Đề cương Giữa kỳ I</p>
+          <h1 class="page-title" id="pageTitle">Tổng quan ôn tập</h1>
+          <p class="page-desc" id="pageDesc">Hệ thống câu hỏi đề cương Giữa kì I: Trắc nghiệm 1 phương án, Đúng / Sai, Điền số và Tự luận.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="Đổi giao diện sáng / tối" title="Đổi giao diện sáng / tối">
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          </button>
+          <button class="btn btn-primary top-cta" type="button" data-go="mcq">Luyện trắc nghiệm</button>
+        </div>
+      </header>
+
+      <nav class="mobile-tabs" aria-label="Điều hướng trên thiết bị di động">
+        <button class="nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 21v-7h6v7"></path></svg>
+          <span>Tổng quan</span>
+        </button>
+        <button class="nav-item" data-view="mcq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path></svg>
+          <span>Trắc nghiệm</span>
+        </button>
+        <button class="nav-item" data-view="tf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+          <span>Đúng/Sai</span>
+        </button>
+        <button class="nav-item" data-view="short">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+          <span>Điền số</span>
+        </button>
+        <button class="nav-item" data-view="essay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path></svg>
+          <span>Tự luận</span>
+        </button>
+        <button class="nav-item" data-view="bank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle></svg>
+          <span>Ngân hàng</span>
+        </button>
+      </nav>
+
+      <main class="content">
+        <!-- Dashboard -->
+        <section class="view active" id="view-dashboard">
+          <div class="hero card">
+            <div class="hero-copy">
+              <div class="hero-badges">
+                <span class="hero-badge">Đề cương chuẩn</span>
+                <span class="hero-badge">33 câu hỏi</span>
+                <span class="hero-badge">3 chủ đề</span>
+              </div>
+              <h2>Ôn tập Tin học 11<br />Giữa Học Kỳ I</h2>
+              <p class="hero-desc">Hệ thống câu hỏi được tổng hợp từ 3 đề ôn tập: Phần mềm &amp; lưu trữ trực tuyến, Hệ điều hành &amp; phần cứng, Mạch logic &amp; hệ nhị phân. Làm bài và đối chiếu đáp án chi tiết tức thì.</p>
+              <div class="hero-actions">
+                <button class="btn btn-light" type="button" data-go="mcq">Bắt đầu Trắc nghiệm (21 câu)
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+                </button>
+                <button class="btn btn-hero-ghost" type="button" data-go="tf">Luyện Đúng / Sai (7 câu)
+                </button>
+                <button class="btn btn-hero-ghost" type="button" data-go="short">Điền số / Ngắn (2 câu)
+                </button>
+              </div>
+              <p class="hero-meta">21 Trắc nghiệm • 7 Đúng / Sai (28 nhận định) • 2 Điền số • 3 Tự luận</p>
+            </div>
+            <div class="hero-progress">
+              <div class="ring" id="heroRing" aria-hidden="true">
+                <div class="ring-inner">
+                  <strong id="heroPct">0%</strong>
+                  <span>hoàn thành</span>
+                </div>
+              </div>
+              <p>Đã làm <strong id="heroDone">0</strong> / 30 câu</p>
+            </div>
+            <svg class="hero-deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
+              <path d="M12 6v12"></path>
+              <path d="M16 10l-4-4-4 4"></path>
+            </svg>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Tổng câu đã làm</span>
+                <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statDone">0</span><small>/ 30</small></div>
+              <p class="stat-foot">câu hỏi trên toàn bộ hệ thống</p>
+            </article>
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Độ chính xác TN</span>
+                <span class="stat-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg></span>
+              </div>
+              <div class="stat-value"><span id="statAcc">&mdash;</span></div>
+              <p class="stat-foot">tính trên phần trắc nghiệm đã làm</p>
+            </article>
+            <article class="stat card" data-stat="tf">
+              <div class="stat-top">
+                <span class="stat-label">Đúng / Sai đạt chuẩn</span>
+                <span class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statTF">0</span><small>/ 7</small></div>
+              <p class="stat-foot">câu đúng trọn vẹn cả 4 ý</p>
+            </article>
+            <article class="stat card" data-stat="short">
+              <div class="stat-top">
+                <span class="stat-label">Điền số chính xác</span>
+                <span class="stat-icon purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
+              </div>
+              <div class="stat-value"><span id="statShort">0</span><small>/ 2</small></div>
+              <p class="stat-foot">câu trả lời ngắn đã hoàn thành</p>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Cấu trúc đề cương</p>
+                  <h3 style="margin-top: 4px">3 chủ đề trọng tâm thi Giữa kỳ I</h3>
+                </div>
+                <span class="chip">33 câu</span>
+              </div>
+              <div class="topic-list">
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Chủ đề 1 — Phần mềm &amp; lưu trữ trực tuyến</strong>
+                    <p>Phần mềm thương mại, mã nguồn mở, phần mềm chạy trên Internet; lưu trữ, chia sẻ và phân quyền tệp trên Google Drive.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 14h3"></path><path d="M1 9h3"></path><path d="M1 14h3"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Chủ đề 2 — Hệ điều hành &amp; phần cứng</strong>
+                    <p>Chức năng hệ điều hành; ROM, RAM, CPU; thiết bị vào – ra và các cổng kết nối VGA, HDMI, USB…</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m10 15 5-5-5-5"></path><path d="M15 10H3"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Chủ đề 3 — Mạch logic &amp; hệ nhị phân</strong>
+                    <p>Cổng AND, OR, NOT; phép toán lôgic trên dãy bit; hệ nhị phân và chuyển đổi cơ số.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Chiến lược học tập</p>
+                  <h3 style="margin-top: 4px">Kinh nghiệm giải đề Tin học 11</h3>
+                </div>
+                <span class="chip accent">Chuẩn SGD</span>
+              </div>
+              <div class="tips">
+                <div class="tip"><span class="tip-num">1</span><span><strong>Phân biệt phần mềm thương mại và mã nguồn mở::</strong> Thương mại: bán bản quyền, dạng mã máy, có hỗ trợ. Mã nguồn mở: công bố mã nguồn, được sửa đổi và chia sẻ.</span></div>
+                <div class="tip"><span class="tip-num">2</span><span><strong>Nhớ đặc trưng của bộ nhớ::</strong> ROM: chỉ đọc, giữ dữ liệu khi mất điện, chậm hơn RAM. RAM: ghi/đọc tạm thời, mất dữ liệu khi tắt máy, tốc độ cao.</span></div>
+                <div class="tip"><span class="tip-num">3</span><span><strong>Thành phần CPU::</strong> ALU (số học – lôgic), bộ điều khiển, thanh ghi, bộ nhớ đệm; tốc độ đo bằng GHz.</span></div>
+                <div class="tip"><span class="tip-num">4</span><span><strong>Phép toán lôgic trên bit::</strong> AND: 1 khi cả hai bit 1. OR: 1 khi có ít nhất một bit 1. XOR: 1 khi hai bit khác nhau. NOT: đảo bit.</span></div>
+              </div>
+              <div class="sep"></div>
+              <button class="btn btn-secondary full" type="button" id="dashBrowse">Tra cứu toàn bộ 33 câu hỏi</button>
+            </section>
+          </div>
+
+          <section class="card card-pad plan">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Tiến độ theo dạng</p>
+                <h3 style="margin-top: 4px">Các phần kiểm tra</h3>
+              </div>
+            </div>
+                        <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path></svg>
+                <span>Phần I — Trắc nghiệm 1 lựa chọn</span>
+              </div>
+              <div class="bar"><span id="barMcq"></span></div>
+              <span class="plan-count" id="countMcq">0 / 21</span>
+              <button class="btn btn-secondary" type="button" data-go="mcq">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+                <span>Phần II — Trắc nghiệm Đúng / Sai</span>
+              </div>
+              <div class="bar"><span id="barTf"></span></div>
+              <span class="plan-count" id="countTf">0 / 7</span>
+              <button class="btn btn-secondary" type="button" data-go="tf">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span>Phần III — Điền số / Trả lời ngắn</span>
+              </div>
+              <div class="bar"><span id="barShort"></span></div>
+              <span class="plan-count" id="countShort">0 / 2</span>
+              <button class="btn btn-secondary" type="button" data-go="short">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path></svg>
+                <span>Phần IV — Tự luận</span>
+              </div>
+              <div class="bar"><span id="barEssay"></span></div>
+              <span class="plan-count" id="countEssay">0 / 3</span>
+              <button class="btn btn-secondary" type="button" data-go="essay">Ôn ngay</button>
+            </div>
+          </section>
+        </section>
+
+        <!-- Trắc nghiệm (MCQ) -->
+        <section class="view" id="view-mcq">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="mcqChip">Câu 1 / 21</span>
+                <span class="toolbar-sub" id="mcqLessonName">Bài 1: Khái quát về TĐC &amp; CHNL</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="mcqBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="mcqLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (21 câu)</option>
+                <option value="1">Chủ đề 1: Phần mềm &amp; lưu trữ trực tuyến (10 câu)</option>
+                <option value="2">Chủ đề 2: Hệ điều hành &amp; phần cứng (6 câu)</option>
+                <option value="3">Chủ đề 3: Mạch logic &amp; hệ nhị phân (5 câu)</option>
+              </select>
+              <label class="switch">
+                <input type="checkbox" id="mcqShuffleQ" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn câu</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" id="mcqShuffleA" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn đáp án</span>
+              </label>
+              <button class="icon-btn" type="button" id="mcqRestart" title="Làm lại phần trắc nghiệm" aria-label="Làm lại phần trắc nghiệm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="mcqCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="mcqEyebrow">Câu hỏi 1</span>
+                <span class="chip" id="mcqType">Trắc nghiệm</span>
+              </div>
+              <h2 class="q-title" id="mcqTitle"></h2>
+              <div class="options" id="mcqOptions"></div>
+              <div class="feedback" id="mcqFeedback" hidden></div>
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="mcqPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="mcqUndo" hidden>Làm lại</button>
+                  <button class="btn btn-primary" type="button" id="mcqCheck">Kiểm tra</button>
+                  <button class="btn btn-secondary" type="button" id="mcqNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Bảng câu hỏi</h4>
+                  <span class="chip" id="mcqNavStat">0 / 21</span>
+                </div>
+                <div class="nav-grid" id="mcqNavGrid"></div>
+                <div class="legend">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Đúng</span>
+                  <span><i class="bad"></i>Sai</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+                <div class="mini-score">
+                  <div><span>Đúng</span><strong id="mcqCorrect">0</strong></div>
+                  <div><span>Sai</span><strong id="mcqWrong">0</strong></div>
+                  <div><span>Còn lại</span><strong id="mcqLeft">21</strong></div>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Phím tắt nhanh</h4>
+                <div class="shortcut"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><span>chọn đáp án A, B, C, D</span></div>
+                <div class="shortcut"><kbd>Enter</kbd><span>kiểm tra / câu tiếp theo</span></div>
+                <div class="shortcut"><kbd>&larr;</kbd><kbd>&rarr;</kbd><span>chuyển câu trước / sau</span></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Đúng / Sai (TF) -->
+        <section class="view" id="view-tf">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="tfChip">Câu 1 / 7</span>
+                <span class="toolbar-sub" id="tfLessonName">Bài 1: Khái quát về TĐC &amp; CHNL</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="tfBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="tfLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (7 câu)</option>
+                <option value="1">Chủ đề 1: Phần mềm &amp; lưu trữ trực tuyến (2 câu)</option>
+                <option value="2">Chủ đề 2: Hệ điều hành &amp; phần cứng (5 câu)</option>
+              </select>
+              <label class="switch">
+                <input type="checkbox" id="tfShuffleQ" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn câu</span>
+              </label>
+              <button class="icon-btn" type="button" id="tfRestart" title="Làm lại phần Đúng / Sai" aria-label="Làm lại phần Đúng / Sai">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="tfCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="tfEyebrow">Câu hỏi 13</span>
+                <span class="chip" id="tfType">Đúng / Sai &bull; 4 nhận định</span>
+              </div>
+              <p class="tf-intro" id="tfIntro"></p>
+              <div class="tf-list" id="tfItems"></div>
+              <div class="feedback" id="tfFeedback" hidden></div>
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="tfPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="tfUndo" hidden>Làm lại</button>
+                  <button class="btn btn-primary" type="button" id="tfCheck">Kiểm tra</button>
+                  <button class="btn btn-secondary" type="button" id="tfNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Danh sách câu</h4>
+                  <span class="chip" id="tfNavStat">0 / 7</span>
+                </div>
+                <div class="tf-nav" id="tfNav"></div>
+                <div class="sep"></div>
+                <div class="legend" style="margin-top: 0">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Đúng cả 4</span>
+                  <span><i class="bad"></i>Có ý sai</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Quy tắc chấm Đúng/Sai</h4>
+                <p style="margin-top: 7px; font-size: 11.5px; line-height: 1.55; color: var(--text-3)">Mỗi câu gồm 4 nhận định a, b, c, d. Bấm nút Đúng hoặc Sai cho đủ cả 4 ý rồi bấm Kiểm tra để xem đối chiếu giải thích chi tiết theo ANSWER.txt.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Điền số / Trả lời ngắn (Short) -->
+        <section class="view" id="view-short">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="shortChip">Câu 1 / 2</span>
+                <span class="toolbar-sub" id="shortLessonName">Điền số / Trả lời ngắn</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="shortBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="shortLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (2 câu)</option>
+                <option value="3">Chủ đề 3: Mạch logic &amp; hệ nhị phân (2 câu)</option>
+              </select>
+              <button class="icon-btn" type="button" id="shortRestart" title="Làm lại phần Điền số" aria-label="Làm lại phần Điền số">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="shortCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="shortEyebrow">Câu hỏi 16</span>
+                <span class="chip" id="shortType">Điền số / Trả lời ngắn</span>
+              </div>
+              <h2 class="q-title" id="shortTitle"></h2>
+              
+              <div class="short-input-row">
+                <input type="text" class="short-input" id="shortInput" placeholder="Nhập đáp số hoặc số lượng cần tìm..." autocomplete="off" />
+                <button class="btn btn-primary" type="button" id="shortCheck">Kiểm tra</button>
+              </div>
+
+              <div class="feedback" id="shortFeedback" hidden></div>
+
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="shortPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="shortUndo" hidden>Làm lại</button>
+                  <button class="btn btn-secondary" type="button" id="shortNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Danh sách câu</h4>
+                  <span class="chip" id="shortNavStat">0 / 2</span>
+                </div>
+                <div class="nav-grid" id="shortNavGrid"></div>
+                <div class="legend">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Chính xác</span>
+                  <span><i class="bad"></i>Chưa đúng</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Gợi ý làm bài</h4>
+                <p style="margin-top: 7px; font-size: 11.5px; line-height: 1.55; color: var(--text-3)">Chỉ cần nhập chữ số (ví dụ: <kbd>5</kbd>, <kbd>2</kbd>, <kbd>4</kbd>, <kbd>200</kbd>, <kbd>18</kbd>, <kbd>32</kbd>). Hệ thống tự nhận diện và giải thích các bước tính toán chi tiết.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Tự luận khoa học (Essay) -->
+        <section class="view" id="view-essay">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent">Tự luận khoa học</span>
+                <span class="toolbar-sub">3 câu hỏi &bull; Hướng dẫn chấm &amp; Đáp án chi tiết</span>
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="essayLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (3 câu)</option>
+                <option value="1">Chủ đề 1: Phần mềm &amp; lưu trữ trực tuyến (2 câu)</option>
+                <option value="2">Chủ đề 2: Hệ điều hành &amp; phần cứng (1 câu)</option>
+              </select>
+              <button class="btn btn-secondary" type="button" id="essayToggleAll">Hiện tất cả đáp án</button>
+            </div>
+          </div>
+
+          <div id="essayList"></div>
+        </section>
+
+        <!-- Ngân hàng câu hỏi (Bank) -->
+        <section class="view" id="view-bank">
+          <div class="bank-toolbar card">
+            <label class="search">
+              <span class="sr-only">Tìm câu hỏi</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+              <input type="search" id="bankSearch" placeholder="Tìm theo nội dung câu hỏi, từ khóa Tin học 11..." autocomplete="off" />
+            </label>
+            <div class="filter-chips" id="bankTypeFilters">
+              <button class="filter-chip active" type="button" data-type="all">Tất cả (33)</button>
+              <button class="filter-chip" type="button" data-type="mcq">Trắc nghiệm (21)</button>
+              <button class="filter-chip" type="button" data-type="tf">Đúng / Sai (7)</button>
+              <button class="filter-chip" type="button" data-type="short">Điền số / Ngắn (2)</button>
+              <button class="filter-chip" type="button" data-type="essay">Tự luận khoa học (3)</button>
+            </div>
+            <select class="filter-select" id="bankLessonFilter" aria-label="Lọc theo bài">
+              <option value="all">Mọi bài học</option>
+              <option value="1">Chủ đề 1: Phần mềm &amp; lưu trữ trực tuyến</option>
+              <option value="2">Chủ đề 2: Hệ điều hành &amp; phần cứng</option>
+              <option value="3">Chủ đề 3: Mạch logic &amp; hệ nhị phân</option>
+            </select>
+            <label class="switch">
+              <input type="checkbox" id="bankShowAns" />
+              <span class="switch-track"><span class="switch-thumb"></span></span>
+              <span>Hiện đáp án</span>
+            </label>
+          </div>
+          <p class="bank-count" id="bankCount"></p>
+          <div class="bank-list" id="bankList"></div>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Đề cương ôn tập Tin học 11 • Tổng hợp từ 3 đề ôn tập Giữa kỳ I
+        </span>
+        <span>Thiết kế theo chuẩn Fluent Design &bull; Tương thích mọi thiết bị</span>
+      </footer>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+      <div class="dialog-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v5M14 11v5"></path></svg>
+      </div>
+      <h3 id="dialogTitle">Đặt lại toàn bộ tiến độ?</h3>
+      <p id="dialogBody">Toàn bộ câu đã làm ở các phần Trắc nghiệm, Đúng/Sai, Điền số sẽ được xóa trắng khỏi thiết bị này.</p>
+      <div class="dialog-actions">
+        <button class="btn btn-secondary" type="button" id="dialogCancel">Hủy</button>
+        <button class="btn btn-danger" type="button" id="dialogConfirm">Đặt lại</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+    <span id="toastText"></span>
+  </div>
+
+  <script>
+    "use strict";
+
+    /* ===== DỮ LIỆU SINH HỌC 11: DATA.txt + ANSWER.txt ===== */
+    const MCQ = [{"n":1,"lesson":1,"q":"Trong các phần mềm sau đây, phần mềm nào là phần mềm mã nguồn mở?","o":["Linux.","Windows Media.","Microsoft Office.","Photoshop."],"a":0,"exp":"Linux là hệ điều hành mã nguồn mở, được công bố kèm mã nguồn và cho phép cộng đồng sử dụng, sửa đổi, phân phối lại. Windows Media, Microsoft Office và Photoshop là phần mềm thương mại.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":2,"lesson":1,"q":"Trong các phần mềm sau đây, phần mềm nào không phải là phần mềm mã nguồn mở?","o":["Linux.","GIMP.","Microsoft Word.","Inkscape."],"a":2,"exp":"Microsoft Word là phần mềm thương mại của Microsoft, không công bố mã nguồn. Linux, GIMP và Inkscape đều là phần mềm mã nguồn mở.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":3,"lesson":1,"q":"Phương án nào sau đây là phát biểu đúng về phần mềm chạy trên Internet?","o":["Phần mềm không cần cài đặt vào máy tính.","Phần mềm cần cài đặt trên máy tính.","Phần mềm tốn phí cao.","Phần mềm sử dụng bản quyền."],"a":0,"exp":"Phần mềm chạy trên Internet (phần mềm trực tuyến) được truy cập qua trình duyệt, không cần cài đặt vào máy tính, dữ liệu được lưu trên máy chủ của nhà cung cấp.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":4,"lesson":1,"q":"Phương án nào sau đây là ưu điểm của phần mềm chạy trên Internet?","o":["Không tốn thời gian.","Hoàn toàn không cần trả phí.","Có thể sử dụng ở bất cứ đâu, bất cứ máy tính nào miễn là có kết nối Internet; chi phí rẻ hoặc không mất phí.","Có thể sử dụng ở bất cứ đâu, không cần kết nối Internet."],"a":2,"exp":"Ưu điểm nổi bật là truy cập mọi lúc mọi nơi trên thiết bị có Internet, không cần cài đặt, chi phí rẻ hoặc miễn phí. Tuy nhiên vẫn cần kết nối Internet và có thể phụ thuộc nhà cung cấp.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":5,"lesson":1,"q":"Ưu điểm của việc lưu trữ thông tin trực tuyến là","o":["không cho phép chia sẻ thư mục, tệp cho người dùng khác.","cho phép chia sẻ thư mục, tệp cho người dùng khác.","thích vào thư mục của ai cũng được.","bán được thông tin cho nhau để kiếm tiền."],"a":1,"exp":"Lưu trữ trực tuyến cho phép chia sẻ thư mục, tệp với người dùng khác qua đường liên kết hoặc phân quyền, đồng thời truy cập được từ nhiều thiết bị.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":6,"lesson":1,"q":"Công cụ nào dưới đây cho phép người dùng tạo, quản lí các tệp, thư mục trực tuyến tương tự như khi lưu trữ trên các ổ đĩa của máy tính?","o":["Facebook.","Zalo.","Google Drive.","Gmail."],"a":2,"exp":"Google Drive là dịch vụ lưu trữ đám mây, cho phép tạo, quản lí tệp và thư mục trực tuyến tương tự ổ đĩa trên máy tính. Facebook, Zalo, Gmail không phải công cụ quản lí tệp chuyên dụng.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":7,"lesson":1,"q":"Các không gian lưu trữ trên Internet có giới hạn dung lượng hay không?","o":["Không, nó là vô hạn.","Không kết luận được.","Có.","Không, vì không gian thì không có dung lượng."],"a":2,"exp":"Mỗi tài khoản lưu trữ trực tuyến đều có giới hạn dung lượng (miễn phí hoặc theo gói trả phí), không phải vô hạn.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":8,"lesson":1,"q":"Khi mở một văn bản trực tuyến qua link lưu trữ trên Google Drive, vì sao ta không thể chỉnh sửa nội dung?","o":["Do văn bản bị lỗi.","Do ta mở văn bản chưa đúng cách.","Do văn bản lưu trên Google Drive không thể chỉnh sửa.","Do người tạo chưa cấp quyền chỉnh sửa cho văn bản."],"a":3,"exp":"Google Drive phân quyền theo người dùng (Chỉ xem, Nhận xét, Chỉnh sửa). Nếu người tạo chỉ cấp quyền xem hoặc nhận xét thì ta không thể chỉnh sửa nội dung.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":9,"lesson":1,"q":"Trong các phần mềm sau đây, phần mềm nào là phần mềm thương mại?","o":["Windows.","Linux.","SQL Server.","MySQL."],"a":2,"exp":"SQL Server là hệ quản trị cơ sở dữ liệu thương mại của Microsoft. Windows có cả bản thương mại nhưng trong nhóm này SQL Server là đáp án tiêu biểu; Linux và MySQL là mã nguồn mở.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":10,"lesson":1,"q":"Ứng dụng nào dưới đây là phần mềm thương mại trong lĩnh vực xử lí ảnh?","o":["MySQL.","GIMP.","Adobe Audition.","Adobe Photoshop."],"a":3,"exp":"Adobe Photoshop là phần mềm thương mại xử lí ảnh. GIMP là mã nguồn mở, Adobe Audition xử lí âm thanh, MySQL là hệ quản trị cơ sở dữ liệu.","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":11,"lesson":2,"q":"Đâu không phải là chức năng của hệ điều hành?","o":["Cung cấp môi trường giao tiếp với người sử dụng.","Quản lí thiết bị và quản lí việc lưu trữ dữ liệu.","Cung cấp môi trường để phần mềm ứng dụng khai thác phần cứng.","Soạn thảo và trình chiếu văn bản."],"a":3,"exp":"Soạn thảo, trình chiếu là chức năng của phần mềm ứng dụng (Word, PowerPoint), không phải của hệ điều hành. Hệ điều hành quản lí phần cứng, lưu trữ, cung cấp môi trường giao tiếp và môi trường cho ứng dụng.","lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":12,"lesson":2,"q":"Em cần kết nối máy tính với máy tivi, em sẽ sử dụng cổng nào dưới đây?","o":["Cổng HDMI.","Cổng PS/2.","USB.","Cổng COM."],"a":0,"exp":"Cổng HDMI truyền đồng thời hình ảnh và âm thanh chất lượng cao, phù hợp kết nối máy tính với tivi. PS/2 dùng cho chuột/bàn phím cũ, COM là cổng nối tiếp, USB dùng cho thiết bị ngoại vi.","lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":13,"lesson":2,"q":"Chọn khẳng định đúng về cổng VGA:","o":["Cổng VGA dùng tín hiệu tương tự để truyền hình ảnh tới màn hình hoặc máy chiếu, không truyền âm thanh.","Cổng VGA dùng tín hiệu số để truyền hình ảnh tới màn hình hoặc máy chiếu, không truyền âm thanh.","Cổng VGA dùng tín hiệu số để truyền đồng thời hình ảnh và âm thanh.","Cổng VGA dùng tín hiệu tương tự để truyền đồng thời hình ảnh và âm thanh."],"a":0,"exp":"VGA là cổng truyền hình ảnh bằng tín hiệu tương tự (analog), chỉ truyền hình ảnh, không truyền âm thanh. HDMI mới truyền kỹ thuật số cả hình ảnh và âm thanh.","lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":14,"lesson":2,"q":"ROM là?","o":["Bộ nhớ chỉ đọc, được ghi bằng phương tiện chuyên dùng.","Các chương trình ứng dụng chỉ có thể đọc mà không thể ghi hay xóa.","Bộ nhớ không cần nguồn nuôi.","Cả ba đáp án trên đều đúng."],"a":3,"exp":"ROM (Read Only Memory) là bộ nhớ chỉ đọc, thường được ghi bằng thiết bị chuyên dụng, giữ được dữ liệu khi mất điện và không cho phép ghi/xóa thông thường. Cả ba phát biểu đều đúng.","lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":15,"lesson":2,"q":"RAM là?","o":["Bộ nhớ có thể ghi được.","Dùng để ghi dữ liệu tạm thời trong khi chạy các chương trình.","Không giữ được lâu dài các dữ liệu tạm thời.","Cả ba đáp án trên đều đúng."],"a":3,"exp":"RAM (Random Access Memory) là bộ nhớ truy cập ngẫu nhiên, cho phép ghi/đọc dữ liệu tạm thời khi chạy chương trình và mất dữ liệu khi mất điện. Cả ba phát biểu đều đúng.","lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":16,"lesson":2,"q":"Chọn khẳng định sai trong các khẳng định sau về thiết bị vào – ra:","o":["Máy tính có thể kết nối với nhiều thiết bị số.","Các thiết bị vào – ra thường chỉ làm việc được khi kết nối với máy tính.","Mỗi thiết bị vào – ra đều có những thông số đặc trưng riêng.","Không thể tùy chỉnh chức năng của thiết bị theo nhu cầu sử dụng."],"a":3,"exp":"Có thể tùy chỉnh chức năng của nhiều thiết bị (phím tắt, độ phân giải chuột, chế độ bàn phím…) theo nhu cầu sử dụng, nên phát biểu D sai.","lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":17,"lesson":3,"q":"Mọi cổng logic đều có thể tổng hợp được từ các cổng cơ bản nào?","o":["AND.","OR.","NOT.","Cả ba đáp án trên đều đúng."],"a":3,"exp":"AND, OR, NOT là ba cổng logic cơ bản; từ bộ ba cổng này có thể tổng hợp (xây dựng) mọi mạch logic khác. Vì vậy cả ba phương án đều đúng khi xét chung bộ cổng cơ bản.","lessonName":"Chủ đề 3: Mạch logic & hệ nhị phân"},{"n":18,"lesson":3,"q":"Hệ nhị phân dùng chữ số nào dưới đây?","o":["0 và 3, 4.","0 và 1, 2.","1, 2, 3.","0 và 1."],"a":3,"exp":"Hệ nhị phân chỉ dùng hai chữ số 0 và 1. Mọi số trong hệ nhị phân đều được biểu diễn bằng tổ hợp của 0 và 1.","lessonName":"Chủ đề 3: Mạch logic & hệ nhị phân"},{"n":19,"lesson":3,"q":"Trong các khẳng định sau, khẳng định nào sai?","o":["Mạch lôgic là một mạch thực hiện được các biến đổi lôgic.","Mọi mạch lôgic đều có thể xây dựng từ các cổng AND, OR và NOT.","Máy tính điện tử sử dụng mạch lôgic.","Có một số thiết bị số không sử dụng mạch lôgic."],"a":3,"exp":"Mọi thiết bị số đều sử dụng mạch lôgic để xử lí tín hiệu số, nên khẳng định “có một số thiết bị số không sử dụng mạch lôgic” là sai.","lessonName":"Chủ đề 3: Mạch logic & hệ nhị phân"},{"n":20,"lesson":3,"q":"Cho p = 10110011 và q = 10101111. Kết quả của phép toán lôgic p XOR q là?","o":["00011100.","11101111.","00010000.","11100011."],"a":0,"exp":"Thực hiện XOR từng cặp bit (khác nhau cho 1, giống nhau cho 0): 1⊕1=0, 0⊕0=0, 1⊕1=0, 1⊕0=1, 0⊕1=1, 0⊕1=1, 1⊕1=0, 1⊕1=0 → 00011100.","lessonName":"Chủ đề 3: Mạch logic & hệ nhị phân"},{"n":21,"lesson":3,"q":"Cổng HDMI có đặc điểm nào sau đây?","o":["Truyền tín hiệu số, chỉ truyền hình ảnh, không truyền âm thanh.","Truyền tín hiệu số, truyền âm thanh, không truyền hình ảnh.","Truyền tín hiệu số, truyền đồng thời cả âm thanh và hình ảnh.","Truyền tín hiệu tương tự, truyền đồng thời cả âm thanh và hình ảnh."],"a":2,"exp":"HDMI (High Definition Multimedia Interface) truyền tín hiệu số, truyền đồng thời cả hình ảnh và âm thanh chất lượng cao qua một dây cáp.","lessonName":"Chủ đề 3: Mạch logic & hệ nhị phân"}];
+    const TF = [{"n":1,"lesson":1,"intro":"Lan và các bạn trong nhóm học tập vừa hoàn thành một bản kế hoạch dự án bằng Google Docs. Lan muốn các bạn cùng đọc và đóng góp ý kiến trực tiếp vào tài liệu đó mà không cần tải về máy. Các hành động nào sẽ giúp Lan chia sẻ đúng cách?","items":[{"text":"Lan sử dụng Google Drive, nhấn chuột phải vào tài liệu, chọn “Chia sẻ” và cấp quyền “Nhận xét” cho các thành viên.","a":true,"exp":"Cấp quyền “Nhận xét” cho phép các bạn đọc và góp ý trực tiếp trên tài liệu mà không sửa nội dung."},{"text":"Lan gửi tệp qua email dưới dạng tệp đính kèm và yêu cầu mọi người phản hồi qua email.","a":false,"exp":"Gửi tệp đính kèm tạo ra các bản sao riêng, không đóng góp trực tiếp vào tài liệu gốc."},{"text":"Lan tải tệp về rồi gửi qua Zalo để mọi người tải về và sửa trên máy cá nhân.","a":false,"exp":"Cách này tạo nhiều bản sao, dễ thất lạc và không cộng tác trực tuyến trên cùng một tài liệu."},{"text":"Lan gửi đường liên kết của tệp trên Google Drive và thiết lập quyền “Người chỉnh sửa” để mọi người có thể trực tiếp chỉnh sửa nội dung.","a":true,"exp":"Chia sẻ bằng đường liên kết và cấp quyền chỉnh sửa cho phép cộng tác trực tiếp, cùng lúc trên một tài liệu."}],"lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":2,"lesson":2,"intro":"Hệ điều hành là phần mềm đầu tiên được cài đặt trên máy tính, dùng để điều khiển phần cứng và cung cấp các dịch vụ cho phần mềm ứng dụng.","items":[{"text":"Hệ điều hành không có vai trò gì đối với phần mềm ứng dụng.","a":false,"exp":"Hệ điều hành là môi trường để phần mềm ứng dụng chạy và khai thác phần cứng, có vai trò rất quan trọng."},{"text":"Hệ điều hành giúp phần mềm ứng dụng khai thác hiệu quả phần cứng.","a":true,"exp":"Hệ điều hành quản lí tài nguyên, cung cấp dịch vụ để ứng dụng sử dụng phần cứng hiệu quả."},{"text":"Hệ điều hành có thể được thay thế bằng phần mềm ứng dụng.","a":false,"exp":"Phần mềm ứng dụng chạy trên nền hệ điều hành, không thể thay thế hệ điều hành."},{"text":"Hệ điều hành không cần thiết đối với máy tính.","a":false,"exp":"Máy tính cần hệ điều hành để quản lí phần cứng và tạo môi trường cho các phần mềm khác hoạt động."}],"lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":3,"lesson":2,"intro":"ROM là bộ nhớ chỉ đọc, dùng để lưu trữ các chương trình khởi động và dữ liệu hệ thống.","items":[{"text":"ROM có thể lưu trữ dữ liệu khi máy tính tắt nguồn.","a":true,"exp":"ROM là bộ nhớ không khả biến, dữ liệu vẫn được giữ khi mất điện."},{"text":"ROM không cần thiết đối với máy tính.","a":false,"exp":"ROM chứa chương trình khởi động (BIOS/UEFI), rất cần thiết để máy tính khởi động."},{"text":"ROM có thể ghi dữ liệu mới.","a":false,"exp":"ROM là bộ nhớ chỉ đọc, không cho phép ghi dữ liệu thông thường; muốn ghi phải dùng thiết bị chuyên dụng."},{"text":"ROM có tốc độ truy cập nhanh hơn RAM.","a":false,"exp":"ROM có tốc độ truy cập chậm hơn RAM; RAM là bộ nhớ truy cập ngẫu nhiên tốc độ cao."}],"lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":4,"lesson":2,"intro":"Dưới đây là các nhận định về vai trò và thông số của chuột máy tính.","items":[{"text":"Một chuột kết nối qua Bluetooth luôn có tốc độ cao hơn chuột có dây.","a":false,"exp":"Chuột Bluetooth có thể có độ trễ cao hơn chuột có dây; tốc độ còn phụ thuộc thông số và chất lượng thiết bị, không phải lúc nào cũng cao hơn."},{"text":"Chuột có thể xác định được 1600 điểm khác nhau khi di chuyển 2,54 cm trên mặt phẳng.","a":true,"exp":"Đó là chuột có độ phân giải 1600 DPI (dots per inch), tức 1600 điểm ảnh trên mỗi 2,54 cm."},{"text":"Tốc độ chuột có thể điều chỉnh để phù hợp với mục đích sử dụng như thiết kế hay chơi game.","a":true,"exp":"Có thể điều chỉnh DPI/tốc độ con trỏ trong phần mềm hoặc trên chuột để phù hợp nhu cầu."},{"text":"Độ phân giải càng cao thì chuột di chuyển càng chậm trên màn hình.","a":false,"exp":"Độ phân giải (DPI) càng cao thì cùng một quãng đường di chuyển, con trỏ trên màn hình đi càng nhanh, không phải càng chậm."}],"lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":5,"lesson":1,"intro":"Khi tìm hiểu về cách chuyển giao phần mềm, Nam nhận thấy có nhiều hình thức khác nhau: từ phần mềm thương mại bán dưới dạng mã máy, đến phần mềm nguồn mở chia sẻ mã nguồn. Em hãy giúp Nam chọn ra những ý đúng về đặc điểm của phần mềm thương mại.","items":[{"text":"Là phần mềm được bán ra với chi phí cụ thể, thường được cung cấp ở dạng mã máy để tránh bị sửa đổi trái phép.","a":true,"exp":"Phần mềm thương mại thường bán dưới dạng mã máy, người dùng không có mã nguồn để sửa đổi."},{"text":"Tất cả phần mềm thương mại đều bắt buộc phải có tính năng chia sẻ mã nguồn để người dùng sửa lỗi.","a":false,"exp":"Phần mềm thương mại thường không công bố mã nguồn; đây là đặc điểm của phần mềm mã nguồn mở."},{"text":"Người dùng có thể tuỳ ý chia sẻ, chỉnh sửa phần mềm thương mại miễn là không sử dụng vào mục đích kinh doanh.","a":false,"exp":"Người dùng phải tuân thủ giấy phép; không được tự do chia sẻ, chỉnh sửa phần mềm thương mại."},{"text":"Một số phần mềm thương mại dạng “đặt hàng” được phát triển theo yêu cầu riêng của doanh nghiệp và có bảo hành kỹ thuật.","a":true,"exp":"Phần mềm đặt hàng (custom software) được phát triển riêng theo yêu cầu và thường có hợp đồng bảo hành, hỗ trợ kỹ thuật."}],"lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":6,"lesson":2,"intro":"Mai đang muốn nâng cấp máy tính để chơi game mượt hơn và làm đồ hoạ hoàn hảo hơn. Khi tìm hiểu các linh kiện trong máy, Mai thấy CPU đóng vai trò rất quan trọng. Hãy chọn các nhận định đúng về CPU dưới đây.","items":[{"text":"CPU bao gồm bộ số học và lôgic (ALU), bộ điều khiển, thanh ghi, bộ nhớ đệm.","a":true,"exp":"Đó là các thành phần cơ bản của CPU: ALU, bộ điều khiển, thanh ghi và bộ nhớ đệm (cache)."},{"text":"CPU chỉ gồm duy nhất bộ điều khiển, thực hiện việc truyền tín hiệu giữa các linh kiện.","a":false,"exp":"Bộ điều khiển chỉ là một thành phần của CPU; CPU còn có ALU, thanh ghi, bộ nhớ đệm."},{"text":"CPU chỉ có duy nhất một lõi xử lý, vì mỗi chíp chỉ thực hiện được một nhiệm vụ tại một thời điểm.","a":false,"exp":"CPU hiện đại có nhiều lõi (dual-core, quad-core…), có thể xử lí nhiều nhiệm vụ song song."},{"text":"Tốc độ của CPU được đo bằng tần số xung nhịp (GHz), cho biết khả năng thực hiện các lệnh.","a":true,"exp":"Tần số xung nhịp (GHz) là một trong các thông số quan trọng thể hiện tốc độ xử lí của CPU."}],"lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":7,"lesson":2,"intro":"Hệ điều hành Windows là hệ điều hành phổ biến nhất trên máy tính cá nhân.","items":[{"text":"Hệ điều hành Windows là hệ điều hành mã nguồn mở.","a":false,"exp":"Windows là hệ điều hành thương mại, không công bố mã nguồn; Linux mới là hệ điều hành mã nguồn mở tiêu biểu."},{"text":"Hệ điều hành Windows là hệ điều hành duy nhất trên máy tính cá nhân.","a":false,"exp":"Ngoài Windows còn có macOS, Linux, ChromeOS… trên máy tính cá nhân."},{"text":"Hệ điều hành Windows có nhiều phiên bản khác nhau.","a":true,"exp":"Windows có nhiều phiên bản như Windows 7, 8, 10, 11 và các bản Home, Pro, Enterprise…"},{"text":"Hệ điều hành Windows không thể chạy trên máy tính Mac.","a":false,"exp":"Trên Mac dùng chip Intel có thể cài Windows qua Boot Camp hoặc máy ảo; với chip Apple Silicon có thể chạy Windows trong máy ảo."}],"lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"}];
+    const SHORT = [{"n":1,"lesson":3,"q":"Cộng hai số thập phân 100 + 96 = ? Sau đó chuyển kết quả sang hệ nhị phân.","ans":"11000100","exp":"100 + 96 = 196. Đổi 196 sang nhị phân: 196 = 128 + 64 + 4 = 2^7 + 2^6 + 2^2 → 11000100₂.","lessonName":"Chủ đề 3: Mạch logic & hệ nhị phân"},{"n":2,"lesson":3,"q":"Cộng hai số nhị phân 1111110 + 1100111 = ? Sau đó chuyển kết quả sang hệ thập phân.","ans":"229","exp":"1111110₂ = 126; 1100111₂ = 103. Tổng = 126 + 103 = 229 (229 = 11100101₂).","lessonName":"Chủ đề 3: Mạch logic & hệ nhị phân"}];
+    const ESSAY = [{"n":1,"lesson":1,"topic":"Phần mềm làm phim nguồn mở và thương mại","q":"Em hãy tìm kiếm trên Internet và cho biết tên một số phần mềm làm phim nguồn mở và một số phần mềm thương mại.","content":"\n      <h4>1. Phần mềm làm phim mã nguồn mở</h4>\n      <ul>\n        <li><strong>OpenShot Video Editor</strong> – dựng phim đơn giản, đa nền tảng, miễn phí.</li>\n        <li><strong>Shotcut</strong> – hỗ trợ nhiều định dạng, giao diện dễ dùng.</li>\n        <li><strong>Kdenlive</strong> – mạnh về dựng phim chuyên nghiệp trên Linux, Windows, macOS.</li>\n        <li><strong>Blender</strong> – không chỉ dựng phim mà còn làm hoạt hình 3D, kỹ xảo.</li>\n        <li><strong>DaVinci Resolve</strong> (bản miễn phí) – chỉnh màu và dựng phim chuyên nghiệp.</li>\n      </ul>\n      <h4>2. Phần mềm làm phim thương mại</h4>\n      <ul>\n        <li><strong>Adobe Premiere Pro</strong> – phần mềm dựng phim chuyên nghiệp phổ biến.</li>\n        <li><strong>Final Cut Pro</strong> – dựng phim chuyên nghiệp trên macOS.</li>\n        <li><strong>Corel VideoStudio</strong> – phù hợp người dùng phổ thông.</li>\n        <li><strong>Filmora (Wondershare)</strong> – giao diện thân thiện, nhiều hiệu ứng.</li>\n        <li><strong>Camtasia</strong> – quay và dựng video bài giảng, hướng dẫn.</li>\n      </ul>\n      <h4>3. Lưu ý khi lựa chọn</h4>\n      <p>Phần mềm mã nguồn mở miễn phí, được sửa đổi và chia sẻ nhưng có thể ít tính năng chuyên sâu. Phần mềm thương mại đầy đủ tính năng, có hỗ trợ kỹ thuật nhưng phải mua bản quyền.</p>\n    ","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"},{"n":2,"lesson":2,"topic":"Chức năng và vai trò của hệ điều hành","q":"Trình bày chức năng của hệ điều hành và vai trò của hệ điều hành đối với phần mềm ứng dụng.","content":"\n      <h4>1. Khái niệm</h4>\n      <p>Hệ điều hành là phần mềm hệ thống được cài đặt đầu tiên trên máy tính, dùng để điều khiển phần cứng và cung cấp các dịch vụ cho phần mềm ứng dụng.</p>\n      <h4>2. Chức năng chính</h4>\n      <ul>\n        <li>Quản lí thiết bị (phần cứng) và quản lí việc lưu trữ dữ liệu.</li>\n        <li>Cung cấp môi trường giao tiếp với người sử dụng (giao diện đồ họa hoặc dòng lệnh).</li>\n        <li>Cung cấp môi trường để phần mềm ứng dụng khai thác phần cứng.</li>\n        <li>Quản lí tiến trình, bộ nhớ, tài nguyên và bảo mật hệ thống.</li>\n      </ul>\n      <h4>3. Vai trò đối với phần mềm ứng dụng</h4>\n      <ul>\n        <li>Là môi trường để phần mềm ứng dụng được cài đặt và chạy.</li>\n        <li>Giúp ứng dụng sử dụng phần cứng (CPU, RAM, ổ đĩa, thiết bị ngoại vi) một cách hiệu quả và an toàn.</li>\n        <li>Cung cấp các dịch vụ dùng chung như quản lí tệp, in ấn, kết nối mạng.</li>\n      </ul>\n    ","lessonName":"Chủ đề 2: Hệ điều hành & phần cứng"},{"n":3,"lesson":1,"topic":"Phần mềm thương mại, mã nguồn mở và lưu trữ trực tuyến","q":"So sánh phần mềm thương mại và phần mềm mã nguồn mở. Nêu ưu điểm và hạn chế của việc lưu trữ thông tin trực tuyến.","content":"\n      <h4>1. So sánh phần mềm thương mại và phần mềm mã nguồn mở</h4>\n      <ul>\n        <li><strong>Phần mềm thương mại:</strong> bán ra với chi phí cụ thể, thường cung cấp dạng mã máy, không công bố mã nguồn, có bảo hành và hỗ trợ kỹ thuật.</li>\n        <li><strong>Phần mềm mã nguồn mở:</strong> công bố mã nguồn, cho phép sử dụng, sửa đổi và phân phối lại; thường miễn phí, do cộng đồng phát triển.</li>\n      </ul>\n      <h4>2. Ưu điểm của lưu trữ trực tuyến</h4>\n      <ul>\n        <li>Truy cập mọi lúc, mọi nơi trên thiết bị có Internet.</li>\n        <li>Dễ dàng chia sẻ tệp, thư mục và cộng tác cùng lúc.</li>\n        <li>Dữ liệu được sao lưu trên máy chủ, giảm nguy cơ mất dữ liệu khi thiết bị hỏng.</li>\n        <li>Tiết kiệm dung lượng ổ đĩa của máy tính.</li>\n      </ul>\n      <h4>3. Hạn chế</h4>\n      <ul>\n        <li>Phụ thuộc vào kết nối Internet và nhà cung cấp dịch vụ.</li>\n        <li>Dung lượng miễn phí có giới hạn; gói trả phí có thể tốn chi phí.</li>\n        <li>Có nguy cơ về quyền riêng tư, bảo mật thông tin.</li>\n      </ul>\n    ","lessonName":"Chủ đề 1: Phần mềm & lưu trữ trực tuyến"}];
+
+    const LETTERS = ["A", "B", "C", "D"];
+    const TOTAL = MCQ.length + TF.length + SHORT.length;
+    const STORE_KEY = "tin11.fluent.v1";
+    const DEFAULT_STATE = {
+      theme: null,
+      mcq: {},
+      tf: {},
+      short: {},
+      essayMastered: {},
+      pref: { shuffleQ: false, shuffleA: false, tfShuffleQ: false },
+      bankShow: false
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+    function clone(obj) { return JSON.parse(JSON.stringify(obj)); }
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORE_KEY);
+        if (!raw) return clone(DEFAULT_STATE);
+        const saved = JSON.parse(raw);
+        return {
+          ...clone(DEFAULT_STATE),
+          ...saved,
+          mcq: saved.mcq || {},
+          tf: saved.tf || {},
+          short: saved.short || {},
+          essayMastered: saved.essayMastered || {},
+          pref: { ...clone(DEFAULT_STATE.pref), ...(saved.pref || {}) }
+        };
+      } catch (err) {
+        return clone(DEFAULT_STATE);
+      }
+    }
+    let state = loadState();
+    function saveState() {
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      } catch (err) {}
+    }
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (ch) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[ch]));
+    }
+    function shuffle(list) {
+      const arr = [...list];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    /* ---------- Toast ---------- */
+    let toastTimer = null;
+    function showToast(message) {
+      const el = $("toast");
+      $("toastText").textContent = message;
+      el.hidden = false;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => { el.hidden = true; }, 2800);
+    }
+
+    /* ---------- Dialog ---------- */
+    let dialogAction = null;
+    function openDialog(options) {
+      $("dialogTitle").textContent = options.title || "Xác nhận";
+      $("dialogBody").textContent = options.body || "";
+      $("dialogConfirm").textContent = options.confirmText || "Xác nhận";
+      dialogAction = options.onConfirm || null;
+      $("overlay").hidden = false;
+      setTimeout(() => $("dialogCancel").focus(), 30);
+    }
+    function closeDialog() {
+      $("overlay").hidden = true;
+      dialogAction = null;
+    }
+    $("dialogCancel").addEventListener("click", closeDialog);
+    $("dialogConfirm").addEventListener("click", () => {
+      const action = dialogAction;
+      closeDialog();
+      if (action) action();
+    });
+    $("overlay").addEventListener("click", (event) => {
+      if (event.target === $("overlay")) closeDialog();
+    });
+
+    /* ---------- Theme ---------- */
+    const mediaTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", theme === "dark" ? "#1a1a1f" : "#eef2f8");
+    }
+    applyTheme(state.theme || (mediaTheme.matches ? "dark" : "light"));
+    $("themeBtn").addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      state.theme = next;
+      saveState();
+      applyTheme(next);
+      showToast(next === "dark" ? "Đã chuyển sang giao diện tối" : "Đã chuyển sang giao diện sáng");
+    });
+    mediaTheme.addEventListener("change", (event) => {
+      if (!state.theme) applyTheme(event.matches ? "dark" : "light");
+    });
+
+    /* ---------- Stats ---------- */
+    function getStats() {
+      const mcqEntries = Object.entries(state.mcq).filter(([, v]) => v && typeof v.sel === "number");
+      const mcqDone = mcqEntries.length;
+      const mcqCorrect = mcqEntries.filter(([, v]) => v.ok).length;
+
+      const tfEntries = Object.entries(state.tf).filter(([, v]) => v && Array.isArray(v.sel));
+      const tfDone = tfEntries.length;
+      const tfPerfect = tfEntries.filter(([, v]) => v.correct === 4).length;
+
+      const shortEntries = Object.entries(state.short).filter(([, v]) => v && v.done);
+      const shortDone = shortEntries.length;
+      const shortCorrect = shortEntries.filter(([, v]) => v.ok).length;
+
+      const essayCount = Object.keys(state.essayMastered || {}).length;
+
+      const done = mcqDone + tfDone + shortDone;
+      const totalScore = done;
+      const pct = Math.round((done / TOTAL) * 100);
+
+      return {
+        mcqDone,
+        mcqCorrect,
+        mcqWrong: mcqDone - mcqCorrect,
+        tfDone,
+        tfPerfect,
+        shortDone,
+        shortCorrect,
+        essayCount,
+        done,
+        pct,
+        acc: mcqDone ? Math.round((mcqCorrect / mcqDone) * 100) : null
+      };
+    }
+
+    function syncStats() {
+      const s = getStats();
+      const set = (id, val) => { const el = $(id); if (el) el.textContent = val; };
+      set("sidePct", s.pct + "%");
+      set("sideDone", s.done + " / " + TOTAL + " câu");
+      const sideBar = $("sideBar");
+      if (sideBar) sideBar.style.width = s.pct + "%";
+
+      set("heroPct", s.pct + "%");
+      set("heroDone", s.done);
+      const ring = $("heroRing");
+      if (ring) ring.style.setProperty("--p", String(s.pct));
+
+      set("statDone", s.done);
+      set("statAcc", s.acc === null ? "—" : s.acc + "%");
+      set("statTF", s.tfPerfect);
+      set("statShort", s.shortCorrect);
+
+      set("countMcq", s.mcqDone + " / " + MCQ.length);
+      set("countTf", s.tfDone + " / " + TF.length);
+      set("countShort", s.shortDone + " / " + SHORT.length);
+      set("countEssay", s.essayCount + " / " + ESSAY.length);
+
+      const bM = $("barMcq"); if (bM) bM.style.width = (s.mcqDone / MCQ.length) * 100 + "%";
+      const bT = $("barTf"); if (bT) bT.style.width = (s.tfDone / TF.length) * 100 + "%";
+      const bS = $("barShort"); if (bS) bS.style.width = (s.shortDone / SHORT.length) * 100 + "%";
+      const bE = $("barEssay"); if (bE) bE.style.width = (s.essayCount / ESSAY.length) * 100 + "%";
+    }
+
+
+    function applySectionVisibility() {
+      const hideSection = (key, count) => {
+        if (count > 0) return;
+        const view = $("view-" + key);
+        if (view) view.style.display = "none";
+        $$('[data-view="' + key + '"]').forEach((el) => { el.style.display = "none"; });
+        $$('[data-go="' + key + '"]').forEach((el) => {
+          const row = el.closest(".plan-row");
+          if (row) row.style.display = "none";
+          else el.style.display = "none";
+        });
+        $$('[data-stat="' + key + '"]').forEach((el) => { el.style.display = "none"; });
+        $$('[data-type="' + key + '"]').forEach((el) => { el.style.display = "none"; });
+      };
+      hideSection("mcq", MCQ.length);
+      hideSection("tf", TF.length);
+      hideSection("short", SHORT.length);
+      hideSection("essay", ESSAY.length);
+    }
+
+    /* ---------- Navigation ---------- */
+    const VIEW_META = {
+      dashboard: { title: "Tổng quan ôn tập", desc: "Hệ thống câu hỏi đề cương Giữa kì I: Trắc nghiệm 1 phương án, Đúng / Sai, Điền số và Tự luận." },
+      mcq: { title: "Trắc nghiệm 1 lựa chọn", desc: "21 câu • Chọn một đáp án đúng, kiểm tra ngay kèm lời giải chi tiết." },
+      tf: { title: "Trắc nghiệm Đúng – Sai", desc: "7 câu (28 nhận định) • Xác định Đúng/Sai cho từng nhận định a, b, c, d." },
+      short: { title: "Điền số & Trả lời ngắn", desc: "2 câu • Nhập đáp số, tự kiểm tra và xem hướng dẫn giải chi tiết." },
+      essay: { title: "Tự luận", desc: "3 câu • Hướng dẫn chấm và đáp án chi tiết." },
+      bank: { title: "Ngân hàng câu hỏi", desc: "Tra cứu toàn diện toàn bộ đề cương ôn tập kèm đáp án chuẩn." }
+    };
+
+    function navigate(view, options) {
+      const meta = VIEW_META[view] || VIEW_META.dashboard;
+      $$(".view").forEach((section) => section.classList.toggle("active", section.id === "view-" + view));
+      $$("[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === view));
+      $("pageTitle").textContent = meta.title;
+      $("pageDesc").innerHTML = meta.desc;
+
+      if (!options || !options.keepScroll) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      if (view === "dashboard") syncStats();
+      if (view === "mcq") renderMcq();
+      if (view === "tf") renderTf();
+      if (view === "short") renderShort();
+      if (view === "essay") renderEssay();
+      if (view === "bank") renderBank();
+    }
+
+    document.addEventListener("click", (event) => {
+      const viewButton = event.target.closest("[data-view]");
+      if (viewButton) { navigate(viewButton.dataset.view); return; }
+      const goButton = event.target.closest("[data-go]");
+      if (goButton) navigate(goButton.dataset.go);
+    });
+    const dashBrowse = $("dashBrowse");
+    if (dashBrowse) dashBrowse.addEventListener("click", () => navigate("bank"));
+
+    /* =========================================================================
+       1. TRẮC NGHIỆM 1 LỰA CHỌN (MCQ) - 58 CÂU
+       ========================================================================= */
+    let mcqFiltered = [...MCQ];
+    let mcqOrder = [];
+    let mcqPos = 0;
+    const mcqPending = {};
+    let optionOrders = {};
+
+    function applyMcqFilter() {
+      const filter = $("mcqLessonFilter").value;
+      if (filter === "all") {
+        mcqFiltered = [...MCQ];
+      } else {
+        mcqFiltered = MCQ.filter((item) => item.lesson === Number(filter));
+      }
+      buildMcqOrder();
+    }
+
+    function buildMcqOrder(preserveId) {
+      const ids = mcqFiltered.map((item) => item.n);
+      mcqOrder = state.pref.shuffleQ ? shuffle(ids) : ids;
+      if (preserveId !== undefined && preserveId !== null) {
+        const at = mcqOrder.indexOf(preserveId);
+        mcqPos = at >= 0 ? at : 0;
+      } else {
+        const firstNew = mcqOrder.findIndex((id) => !state.mcq[id]);
+        mcqPos = firstNew >= 0 ? firstNew : 0;
+      }
+    }
+
+    function currentMcq() {
+      return MCQ.find((item) => item.n === mcqOrder[mcqPos]);
+    }
+
+    function getOptionOrder(question) {
+      if (!state.pref.shuffleA) return [0, 1, 2, 3];
+      if (!optionOrders[question.n]) optionOrders[question.n] = shuffle([0, 1, 2, 3]);
+      return optionOrders[question.n];
+    }
+
+    function renderMcq() {
+      if (!mcqOrder.length) buildMcqOrder();
+      const question = currentMcq();
+      if (!question) {
+        $("mcqTitle").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        $("mcqOptions").innerHTML = "";
+        return;
+      }
+      const rec = state.mcq[question.n];
+      const pending = rec ? rec.sel : mcqPending[question.n];
+      const order = getOptionOrder(question);
+
+      $("mcqEyebrow").textContent = "Câu " + question.n;
+      $("mcqLessonName").textContent = question.lessonName;
+      $("mcqChip").textContent = (mcqPos + 1) + " / " + mcqOrder.length;
+      $("mcqBar").style.width = ((mcqPos + 1) / mcqOrder.length) * 100 + "%";
+      $("mcqTitle").textContent = question.q;
+      $("mcqType").textContent = "Trắc nghiệm 1 lựa chọn";
+
+      const wrap = $("mcqOptions");
+      wrap.innerHTML = "";
+      order.forEach((orig, displayIndex) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option";
+        button.dataset.orig = String(orig);
+        let mark = "";
+        if (rec) {
+          button.disabled = true;
+          if (orig === question.a) {
+            button.classList.add("correct");
+            mark = "✓";
+          } else if (orig === rec.sel) {
+            button.classList.add("wrong");
+            mark = "✕";
+          } else {
+            button.classList.add("muted");
+          }
+        } else if (orig === pending) {
+          button.classList.add("selected");
+        }
+        button.innerHTML =
+          '<span class="letter">' + LETTERS[displayIndex] + "</span>" +
+          '<span class="option-text">' + escapeHtml(question.o[orig]) + "</span>" +
+          (mark ? '<span class="option-mark">' + mark + "</span>" : "");
+        wrap.appendChild(button);
+      });
+
+      const feedback = $("mcqFeedback");
+      if (rec) {
+        const correctDisplay = order.indexOf(question.a);
+        feedback.hidden = false;
+        feedback.className = "feedback " + (rec.ok ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (rec.ok ? "✓" : "✕") + "</span>" +
+          '<div class="feedback-body"><strong>' + (rec.ok ? "Chính xác!" : "Chưa chính xác.") + "</strong> " +
+          (rec.ok
+            ? "Bạn đã chọn đúng đáp án."
+            : "Đáp án đúng là <strong>" + LETTERS[correctDisplay] + ". " + escapeHtml(question.o[question.a]) + "</strong>.") +
+          (question.exp ? '<span class="feedback-note"><strong>Giải thích:</strong> ' + escapeHtml(question.exp) + "</span>" : "") +
+          "</div>";
+      } else {
+        feedback.hidden = true;
+        feedback.className = "feedback";
+        feedback.innerHTML = "";
+      }
+
+      $("mcqPrev").disabled = mcqPos === 0;
+      $("mcqNext").disabled = mcqPos === mcqOrder.length - 1;
+      $("mcqUndo").hidden = !rec;
+      $("mcqCheck").hidden = !!rec;
+
+      const nav = $("mcqNavGrid");
+      nav.innerHTML = "";
+      mcqOrder.forEach((id, index) => {
+        const record = state.mcq[id];
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "nav-cell";
+        if (record) cell.classList.add(record.ok ? "done-correct" : "done-wrong");
+        if (index === mcqPos) cell.classList.add("current");
+        cell.textContent = String(id);
+        cell.title = "Câu " + id + (record ? (record.ok ? " • Đúng" : " • Sai") : " • Chưa làm");
+        cell.setAttribute("aria-label", "Đi tới câu " + id);
+        cell.addEventListener("click", () => {
+          mcqPos = index;
+          renderMcq();
+        });
+        nav.appendChild(cell);
+      });
+
+      const s = getStats();
+      $("mcqNavStat").textContent = s.mcqDone + " / " + MCQ.length;
+      $("mcqCorrect").textContent = String(s.mcqCorrect);
+      $("mcqWrong").textContent = String(s.mcqWrong);
+      $("mcqLeft").textContent = String(MCQ.length - s.mcqDone);
+      syncStats();
+    }
+
+    function scrollCardOnMobile(id) {
+      if (!window.matchMedia("(max-width: 1000px)").matches) return;
+      const card = $(id);
+      if (card) card.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    function mcqNext() {
+      if (mcqPos < mcqOrder.length - 1) {
+        mcqPos++;
+        renderMcq();
+        scrollCardOnMobile("mcqCard");
+      }
+    }
+    function mcqPrev() {
+      if (mcqPos > 0) {
+        mcqPos--;
+        renderMcq();
+        scrollCardOnMobile("mcqCard");
+      }
+    }
+    function checkMcq() {
+      const question = currentMcq();
+      if (!question || state.mcq[question.n]) return;
+      const selected = mcqPending[question.n];
+      if (selected === undefined) {
+        const card = $("mcqCard");
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        showToast("Hãy chọn một đáp án trước khi kiểm tra.");
+        return;
+      }
+      state.mcq[question.n] = { sel: selected, ok: selected === question.a };
+      saveState();
+      renderMcq();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("mcqOptions").addEventListener("click", (event) => {
+      const button = event.target.closest(".option");
+      if (!button || button.disabled) return;
+      const question = currentMcq();
+      if (!question || state.mcq[question.n]) return;
+      mcqPending[question.n] = Number(button.dataset.orig);
+      renderMcq();
+    });
+    $("mcqCheck").addEventListener("click", checkMcq);
+    $("mcqNext").addEventListener("click", mcqNext);
+    $("mcqPrev").addEventListener("click", mcqPrev);
+    $("mcqUndo").addEventListener("click", () => {
+      const question = currentMcq();
+      if (!question) return;
+      delete state.mcq[question.n];
+      delete mcqPending[question.n];
+      saveState();
+      renderMcq();
+    });
+    $("mcqShuffleQ").addEventListener("change", (event) => {
+      const current = currentMcq();
+      state.pref.shuffleQ = event.target.checked;
+      saveState();
+      buildMcqOrder(current ? current.n : null);
+      renderMcq();
+    });
+    $("mcqShuffleA").addEventListener("change", (event) => {
+      state.pref.shuffleA = event.target.checked;
+      optionOrders = {};
+      saveState();
+      renderMcq();
+    });
+    $("mcqLessonFilter").addEventListener("change", () => {
+      applyMcqFilter();
+      renderMcq();
+    });
+    $("mcqRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần trắc nghiệm?",
+        body: "Toàn bộ 21 câu trắc nghiệm đã làm sẽ được đặt lại. Các phần khác không bị ảnh hưởng.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.mcq = {};
+          Object.keys(mcqPending).forEach((k) => delete mcqPending[k]);
+          optionOrders = {};
+          saveState();
+          buildMcqOrder();
+          renderMcq();
+          showToast("Đã làm mới phần trắc nghiệm.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       2. TRẮC NGHIỆM ĐÚNG / SAI (TF) - 18 CÂU (72 Ý)
+       ========================================================================= */
+    let tfFiltered = [...TF];
+    let tfOrder = [];
+    let tfPos = 0;
+    const tfPending = {};
+
+    function applyTfFilter() {
+      const filter = $("tfLessonFilter").value;
+      if (filter === "all") {
+        tfFiltered = [...TF];
+      } else {
+        tfFiltered = TF.filter((item) => item.lesson === Number(filter));
+      }
+      buildTfOrder();
+    }
+
+    function buildTfOrder(preserveId) {
+      const ids = tfFiltered.map((item) => item.n);
+      tfOrder = state.pref.tfShuffleQ ? shuffle(ids) : ids;
+      if (preserveId !== undefined && preserveId !== null) {
+        const at = tfOrder.indexOf(preserveId);
+        tfPos = at >= 0 ? at : 0;
+      } else {
+        const firstNew = tfOrder.findIndex((id) => !state.tf[id]);
+        tfPos = firstNew >= 0 ? firstNew : 0;
+      }
+    }
+
+    function currentTf() {
+      return TF.find((item) => item.n === tfOrder[tfPos]);
+    }
+
+    function renderTf() {
+      if (!tfOrder.length) buildTfOrder();
+      const question = currentTf();
+      if (!question) {
+        $("tfIntro").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        $("tfItems").innerHTML = "";
+        return;
+      }
+      const rec = state.tf[question.n];
+      const chosen = rec ? rec.sel : (tfPending[question.n] || []);
+
+      $("tfEyebrow").textContent = "Câu " + question.n;
+      $("tfLessonName").textContent = question.lessonName;
+      $("tfChip").textContent = (tfPos + 1) + " / " + tfOrder.length;
+      $("tfBar").style.width = ((tfPos + 1) / tfOrder.length) * 100 + "%";
+      $("tfIntro").textContent = question.intro;
+      $("tfType").textContent = "Đúng / Sai &bull; 4 nhận định";
+
+      const list = $("tfItems");
+      list.innerHTML = "";
+      question.items.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "tf-row";
+        const selected = chosen[index];
+        const isRight = rec && selected === item.a;
+        if (rec) row.classList.add(isRight ? "ok" : "bad");
+
+        const segTrue = document.createElement("button");
+        segTrue.type = "button";
+        segTrue.className = "seg";
+        segTrue.dataset.i = String(index);
+        segTrue.dataset.v = "true";
+        segTrue.textContent = "Đúng";
+
+        const segFalse = document.createElement("button");
+        segFalse.type = "button";
+        segFalse.className = "seg";
+        segFalse.dataset.i = String(index);
+        segFalse.dataset.v = "false";
+        segFalse.textContent = "Sai";
+
+        if (rec) {
+          segTrue.disabled = true;
+          segFalse.disabled = true;
+          if (item.a === true) segTrue.classList.add("correct");
+          if (item.a === false) segFalse.classList.add("correct");
+          if (selected === true && item.a !== true) segTrue.classList.add("wrong");
+          if (selected === false && item.a !== false) segFalse.classList.add("wrong");
+        } else {
+          if (selected === true) segTrue.classList.add("sel");
+          if (selected === false) segFalse.classList.add("sel");
+        }
+
+        const controls = document.createElement("div");
+        controls.className = "tf-controls";
+        const group = document.createElement("div");
+        group.className = "segmented";
+        group.append(segTrue, segFalse);
+        controls.appendChild(group);
+        if (rec) {
+          const status = document.createElement("span");
+          status.className = "tf-status " + (isRight ? "ok" : "bad");
+          status.textContent = isRight ? "✓" : "✕";
+          controls.appendChild(status);
+        }
+
+        const text = document.createElement("div");
+        text.className = "tf-text";
+        text.innerHTML =
+          '<span class="tf-letter">' + String.fromCharCode(97 + index) + ")</span>" +
+          '<div style="flex:1"><span>' + escapeHtml(item.text) + "</span>" +
+          (rec ? '<div class="tf-explain-box"><strong>' + (item.a ? "[ĐÚNG]" : "[SAI]") + "</strong> " + escapeHtml(item.exp) + "</div>" : "") +
+          "</div>";
+
+        row.append(text, controls);
+        list.appendChild(row);
+      });
+
+      const feedback = $("tfFeedback");
+      if (rec) {
+        const allRight = rec.correct === question.items.length;
+        feedback.hidden = false;
+        feedback.className = "feedback " + (allRight ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (allRight ? "✓" : "!") + "</span>" +
+          '<div class="feedback-body"><strong>Đúng ' + rec.correct + " / " + question.items.length + " nhận định.</strong> " +
+          (allRight ? "Bạn đã xác định chính xác toàn bộ 4 nhận định!" : "Xem lại lời giải chi tiết cho từng ý ở trên để nắm vững kiến thức.") +
+          "</div>";
+      } else {
+        feedback.hidden = true;
+        feedback.className = "feedback";
+        feedback.innerHTML = "";
+      }
+
+      $("tfPrev").disabled = tfPos === 0;
+      $("tfNext").disabled = tfPos === tfOrder.length - 1;
+      $("tfUndo").hidden = !rec;
+      $("tfCheck").hidden = !!rec;
+
+      const nav = $("tfNav");
+      nav.innerHTML = "";
+      tfOrder.forEach((id, index) => {
+        const item = TF.find((entry) => entry.n === id);
+        const record = state.tf[id];
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "tf-dot";
+        if (record) button.classList.add("done");
+        if (index === tfPos) button.classList.add("current");
+        const score = record ? record.correct + "/4" : "—";
+        button.innerHTML = '<span>Câu ' + id + '</span><span class="score">' + score + '</span>';
+        button.addEventListener("click", () => {
+          tfPos = index;
+          renderTf();
+        });
+        nav.appendChild(button);
+      });
+
+      $("tfNavStat").textContent = getStats().tfDone + " / " + TF.length;
+      syncStats();
+    }
+
+    function tfNext() {
+      if (tfPos < tfOrder.length - 1) {
+        tfPos++;
+        renderTf();
+        scrollCardOnMobile("tfCard");
+      }
+    }
+    function tfPrev() {
+      if (tfPos > 0) {
+        tfPos--;
+        renderTf();
+        scrollCardOnMobile("tfCard");
+      }
+    }
+    function checkTf() {
+      const question = currentTf();
+      if (!question || state.tf[question.n]) return;
+      const chosen = tfPending[question.n] || [];
+      const complete = question.items.every((_, index) => typeof chosen[index] === "boolean");
+      if (!complete) {
+        const card = $("tfCard");
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        showToast("Hãy chọn Đúng hoặc Sai cho đủ cả 4 nhận định.");
+        return;
+      }
+      const correct = question.items.reduce((total, item, index) => total + (chosen[index] === item.a ? 1 : 0), 0);
+      state.tf[question.n] = { sel: chosen.slice(), correct };
+      saveState();
+      renderTf();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("tfItems").addEventListener("click", (event) => {
+      const button = event.target.closest(".seg");
+      if (!button) return;
+      const question = currentTf();
+      if (!question || state.tf[question.n]) return;
+      const index = Number(button.dataset.i);
+      const value = button.dataset.v === "true";
+      const chosen = tfPending[question.n] ? [...tfPending[question.n]] : new Array(question.items.length).fill(undefined);
+      chosen[index] = value;
+      tfPending[question.n] = chosen;
+      const row = button.closest(".tf-row");
+      if (row) {
+        row.querySelectorAll(".seg").forEach((seg) => {
+          const active = chosen[Number(seg.dataset.i)] === (seg.dataset.v === "true");
+          seg.classList.toggle("sel", active);
+        });
+      }
+    });
+    $("tfCheck").addEventListener("click", checkTf);
+    $("tfNext").addEventListener("click", tfNext);
+    $("tfPrev").addEventListener("click", tfPrev);
+    $("tfUndo").addEventListener("click", () => {
+      const question = currentTf();
+      if (!question) return;
+      delete state.tf[question.n];
+      delete tfPending[question.n];
+      saveState();
+      renderTf();
+    });
+    $("tfShuffleQ").addEventListener("change", (event) => {
+      const current = currentTf();
+      state.pref.tfShuffleQ = event.target.checked;
+      saveState();
+      buildTfOrder(current ? current.n : null);
+      renderTf();
+    });
+    $("tfLessonFilter").addEventListener("change", () => {
+      applyTfFilter();
+      renderTf();
+    });
+    $("tfRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần Đúng / Sai?",
+        body: "Toàn bộ 7 câu Đúng/Sai đã làm sẽ được đặt lại. Các phần khác không bị ảnh hưởng.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.tf = {};
+          Object.keys(tfPending).forEach((k) => delete tfPending[k]);
+          saveState();
+          buildTfOrder();
+          renderTf();
+          showToast("Đã làm mới phần Đúng / Sai.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       3. ĐIỀN SỐ / TRẢ LỜI NGẮN (SHORT) - 14 CÂU
+       ========================================================================= */
+    let shortFiltered = [...SHORT];
+    let shortOrder = [];
+    let shortPos = 0;
+
+    function applyShortFilter() {
+      const filter = $("shortLessonFilter").value;
+      if (filter === "all") {
+        shortFiltered = [...SHORT];
+      } else {
+        shortFiltered = SHORT.filter((item) => item.lesson === Number(filter));
+      }
+      buildShortOrder();
+    }
+
+    function buildShortOrder() {
+      shortOrder = shortFiltered.map((item) => item.n);
+      const firstNew = shortOrder.findIndex((id) => !state.short[id]);
+      shortPos = firstNew >= 0 ? firstNew : 0;
+    }
+
+    function currentShort() {
+      return SHORT.find((item) => item.n === shortOrder[shortPos]);
+    }
+
+    function renderShort() {
+      if (!shortOrder.length) buildShortOrder();
+      const question = currentShort();
+      if (!question) {
+        $("shortTitle").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        return;
+      }
+      const rec = state.short[question.n];
+
+      $("shortEyebrow").textContent = "Câu " + question.n;
+      $("shortLessonName").textContent = question.lessonName;
+      $("shortChip").textContent = (shortPos + 1) + " / " + shortOrder.length;
+      $("shortBar").style.width = ((shortPos + 1) / shortOrder.length) * 100 + "%";
+      $("shortTitle").textContent = question.q;
+
+      const input = $("shortInput");
+      const checkBtn = $("shortCheck");
+      const undoBtn = $("shortUndo");
+      const feedback = $("shortFeedback");
+
+      if (rec) {
+        input.value = rec.val;
+        input.disabled = true;
+        checkBtn.hidden = true;
+        undoBtn.hidden = false;
+
+        feedback.hidden = false;
+        feedback.className = "feedback " + (rec.ok ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (rec.ok ? "✓" : "✕") + "</span>" +
+          '<div class="feedback-body"><strong>' + (rec.ok ? "Chính xác!" : "Chưa chính xác.") + "</strong> " +
+          "Đáp số đúng là: <strong>" + escapeHtml(question.ans) + "</strong>." +
+          '<span class="feedback-note"><strong>Hướng dẫn chi tiết:</strong> ' + escapeHtml(question.exp) + "</span>" +
+          "</div>";
+      } else {
+        input.value = "";
+        input.disabled = false;
+        checkBtn.hidden = false;
+        undoBtn.hidden = true;
+        feedback.hidden = true;
+        feedback.innerHTML = "";
+      }
+
+      $("shortPrev").disabled = shortPos === 0;
+      $("shortNext").disabled = shortPos === shortOrder.length - 1;
+
+      const nav = $("shortNavGrid");
+      nav.innerHTML = "";
+      shortOrder.forEach((id, index) => {
+        const record = state.short[id];
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "nav-cell";
+        if (record) cell.classList.add(record.ok ? "done-correct" : "done-wrong");
+        if (index === shortPos) cell.classList.add("current");
+        cell.textContent = String(id);
+        cell.addEventListener("click", () => {
+          shortPos = index;
+          renderShort();
+        });
+        nav.appendChild(cell);
+      });
+
+      $("shortNavStat").textContent = getStats().shortDone + " / " + SHORT.length;
+      syncStats();
+    }
+
+    function checkShort() {
+      const question = currentShort();
+      if (!question || state.short[question.n]) return;
+      const raw = $("shortInput").value.trim();
+      if (!raw) {
+        $("shortInput").focus();
+        showToast("Vui lòng nhập đáp số trước khi kiểm tra.");
+        return;
+      }
+      const normInput = raw.toLowerCase().replace(/,/g, ".").replace(/[^0-9.]/g, "");
+      const normAns = question.ans.toLowerCase().replace(/,/g, ".").replace(/[^0-9.]/g, "");
+      const isRight = normInput === normAns || raw.toLowerCase().includes(normAns);
+
+      state.short[question.n] = { val: raw, ok: isRight, done: true };
+      saveState();
+      renderShort();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("shortCheck").addEventListener("click", checkShort);
+    $("shortInput").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const question = currentShort();
+        if (state.short[question.n]) {
+          if (shortPos < shortOrder.length - 1) { shortPos++; renderShort(); }
+        } else {
+          checkShort();
+        }
+      }
+    });
+    $("shortNext").addEventListener("click", () => {
+      if (shortPos < shortOrder.length - 1) { shortPos++; renderShort(); scrollCardOnMobile("shortCard"); }
+    });
+    $("shortPrev").addEventListener("click", () => {
+      if (shortPos > 0) { shortPos--; renderShort(); scrollCardOnMobile("shortCard"); }
+    });
+    $("shortUndo").addEventListener("click", () => {
+      const question = currentShort();
+      if (!question) return;
+      delete state.short[question.n];
+      saveState();
+      renderShort();
+      $("shortInput").focus();
+    });
+    $("shortLessonFilter").addEventListener("change", () => {
+      applyShortFilter();
+      renderShort();
+    });
+    $("shortRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần Điền số?",
+        body: "Toàn bộ câu trả lời ngắn đã làm sẽ được đặt lại.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.short = {};
+          saveState();
+          buildShortOrder();
+          renderShort();
+          showToast("Đã làm mới phần Điền số.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       4. TỰ LUẬN KHOA HỌC (ESSAY) - 10 CÂU
+       ========================================================================= */
+    let essayShowAll = false;
+
+    function renderEssay() {
+      const filter = $("essayLessonFilter").value;
+      const list = $("essayList");
+      list.innerHTML = "";
+
+      const filtered = filter === "all" ? ESSAY : ESSAY.filter((item) => item.lesson === Number(filter));
+
+      filtered.forEach((item) => {
+        const article = document.createElement("article");
+        article.className = "card essay-card";
+        const isMastered = !!state.essayMastered[item.n];
+
+        article.innerHTML =
+          '<div class="essay-card-head">' +
+          '  <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap">' +
+          '    <span class="chip accent">Câu ' + item.n + '</span>' +
+          '    <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+          (isMastered ? '<span class="chip green">✓ Đã nắm vững</span>' : '') +
+          '  </div>' +
+          '  <button class="btn btn-ghost" type="button" data-master="' + item.n + '">' +
+          (isMastered ? 'Bỏ đánh dấu' : 'Đánh dấu đã hiểu') +
+          '  </button>' +
+          '</div>' +
+          '<h3 class="essay-q">' + escapeHtml(item.q) + '</h3>' +
+          '<button class="btn btn-secondary essay-toggle-btn" type="button" data-toggle-essay="' + item.n + '">' +
+          (essayShowAll ? 'Ẩn đáp án & biểu điểm' : 'Xem đáp án & biểu điểm chi tiết') +
+          '</button>' +
+          '<div class="essay-answer-box" id="essayAns-' + item.n + '" ' + (essayShowAll ? '' : 'hidden') + '>' +
+          item.content +
+          '</div>';
+
+        list.appendChild(article);
+      });
+      syncStats();
+    }
+
+    $("essayList").addEventListener("click", (e) => {
+      const toggleBtn = e.target.closest("[data-toggle-essay]");
+      if (toggleBtn) {
+        const id = toggleBtn.dataset.toggleEssay;
+        const box = $("essayAns-" + id);
+        if (box) {
+          const isHidden = box.hidden;
+          box.hidden = !isHidden;
+          toggleBtn.textContent = isHidden ? "Ẩn đáp án & biểu điểm" : "Xem đáp án & biểu điểm chi tiết";
+        }
+        return;
+      }
+      const masterBtn = e.target.closest("[data-master]");
+      if (masterBtn) {
+        const id = masterBtn.dataset.master;
+        if (state.essayMastered[id]) {
+          delete state.essayMastered[id];
+        } else {
+          state.essayMastered[id] = true;
+        }
+        saveState();
+        renderEssay();
+      }
+    });
+
+    $("essayLessonFilter").addEventListener("change", renderEssay);
+    $("essayToggleAll").addEventListener("click", () => {
+      essayShowAll = !essayShowAll;
+      $("essayToggleAll").textContent = essayShowAll ? "Ẩn tất cả đáp án" : "Hiện tất cả đáp án";
+      renderEssay();
+    });
+
+    /* =========================================================================
+       5. NGÂN HÀNG CÂU HỎI (BANK) - 100 CÂU
+       ========================================================================= */
+    let bankTypeFilter = "all";
+
+    function renderBank() {
+      const query = $("bankSearch").value.trim().toLowerCase();
+      const lessonFilter = $("bankLessonFilter").value;
+      const showAnswers = $("bankShowAns").checked;
+      const list = $("bankList");
+      list.innerHTML = "";
+      let count = 0;
+
+      const matchesQuery = (text) => !query || text.toLowerCase().includes(query);
+      const matchesLesson = (itemLesson) => lessonFilter === "all" || itemLesson === Number(lessonFilter);
+
+      // MCQ
+      if (bankTypeFilter === "all" || bankTypeFilter === "mcq") {
+        MCQ.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.o.join(" ") + " " + (item.exp || ""))) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          const options = item.o.map((text, index) =>
+            '<div class="bank-option' + (showAnswers && index === item.a ? " correct" : "") + '">' +
+            '<span class="letter">' + LETTERS[index] + "</span><span>" + escapeHtml(text) + "</span></div>"
+          ).join("");
+
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Trắc nghiệm</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            (showAnswers ? '<span class="chip green">Đáp án ' + LETTERS[item.a] + "</span>" : "") +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            '<div class="bank-options">' + options + '</div>' +
+            (showAnswers && item.exp ? '<div class="bank-note"><strong>Giải thích:</strong> ' + escapeHtml(item.exp) + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      // TF
+      if (bankTypeFilter === "all" || bankTypeFilter === "tf") {
+        TF.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.intro + " " + item.items.map((e) => e.text).join(" "))) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          const rows = item.items.map((entry, index) =>
+            '<div class="bank-tf"><span><span class="tf-letter">' + String.fromCharCode(97 + index) + ")</span> " +
+            escapeHtml(entry.text) + "</span>" +
+            (showAnswers
+              ? '<span class="chip ' + (entry.a ? "green" : "red") + '">' + (entry.a ? "Đúng" : "Sai") + "</span>"
+              : '<span class="chip">?</span>') +
+            "</div>" +
+            (showAnswers ? '<div class="tf-explain-box" style="margin-bottom:4px"><strong>' + (entry.a ? "[ĐÚNG]" : "[SAI]") + "</strong> " + escapeHtml(entry.exp) + "</div>" : "")
+          ).join("");
+
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Đúng / Sai</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            '</div>' +
+            '<p class="tf-intro" style="margin-bottom: 10px">' + escapeHtml(item.intro) + '</p>' +
+            '<div class="bank-tf-list">' + rows + '</div>';
+          list.appendChild(article);
+        });
+      }
+
+      // SHORT
+      if (bankTypeFilter === "all" || bankTypeFilter === "short") {
+        SHORT.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.exp)) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Điền số / Ngắn</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            (showAnswers ? '<span class="chip green">Đáp số: ' + escapeHtml(item.ans) + '</span>' : '') +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            (showAnswers ? '<div class="bank-note"><strong>Lời giải chi tiết:</strong> ' + escapeHtml(item.exp) + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      // ESSAY
+      if (bankTypeFilter === "all" || bankTypeFilter === "essay") {
+        ESSAY.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.content)) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Tự luận</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            (showAnswers ? '<div class="essay-answer-box" style="margin-top:10px">' + item.content + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      $("bankCount").textContent = count ? "Tìm thấy " + count + " câu hỏi phù hợp" : "";
+      if (!count) {
+        list.innerHTML =
+          '<div class="card empty">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>' +
+          "Không tìm thấy câu hỏi phù hợp. Thử từ khóa khác nhé.</div>";
+      }
+    }
+
+    $("bankSearch").addEventListener("input", renderBank);
+    $("bankShowAns").addEventListener("change", (e) => {
+      state.bankShow = e.target.checked;
+      saveState();
+      renderBank();
+    });
+    $("bankLessonFilter").addEventListener("change", renderBank);
+    $("bankTypeFilters").addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-type]");
+      if (!chip) return;
+      bankTypeFilter = chip.dataset.type;
+      $$("#bankTypeFilters .filter-chip").forEach((b) => b.classList.toggle("active", b === chip));
+      renderBank();
+    });
+
+    /* ---------- Reset tổng ---------- */
+    function resetAllProgress() {
+      openDialog({
+        title: "Đặt lại toàn bộ tiến độ?",
+        body: "Tất cả câu trả lời của các phần Trắc nghiệm, Đúng/Sai và Điền số sẽ bị xóa khỏi thiết bị này.",
+        confirmText: "Đặt lại tất cả",
+        onConfirm: () => {
+          state.mcq = {};
+          state.tf = {};
+          state.short = {};
+          state.essayMastered = {};
+          Object.keys(mcqPending).forEach((k) => delete mcqPending[k]);
+          Object.keys(tfPending).forEach((k) => delete tfPending[k]);
+          optionOrders = {};
+          saveState();
+          buildMcqOrder();
+          buildTfOrder();
+          buildShortOrder();
+          renderMcq();
+          renderTf();
+          renderShort();
+          renderEssay();
+          syncStats();
+          showToast("Đã đặt lại toàn bộ tiến độ học tập.");
+        }
+      });
+    }
+    $("sideReset").addEventListener("click", resetAllProgress);
+
+    /* ---------- Bàn phím ---------- */
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !$("overlay").hidden) {
+        closeDialog();
+        return;
+      }
+      const tag = (event.target.tagName || "").toLowerCase();
+      if (tag === "input" || tag === "textarea" || tag === "select") return;
+      const activeView = document.querySelector(".view.active");
+      if (!activeView) return;
+
+      if (activeView.id === "view-mcq") {
+        const question = currentMcq();
+        if (!question) return;
+        const rec = state.mcq[question.n];
+        if (!rec && /^[1-4]$/.test(event.key)) {
+          const displayIndex = Number(event.key) - 1;
+          const order = getOptionOrder(question);
+          if (displayIndex < order.length) {
+            event.preventDefault();
+            mcqPending[question.n] = order[displayIndex];
+            renderMcq();
+          }
+          return;
+        }
+        if (!rec && /^[a-dA-D]$/.test(event.key)) {
+          const displayIndex = LETTERS.indexOf(event.key.toUpperCase());
+          const order = getOptionOrder(question);
+          if (displayIndex >= 0 && displayIndex < order.length) {
+            event.preventDefault();
+            mcqPending[question.n] = order[displayIndex];
+            renderMcq();
+          }
+          return;
+        }
+        if (event.key === "Enter") {
+          event.preventDefault();
+          if (rec) mcqNext(); else checkMcq();
+          return;
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          mcqNext();
+          return;
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          mcqPrev();
+        }
+      } else if (activeView.id === "view-tf") {
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          tfNext();
+        } else if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          tfPrev();
+        }
+      } else if (activeView.id === "view-short") {
+        if (event.key === "ArrowRight" && shortPos < shortOrder.length - 1) {
+          event.preventDefault();
+          shortPos++;
+          renderShort();
+        } else if (event.key === "ArrowLeft" && shortPos > 0) {
+          event.preventDefault();
+          shortPos--;
+          renderShort();
+        }
+      }
+    });
+
+    /* ---------- Custom Fluent Combobox Dropdown ---------- */
+    function initCustomComboboxes() {
+      $$("select.filter-select").forEach((select) => {
+        if (select.dataset.customized === "true") return;
+        select.dataset.customized = "true";
+
+        const wrap = document.createElement("div");
+        wrap.className = "fluent-combobox";
+        wrap.dataset.selectId = select.id;
+
+        const trigger = document.createElement("button");
+        trigger.type = "button";
+        trigger.className = "combobox-trigger";
+        trigger.setAttribute("aria-haspopup", "listbox");
+        trigger.setAttribute("aria-expanded", "false");
+        trigger.setAttribute("title", select.getAttribute("aria-label") || "Lọc");
+
+        const label = document.createElement("span");
+        label.className = "combobox-label";
+        const curOpt = select.options[select.selectedIndex] || select.options[0];
+        label.textContent = curOpt ? curOpt.textContent : "";
+
+        trigger.appendChild(label);
+        trigger.insertAdjacentHTML(
+          "beforeend",
+          '<svg class="combobox-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="m6 9 6 6 6-6"></path></svg>'
+        );
+
+        const menu = document.createElement("div");
+        menu.className = "combobox-menu";
+        menu.setAttribute("role", "listbox");
+        menu.hidden = true;
+
+        Array.from(select.options).forEach((opt) => {
+          const item = document.createElement("div");
+          item.className = "combobox-item" + (opt.value === select.value ? " active" : "");
+          item.dataset.value = opt.value;
+          item.innerHTML =
+            '<span>' + escapeHtml(opt.textContent) + '</span>' +
+            '<svg class="combobox-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M20 6 9 17l-5-5"></path></svg>';
+
+          item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (select.value !== opt.value) {
+              select.value = opt.value;
+              select.dispatchEvent(new Event("change"));
+            }
+            label.textContent = opt.textContent;
+            menu.querySelectorAll(".combobox-item").forEach((it) => {
+              it.classList.toggle("active", it.dataset.value === opt.value);
+            });
+            closeCombobox(wrap);
+            trigger.focus();
+          });
+          menu.appendChild(item);
+        });
+
+        trigger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = wrap.classList.contains("open");
+          closeAllComboboxes();
+          if (!isOpen) {
+            wrap.classList.add("open");
+            trigger.setAttribute("aria-expanded", "true");
+            menu.hidden = false;
+          }
+        });
+
+        select.parentNode.insertBefore(wrap, select.nextSibling);
+        wrap.appendChild(trigger);
+        wrap.appendChild(menu);
+
+        select.addEventListener("change", () => {
+          const opt = select.options[select.selectedIndex];
+          if (opt) {
+            label.textContent = opt.textContent;
+            menu.querySelectorAll(".combobox-item").forEach((it) => {
+              it.classList.toggle("active", it.dataset.value === select.value);
+            });
+          }
+        });
+      });
+    }
+
+    function closeCombobox(wrap) {
+      wrap.classList.remove("open");
+      const trig = wrap.querySelector(".combobox-trigger");
+      const menu = wrap.querySelector(".combobox-menu");
+      if (trig) trig.setAttribute("aria-expanded", "false");
+      if (menu) menu.hidden = true;
+    }
+
+    function closeAllComboboxes() {
+      $$(".fluent-combobox.open").forEach(closeCombobox);
+    }
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".fluent-combobox")) {
+        closeAllComboboxes();
+      }
+    });
+
+    /* ---------- Khởi tạo ---------- */
+    $("mcqShuffleQ").checked = !!state.pref.shuffleQ;
+    $("mcqShuffleA").checked = !!state.pref.shuffleA;
+    $("tfShuffleQ").checked = !!state.pref.tfShuffleQ;
+    $("bankShowAns").checked = !!state.bankShow;
+
+    initCustomComboboxes();
+    buildMcqOrder();
+    buildTfOrder();
+    buildShortOrder();
+    renderMcq();
+    renderTf();
+    renderShort();
+    renderEssay();
+    renderBank();
+    syncStats();
+    applySectionVisibility();
+    navigate("dashboard", { keepScroll: true });
+  </script>
+</body>
+</html>
