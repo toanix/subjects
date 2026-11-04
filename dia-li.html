@@ -1,0 +1,3527 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#eef2f8" />
+  <title>Ôn tập Địa lí 11 - Giữa học kỳ I</title>
+  <meta name="description" content="Hệ thống 98 câu hỏi ôn tập giữa học kỳ I môn Địa lí 11 (Trắc nghiệm, Đúng/Sai, Điền số và Tự luận) bám sát đề cương, giao diện Fluent Design." />
+  <meta property="og:title" content="Ôn tập Địa lí 11 - Giữa học kỳ I" />
+  <meta property="og:description" content="Hệ thống 98 câu hỏi ôn tập giữa kì I môn Địa lí 11 giao diện Fluent Design hiện đại." />
+  <style>
+    @property --p {
+      syntax: "<number>";
+      inherits: false;
+      initial-value: 0;
+    }
+    :root {
+      --bg: #eef2f8;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-2: rgba(255, 255, 255, 0.55);
+      --surface-3: rgba(9, 30, 66, 0.045);
+      --surface-solid: #ffffff;
+      --border: rgba(9, 30, 66, 0.09);
+      --border-2: rgba(9, 30, 66, 0.17);
+      --hover: rgba(9, 30, 66, 0.055);
+      --text: #17202b;
+      --text-2: #566273;
+      --text-3: #8692a3;
+      --accent: #0067c0;
+      --accent-2: #2b93e8;
+      --accent-soft: rgba(0, 103, 192, 0.1);
+      --on-accent: #ffffff;
+      --success: #0f7b0f;
+      --success-soft: rgba(15, 123, 15, 0.1);
+      --on-success: #ffffff;
+      --danger: #c42b1c;
+      --danger-soft: rgba(196, 43, 28, 0.1);
+      --on-danger: #ffffff;
+      --warning: #8a6100;
+      --warning-soft: rgba(196, 140, 0, 0.13);
+      --track: rgba(9, 30, 66, 0.09);
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 14px 34px -14px rgba(16, 24, 40, 0.2);
+      --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+      --hero: linear-gradient(130deg, #07549c 0%, #0a6fc2 48%, #2f9de8 100%);
+      --hero-text: #ffffff;
+      --blur: blur(28px) saturate(155%);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Inter", sans-serif;
+      --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, "Inter", sans-serif;
+    }
+    [data-theme="dark"] {
+      --bg: #1a1a1f;
+      --surface: rgba(255, 255, 255, 0.055);
+      --surface-2: rgba(255, 255, 255, 0.035);
+      --surface-3: rgba(255, 255, 255, 0.075);
+      --surface-solid: #2b2b2f;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-2: rgba(255, 255, 255, 0.17);
+      --hover: rgba(255, 255, 255, 0.07);
+      --text: #f4f5f7;
+      --text-2: #bdc3cc;
+      --text-3: #8f97a3;
+      --accent: #60cdff;
+      --accent-2: #38b6ea;
+      --accent-soft: rgba(96, 205, 255, 0.13);
+      --on-accent: #04263a;
+      --success: #6ccb5f;
+      --success-soft: rgba(108, 203, 95, 0.12);
+      --on-success: #0b2b0b;
+      --danger: #ff99a4;
+      --danger-soft: rgba(255, 153, 164, 0.12);
+      --on-danger: #3a0a0f;
+      --warning: #f5d76e;
+      --warning-soft: rgba(245, 215, 110, 0.12);
+      --track: rgba(255, 255, 255, 0.11);
+      --shadow: 0 2px 6px rgba(0, 0, 0, 0.28), 0 18px 44px -18px rgba(0, 0, 0, 0.55);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --hero: linear-gradient(130deg, #0a3355 0%, #0b4a72 50%, #0f6788 100%);
+      --hero-text: #f0fbff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    [hidden] {
+      display: none !important;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      min-height: 100vh;
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(900px 620px at 6% -12%, rgba(66, 146, 255, 0.22), transparent 62%),
+        radial-gradient(820px 560px at 102% -4%, rgba(150, 104, 255, 0.16), transparent 62%),
+        radial-gradient(900px 700px at 46% 112%, rgba(56, 196, 255, 0.17), transparent 66%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    [data-theme="dark"] body {
+      background-image:
+        radial-gradient(900px 620px at 6% -12%, rgba(32, 104, 190, 0.25), transparent 62%),
+        radial-gradient(820px 560px at 102% -4%, rgba(104, 62, 186, 0.2), transparent 62%),
+        radial-gradient(900px 700px at 46% 112%, rgba(0, 128, 168, 0.16), transparent 66%);
+    }
+    ::selection {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    button, input, select {
+      font: inherit;
+      color: inherit;
+    }
+    button {
+      cursor: pointer;
+    }
+    svg {
+      display: block;
+    }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---------- Layout ---------- */
+    .layout {
+      display: grid;
+      grid-template-columns: 275px minmax(0, 1fr);
+      gap: 18px;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 18px;
+      min-height: 100vh;
+    }
+    .main {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1;
+      padding-bottom: 26px;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 18px 14px 14px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 2px 6px 4px;
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: #fff;
+      background: linear-gradient(145deg, #107c41, #008272);
+      box-shadow: 0 6px 14px -6px rgba(16, 124, 65, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    [data-theme="dark"] .brand-icon {
+      color: var(--on-accent);
+      background: linear-gradient(145deg, #60cdff, #107c41);
+    }
+    .brand-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+    .brand-text strong {
+      font-family: var(--font-display);
+      font-size: 15.5px;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+    }
+    .brand-text span {
+      font-size: 11px;
+      color: var(--text-3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      overflow-y: auto;
+      flex: 1;
+      padding: 0 2px;
+    }
+    .nav-label {
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      padding: 12px 10px 5px;
+    }
+    .nav-label:first-child {
+      padding-top: 2px;
+    }
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      width: 100%;
+      padding: 8.5px 11px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 13.5px;
+      font-weight: 500;
+      text-align: left;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .nav-item svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      opacity: 0.9;
+    }
+    .nav-item:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+    .nav-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .nav-item.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 3px;
+      height: 16px;
+      border-radius: 2px;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+    .nav-badge {
+      margin-left: auto;
+      padding: 1px 7px;
+      border-radius: 20px;
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 10.5px;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+    .nav-item.active .nav-badge {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    .sidebar-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 12px 6px 2px;
+      border-top: 1px solid var(--border);
+    }
+    .side-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 10px 11px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+    .side-progress-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-2);
+    }
+    .side-progress-row strong {
+      font-size: 12.5px;
+      color: var(--text);
+      font-weight: 650;
+    }
+    .bar {
+      height: 5px;
+      border-radius: 20px;
+      background: var(--track);
+      overflow: hidden;
+    }
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .side-note {
+      font-size: 10.5px;
+      color: var(--text-3);
+      text-align: center;
+      line-height: 1.45;
+      padding: 0 4px 2px;
+    }
+
+    /* ---------- Topbar ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 8px 14px;
+      margin: 0 -8px 14px;
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.3vw, 26px);
+      font-weight: 650;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      margin-top: 4px;
+    }
+    .page-desc {
+      margin-top: 3px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      max-width: 650px;
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex: none;
+      padding-bottom: 2px;
+    }
+    .icon-btn {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: none;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-2);
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .icon-btn:hover {
+      background: var(--hover);
+      color: var(--text);
+      border-color: var(--border-2);
+    }
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+    .sun { display: none; }
+    [data-theme="dark"] .sun { display: block; }
+    [data-theme="dark"] .moon { display: none; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease, filter 0.15s ease;
+    }
+    .btn:active:not(:disabled) { transform: translateY(1px); }
+    .btn:disabled { opacity: 0.42; cursor: default; }
+    .btn svg { width: 15px; height: 15px; }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--accent-2), var(--accent));
+      color: var(--on-accent);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+    .btn-primary:hover:not(:disabled) { filter: brightness(1.07); }
+    .btn-secondary {
+      background: var(--surface-2);
+      border-color: var(--border-2);
+      color: var(--text);
+    }
+    .btn-secondary:hover:not(:disabled) { background: var(--hover); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-2);
+      border-color: transparent;
+    }
+    .btn-ghost:hover:not(:disabled) { background: var(--hover); color: var(--text); }
+    .btn-danger {
+      background: var(--danger-soft);
+      border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+      color: var(--danger);
+    }
+    .btn-danger:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 18%, transparent); }
+    .btn-light {
+      background: #ffffff;
+      color: #09518c;
+      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.45);
+    }
+    .btn-light:hover:not(:disabled) { background: #f2f9ff; }
+    .btn-hero-ghost {
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.34);
+      color: #fff;
+      backdrop-filter: blur(8px);
+    }
+    .btn-hero-ghost:hover:not(:disabled) { background: rgba(255, 255, 255, 0.22); }
+    .btn.full { width: 100%; }
+
+    /* ---------- Cards & common ---------- */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    .card-pad { padding: 22px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 9px;
+      border-radius: 20px;
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 10.5px;
+      font-weight: 600;
+      line-height: 1.7;
+      white-space: nowrap;
+    }
+    .chip.accent { background: var(--accent-soft); color: var(--accent); }
+    .chip.green { background: var(--success-soft); color: var(--success); }
+    .chip.red { background: var(--danger-soft); color: var(--danger); }
+    .chip.amber { background: var(--warning-soft); color: var(--warning); }
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .card-head h3, .card-head h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+    }
+    .card-head h4 { font-size: 14px; }
+    .sep { height: 1px; background: var(--border); margin: 14px 0; }
+
+    /* ---------- Dashboard ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 30px;
+      padding: 34px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: var(--hero);
+      color: var(--hero-text);
+      box-shadow: 0 24px 48px -26px rgba(0, 74, 148, 0.6);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(460px 280px at 82% 18%, rgba(255, 255, 255, 0.17), transparent 70%),
+        radial-gradient(360px 260px at 6% 108%, rgba(255, 255, 255, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-copy, .hero-progress { position: relative; z-index: 1; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.13);
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hero h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.4vw, 36px);
+      font-weight: 650;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 15px 0 10px;
+      max-width: 600px;
+    }
+    .hero-desc {
+      max-width: 560px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .hero-meta {
+      margin-top: 14px;
+      font-size: 11.5px;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    .hero-progress {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 11px;
+      flex: none;
+      padding-right: 6px;
+    }
+    .ring {
+      --p: 0;
+      display: grid;
+      place-items: center;
+      width: 134px;
+      height: 134px;
+      border-radius: 50%;
+      background: conic-gradient(#ffffff calc(var(--p) * 1%), rgba(255, 255, 255, 0.2) 0);
+      transition: --p 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 8px 28px -12px rgba(0, 0, 0, 0.45);
+    }
+    .ring-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: rgba(5, 39, 70, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      line-height: 1.15;
+    }
+    .ring-inner strong { font-family: var(--font-display); font-size: 25px; font-weight: 650; }
+    .ring-inner span { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255, 255, 255, 0.66); }
+    .hero-progress p { font-size: 11.5px; color: rgba(255, 255, 255, 0.72); text-align: center; }
+    .hero-progress p strong { color: #fff; font-weight: 650; }
+    .hero-deco {
+      position: absolute;
+      right: -62px;
+      bottom: -78px;
+      width: 300px;
+      height: 300px;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .stat {
+      padding: 16px 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .stat:hover { border-color: var(--border-2); transform: translateY(-2px); }
+    .stat-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .stat-label { font-size: 11.5px; font-weight: 500; color: var(--text-2); }
+    .stat-icon {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      flex: none;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .stat-icon svg { width: 16px; height: 16px; }
+    .stat-icon.green { background: var(--success-soft); color: var(--success); }
+    .stat-icon.amber { background: var(--warning-soft); color: var(--warning); }
+    .stat-icon.purple { background: rgba(138, 43, 226, 0.12); color: #8a2be2; }
+    .stat-value {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-family: var(--font-display);
+      font-size: 27px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .stat-value small { font-size: 12px; font-weight: 500; color: var(--text-3); letter-spacing: 0; }
+    .stat-foot { font-size: 10.5px; color: var(--text-3); }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .topic-list { display: flex; flex-direction: column; margin-top: 8px; }
+    .topic {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 2px;
+      border-bottom: 1px solid var(--border);
+    }
+    .topic:last-child { border-bottom: 0; padding-bottom: 2px; }
+    .topic-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      flex: none;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .topic:nth-child(2) .topic-icon { background: var(--success-soft); color: var(--success); }
+    .topic:nth-child(3) .topic-icon { background: var(--warning-soft); color: var(--warning); }
+    .topic:nth-child(4) .topic-icon { background: rgba(138, 43, 226, 0.12); color: #8a2be2; }
+    .topic-icon svg { width: 17px; height: 17px; }
+    .topic-body { min-width: 0; flex: 1; }
+    .topic-body strong { display: block; font-size: 13px; font-weight: 600; line-height: 1.45; }
+    .topic-body p { font-size: 11.5px; color: var(--text-3); line-height: 1.5; margin-top: 2px; }
+
+    .tips { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    .tip { display: flex; gap: 10px; font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
+    .tip-num {
+      display: grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      flex: none;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 10.5px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .plan { margin-top: 14px; }
+    .plan-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(80px, 1fr) auto auto;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .plan-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-size: 13px;
+      font-weight: 550;
+    }
+    .plan-name svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
+    .plan-name span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .plan-count { font-size: 11.5px; color: var(--text-3); min-width: 48px; text-align: right; }
+    .plan .btn { height: 31px; font-size: 12px; padding: 0 12px; }
+
+    /* ---------- Quiz toolbar ---------- */
+    .quiz-toolbar {
+      position: relative;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      padding: 13px 18px;
+      margin-bottom: 14px;
+      overflow: visible;
+    }
+    .toolbar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 210px;
+    }
+    .toolbar-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+    .toolbar-sub { font-size: 11.5px; color: var(--text-3); }
+    .toolbar-bar { width: 100%; max-width: 340px; height: 4px; }
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      overflow: visible;
+    }
+    /* ---------- Fluent Combobox Dropdown ---------- */
+    select.filter-select {
+      display: none !important;
+    }
+    .fluent-combobox {
+      position: relative;
+      display: inline-block;
+      user-select: none;
+      z-index: auto;
+    }
+    .fluent-combobox.open {
+      z-index: 2000;
+    }
+    .combobox-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      height: 34px;
+      padding: 0 11px 0 13px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 550;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+    }
+    .combobox-trigger:hover {
+      background: var(--hover);
+      border-color: var(--border-2);
+    }
+    .combobox-trigger:focus-visible,
+    .fluent-combobox.open .combobox-trigger {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+      outline: none;
+    }
+    .combobox-label {
+      max-width: 175px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+    .combobox-chevron {
+      width: 13px;
+      height: 13px;
+      flex: none;
+      color: var(--text-3);
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.15s ease;
+    }
+    .fluent-combobox.open .combobox-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+    .combobox-menu {
+      position: absolute;
+      top: calc(100% + 5px);
+      right: 0;
+      z-index: 9999;
+      min-width: 100%;
+      width: max-content;
+      max-width: 290px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 4px;
+      border-radius: 8px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border-2);
+      box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.1);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      animation: combobox-pop 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    [data-theme="dark"] .combobox-menu {
+      background: #25262c;
+      box-shadow: 0 14px 34px -6px rgba(0, 0, 0, 0.65), 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+    @keyframes combobox-pop {
+      from { opacity: 0; transform: translateY(-4px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .combobox-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 11px;
+      border-radius: 5px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+    }
+    .combobox-item:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+    .combobox-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .combobox-check {
+      width: 13px;
+      height: 13px;
+      flex: none;
+      color: var(--accent);
+      opacity: 0;
+    }
+    .combobox-item.active .combobox-check {
+      opacity: 1;
+    }
+    .switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-2);
+      cursor: pointer;
+      user-select: none;
+    }
+    .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .switch-track {
+      position: relative;
+      width: 38px;
+      height: 20px;
+      flex: none;
+      border-radius: 20px;
+      background: var(--track);
+      border: 1px solid var(--border-2);
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .switch-thumb {
+      position: absolute;
+      top: 50%;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--text-2);
+      transform: translateY(-50%);
+      transition: left 0.18s ease, width 0.18s ease, background 0.18s ease;
+    }
+    .switch input:checked + .switch-track { background: var(--accent); border-color: transparent; }
+    .switch input:checked + .switch-track .switch-thumb { left: 21px; background: var(--on-accent); }
+    .switch input:focus-visible + .switch-track { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ---------- Quiz Layout ---------- */
+    .quiz-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 292px;
+      align-items: start;
+      gap: 14px;
+    }
+    .question-card {
+      padding: 26px 28px;
+      scroll-margin-top: 96px;
+    }
+    .q-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .q-eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .q-title {
+      font-family: var(--font-display);
+      font-size: clamp(17.5px, 2vw, 20.5px);
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      margin: 12px 0 20px;
+      text-wrap: pretty;
+    }
+    .options { display: flex; flex-direction: column; gap: 9px; }
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+    }
+    .option:hover:not(:disabled) { background: var(--hover); border-color: var(--border-2); }
+    .option:active:not(:disabled) { transform: scale(0.996); }
+    .option:disabled { cursor: default; }
+    .option .letter {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      flex: none;
+      margin-top: 1px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 650;
+    }
+    .option-text { flex: 1; min-width: 0; }
+    .option-mark { flex: none; align-self: center; font-size: 15px; font-weight: 700; line-height: 1; }
+    .option.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+    .option.selected .letter { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+    .option.correct {
+      border-color: var(--success);
+      background: var(--success-soft);
+      box-shadow: inset 0 0 0 1px var(--success);
+    }
+    .option.correct .letter { background: var(--success); border-color: transparent; color: var(--on-success); }
+    .option.correct .option-mark { color: var(--success); }
+    .option.wrong {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+      box-shadow: inset 0 0 0 1px var(--danger);
+    }
+    .option.wrong .letter { background: var(--danger); border-color: transparent; color: var(--on-danger); }
+    .option.wrong .option-mark { color: var(--danger); }
+    .option.muted { opacity: 0.52; }
+
+    .feedback {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 15px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .feedback-icon {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      flex: none;
+      margin-top: 1px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .feedback-body { min-width: 0; }
+    .feedback-body strong { font-weight: 650; }
+    .feedback.success { background: var(--success-soft); border-color: color-mix(in srgb, var(--success) 34%, transparent); }
+    .feedback.success .feedback-icon { background: var(--success); color: var(--on-success); }
+    .feedback.success strong { color: var(--success); }
+    .feedback.danger { background: var(--danger-soft); border-color: color-mix(in srgb, var(--danger) 34%, transparent); }
+    .feedback.danger .feedback-icon { background: var(--danger); color: var(--on-danger); }
+    .feedback.danger strong { color: var(--danger); }
+    .feedback-note {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .q-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .q-actions-right { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-left: auto; }
+    .shake { animation: shake 0.34s ease; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    /* ---------- Side panel ---------- */
+    .quiz-side { display: flex; flex-direction: column; gap: 12px; }
+    .navigator { padding: 18px; }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 5px;
+      max-height: 340px;
+      overflow-y: auto;
+      padding-right: 2px;
+      margin-top: 12px;
+    }
+    .nav-cell {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 11px;
+      font-weight: 600;
+      transition: background 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+    }
+    .nav-cell:hover { border-color: var(--border-2); background: var(--hover); }
+    .nav-cell.done-correct {
+      background: var(--success-soft);
+      color: var(--success);
+      border-color: color-mix(in srgb, var(--success) 28%, transparent);
+    }
+    .nav-cell.done-wrong {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border-color: color-mix(in srgb, var(--danger) 28%, transparent);
+    }
+    .nav-cell.done-partial {
+      background: var(--warning-soft);
+      color: var(--warning);
+      border-color: color-mix(in srgb, var(--warning) 28%, transparent);
+    }
+    .nav-cell.current { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 8px;
+      margin-top: 13px;
+      font-size: 10.5px;
+      color: var(--text-3);
+    }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-2);
+    }
+    .legend i.ok { background: var(--success-soft); border-color: var(--success); }
+    .legend i.bad { background: var(--danger-soft); border-color: var(--danger); }
+    .legend i.now { background: transparent; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .mini-score {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 14px;
+      padding-top: 13px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .mini-score div { display: flex; flex-direction: column; gap: 1px; }
+    .mini-score span { font-size: 10px; color: var(--text-3); }
+    .mini-score strong { font-family: var(--font-display); font-size: 16px; font-weight: 650; }
+    .mini-score div:nth-child(1) strong { color: var(--success); }
+    .mini-score div:nth-child(2) strong { color: var(--danger); }
+    .shortcut-card { padding: 16px 18px; }
+    .shortcut { display: flex; align-items: center; gap: 6px; margin-top: 9px; font-size: 11px; color: var(--text-3); }
+    .shortcut span { margin-left: auto; text-align: right; }
+    kbd {
+      display: inline-grid;
+      place-items: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      border-radius: 4px;
+      border: 1px solid var(--border-2);
+      border-bottom-width: 2px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    /* ---------- True / False ---------- */
+    .tf-intro { margin: 10px 0 17px; font-size: 14px; line-height: 1.65; color: var(--text-2); }
+    .tf-list { display: flex; flex-direction: column; gap: 9px; }
+    .tf-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 18px;
+      flex-wrap: wrap;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .tf-row.ok {
+      border-color: color-mix(in srgb, var(--success) 30%, transparent);
+      background: color-mix(in srgb, var(--success-soft) 55%, var(--surface-2));
+    }
+    .tf-row.bad {
+      border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+      background: color-mix(in srgb, var(--danger-soft) 55%, var(--surface-2));
+    }
+    .tf-text { display: flex; gap: 9px; flex: 1; min-width: 230px; font-size: 13.5px; line-height: 1.55; }
+    .tf-letter { flex: none; font-weight: 700; color: var(--accent); }
+    .tf-controls { display: flex; align-items: center; gap: 9px; flex: none; }
+    .segmented {
+      display: inline-flex;
+      gap: 2px;
+      padding: 2px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-3);
+    }
+    .seg {
+      padding: 5px 13px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 600;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .seg:hover:not(:disabled) { color: var(--text); }
+    .seg.sel { background: var(--accent); color: var(--on-accent); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16); }
+    .seg.correct { background: var(--success); color: var(--on-success); }
+    .seg.wrong { background: var(--danger); color: var(--on-danger); }
+    .seg:disabled { cursor: default; }
+    .tf-status {
+      display: grid;
+      place-items: center;
+      width: 23px;
+      height: 23px;
+      flex: none;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .tf-status.ok { background: var(--success-soft); color: var(--success); }
+    .tf-status.bad { background: var(--danger-soft); color: var(--danger); }
+    .tf-nav { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; max-height: 330px; overflow-y: auto; padding-right: 2px; }
+    .tf-dot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 11px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 550;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .tf-dot:hover { background: var(--hover); border-color: var(--border-2); }
+    .tf-dot.current { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+    .tf-dot .score { font-size: 10.5px; color: var(--text-3); font-weight: 600; }
+    .tf-dot.done .score { color: var(--success); }
+    .tf-explain-box {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: var(--surface-3);
+      font-size: 11.5px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    /* ---------- Short Answer view ---------- */
+    .short-input-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0 10px;
+      flex-wrap: wrap;
+    }
+    .short-input {
+      flex: 1;
+      min-width: 200px;
+      height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      font-size: 14.5px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .short-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--surface);
+    }
+    .short-input:disabled { opacity: 0.65; }
+
+    /* ---------- Essay view ---------- */
+    .essay-card {
+      padding: 24px;
+      margin-bottom: 14px;
+    }
+    .essay-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .essay-q {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .essay-toggle-btn {
+      margin-bottom: 14px;
+    }
+    .essay-answer-box {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .essay-answer-box h4 {
+      font-size: 14px;
+      font-weight: 650;
+      margin: 10px 0 6px;
+      color: var(--accent);
+    }
+    .essay-answer-box h4:first-child { margin-top: 0; }
+    .essay-answer-box ul { padding-left: 20px; margin: 6px 0; }
+    .essay-answer-box li { margin-bottom: 4px; }
+
+    /* ---------- Bank ---------- */
+    .bank-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .search {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+    .search svg {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      color: var(--text-3);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .search input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px 0 35px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search input::placeholder { color: var(--text-3); }
+    .search input:hover { border-color: var(--border-2); }
+    .search input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--surface);
+    }
+    .filter-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+    .filter-chip {
+      height: 32px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 550;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .filter-chip:hover { border-color: var(--border-2); }
+    .filter-chip.active { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+    .bank-count { font-size: 11.5px; color: var(--text-3); margin: 0 2px 10px; }
+    .bank-list { display: flex; flex-direction: column; gap: 10px; }
+    .bank-item { padding: 18px 20px; }
+    .bank-item-head { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .bank-q {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.55;
+      margin: 9px 0 12px;
+      text-wrap: pretty;
+    }
+    .bank-options { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 10px; }
+    .bank-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 9px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+    .bank-option .letter { flex: none; font-size: 11px; font-weight: 700; color: var(--text-3); min-width: 13px; }
+    .bank-option.correct { background: var(--success-soft); color: var(--text); }
+    .bank-option.correct .letter { color: var(--success); }
+    .bank-tf-list { display: flex; flex-direction: column; gap: 5px; }
+    .bank-tf {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: var(--surface-2);
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+    .bank-tf .tf-letter { font-size: 11px; }
+    .bank-note {
+      margin-top: 9px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: var(--warning-soft);
+      color: var(--text-2);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+    .empty { padding: 42px 20px; text-align: center; color: var(--text-3); font-size: 13px; }
+    .empty svg { width: 34px; height: 34px; margin: 0 auto 10px; opacity: 0.5; }
+
+    /* ---------- Dialog & toast ---------- */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(8, 14, 24, 0.42);
+      backdrop-filter: blur(5px);
+      animation: fade-in 0.16s ease;
+    }
+    .dialog {
+      width: min(420px, 100%);
+      padding: 24px;
+      border-radius: 12px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.5);
+      animation: pop-in 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .dialog-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--danger-soft);
+      color: var(--danger);
+      margin-bottom: 12px;
+    }
+    .dialog-icon svg { width: 19px; height: 19px; }
+    .dialog h3 { font-family: var(--font-display); font-size: 18px; font-weight: 650; }
+    .dialog p { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--text-2); }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      z-index: 120;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.35);
+      font-size: 12.5px;
+      color: var(--text);
+      transform: translateX(-50%);
+      animation: toast-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      max-width: calc(100vw - 32px);
+    }
+    .toast svg { width: 16px; height: 16px; flex: none; color: var(--accent); }
+    @keyframes toast-in {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ---------- Views ---------- */
+    .view { display: none; }
+    .view.active { display: block; animation: view-in 0.28s cubic-bezier(0.2, 0.7, 0.2, 1); }
+    @keyframes view-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-tabs { display: none; }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 4px 4px;
+      margin-top: 6px;
+      border-top: 1px solid var(--border);
+      font-size: 10.5px;
+      color: var(--text-3);
+    }
+    .footer span { display: inline-flex; align-items: center; gap: 6px; }
+    .footer svg { width: 13px; height: 13px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1180px) {
+      .quiz-layout { grid-template-columns: minmax(0, 1fr) 260px; }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 1000px) {
+      .layout { display: block; padding: 0 12px 22px; }
+      .sidebar { display: none; }
+      .topbar {
+        position: static;
+        padding: 16px 4px 10px;
+        margin: 0 0 4px;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: 0;
+      }
+      .mobile-tabs {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        padding: 7px;
+        margin-bottom: 13px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        backdrop-filter: blur(18px) saturate(150%);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        scrollbar-width: none;
+      }
+      .mobile-tabs::-webkit-scrollbar { display: none; }
+      .mobile-tabs .nav-item { width: auto; flex: none; padding: 7px 11px; font-size: 12.5px; white-space: nowrap; }
+      .mobile-tabs .nav-item.active::before { display: none; }
+      .mobile-tabs .nav-item svg { width: 16px; height: 16px; }
+      .mobile-tabs .nav-badge { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 28px 26px; gap: 22px; }
+      .hero-progress { flex-direction: row; align-items: center; gap: 16px; padding: 0; }
+      .ring { width: 90px; height: 90px; }
+      .ring-inner { width: 72px; height: 72px; }
+      .ring-inner strong { font-size: 18px; }
+      .ring-inner span { font-size: 8.5px; }
+      .hero-progress p { text-align: left; }
+      .quiz-layout { grid-template-columns: 1fr; }
+      .quiz-side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+      .shortcut-card { display: none; }
+      .navigator { grid-column: 1 / -1; }
+      .nav-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 26px; }
+      .hero-desc { font-size: 12.5px; }
+      .plan-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; }
+      .plan-row .bar { grid-column: 1 / -1; order: 3; }
+      .plan-count { text-align: right; }
+      .plan-row .btn { grid-column: 2; grid-row: 1; }
+      .bank-options { grid-template-columns: 1fr; }
+      .question-card { padding: 20px 18px; }
+      .q-title { font-size: 17.5px; }
+      .option { padding: 11px 12px; font-size: 13.5px; }
+      .tf-row { align-items: flex-start; }
+      .tf-controls { width: 100%; justify-content: flex-end; }
+      .page-desc { display: none; }
+      .top-cta { display: none; }
+      .topbar { align-items: center; }
+      .stats-grid { gap: 9px; }
+      .stat { padding: 13px 14px; }
+      .stat-value { font-size: 23px; }
+      .combobox-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: calc(100vw - 28px);
+        width: auto;
+      }
+      @keyframes combobox-pop {
+        from { opacity: 0; transform: translate(-50%, -4px) scale(0.97); }
+        to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+      }
+    }
+    @media (max-width: 520px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 24px 20px; }
+      .hero-actions .btn { flex: 1; min-width: 140px; }
+      .toolbar-right { gap: 8px; }
+      .toolbar-right .switch span { display: none; }
+      .quiz-side { grid-template-columns: 1fr; }
+      .nav-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+      .q-actions .btn { flex: 1; }
+      .q-actions-right { width: 100%; }
+      .q-actions-right .btn { flex: 1; }
+      .bank-toolbar { gap: 9px; }
+      .bank-item { padding: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Điều hướng chính">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
+            <path d="M12 6v12"></path>
+            <path d="M16 10l-4-4-4 4"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Địa lí 11</strong>
+          <span>Ôn tập Giữa kỳ I</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <p class="nav-label">Học tập</p>
+        <button class="nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 21v-7h6v7"></path></svg>
+          <span>Tổng quan</span>
+        </button>
+        <button class="nav-item" data-view="mcq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path><path d="M8 15h8"></path></svg>
+          <span>Trắc nghiệm</span>
+          <span class="nav-badge">64</span>
+        </button>
+        <button class="nav-item" data-view="tf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <span>Đúng / Sai</span>
+          <span class="nav-badge">10</span>
+        </button>
+        <button class="nav-item" data-view="short">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Điền số / Ngắn</span>
+          <span class="nav-badge">20</span>
+        </button>
+        <button class="nav-item" data-view="essay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Tự luận</span>
+          <span class="nav-badge">4</span>
+        </button>
+        <p class="nav-label">Tra cứu</p>
+        <button class="nav-item" data-view="bank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+          <span>Ngân hàng câu hỏi</span>
+          <span class="nav-badge">98</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="side-progress">
+          <div class="side-progress-row"><span>Tiến độ tổng</span><strong id="sidePct">0%</strong></div>
+          <div class="bar"><span id="sideBar"></span></div>
+          <div class="side-progress-row"><span id="sideDone">0 / 98 câu</span><span>đã hoàn thành</span></div>
+        </div>
+        <button class="btn btn-ghost full" id="sideReset" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+          Đặt lại tiến độ
+        </button>
+        <p class="side-note">Tiến độ được tự động lưu trên trình duyệt của bạn</p>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="crumb">Địa lí 11 &bull; Kế hoạch 2026 - 2027</p>
+          <h1 class="page-title" id="pageTitle">Tổng quan ôn tập</h1>
+          <p class="page-desc" id="pageDesc">Hệ thống 98 câu hỏi đề cương Giữa kì I: Trắc nghiệm 1 phương án, Đúng / Sai, Điền số và Tự luận.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="Đổi giao diện sáng / tối" title="Đổi giao diện sáng / tối">
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          </button>
+          <button class="btn btn-primary top-cta" type="button" data-go="mcq">Luyện trắc nghiệm</button>
+        </div>
+      </header>
+
+      <nav class="mobile-tabs" aria-label="Điều hướng trên thiết bị di động">
+        <button class="nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 21v-7h6v7"></path></svg>
+          <span>Tổng quan</span>
+        </button>
+        <button class="nav-item" data-view="mcq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path></svg>
+          <span>Trắc nghiệm</span>
+        </button>
+        <button class="nav-item" data-view="tf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+          <span>Đúng/Sai</span>
+        </button>
+        <button class="nav-item" data-view="short">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+          <span>Điền số</span>
+        </button>
+        <button class="nav-item" data-view="essay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path></svg>
+          <span>Tự luận</span>
+        </button>
+        <button class="nav-item" data-view="bank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle></svg>
+          <span>Ngân hàng</span>
+        </button>
+      </nav>
+
+      <main class="content">
+        <!-- Dashboard -->
+        <section class="view active" id="view-dashboard">
+          <div class="hero card">
+            <div class="hero-copy">
+              <div class="hero-badges">
+                <span class="hero-badge">Đề cương chuẩn</span>
+                <span class="hero-badge">98 câu hỏi</span>
+                <span class="hero-badge">4 Bài trọng tâm</span>
+              </div>
+              <h2>Ôn tập Địa lí 11<br />Giữa Học Kỳ I</h2>
+              <p class="hero-desc">Hệ thống đầy đủ 98 câu hỏi bám sát đề cương: Nhóm nước &amp; trình độ phát triển kinh tế (Bài 1), Toàn cầu hóa &amp; khu vực hóa kinh tế (Bài 2), An ninh toàn cầu (Bài 3), Kinh tế - xã hội khu vực Mỹ La-tinh (Bài 4). Làm bài, đối chiếu đáp án chi tiết và theo dõi tiến độ ngay trên trình duyệt.</p>
+              <div class="hero-actions">
+                <button class="btn btn-light" type="button" data-go="mcq">
+                  Bắt đầu Trắc nghiệm (64 câu)
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+                </button>
+                <button class="btn btn-hero-ghost" type="button" data-go="tf">Luyện Đúng / Sai (10 câu)</button>
+                <button class="btn btn-hero-ghost" type="button" data-go="short">Điền số (20 câu)</button>
+              </div>
+              <p class="hero-meta">64 Trắc nghiệm 1 lựa chọn &bull; 10 Đúng / Sai (40 nhận định) &bull; 20 Trả lời ngắn &bull; 4 Tự luận</p>
+            </div>
+            <div class="hero-progress">
+              <div class="ring" id="heroRing" aria-hidden="true">
+                <div class="ring-inner">
+                  <strong id="heroPct">0%</strong>
+                  <span>hoàn thành</span>
+                </div>
+              </div>
+              <p>Đã làm <strong id="heroDone">0</strong> / 98 câu</p>
+            </div>
+            <svg class="hero-deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
+              <path d="M12 6v12"></path>
+              <path d="M16 10l-4-4-4 4"></path>
+            </svg>
+          </div>
+
+          
+          <div class="stats-grid">
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Tổng câu đã làm</span>
+                <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statDone">0</span><small>/ 98</small></div>
+              <p class="stat-foot">câu hỏi trên toàn bộ hệ thống</p>
+            </article>
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Độ chính xác TN</span>
+                <span class="stat-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg></span>
+              </div>
+              <div class="stat-value"><span id="statAcc">&mdash;</span></div>
+              <p class="stat-foot">tính trên phần trắc nghiệm đã làm</p>
+            </article>
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Đúng / Sai đạt chuẩn</span>
+                <span class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statTF">0</span><small>/ 10</small></div>
+              <p class="stat-foot">câu đúng trọn vẹn cả 4 ý</p>
+            </article>
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Điền số chính xác</span>
+                <span class="stat-icon purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
+              </div>
+              <div class="stat-value"><span id="statShort">0</span><small>/ 20</small></div>
+              <p class="stat-foot">câu trả lời ngắn đã hoàn thành</p>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Cấu trúc đề cương</p>
+                  <h3 style="margin-top: 4px">4 Bài trọng tâm thi Giữa kỳ I</h3>
+                </div>
+                <span class="chip">98 câu</span>
+              </div>
+              <div class="topic-list">
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 1 — Nhóm nước và trình độ phát triển kinh tế</strong>
+                    <p>Phân loại nhóm nước theo GNI/người và HDI; đặc điểm cơ cấu GDP, trình độ phát triển và sự phân hóa giàu nghèo.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 2 — Toàn cầu hóa và khu vực hóa kinh tế</strong>
+                    <p>Khái niệm, biểu hiện và hệ quả của toàn cầu hóa, khu vực hóa; vai trò của WTO, IMF, WBG, ASEAN, EU, MERCOSUR, APEC.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 3 — An ninh toàn cầu</strong>
+                    <p>Phân biệt an ninh truyền thống và phi truyền thống: xung đột vũ trang, an ninh lương thực, nguồn nước, năng lượng và an ninh mạng.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Bài 4 — Kinh tế - xã hội khu vực Mỹ La-tinh</strong>
+                    <p>Điều kiện tự nhiên, dân cư, đô thị hóa, cơ cấu kinh tế và hợp tác kinh tế - xã hội ở khu vực Mỹ La-tinh.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Chiến lược học tập</p>
+                  <h3 style="margin-top: 4px">Kinh nghiệm giải đề Địa lí 11</h3>
+                </div>
+                <span class="chip accent">Chuẩn SGD</span>
+              </div>
+              <div class="tips">
+                <div class="tip"><span class="tip-num">1</span><span><strong>Phân biệt nhóm nước:</strong> Ngân hàng Thế giới phân loại theo GNI/người; Liên Hợp Quốc phân loại theo HDI. Ghi nhớ các ngưỡng HDI: rất cao từ 0,800; cao 0,700 - dưới 0,800; trung bình 0,550 - dưới 0,700; thấp dưới 0,550.</span></div>
+                <div class="tip"><span class="tip-num">2</span><span><strong>Toàn cầu hóa và khu vực hóa:</strong> WTO, IMF, WBG gắn với toàn cầu hóa; EU, ASEAN, MERCOSUR, APEC gắn với khu vực hóa. Chú ý mục tiêu hoạt động của từng tổ chức.</span></div>
+                <div class="tip"><span class="tip-num">3</span><span><strong>Phần Đúng/Sai:</strong> Đọc kĩ từng nhận định độc lập, cảnh giác với từ khóa "luôn", "chỉ", "hoàn toàn" và các số liệu dễ nhầm.</span></div>
+                <div class="tip"><span class="tip-num">4</span><span><strong>Phần Điền số:</strong> Đọc kĩ đơn vị và yêu cầu làm tròn; kiểm tra lại phép chia, tỉ trọng và tốc độ tăng trưởng trước khi nhập đáp án.</span></div>
+              </div>
+              <div class="sep"></div>
+              <button class="btn btn-secondary full" type="button" id="dashBrowse">Tra cứu toàn bộ 98 câu hỏi</button>
+            </section>
+          </div>
+
+                    <section class="card card-pad plan">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Tiến độ theo dạng</p>
+                <h3 style="margin-top: 4px">Các phần kiểm tra</h3>
+              </div>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+                <span>Phần I &mdash; Trắc nghiệm 1 lựa chọn</span>
+              </div>
+              <div class="bar"><span id="barMcq"></span></div>
+              <span class="plan-count" id="countMcq">0 / 64</span>
+              <button class="btn btn-secondary" type="button" data-go="mcq">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+                <span>Phần II &mdash; Trắc nghiệm Đúng / Sai</span>
+              </div>
+              <div class="bar"><span id="barTf"></span></div>
+              <span class="plan-count" id="countTf">0 / 10</span>
+              <button class="btn btn-secondary" type="button" data-go="tf">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+                <span>Phần III &mdash; Trắc nghiệm Điền số / Trả lời ngắn</span>
+              </div>
+              <div class="bar"><span id="barShort"></span></div>
+              <span class="plan-count" id="countShort">0 / 20</span>
+              <button class="btn btn-secondary" type="button" data-go="short">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path></svg>
+                <span>Phần IV &mdash; Tự luận</span>
+              </div>
+              <div class="bar"><span id="barEssay"></span></div>
+              <span class="plan-count" id="countEssay">0 / 4</span>
+              <button class="btn btn-secondary" type="button" data-go="essay">Ôn ngay</button>
+            </div>
+          </section>
+        </section>
+
+        <!-- Trắc nghiệm (MCQ) -->
+        <section class="view" id="view-mcq">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="mcqChip">Câu 1 / 64</span>
+                <span class="toolbar-sub" id="mcqLessonName">Bài 1: Nhóm nước và trình độ phát triển kinh tế</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="mcqBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="mcqLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (64 câu)</option>
+                <option value="1">Bài 1: Nhóm nước (12 câu)</option>
+                <option value="2">Bài 2: Toàn cầu hóa (14 câu)</option>
+                <option value="3">Bài 3: An ninh toàn cầu (18 câu)</option>
+                <option value="4">Bài 4: Mỹ La-tinh (20 câu)</option>
+              </select>
+              <label class="switch">
+                <input type="checkbox" id="mcqShuffleQ" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn câu</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" id="mcqShuffleA" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn đáp án</span>
+              </label>
+              <button class="icon-btn" type="button" id="mcqRestart" title="Làm lại phần trắc nghiệm" aria-label="Làm lại phần trắc nghiệm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="mcqCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="mcqEyebrow">Câu hỏi 1</span>
+                <span class="chip" id="mcqType">Trắc nghiệm</span>
+              </div>
+              <h2 class="q-title" id="mcqTitle"></h2>
+              <div class="options" id="mcqOptions"></div>
+              <div class="feedback" id="mcqFeedback" hidden></div>
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="mcqPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="mcqUndo" hidden>Làm lại</button>
+                  <button class="btn btn-primary" type="button" id="mcqCheck">Kiểm tra</button>
+                  <button class="btn btn-secondary" type="button" id="mcqNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Bảng câu hỏi</h4>
+                  <span class="chip" id="mcqNavStat">0 / 64</span>
+                </div>
+                <div class="nav-grid" id="mcqNavGrid"></div>
+                <div class="legend">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Đúng</span>
+                  <span><i class="bad"></i>Sai</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+                <div class="mini-score">
+                  <div><span>Đúng</span><strong id="mcqCorrect">0</strong></div>
+                  <div><span>Sai</span><strong id="mcqWrong">0</strong></div>
+                  <div><span>Còn lại</span><strong id="mcqLeft">64</strong></div>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Phím tắt nhanh</h4>
+                <div class="shortcut"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><span>chọn đáp án A, B, C, D</span></div>
+                <div class="shortcut"><kbd>Enter</kbd><span>kiểm tra / câu tiếp theo</span></div>
+                <div class="shortcut"><kbd>&larr;</kbd><kbd>&rarr;</kbd><span>chuyển câu trước / sau</span></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Đúng / Sai (TF) -->
+        <section class="view" id="view-tf">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="tfChip">Câu 1 / 10</span>
+                <span class="toolbar-sub" id="tfLessonName">Bài 1: Nhóm nước và trình độ phát triển kinh tế</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="tfBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="tfLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (10 câu)</option>
+                <option value="1">Bài 1: Nhóm nước (2 câu)</option>
+                <option value="2">Bài 2: Toàn cầu hóa (3 câu)</option>
+                <option value="3">Bài 3: An ninh toàn cầu (3 câu)</option>
+                <option value="4">Bài 4: Mỹ La-tinh (2 câu)</option>
+              </select>
+              <label class="switch">
+                <input type="checkbox" id="tfShuffleQ" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn câu</span>
+              </label>
+              <button class="icon-btn" type="button" id="tfRestart" title="Làm lại phần Đúng / Sai" aria-label="Làm lại phần Đúng / Sai">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="tfCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="tfEyebrow">Câu hỏi 13</span>
+                <span class="chip" id="tfType">Đúng / Sai &bull; 4 nhận định</span>
+              </div>
+              <p class="tf-intro" id="tfIntro"></p>
+              <div class="tf-list" id="tfItems"></div>
+              <div class="feedback" id="tfFeedback" hidden></div>
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="tfPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="tfUndo" hidden>Làm lại</button>
+                  <button class="btn btn-primary" type="button" id="tfCheck">Kiểm tra</button>
+                  <button class="btn btn-secondary" type="button" id="tfNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Danh sách câu</h4>
+                  <span class="chip" id="tfNavStat">0 / 10</span>
+                </div>
+                <div class="tf-nav" id="tfNav"></div>
+                <div class="sep"></div>
+                <div class="legend" style="margin-top: 0">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Đúng cả 4</span>
+                  <span><i class="bad"></i>Có ý sai</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Quy tắc chấm Đúng/Sai</h4>
+                <p style="margin-top: 7px; font-size: 11.5px; line-height: 1.55; color: var(--text-3)">Mỗi câu gồm 4 nhận định a, b, c, d. Bấm nút Đúng hoặc Sai cho đủ cả 4 ý rồi bấm Kiểm tra để xem đối chiếu giải thích chi tiết theo ANSWER.txt.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Điền số / Trả lời ngắn (Short) -->
+        <section class="view" id="view-short">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="shortChip">Câu 1 / 20</span>
+                <span class="toolbar-sub" id="shortLessonName">Điền số / Trả lời ngắn</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="shortBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="shortLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (20 câu)</option>
+                <option value="1">Bài 1: Nhóm nước (4 câu)</option>
+                <option value="2">Bài 2: Toàn cầu hóa (10 câu)</option>
+                <option value="3">Bài 3: An ninh toàn cầu (1 câu)</option>
+                <option value="4">Bài 4: Mỹ La-tinh (5 câu)</option>
+              </select>
+              <button class="icon-btn" type="button" id="shortRestart" title="Làm lại phần Điền số" aria-label="Làm lại phần Điền số">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="shortCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="shortEyebrow">Câu hỏi 16</span>
+                <span class="chip" id="shortType">Điền số / Trả lời ngắn</span>
+              </div>
+              <h2 class="q-title" id="shortTitle"></h2>
+              
+              <div class="short-input-row">
+                <input type="text" class="short-input" id="shortInput" placeholder="Nhập đáp số hoặc số lượng cần tìm..." autocomplete="off" />
+                <button class="btn btn-primary" type="button" id="shortCheck">Kiểm tra</button>
+              </div>
+
+              <div class="feedback" id="shortFeedback" hidden></div>
+
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="shortPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="shortUndo" hidden>Làm lại</button>
+                  <button class="btn btn-secondary" type="button" id="shortNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Danh sách câu</h4>
+                  <span class="chip" id="shortNavStat">0 / 20</span>
+                </div>
+                <div class="nav-grid" id="shortNavGrid"></div>
+                <div class="legend">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Chính xác</span>
+                  <span><i class="bad"></i>Chưa đúng</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Gợi ý làm bài</h4>
+                <p style="margin-top: 7px; font-size: 11.5px; line-height: 1.55; color: var(--text-3)">Chỉ cần nhập chữ số (ví dụ: <kbd>5</kbd>, <kbd>2</kbd>, <kbd>4</kbd>, <kbd>200</kbd>, <kbd>18</kbd>, <kbd>32</kbd>). Hệ thống tự nhận diện và giải thích các bước tính toán chi tiết.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Tự luận (Essay) -->
+        <section class="view" id="view-essay">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent">Tự luận</span>
+                <span class="toolbar-sub">4 câu hỏi &bull; Hướng dẫn chấm &amp; Đáp án chi tiết</span>
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="essayLessonFilter" aria-label="Lọc theo bài học">
+                <option value="all">Tất cả các bài (4 câu)</option>
+                <option value="2">Bài 2: Toàn cầu hóa (1 câu)</option>
+                <option value="3">Bài 3: An ninh toàn cầu (1 câu)</option>
+                <option value="4">Bài 4: Mỹ La-tinh (2 câu)</option>
+              </select>
+              <button class="btn btn-secondary" type="button" id="essayToggleAll">Hiện tất cả đáp án</button>
+            </div>
+          </div>
+
+          <div id="essayList"></div>
+        </section>
+
+        <!-- Ngân hàng câu hỏi (Bank) -->
+        <section class="view" id="view-bank">
+          <div class="bank-toolbar card">
+            <label class="search">
+              <span class="sr-only">Tìm câu hỏi</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+              <input type="search" id="bankSearch" placeholder="Tìm theo nội dung câu hỏi, từ khóa Địa lí..." autocomplete="off" />
+            </label>
+            <div class="filter-chips" id="bankTypeFilters">
+              <button class="filter-chip active" type="button" data-type="all">Tất cả (98)</button>
+              <button class="filter-chip" type="button" data-type="mcq">Trắc nghiệm (64)</button>
+              <button class="filter-chip" type="button" data-type="tf">Đúng / Sai (10)</button>
+              <button class="filter-chip" type="button" data-type="short">Điền số (20)</button>
+              <button class="filter-chip" type="button" data-type="essay">Tự luận (4)</button>
+            </div>
+            <select class="filter-select" id="bankLessonFilter" aria-label="Lọc theo bài">
+              <option value="all">Mọi bài học</option>
+              <option value="1">Bài 1: Nhóm nước và trình độ phát triển kinh tế</option>
+              <option value="2">Bài 2: Toàn cầu hóa và khu vực hóa kinh tế</option>
+              <option value="3">Bài 3: An ninh toàn cầu</option>
+              <option value="4">Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh</option>
+            </select>
+            <label class="switch">
+              <input type="checkbox" id="bankShowAns" />
+              <span class="switch-track"><span class="switch-thumb"></span></span>
+              <span>Hiện đáp án</span>
+            </label>
+          </div>
+          <p class="bank-count" id="bankCount"></p>
+          <div class="bank-list" id="bankList"></div>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Đề cương ôn tập Địa lí 11 &bull; Nguồn: DIA.txt
+        </span>
+        <span>Thiết kế theo chuẩn Fluent Design &bull; Tương thích mọi thiết bị</span>
+      </footer>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+      <div class="dialog-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v5M14 11v5"></path></svg>
+      </div>
+      <h3 id="dialogTitle">Đặt lại toàn bộ tiến độ?</h3>
+      <p id="dialogBody">Tất cả câu trả lời của các phần Trắc nghiệm, Đúng/Sai, Điền số và Tự luận sẽ bị xóa khỏi thiết bị này.</p>
+      <div class="dialog-actions">
+        <button class="btn btn-secondary" type="button" id="dialogCancel">Hủy</button>
+        <button class="btn btn-danger" type="button" id="dialogConfirm">Đặt lại</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+    <span id="toastText"></span>
+  </div>
+
+  <script>
+    "use strict";
+
+    /* ===== DỮ LIỆU ĐỊA LÍ 11: DIA.txt ===== */
+    const MCQ = [{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Đặc điểm kinh tế của nhóm nước phát triển là","o":["Tốc độ tăng GDP rất cao.","Thường có quy mô GDP nhỏ.","Tiến hành công nghiệp hóa từ sớm.","Nông nghiệp có tỉ trọng cao trong cơ cấu GDP."],"a":2,"exp":"Các nước phát triển tiến hành công nghiệp hóa từ sớm, có nền kinh tế phát triển, năng suất lao động cao; nông nghiệp chỉ chiếm tỉ trọng nhỏ.","n":1},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Nhóm nước phát triển có","o":["GNI bình quân đầu người cao.","Tỉ trọng của dịch vụ trong GDP thấp.","Chỉ số phát triển con người còn thấp.","Tỉ trọng của nông nghiệp còn rất lớn."],"a":0,"exp":"Nước phát triển có GNI/người cao, HDI cao, tỉ trọng dịch vụ lớn và nông nghiệp nhỏ trong cơ cấu GDP.","n":2},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Nhóm nước đang phát triển có","o":["Thu nhập bình quân đầu người rất cao.","Tỉ trọng của dịch vụ trong GDP rất cao.","Chỉ số phát triển con người không quá cao.","Tỉ trọng của nông nghiệp còn rất nhỏ bé."],"a":2,"exp":"Nước đang phát triển thường có GNI/người và HDI ở mức trung bình hoặc thấp hơn nước phát triển; nông nghiệp còn chiếm tỉ trọng đáng kể.","n":3},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Để đánh giá, so sánh trình độ phát triển kinh tế và mức sống dân cư giữa các quốc gia, Ngân hàng Thế giới phân chia các nhóm nước dựa vào","o":["Cơ cấu kinh tế theo ngành.","Chỉ số phát triển con người (HDI).","Cơ cấu kinh tế theo thành phần.","Tổng thu nhập quốc gia bình quân đầu người (GNI/người)."],"a":3,"exp":"Ngân hàng Thế giới dựa vào GNI/người để phân chia các nước thành nhóm thu nhập cao, trung bình cao, trung bình thấp và thấp.","n":4},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Để phản ánh sức khỏe, giáo dục và thu nhập của con người giữa các quốc gia, Liên Hợp Quốc phân chia các nhóm nước dựa vào","o":["Cơ cấu kinh tế theo ngành.","Chỉ số phát triển con người (HDI).","Cơ cấu kinh tế theo thành phần.","Tổng thu nhập quốc gia bình quân đầu người (GNI/người)."],"a":1,"exp":"HDI là thước đo tổng hợp phản ánh sức khỏe, học vấn và thu nhập; Liên Hợp Quốc dựa vào HDI để phân loại các nhóm nước.","n":5},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Các nước đang phát triển có đặc điểm là","o":["GNI bình quân đầu người rất cao.","Đầu tư trực tiếp nước ngoài (FDI) rất nhiều.","Chỉ số phát triển con người rất cao.","Cơ cấu kinh tế theo hướng công nghiệp hóa."],"a":3,"exp":"Các nước đang phát triển đang chuyển dịch cơ cấu kinh tế theo hướng công nghiệp hóa, hiện đại hóa; GNI/người và HDI thường chưa cao.","n":6},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Khu vực nào sau đây có GNI/người cao nhất?","o":["Đông Á.","Trung Đông.","Bắc Mỹ.","Đông Âu."],"a":2,"exp":"Bắc Mỹ là khu vực có trình độ phát triển kinh tế cao nhất, GNI/người đứng đầu thế giới.","n":7},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Khu vực nào sau đây có GNI/người thấp nhất?","o":["Tây Âu.","Bắc Mỹ.","Trung Phi.","Bắc Á."],"a":2,"exp":"Trung Phi là khu vực có GNI/người thấp nhất do kinh tế kém phát triển, nhiều khó khăn về tự nhiên và xã hội.","n":8},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Sự phân chia thế giới thành các nhóm nước nói lên tình trạng chủ yếu nào sau đây?","o":["Thế giới có nhiều quốc gia, dân tộc và tôn giáo.","Sự khác biệt về trình độ phát triển giữa các nhóm nước.","Sự khác nhau về chế độ chính trị - xã hội giữa các nước.","Hậu quả kéo dài của Chiến tranh lạnh."],"a":1,"exp":"Việc phân chia thành nhóm nước phát triển và đang phát triển phản ánh sự khác biệt về trình độ phát triển kinh tế - xã hội.","n":9},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Cơ cấu GDP phân theo khu vực kinh tế của các nước phát triển có đặc điểm là","o":["Khu vực II rất cao, khu vực I và III thấp.","Khu vực I rất cao, khu vực II và III thấp.","Khu vực I và III cao, khu vực II thấp.","Khu vực I rất thấp, khu vực III rất cao."],"a":3,"exp":"Ở nước phát triển, nông nghiệp (khu vực I) chiếm tỉ trọng rất nhỏ; dịch vụ (khu vực III) chiếm tỉ trọng rất cao.","n":10},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Phát biểu nào sau đây đúng về sự thay đổi tỉ trọng các ngành trong cơ cấu nền kinh tế của các nước đang phát triển?","o":["Tăng công nghiệp và xây dựng, dịch vụ.","Công nghiệp và xây dựng giảm nhanh.","Tỉ trọng dịch vụ có nhiều biến động.","Nông - lâm - ngư có xu hướng tăng."],"a":0,"exp":"Các nước đang phát triển đang công nghiệp hóa nên tỉ trọng công nghiệp, xây dựng và dịch vụ tăng; nông - lâm - ngư giảm.","n":11},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Nhóm nước phát triển thường có chỉ số phát triển con người (HDI) ở mức cao chủ yếu do","o":["Quy mô dân số đông và diện tích lãnh thổ rộng.","Mức sống cao; kinh tế, giáo dục, y tế phát triển.","Tỉ lệ tăng dân số cao và có cơ cấu dân số trẻ.","Nguồn tài nguyên thiên nhiên rất phong phú."],"a":1,"exp":"HDI cao là kết quả tổng hợp của nền kinh tế phát triển, thu nhập cao, giáo dục và y tế được chăm lo tốt.","n":12},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Toàn cầu hóa kinh tế là quá trình liên kết các quốc gia trên thế giới về","o":["Sản xuất, thương mại, tài chính.","Thương mại, tài chính, giáo dục.","Tài chính, giáo dục và chính trị.","Giáo dục, chính trị và sản xuất."],"a":0,"exp":"Toàn cầu hóa kinh tế chủ yếu diễn ra trên các lĩnh vực sản xuất, thương mại và tài chính, làm tăng sự phụ thuộc lẫn nhau giữa các nền kinh tế.","n":19},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Khu vực hóa kinh tế là liên kết kinh tế - thương mại giữa","o":["Những khu vực có sự gần gũi nhau.","Những nước cùng trình độ phát triển.","Các nước có sự tương đồng với nhau.","Các nhóm nước có quan hệ với nhau."],"a":0,"exp":"Khu vực hóa kinh tế là sự liên kết giữa các quốc gia trong cùng một khu vực địa lí, có sự gần gũi về vị trí và điều kiện phát triển.","n":20},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Tổ chức nào sau đây tham gia và chi phối trên 95% hoạt động thương mại toàn cầu?","o":["Quỹ Tiền tệ Quốc tế (IMF).","Tổ chức Thương mại Thế giới (WTO).","Ngân hàng Thế giới (WBG).","Thị trường chung Nam Mỹ (MERCOSUR)."],"a":1,"exp":"WTO là tổ chức thương mại toàn cầu, điều tiết phần lớn hoạt động thương mại quốc tế giữa các nước thành viên.","n":21},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Tính đến năm 2020, Tổ chức Thương mại Thế giới (WTO) đã có bao nhiêu quốc gia thành viên?","o":["150.","154.","160.","164."],"a":3,"exp":"Tính đến năm 2020, WTO có 164 quốc gia và vùng lãnh thổ là thành viên.","n":22},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Sự ra đời của tổ chức nào sau đây là biểu hiện của toàn cầu hóa kinh tế?","o":["Liên minh châu Âu (EU).","Tổ chức Thương mại Thế giới (WTO).","Hiệp hội các quốc gia Đông Nam Á (ASEAN).","Thị trường chung Nam Mỹ (MERCOSUR)."],"a":1,"exp":"WTO là tổ chức toàn cầu, sự ra đời và hoạt động của WTO là biểu hiện rõ nét của toàn cầu hóa kinh tế.","n":23},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Hiệp hội các quốc gia Đông Nam Á (ASEAN) là biểu hiện của xu hướng nào sau đây trong nền kinh tế thế giới?","o":["Toàn cầu hóa kinh tế.","Khu vực hóa kinh tế.","Công nghiệp hóa, hiện đại hóa.","Đô thị hóa nông thôn."],"a":1,"exp":"ASEAN là tổ chức liên kết kinh tế khu vực ở Đông Nam Á, biểu hiện rõ nét của xu hướng khu vực hóa kinh tế.","n":24},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Việc hình thành các tổ chức liên kết kinh tế khu vực như EU, ASEAN, MERCOSUR đem lại lợi ích chủ yếu nào sau đây?","o":["Thúc đẩy hợp tác, liên kết kinh tế giữa các nước thành viên.","Xóa bỏ hoàn toàn vai trò của các tổ chức kinh tế toàn cầu.","Loại bỏ mọi hình thức cạnh tranh giữa các nước trong khu vực.","Hình thành một chính phủ chung cho toàn thế giới."],"a":0,"exp":"Liên kết khu vực tạo điều kiện thuận lợi để các nước thành viên hợp tác, hỗ trợ nhau phát triển kinh tế.","n":25},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Trong quá trình toàn cầu hóa kinh tế, các công ty đa quốc gia có vai trò chủ yếu nào sau đây?","o":["Chi phối nhiều chuỗi giá trị và ngành kinh tế quan trọng trên toàn cầu.","Chỉ hoạt động trong phạm vi một quốc gia duy nhất.","Không có ảnh hưởng đến thương mại và đầu tư quốc tế.","Bị hạn chế hoàn toàn bởi biên giới hành chính giữa các nước."],"a":0,"exp":"Các công ty đa quốc gia sở hữu nguồn lực lớn, chi phối nhiều ngành kinh tế và chuỗi giá trị toàn cầu.","n":26},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Thúc đẩy quan hệ hữu nghị giữa các quốc gia trên cơ sở tôn trọng nguyên tắc bình đẳng về quyền lợi giữa các dân tộc là một trong những mục tiêu hoạt động của","o":["Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương.","Tổ chức Thương mại Thế giới.","Quỹ Tiền tệ Quốc tế.","Liên hợp quốc."],"a":3,"exp":"Duy trì hòa bình, an ninh quốc tế và thúc đẩy quan hệ hữu nghị, hợp tác giữa các quốc gia là mục tiêu hoạt động của Liên hợp quốc.","n":27},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Một trong những mục tiêu hoạt động chủ yếu của Tổ chức Thương mại Thế giới (WTO) là","o":["Cung cấp vốn ODA cho các nước nghèo.","Duy trì hệ thống tỉ giá hối đoái cố định.","Giải quyết các bất đồng và tranh chấp thương mại.","Bảo vệ an ninh chính trị và quân sự trên toàn cầu."],"a":2,"exp":"WTO có chức năng giải quyết tranh chấp thương mại, thúc đẩy tự do hóa thương mại và bảo đảm các cam kết giữa thành viên.","n":28},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Đặc điểm nào sau đây không đúng với các công ty đa quốc gia?","o":["Khai thác nền kinh tế các nước thuộc địa.","Sở hữu nguồn của cải vật chất lớn.","Chi phối nhiều ngành kinh tế quan trọng.","Phạm vi hoạt động ở nhiều quốc gia."],"a":0,"exp":"Khai thác kinh tế các nước thuộc địa là đặc điểm của thời kì thực dân, không phải đặc điểm chung của công ty đa quốc gia hiện nay.","n":29},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Một trong những biểu hiện của toàn cầu hóa kinh tế là","o":["Trao đổi học sinh, sinh viên thuận lợi giữa nhiều nước.","Tăng cường hợp tác về văn hóa, văn nghệ và giáo dục.","Đẩy mạnh hoạt động giao lưu văn hóa giữa các dân tộc.","Mạng lưới tài chính toàn cầu phát triển nhanh chóng."],"a":3,"exp":"Sự phát triển nhanh của mạng lưới tài chính toàn cầu là biểu hiện của toàn cầu hóa kinh tế.","n":30},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Tổ chức nào sau đây là một trong những tổ chức kinh tế toàn cầu được hình thành và phát triển cùng với quá trình toàn cầu hóa kinh tế?","o":["Hiệp hội các quốc gia Đông Nam Á.","Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương.","Tổ chức Thương mại Thế giới.","Liên minh châu Âu."],"a":2,"exp":"WTO là tổ chức kinh tế toàn cầu, ra đời và phát triển gắn với quá trình toàn cầu hóa kinh tế.","n":31},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Trong quá trình toàn cầu hóa kinh tế, yếu tố nào sau đây ngày càng được tự do dịch chuyển giữa các quốc gia?","o":["Hàng hóa và dịch vụ.","Biên giới hành chính.","Quân đội.","Luật pháp."],"a":0,"exp":"Toàn cầu hóa kinh tế làm cho hàng hóa, dịch vụ, vốn, công nghệ và lao động ngày càng tự do dịch chuyển giữa các quốc gia.","n":32},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Tổ chức Thương mại Thế giới (WTO) được thành lập năm nào sau đây?","o":["1944.","1945.","1989.","1995."],"a":3,"exp":"WTO được thành lập ngày 1-1-1995, kế tục Hiệp định chung về Thuế quan và Thương mại (GATT).","n":47},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương (APEC) được thành lập năm nào sau đây?","o":["1944.","1945.","1989.","1995."],"a":2,"exp":"APEC được thành lập năm 1989 nhằm thúc đẩy tự do thương mại, đầu tư và hợp tác kinh tế trong khu vực châu Á - Thái Bình Dương.","n":48},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Việt Nam là thành viên của Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương vào năm nào sau đây?","o":["1977.","1976.","2007.","1998."],"a":3,"exp":"Việt Nam gia nhập APEC năm 1998.","n":49},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Việt Nam gia nhập WTO vào năm nào sau đây?","o":["2005.","2006.","2007.","2008."],"a":2,"exp":"Việt Nam chính thức trở thành thành viên thứ 150 của WTO ngày 11-1-2007.","n":50},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Liên hợp quốc được thành lập năm nào sau đây?","o":["1918.","1939.","1945.","1975."],"a":2,"exp":"Liên hợp quốc được thành lập năm 1945 sau Chiến tranh thế giới thứ hai.","n":51},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Vấn đề nào dưới đây là vấn đề an ninh truyền thống?","o":["An ninh năng lượng.","An ninh quân sự.","An ninh mạng.","An ninh nguồn nước."],"a":1,"exp":"An ninh truyền thống gắn với các vấn đề quân sự, chính trị, xung đột vũ trang và bảo vệ chủ quyền lãnh thổ.","n":52},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Vấn đề nào dưới đây là vấn đề an ninh phi truyền thống?","o":["An ninh chính trị.","An ninh quân sự.","Chiến tranh, xung đột vũ trang.","An ninh lương thực."],"a":3,"exp":"An ninh lương thực là vấn đề an ninh phi truyền thống, mang tính toàn cầu và không chỉ liên quan đến quân sự.","n":53},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Duy trì hòa bình và trật tự thế giới là nhiệm vụ chủ yếu của","o":["Tổ chức Thương mại Thế giới.","Quỹ Tiền tệ Quốc tế (IMF).","Ngân hàng Thế giới (WB).","Liên hợp quốc."],"a":3,"exp":"Duy trì hòa bình và an ninh quốc tế là mục tiêu, nhiệm vụ hàng đầu của Liên hợp quốc.","n":54},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Đảm bảo sự ổn định tài chính toàn cầu là nhiệm vụ chủ yếu của","o":["Tổ chức Thương mại Thế giới.","Quỹ Tiền tệ Quốc tế (IMF).","Ngân hàng Thế giới (WB).","Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương."],"a":1,"exp":"IMF có nhiệm vụ thúc đẩy hợp tác tiền tệ quốc tế, bảo đảm ổn định tài chính và hỗ trợ các nước gặp khó khăn về cán cân thanh toán.","n":55},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Tổ chức nào sau đây có mục tiêu giải quyết các bất đồng và tranh chấp thương mại giữa các nước thành viên?","o":["Tổ chức Thương mại Thế giới.","Quỹ Tiền tệ Quốc tế (IMF).","Liên hợp quốc.","Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương."],"a":0,"exp":"WTO có cơ chế giải quyết tranh chấp thương mại giữa các thành viên.","n":56},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Thiết lập và duy trì một nền thương mại toàn cầu tự do, thuận lợi và minh bạch là tôn chỉ của tổ chức nào sau đây?","o":["Tổ chức Thương mại Thế giới.","Quỹ Tiền tệ Quốc tế (IMF).","Ngân hàng Thế giới (WB).","Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương."],"a":0,"exp":"Đó là tôn chỉ hoạt động của WTO.","n":57},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Vấn đề nào sau đây chỉ được giải quyết khi có sự hợp tác chặt chẽ của tất cả các nước trên toàn thế giới?","o":["Sử dụng nước ngọt.","An ninh toàn cầu.","Chống mưa axit.","Ô nhiễm không khí cục bộ."],"a":1,"exp":"An ninh toàn cầu là vấn đề mang tính toàn cầu, đòi hỏi sự hợp tác của tất cả các quốc gia.","n":58},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Nguồn nước ở sông, hồ bị ô nhiễm do nguyên nhân chủ yếu nào sau đây?","o":["Biến đổi khí hậu.","Chất thải.","Cháy rừng.","Nhiễm mặn."],"a":1,"exp":"Chất thải sinh hoạt, công nghiệp và nông nghiệp xả trực tiếp vào sông, hồ là nguyên nhân chủ yếu gây ô nhiễm nguồn nước.","n":59},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Chiếm tỉ trọng lớn nhất trong cơ cấu sử dụng năng lượng của thế giới là","o":["Năng lượng hóa thạch.","Điện Mặt Trời.","Thủy điện.","Năng lượng hạt nhân."],"a":0,"exp":"Năng lượng hóa thạch (than, dầu mỏ, khí tự nhiên) vẫn chiếm tỉ trọng lớn nhất trong cơ cấu sử dụng năng lượng của thế giới.","n":60},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Vấn đề an ninh mạng gắn liền với sự phát triển của ngành nào sau đây?","o":["Công nghiệp.","Nông nghiệp.","Du lịch.","Công nghệ thông tin."],"a":3,"exp":"An ninh mạng gắn liền với sự phát triển của công nghệ thông tin, internet và các hệ thống dữ liệu số.","n":61},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Việc bảo vệ hòa bình thế giới là trách nhiệm của","o":["Liên hợp quốc.","Các nước phát triển.","Các nước đang phát triển.","Các quốc gia và người dân."],"a":3,"exp":"Bảo vệ hòa bình thế giới là trách nhiệm chung của tất cả các quốc gia và mỗi người dân, không chỉ riêng một tổ chức hay nhóm nước.","n":62},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Thúc đẩy tự do thương mại, đầu tư và mở cửa trong khu vực châu Á - Thái Bình Dương là tôn chỉ hoạt động của tổ chức nào sau đây?","o":["Tổ chức Thương mại Thế giới.","Quỹ Tiền tệ Quốc tế (IMF).","Ngân hàng Thế giới (WB).","Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương."],"a":3,"exp":"APEC hoạt động nhằm thúc đẩy tự do thương mại, đầu tư và mở cửa kinh tế trong khu vực châu Á - Thái Bình Dương.","n":63},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Vấn đề nào dưới đây không phải là mối đe dọa đến hòa bình và an ninh quốc tế hiện nay?","o":["Thiếu lương thực.","Tranh chấp biên giới.","Biến đổi khí hậu.","Tai nạn giao thông."],"a":3,"exp":"Tai nạn giao thông là vấn đề an toàn xã hội, không phải mối đe dọa trực tiếp đến hòa bình và an ninh quốc tế.","n":64},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Phía đông khu vực Mỹ La-tinh giáp với","o":["Thái Bình Dương.","Ấn Độ Dương.","Đại Tây Dương.","Nam Đại Dương."],"a":2,"exp":"Phía đông Mỹ La-tinh giáp Đại Tây Dương, phía tây giáp Thái Bình Dương.","n":70},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Phía tây khu vực Mỹ La-tinh giáp với","o":["Thái Bình Dương.","Ấn Độ Dương.","Đại Tây Dương.","Nam Đại Dương."],"a":0,"exp":"Phía tây Mỹ La-tinh giáp Thái Bình Dương.","n":71},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Bộ phận nào sau đây không thuộc phạm vi lãnh thổ khu vực Mỹ La-tinh?","o":["Bắc Mỹ.","Eo đất Trung Mỹ.","Quần đảo Ca-ri-bê.","Lục địa Nam Mỹ."],"a":0,"exp":"Mỹ La-tinh gồm Mê-hi-cô, Trung Mỹ, Nam Mỹ và các quần đảo trong biển Ca-ri-bê; Bắc Mỹ (Hoa Kỳ, Ca-na-đa) không thuộc khu vực này.","n":72},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Mỹ La-tinh nằm giữa hai đại dương lớn là","o":["Đại Tây Dương và Ấn Độ Dương.","Bắc Băng Dương và Ấn Độ Dương.","Đại Tây Dương và Thái Bình Dương.","Thái Bình Dương và Bắc Băng Dương."],"a":2,"exp":"Mỹ La-tinh nằm giữa Đại Tây Dương (phía đông) và Thái Bình Dương (phía tây).","n":73},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Khu vực Mỹ La-tinh gồm","o":["Mê-hi-cô, Trung và Bắc Mỹ, các quần đảo trong biển Ca-ri-bê.","Mê-hi-cô, Trung và Nam Mỹ, các quần đảo trong biển Ca-ri-bê.","Mê-hi-cô, Trung và Nam Mỹ, quần đảo Ăng-ti, kênh đào Xuy-ê.","Mê-hi-cô, Trung và Bắc Mỹ, kênh đào Xuy-ê và kênh Pa-na-ma."],"a":1,"exp":"Mỹ La-tinh gồm Mê-hi-cô, Trung Mỹ, Nam Mỹ và các quần đảo trong biển Ca-ri-bê.","n":74},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Phía bắc khu vực Mỹ La-tinh tiếp giáp với","o":["Hoa Kỳ.","Ca-na-đa.","Quần đảo Ăng-ti lớn.","Quần đảo Ăng-ti nhỏ."],"a":0,"exp":"Phía bắc Mỹ La-tinh tiếp giáp với Hoa Kỳ.","n":75},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Quần đảo Ăng-ti nằm ở","o":["Thái Bình Dương.","Đại Tây Dương.","Biển Ca-ri-bê.","Vịnh Ca-li-phooc-ni-a."],"a":2,"exp":"Quần đảo Ăng-ti nằm trong biển Ca-ri-bê.","n":76},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Kinh tế của khu vực Mỹ La-tinh có sự chuyển dịch theo hướng chủ yếu nào sau đây?","o":["Tăng nhanh tỉ trọng ngành nông nghiệp.","Tăng tỉ trọng của ngành dịch vụ.","Tỉ trọng ngành công nghiệp giảm rất nhanh.","Giảm mạnh tỉ trọng của ngành dịch vụ."],"a":1,"exp":"Kinh tế Mỹ La-tinh đang chuyển dịch theo hướng tăng tỉ trọng dịch vụ, giảm dần tỉ trọng nông nghiệp.","n":77},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Quá trình đô thị hóa ở khu vực Mỹ La-tinh có đặc điểm nổi bật nào sau đây?","o":["Gắn liền chặt chẽ với công nghiệp hóa.","Mạng lưới đô thị phân bố rất đồng đều.","Gắn với nhập cư và lịch sử khai thác lãnh thổ.","Chỉ phân bố ở những khu vực đồng bằng rộng."],"a":2,"exp":"Đô thị hóa Mỹ La-tinh gắn với quá trình nhập cư và lịch sử khai thác lãnh thổ, không hoàn toàn gắn với công nghiệp hóa.","n":78},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Thành phần dân cư của khu vực Mỹ La-tinh có đặc điểm nổi bật nào sau đây?","o":["Đa dạng về chủng tộc và có nhiều người lai.","Chủ yếu là người nhập cư từ Hoa Kỳ đến.","Người da trắng chính là người dân bản địa.","Có cơ cấu dân số già mức cao nhất thế giới."],"a":0,"exp":"Dân cư Mỹ La-tinh đa dạng về chủng tộc, có sự hòa huyết giữa người bản địa, người châu Âu, người châu Phi và người châu Á.","n":79},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Thảm thực vật tiêu biểu ở khu vực Mỹ La-tinh là","o":["Rừng nhiệt đới.","Rừng thưa.","Rừng lá kim.","Rừng lá rộng ôn đới."],"a":0,"exp":"Khí hậu nhiệt đới ẩm tạo điều kiện cho rừng nhiệt đới phát triển, tiêu biểu là rừng A-ma-dôn.","n":80},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Phát biểu nào đúng về vị trí địa lí của Mỹ La-tinh?","o":["Phía tây tiếp giáp Đại Tây Dương.","Phía đông giáp Thái Bình Dương.","Nằm giữa Ấn Độ Dương và Thái Bình Dương.","Tiếp giáp Thái Bình Dương và Đại Tây Dương."],"a":3,"exp":"Mỹ La-tinh tiếp giáp Thái Bình Dương ở phía tây và Đại Tây Dương ở phía đông.","n":81},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Phát biểu nào sau đây không đúng khi nói về vị trí địa lí và lãnh thổ khu vực Mỹ La-tinh?","o":["Trải dài trên nhiều vĩ độ.","Nằm hoàn toàn ở bán cầu Tây.","Không có đường xích đạo đi qua.","Phía bắc tiếp giáp với Hoa Kỳ."],"a":2,"exp":"Đường xích đạo có đi qua lãnh thổ Mỹ La-tinh (khu vực đồng bằng A-ma-dôn), nên phát biểu không có đường xích đạo đi qua là sai.","n":82},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Khu vực Mỹ La-tinh có nhiều thuận lợi trong phát triển kinh tế do vị trí tiếp giáp với","o":["EU.","Nhật Bản.","Trung Quốc.","Hoa Kỳ."],"a":3,"exp":"Mỹ La-tinh tiếp giáp Hoa Kỳ - một thị trường lớn, có trình độ kinh tế và công nghệ cao, tạo thuận lợi cho hợp tác và xuất khẩu.","n":83},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Phần lớn lãnh thổ khu vực Mỹ La-tinh nằm trong vùng có khí hậu","o":["Nhiệt đới và cận xích đạo.","Ôn đới và cận nhiệt đới.","Cận nhiệt đới và hàn đới.","Hàn đới và ôn đới."],"a":0,"exp":"Phần lớn Mỹ La-tinh nằm trong vùng khí hậu nhiệt đới và cận xích đạo.","n":84},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Dân cư Mỹ La-tinh thuận lợi về","o":["Cung cấp nguồn lao động và thị trường tiêu thụ rộng.","Đáp ứng lao động trình độ cao và nhiều ở các đô thị.","Lực lượng lao động nông thôn đông đảo, văn hóa cao.","Số người trong độ tuổi lao động nhiều, dân trí rất cao."],"a":0,"exp":"Dân cư đông tạo nguồn lao động dồi dào và thị trường tiêu thụ rộng lớn cho phát triển kinh tế.","n":85},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Mỹ La-tinh có nền văn hóa độc đáo, đa dạng chủ yếu do","o":["Có nhiều thành phần dân tộc.","Có người bản địa và da đen.","Nhiều quốc gia nhập cư đến.","Nhiều lứa tuổi cùng hòa hợp."],"a":2,"exp":"Quá trình nhập cư từ nhiều châu lục đã tạo nên nền văn hóa Mỹ La-tinh đa dạng, độc đáo.","n":86},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Vấn đề dân cư - xã hội đáng quan tâm nhất ở Mỹ La-tinh là","o":["Có nhiều siêu đô thị dân đông.","Tỉ lệ thất nghiệp ở thành thị cao.","Dân nông thôn vào đô thị đông.","Chênh lệch giàu nghèo rất lớn."],"a":3,"exp":"Chênh lệch giàu nghèo rất lớn là vấn đề dân cư - xã hội nổi cộm, ảnh hưởng đến ổn định và phát triển của Mỹ La-tinh.","n":87},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Hình thức tổ chức sản xuất nông nghiệp chủ yếu ở khu vực Mỹ La-tinh là","o":["Hộ gia đình.","Hợp tác xã.","Trang trại.","Du canh du cư."],"a":2,"exp":"Nông nghiệp Mỹ La-tinh chủ yếu tổ chức theo hình thức trang trại, quy mô lớn, gắn với xuất khẩu.","n":88},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Sản phẩm nông nghiệp nổi bật nhất của Mỹ La-tinh là","o":["Lương thực.","Cây công nghiệp.","Thực phẩm.","Gia súc."],"a":1,"exp":"Mỹ La-tinh nổi bật với các cây công nghiệp nhiệt đới như cà phê, ca cao, mía, chuối, đậu tương.","n":89}];
+    const TF = [{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","intro":"Kinh tế tri thức là nền kinh tế phát triển dựa trên sức mạnh của tri thức để sử dụng hiệu quả các nguồn lực kinh tế, bao gồm các hoạt động chuyển giao, cải tiến, nghiên cứu công nghệ. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"Kinh tế tri thức là hệ quả của cuộc Cách mạng khoa học công nghệ hiện đại.","a":true,"exp":"Cách mạng khoa học công nghệ hiện đại tạo ra tri thức, công nghệ và thông tin - cơ sở của kinh tế tri thức."},{"text":"Sản xuất công nghệ là hình thức quan trọng nhất của nền kinh tế tri thức.","a":true,"exp":"Trong kinh tế tri thức, sản xuất và ứng dụng công nghệ là hoạt động quan trọng, tạo ra giá trị gia tăng cao."},{"text":"Kinh tế tri thức thúc đẩy toàn cầu hóa diễn ra nhanh hơn.","a":true,"exp":"Tri thức, công nghệ và thông tin lan truyền nhanh làm tăng liên kết, hợp tác và phụ thuộc lẫn nhau giữa các nền kinh tế."},{"text":"Kinh tế tri thức giúp tình trạng chảy máu chất xám của Việt Nam hạn chế hơn.","a":false,"exp":"Kinh tế tri thức làm cạnh tranh nhân tài gay gắt hơn; nếu thiếu chính sách thu hút, chảy máu chất xám có thể gia tăng."}],"n":13},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","intro":"HDI là thước đo tổng hợp phản ánh sự phát triển của con người trên các phương diện sức khỏe, học vấn, thu nhập. Dựa vào chỉ tiêu này, Liên Hợp Quốc phân chia các nước thành nước có HDI rất cao, cao, trung bình và thấp. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"HDI là căn cứ để Liên Hợp Quốc phân chia các nước thành nước thu nhập cao, trung bình cao, trung bình thấp và thấp.","a":false,"exp":"Phân chia các nước theo nhóm thu nhập dựa trên GNI/người, còn HDI dùng để phân loại mức độ phát triển con người."},{"text":"Một trong những thước đo trình độ học vấn là số năm đi học của người trên 25 tuổi.","a":true,"exp":"Số năm đi học bình quân của người từ 25 tuổi trở lên là một thành phần quan trọng của HDI."},{"text":"Chỉ số HDI của một quốc gia chỉ phụ thuộc vào tuổi thọ trung bình của người dân.","a":false,"exp":"HDI là chỉ số tổng hợp gồm tuổi thọ, học vấn và thu nhập, không chỉ phụ thuộc vào tuổi thọ."},{"text":"Việt Nam và các nước đang phát triển khác có thu nhập bình quân đầu người cao do có tốc độ tăng trưởng GDP cao.","a":false,"exp":"GNI/người phụ thuộc cả quy mô GDP và dân số; tăng trưởng GDP cao chưa chắc đã có thu nhập bình quân đầu người cao."}],"n":14},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","intro":"Toàn cầu hóa kinh tế là quá trình liên kết các quốc gia trên thế giới về nhiều mặt, từ kinh tế đến văn hóa, khoa học. Quá trình này làm cho các dòng hàng hóa, dịch vụ, vốn và lao động ngày càng tự do di chuyển giữa các nước. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"Toàn cầu hóa kinh tế tạo điều kiện thuận lợi cho các dòng vốn và lao động dịch chuyển giữa các nước.","a":true,"exp":"Đây là biểu hiện trực tiếp của toàn cầu hóa kinh tế."},{"text":"Quá trình toàn cầu hóa kinh tế làm giảm bớt sự phụ thuộc lẫn nhau về kinh tế giữa các quốc gia.","a":false,"exp":"Toàn cầu hóa làm tăng sự phụ thuộc lẫn nhau về kinh tế giữa các quốc gia."},{"text":"Các công ty đa quốc gia giữ vai trò chi phối các chuỗi giá trị toàn cầu trong xu thế toàn cầu hóa.","a":true,"exp":"Các công ty đa quốc gia có mạng lưới sản xuất, kinh doanh rộng khắp và chi phối nhiều chuỗi giá trị toàn cầu."},{"text":"Việc chủ động hội nhập toàn cầu hóa kinh tế giúp các nước đang phát triển tranh thủ nguồn vốn và công nghệ để chuyển dịch cơ cấu kinh tế theo hướng hiện đại.","a":true,"exp":"Hội nhập giúp thu hút vốn, công nghệ, kinh nghiệm quản lý và mở rộng thị trường."}],"n":33},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","intro":"Toàn cầu hóa là quá trình liên kết và phụ thuộc lẫn nhau của các nền kinh tế quốc gia, khu vực và địa phương trên toàn thế giới thông qua tăng trưởng, cải thiện các lĩnh vực kinh tế như sản xuất, thương mại, tài chính và dịch vụ. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"Sự dịch chuyển hàng hóa, dịch vụ, công nghệ, vốn, lao động... giữa các quốc gia ngày càng trở nên dễ dàng.","a":true,"exp":"Đây là biểu hiện cơ bản của toàn cầu hóa kinh tế."},{"text":"Các hợp tác song phương và đa phương đã trở nên phổ biến, nhiều hiệp định được kí kết.","a":true,"exp":"Hợp tác song phương, đa phương và các hiệp định thương mại là biểu hiện của toàn cầu hóa."},{"text":"Ngày càng có nhiều tổ chức khu vực trên thế giới được hình thành và quy mô ngày càng lớn.","a":false,"exp":"Đây là biểu hiện của khu vực hóa kinh tế, không phải toàn cầu hóa."},{"text":"Quá trình toàn cầu hóa kinh tế làm giảm bớt sự phụ thuộc lẫn nhau về kinh tế giữa các quốc gia.","a":false,"exp":"Toàn cầu hóa làm tăng sự phụ thuộc lẫn nhau về kinh tế giữa các quốc gia."}],"n":34},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","intro":"Hội nhập kinh tế quốc tế đã đưa Việt Nam vào tốp 20 nền thương mại hàng hóa lớn nhất thế giới vào năm 2021 và đứng thứ 17 trên thế giới về xuất khẩu. Việt Nam là quốc gia xuất khẩu dừa và hạt điều lớn nhất thế giới; năm 2021 thu hút hơn 15,66 tỉ USD vốn FDI. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"Việt Nam là quốc gia xuất khẩu dừa và hạt điều lớn nhất thế giới.","a":true,"exp":"Thông tin trong đoạn tư liệu khẳng định Việt Nam có lợi thế và đứng đầu thế giới về xuất khẩu dừa, hạt điều."},{"text":"Việt Nam thu hút nhiều vốn đầu tư nước ngoài nhờ lợi thế về nguồn lao động.","a":true,"exp":"Nguồn lao động dồi dào, cùng chính sách thu hút FDI, là lợi thế quan trọng của Việt Nam."},{"text":"Nguồn lực bên ngoài không ảnh hưởng đến phát triển kinh tế - xã hội của nước ta.","a":false,"exp":"Vốn FDI, công nghệ, thị trường và kinh nghiệm quản lý từ bên ngoài có ảnh hưởng lớn đến phát triển kinh tế - xã hội."},{"text":"Sản phẩm nông nghiệp xuất khẩu của Việt Nam chủ yếu là nông nghiệp vùng ôn đới phía Bắc.","a":false,"exp":"Nông sản xuất khẩu chủ yếu là sản phẩm nhiệt đới như gạo, cà phê, hồ tiêu, điều, dừa, trái cây."}],"n":35},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","intro":"An ninh lương thực là việc đảm bảo mọi người có quyền tiếp cận nguồn lương thực một cách đầy đủ, an toàn để duy trì cuộc sống khỏe mạnh. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"An ninh lương thực bị ảnh hưởng bởi chiến tranh, xung đột vũ trang, thiên tai...","a":true,"exp":"Chiến tranh, xung đột và thiên tai làm gián đoạn sản xuất, phân phối và tiếp cận lương thực."},{"text":"Bình quân lương thực đầu người là một trong những chỉ tiêu phản ánh an ninh lương thực.","a":true,"exp":"Bình quân lương thực đầu người cho biết khả năng cung cấp lương thực tính theo đầu người."},{"text":"Để đảm bảo an ninh lương thực nên đẩy mạnh các biện pháp quảng canh trong nông nghiệp.","a":false,"exp":"Quảng canh cho năng suất thấp; cần thâm canh, ứng dụng khoa học kỹ thuật để nâng cao năng suất và chất lượng."},{"text":"Biến đổi khí hậu không ảnh hưởng lớn đến vấn đề an ninh lương thực của Việt Nam.","a":false,"exp":"Biến đổi khí hậu gây hạn hán, xâm nhập mặn, lũ lụt, ảnh hưởng trực tiếp đến sản xuất và an ninh lương thực."}],"n":65},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","intro":"An ninh năng lượng và an ninh nguồn nước là những vấn đề an ninh phi truyền thống quan trọng mà thế giới đang phải đối mặt. Sự suy giảm tài nguyên, biến đổi khí hậu và nhu cầu tiêu thụ gia tăng đang đe dọa trực tiếp đến nguồn cung cấp năng lượng và việc tiếp cận nguồn nước sạch. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"An ninh năng lượng là sự bảo đảm đầy đủ năng lượng dưới nhiều hình thức khác nhau phục vụ cho nhu cầu con người và phát triển kinh tế.","a":true,"exp":"Đây là khái niệm cơ bản của an ninh năng lượng."},{"text":"Sử dụng tiết kiệm năng lượng và đẩy mạnh phát triển năng lượng tái tạo là giải pháp quan trọng nhằm bảo đảm an ninh năng lượng.","a":true,"exp":"Tiết kiệm và phát triển năng lượng tái tạo giúp giảm phụ thuộc vào nhiên liệu hóa thạch, bảo đảm nguồn cung bền vững."},{"text":"Các quốc gia cùng một lưu vực sông không cần tăng cường hợp tác và phối hợp kiểm soát nguồn nước nhằm hạn chế nguy cơ cạn kiệt tài nguyên và mâu thuẫn quốc gia.","a":false,"exp":"Hợp tác giữa các quốc gia cùng lưu vực sông là rất cần thiết để chia sẻ, bảo vệ nguồn nước và tránh xung đột."},{"text":"Biến đổi khí hậu không ảnh hưởng lớn đến vấn đề đảm bảo an ninh nguồn nước của Việt Nam.","a":false,"exp":"Biến đổi khí hậu làm thay đổi lượng mưa, gia tăng hạn hán và xâm nhập mặn, ảnh hưởng nghiêm trọng đến nguồn nước."}],"n":66},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","intro":"Trên thế giới có nhiều vấn đề an ninh toàn cầu, được xếp vào nhóm các vấn đề an ninh truyền thống và an ninh phi truyền thống. An ninh truyền thống là các vấn đề liên quan đến quân sự; an ninh phi truyền thống bao gồm một số vấn đề mang tính toàn cầu như an ninh lương thực, năng lượng, mạng, biến đổi khí hậu, dịch bệnh. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"An ninh truyền thống là các vấn đề liên quan đến an ninh chính trị và quân sự như khủng bố, xung đột vũ trang...","a":true,"exp":"An ninh truyền thống gắn với chính trị, quân sự, chủ quyền và xung đột vũ trang."},{"text":"An ninh phi truyền thống bao gồm một số vấn đề mang tính toàn cầu như an ninh kinh tế, an ninh năng lượng, an ninh nguồn nước, an ninh mạng...","a":true,"exp":"Đây là các vấn đề an ninh phi truyền thống tiêu biểu."},{"text":"Các vấn đề về an ninh tài chính, biến đổi khí hậu, dịch bệnh, khủng bố quốc tế thuộc về an ninh truyền thống.","a":false,"exp":"Đây là các vấn đề an ninh phi truyền thống, không phải an ninh truyền thống."},{"text":"Hội đồng Bảo an đảm nhiệm trách nhiệm hàng đầu của Liên hợp quốc là duy trì hòa bình và an ninh quốc tế.","a":true,"exp":"Hội đồng Bảo an có trách nhiệm chính trong duy trì hòa bình và an ninh quốc tế."}],"n":67},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","intro":"Lãnh thổ Mỹ La-tinh rộng lớn và trải dài trên nhiều vĩ độ nên khu vực này có nhiều đới và kiểu khí hậu khác nhau. Đới khí hậu xích đạo và cận xích đạo nằm ở quần đảo Ăng-ti, đồng bằng La-nốt và đồng bằng A-ma-dôn với nhiệt độ nóng quanh năm và lượng mưa lớn. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"Đồng bằng A-ma-dôn chủ yếu thuộc đới khí hậu nhiệt đới gió mùa.","a":false,"exp":"Đồng bằng A-ma-dôn chủ yếu thuộc khí hậu xích đạo, nóng ẩm và mưa nhiều quanh năm."},{"text":"Hoang mạc A-ta-ca-ma là khu vực có khí hậu khô hạn nhất Mỹ La-tinh.","a":true,"exp":"A-ta-ca-ma nằm ở miền tây Nam Mỹ, do dòng biển lạnh và địa hình chắn gió nên rất khô hạn."},{"text":"Rừng A-ma-dôn là rừng mưa nhiệt đới lớn nhất thế giới vì có đất đai rộng, lượng mưa và độ ẩm lớn.","a":true,"exp":"Điều kiện nóng ẩm, mưa nhiều và diện tích rộng tạo nên rừng mưa nhiệt đới lớn nhất thế giới."},{"text":"Lãnh thổ Mỹ La-tinh rộng lớn và trải dài trên nhiều vĩ độ nên thiên nhiên có sự phân hóa Bắc - Nam.","a":true,"exp":"Lãnh thổ trải dài trên nhiều vĩ độ làm khí hậu và thiên nhiên phân hóa rõ theo chiều Bắc - Nam."}],"n":90},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","intro":"Lãnh thổ Mỹ La-tinh rộng lớn và trải dài trên nhiều vĩ độ nên khu vực này có nhiều đới và kiểu khí hậu khác nhau. Đới khí hậu xích đạo và cận xích đạo nằm ở quần đảo Ăng-ti, sơn nguyên Guy-a-na, đồng bằng La-nốt và đồng bằng A-ma-dôn. Xét tính đúng/sai của các nhận định sau:","items":[{"text":"Đặc điểm về lãnh thổ tạo nên sự đa dạng về khí hậu của Mỹ La-tinh.","a":true,"exp":"Lãnh thổ rộng, trải dài trên nhiều vĩ độ và có địa hình đa dạng tạo nên nhiều đới, kiểu khí hậu."},{"text":"Phần lớn lãnh thổ Mỹ La-tinh có khí hậu ôn hòa, ẩm ướt.","a":false,"exp":"Phần lớn Mỹ La-tinh có khí hậu nhiệt đới và cận xích đạo nóng ẩm, không phải ôn hòa."},{"text":"Khí hậu Mỹ La-tinh thuận lợi để phát triển nền nông nghiệp nhiệt đới.","a":true,"exp":"Nhiệt độ cao, mưa nhiều thuận lợi cho cây trồng nhiệt đới và chăn nuôi."},{"text":"Phía Nam Mỹ La-tinh thuận lợi để trồng các cây công nghiệp cận nhiệt đới.","a":true,"exp":"Phía nam có khí hậu cận nhiệt, ôn hòa hơn, phù hợp với cây công nghiệp cận nhiệt đới."}],"n":91}];
+    const SHORT = [{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Năm 2020, thế giới có khoảng 768 triệu người bị thiếu dinh dưỡng, trong đó có hơn 50% sống ở châu Á. Nếu có 100 triệu người bị thiếu dinh dưỡng thì châu Á có bao nhiêu triệu người? (Làm tròn đến hàng đơn vị của triệu người)","ans":"50","exp":"Châu Á chiếm hơn 50% số người thiếu dinh dưỡng, nên với 100 triệu người thì châu Á có khoảng 100 x 50% = 50 triệu người.","n":15},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Năm 2021, GDP của Hoa Kì là 23 315,1 tỉ USD và GDP của Việt Nam là 366,1 tỉ USD. GDP của Hoa Kì gấp bao nhiêu lần GDP của Việt Nam? (Làm tròn đến số thập phân thứ nhất)","ans":"63,7","exp":"GDP Hoa Kì gấp Việt Nam: 23 315,1 : 366,1 = 63,68... lần, làm tròn đến số thập phân thứ nhất là 63,7 lần.","n":16},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Cho bảng số liệu GDP năm 2020 (đơn vị: tỉ USD): toàn thế giới 84 906,81; Hoa Kỳ 20 893,74; châu Âu 20 796,66; châu Á 32 797,13; châu Phi 2 350,14. Tính tỉ trọng GDP của châu Á so với thế giới. (Làm tròn đến số thập phân thứ nhất của %)","ans":"38,6","exp":"Tỉ trọng GDP châu Á = 32 797,13 : 84 906,81 x 100 = 38,63...%, làm tròn là 38,6%.","n":17},{"lesson":1,"lessonName":"Bài 1: Nhóm nước và trình độ phát triển kinh tế","q":"Năm 2020, dân số thế giới là 7 773 triệu người, tỉ số giới tính là 105/100. Tính dân số nam của thế giới năm 2020. (Làm tròn đến hàng đơn vị của triệu người)","ans":"3981","exp":"Dân số nam = 7 773 x 105 : (105 + 100) = 7 773 x 105 : 205 = 3 980,6... triệu người, làm tròn là 3 981 triệu người.","n":18},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Năm 2019, giá trị xuất khẩu toàn thế giới là 24 791,1 tỉ USD; giá trị nhập khẩu là 24 348,1 tỉ USD. Tính cán cân xuất nhập khẩu của toàn thế giới năm 2019. (Làm tròn đến hàng đơn vị của tỉ USD)","ans":"443","exp":"Cán cân xuất nhập khẩu = xuất khẩu - nhập khẩu = 24 791,1 - 24 348,1 = 443 tỉ USD (xuất siêu).","n":36},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Năm 2020, trị giá xuất nhập khẩu hàng hóa và dịch vụ toàn thế giới là 44 300,2 tỉ USD, trị giá nhập khẩu là 21 949,6 tỉ USD. Tính tỉ trọng trị giá xuất khẩu hàng hóa và dịch vụ của thế giới năm 2020. (Làm tròn đến số thập phân thứ nhất của %)","ans":"50,5","exp":"Xuất khẩu = 44 300,2 - 21 949,6 = 22 350,6 tỉ USD. Tỉ trọng xuất khẩu = 22 350,6 : 44 300,2 x 100 = 50,45...%, làm tròn là 50,5%.","n":37},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Cho bảng số liệu quy mô GDP của thế giới giai đoạn 2005 - 2022 (đơn vị: nghìn tỉ USD): 2005: 47,8; 2010: 66,6; 2015: 75,2; 2020: 84,9; 2022: 100,9. Tính tốc độ tăng trưởng GDP của thế giới năm 2022 so với năm 2005. (Làm tròn đến hàng đơn vị của %)","ans":"211","exp":"Tốc độ tăng trưởng = 100,9 : 47,8 x 100 = 211,08...%, làm tròn là 211%.","n":38},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Năm 2020, trị giá xuất nhập khẩu hàng hóa và dịch vụ toàn thế giới là 44 300,2 tỉ USD, trị giá nhập khẩu là 21 949,6 tỉ USD. Tính tỉ lệ xuất siêu hàng hóa và dịch vụ của thế giới năm 2020. (Làm tròn đến số thập phân thứ nhất của %)","ans":"1,8","exp":"Xuất khẩu = 44 300,2 - 21 949,6 = 22 350,6 tỉ USD. Xuất siêu = 22 350,6 - 21 949,6 = 401 tỉ USD. Tỉ lệ xuất siêu so với nhập khẩu = 401 : 21 949,6 x 100 = 1,83...%, làm tròn là 1,8%.","n":39},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Biết tổng trị giá xuất nhập khẩu thế giới năm 2020 là 44 300,2 tỉ USD, trong đó trị giá xuất khẩu so với trị giá nhập khẩu là 104%. Tính trị giá xuất khẩu của thế giới năm 2020. (Làm tròn đến hàng đơn vị của nghìn tỉ USD)","ans":"22,6","exp":"Gọi XK là x, NK là y. Ta có x = 1,04y và x + y = 44 300,2. Suy ra x = 44 300,2 x 1,04 : 2,04 = 22 582,5 tỉ USD, tức khoảng 22,6 nghìn tỉ USD.","n":40},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Năm 2000, tổng vốn đầu tư nước ngoài vào các nước đạt 1,4 tỉ USD; năm 2021 đã lên đến 1 600 tỉ USD. Năm 2021 tổng vốn đầu tư nước ngoài gấp bao nhiêu lần năm 2000? (Làm tròn đến hàng đơn vị)","ans":"1143","exp":"Số lần tăng = 1 600 : 1,4 = 1 142,86... lần, làm tròn là 1 143 lần.","n":41},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Năm 2021, tổng GDP của Ca-na-đa là 1 990,8 tỉ USD, dân số 37 triệu người. Tính GDP bình quân đầu người của Ca-na-đa năm 2021. (Làm tròn đến hàng đơn vị của USD/người)","ans":"53805","exp":"GDP/người = 1 990,8 tỉ USD : 37 triệu người = 53 805,4... USD/người, làm tròn là 53 805 USD/người.","n":42},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Năm 2021, thế giới có khoảng 2,3 tỉ người bị đói thiếu dinh dưỡng, chiếm 29,3% dân số thế giới. Dân số thế giới năm 2021 là bao nhiêu tỉ người? (Làm tròn đến chữ số thập phân thứ hai của tỉ người)","ans":"7,85","exp":"Dân số thế giới = 2,3 : 29,3 x 100 = 7,849... tỉ người, làm tròn là 7,85 tỉ người.","n":43},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Năm 2020, giá trị xuất khẩu hàng hóa và dịch vụ của thế giới là 22 594,7 tỉ USD. Cán cân xuất nhập khẩu hàng hóa và dịch vụ của thế giới là 645,1 tỉ USD. Tính tổng giá trị xuất nhập khẩu hàng hóa và dịch vụ của thế giới năm 2020. (Làm tròn đến chữ số thập phân thứ nhất của nghìn tỉ USD)","ans":"44,5","exp":"Nhập khẩu = 22 594,7 - 645,1 = 21 949,6 tỉ USD. Tổng xuất nhập khẩu = 22 594,7 + 21 949,6 = 44 544,3 tỉ USD, tức 44,5 nghìn tỉ USD.","n":44},{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","q":"Năm 2020, tổng giá trị xuất nhập khẩu hàng hóa và dịch vụ của thế giới là 44,5 nghìn tỉ USD. Cán cân xuất nhập khẩu hàng hóa và dịch vụ của thế giới là 0,6 nghìn tỉ USD. Tính giá trị xuất khẩu hàng hóa và dịch vụ của thế giới năm 2020. (Làm tròn đến chữ số thập phân thứ nhất của nghìn tỉ USD)","ans":"22,6","exp":"Xuất khẩu = (tổng xuất nhập khẩu + cán cân) : 2 = (44,5 + 0,6) : 2 = 22,55 nghìn tỉ USD, làm tròn là 22,6 nghìn tỉ USD.","n":45},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","q":"Theo Cơ quan Năng lượng Quốc tế, tổng tiêu thụ năng lượng trên thế giới năm 2020 là 400 triệu TJ, dự đoán đến năm 2050 nhu cầu sẽ tăng 24%. Nhu cầu năng lượng tăng thêm bao nhiêu TJ? (Làm tròn đến hàng đơn vị của TJ)","ans":"96","exp":"Nhu cầu tăng thêm = 400 x 24% = 96 triệu TJ.","n":68},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Biết diện tích của Mỹ La-tinh là 20 111,5 nghìn km2, dân số là 659 300 nghìn người (năm 2022). Mật độ dân số của Mỹ La-tinh năm 2022 là bao nhiêu người/km2? (Lấy kết quả đến chữ số thập phân thứ nhất)","ans":"32,8","exp":"Mật độ dân số = 659 300 : 20 111,5 = 32,78... người/km2, làm tròn đến chữ số thập phân thứ nhất là 32,8 người/km2.","n":92},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Biết tổng GDP của Bra-xin năm 2021 là 1 609 tỉ USD, tỉ trọng khu vực công nghiệp và xây dựng trong cơ cấu GDP chiếm 18,9%. Giá trị khu vực công nghiệp và xây dựng của Bra-xin năm 2021 là bao nhiêu tỉ USD? (Làm tròn đến hàng đơn vị của tỉ USD)","ans":"304","exp":"Giá trị công nghiệp và xây dựng = 1 609 x 18,9% = 304,1 tỉ USD, làm tròn là 304 tỉ USD.","n":93},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Biết diện tích của khu vực Mỹ La-tinh khoảng 20 triệu km2, diện tích rừng năm 2020 là 9,32 triệu km2. Tỉ lệ che phủ rừng của khu vực Mỹ La-tinh là bao nhiêu %? (Lấy kết quả đến chữ số thập phân thứ nhất)","ans":"46,6","exp":"Tỉ lệ che phủ rừng = 9,32 : 20 x 100 = 46,6%.","n":94},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Năm 2019, Mỹ La-tinh đón 202 triệu khách du lịch quốc tế và doanh thu từ khách quốc tế đạt 75 600 triệu USD. Tính chi tiêu bình quân của mỗi lượt khách quốc tế. (Làm tròn đến hàng đơn vị của USD/người)","ans":"374","exp":"Chi tiêu bình quân = 75 600 : 202 = 374,25... USD/người, làm tròn là 374 USD/người.","n":95},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","q":"Năm 2020, dân số của Bra-xin là 213,2 triệu người, số dân thành thị là 185,7 triệu người. Tỉ lệ dân nông thôn của Bra-xin là bao nhiêu %? (Làm tròn đến hàng đơn vị của %)","ans":"13","exp":"Dân số nông thôn = 213,2 - 185,7 = 27,5 triệu người. Tỉ lệ dân nông thôn = 27,5 : 213,2 x 100 = 12,9...%, làm tròn là 13%.","n":96}];
+    const ESSAY = [{"lesson":2,"lessonName":"Bài 2: Toàn cầu hóa và khu vực hóa kinh tế","title":"Bài tập kĩ năng: vẽ biểu đồ và nhận xét quy mô GDP thế giới","q":"Cho bảng số liệu quy mô GDP của thế giới giai đoạn 2005 - 2022 (đơn vị: nghìn tỉ USD): 2005: 47,8; 2010: 66,6; 2015: 75,2; 2020: 84,9; 2022: 100,9. Hãy vẽ biểu đồ thích hợp, nhận xét và giải thích sự thay đổi quy mô GDP của thế giới.","content":"<h4>1. Lựa chọn biểu đồ</h4><p>Dạng biểu đồ phù hợp là biểu đồ cột hoặc biểu đồ đường, thể hiện quy mô GDP qua các năm. Trục hoành là năm, trục tung là nghìn tỉ USD; ghi đơn vị, chú thích và tên biểu đồ đầy đủ.</p><h4>2. Nhận xét</h4><ul><li>Quy mô GDP thế giới tăng liên tục qua các năm: từ 47,8 nghìn tỉ USD (2005) lên 100,9 nghìn tỉ USD (2022), tăng 53,1 nghìn tỉ USD, gấp khoảng 2,1 lần.</li><li>Tốc độ tăng không đều: giai đoạn 2005 - 2010 tăng nhanh (18,8 nghìn tỉ USD); 2010 - 2015 tăng chậm hơn (8,6); 2015 - 2020 tăng 9,7; 2020 - 2022 tăng mạnh (16,0).</li><li>Năm 2020 tăng chậm do ảnh hưởng của đại dịch COVID-19; năm 2022 phục hồi rõ rệt.</li></ul><h4>3. Giải thích</h4><ul><li>Toàn cầu hóa, tiến bộ khoa học công nghệ và thương mại quốc tế thúc đẩy sản xuất và trao đổi hàng hóa.</li><li>Nhiều nước đẩy mạnh công nghiệp hóa, hiện đại hóa, mở rộng thị trường và thu hút đầu tư.</li><li>Giai đoạn 2020 - 2022 có sự phục hồi sau dịch bệnh, nhưng vẫn chịu tác động của lạm phát, xung đột và đứt gãy chuỗi cung ứng.</li></ul><h4>4. Lưu ý khi làm bài</h4><p>Đọc kĩ đơn vị, tính đúng tốc độ tăng trưởng, nhận xét phải có số liệu dẫn chứng và giải thích gắn với bối cảnh kinh tế thế giới.</p>","n":46},{"lesson":3,"lessonName":"Bài 3: An ninh toàn cầu","title":"An ninh nguồn nước và an ninh mạng toàn cầu","q":"Trình bày và liên hệ thực tế về vấn đề an ninh nguồn nước và an ninh mạng toàn cầu.","content":"<h4>1. An ninh nguồn nước</h4><ul><li><strong>Khái niệm:</strong> An ninh nguồn nước là sự bảo đảm đủ nước sạch, an toàn cho sinh hoạt, sản xuất và hệ sinh thái, đồng thời hạn chế rủi ro do lũ lụt, hạn hán, ô nhiễm.</li><li><strong>Thực trạng:</strong> Nhiều nơi thiếu nước sạch, ô nhiễm sông hồ, xâm nhập mặn, hạn hán gia tăng do biến đổi khí hậu và khai thác quá mức.</li><li><strong>Thách thức:</strong> Tranh chấp nguồn nước giữa các quốc gia cùng lưu vực sông; nước biển dâng; suy giảm nguồn nước ngầm.</li><li><strong>Giải pháp:</strong> Sử dụng tiết kiệm, tái sử dụng nước; bảo vệ rừng đầu nguồn; xử lý nước thải; hợp tác quốc tế chia sẻ nguồn nước.</li></ul><h4>2. An ninh mạng</h4><ul><li><strong>Khái niệm:</strong> An ninh mạng là bảo vệ hệ thống thông tin, dữ liệu, thiết bị và người dùng trước các mối đe dọa trên không gian số.</li><li><strong>Thực trạng:</strong> Tấn công mạng, đánh cắp dữ liệu, tin giả, lừa đảo trực tuyến ngày càng phổ biến và tinh vi.</li><li><strong>Thách thức:</strong> Phụ thuộc công nghệ, lỗ hổng bảo mật, thiếu nhân lực an ninh mạng, khác biệt pháp luật giữa các nước.</li><li><strong>Giải pháp:</strong> Nâng cao nhận thức người dùng; cập nhật phần mềm; mã hóa dữ liệu; xây dựng luật và hợp tác quốc tế về an ninh mạng.</li></ul><h4>3. Liên hệ thực tế Việt Nam</h4><ul><li>Việt Nam chịu ảnh hưởng của hạn hán, xâm nhập mặn ở Đồng bằng sông Cửu Long; cần quản lý tổng hợp lưu vực sông, tiết kiệm nước.</li><li>Các vụ lừa đảo qua mạng, tấn công dữ liệu cho thấy học sinh cần cảnh giác, không chia sẻ thông tin cá nhân tùy tiện và báo cáo hành vi vi phạm.</li><li>Mỗi công dân góp phần bảo đảm an ninh nguồn nước và an ninh mạng bằng hành vi nhỏ, thiết thực hằng ngày.</li></ul>","n":69},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","title":"Ảnh hưởng của điều kiện tự nhiên và tài nguyên thiên nhiên đến kinh tế - xã hội Mỹ La-tinh","q":"Phân tích ảnh hưởng của một điều kiện tự nhiên và tài nguyên thiên nhiên đến phát triển kinh tế - xã hội khu vực Mỹ La-tinh.","content":"<h4>1. Điều kiện tự nhiên và tài nguyên nổi bật</h4><ul><li>Khí hậu nhiệt đới và cận xích đạo nóng ẩm, mưa nhiều; có cả khí hậu cận nhiệt ở phía nam.</li><li>Diện tích rừng lớn, tiêu biểu là rừng mưa A-ma-dôn; đất đai rộng, nhiều đồng bằng phù sa.</li><li>Tài nguyên khoáng sản phong phú: dầu mỏ, khí tự nhiên, quặng sắt, đồng, bô-xít, vàng...</li></ul><h4>2. Ảnh hưởng tích cực</h4><ul><li>Khí hậu nóng ẩm thuận lợi phát triển nông nghiệp nhiệt đới, cây công nghiệp xuất khẩu (cà phê, ca cao, mía, chuối, đậu tương).</li><li>Rừng và khoáng sản tạo nguồn nguyên liệu, năng lượng và hàng xuất khẩu, thu hút đầu tư nước ngoài.</li><li>Đất đai rộng cho phép hình thành các trang trại quy mô lớn, phát triển chăn nuôi và cây công nghiệp.</li></ul><h4>3. Ảnh hưởng tiêu cực và thách thức</h4><ul><li>Khai thác rừng quá mức gây suy thoái đất, mất đa dạng sinh học, gia tăng thiên tai.</li><li>Hạn hán, lũ lụt, xâm nhập mặn và biến đổi khí hậu đe dọa sản xuất và đời sống.</li><li>Kinh tế phụ thuộc vào xuất khẩu nông sản, khoáng sản thô nên dễ bị tổn thương khi giá thế giới biến động.</li></ul><h4>4. Kết luận</h4><p>Điều kiện tự nhiên và tài nguyên thiên nhiên là lợi thế lớn của Mỹ La-tinh, nhưng cần khai thác hợp lý, bảo vệ môi trường và chuyển dịch cơ cấu kinh tế để phát triển bền vững.</p>","n":97},{"lesson":4,"lessonName":"Bài 4: Kinh tế - xã hội khu vực Mỹ La-tinh","title":"Đặc điểm kinh tế chung và nguyên nhân của khu vực Mỹ La-tinh","q":"Nêu đặc điểm tình hình kinh tế chung và nguyên nhân của khu vực Mỹ La-tinh.","content":"<h4>1. Đặc điểm kinh tế chung</h4><ul><li>Kinh tế có sự chuyển dịch theo hướng tăng tỉ trọng dịch vụ, giảm tỉ trọng nông nghiệp; công nghiệp phát triển không đều.</li><li>Nông nghiệp chủ yếu theo hình thức trang trại, gắn với xuất khẩu cây công nghiệp và chăn nuôi.</li><li>Nhiều nước phụ thuộc vào xuất khẩu nông sản, khoáng sản thô và vốn đầu tư nước ngoài.</li><li>Đô thị hóa diễn ra nhanh nhưng không gắn chặt với công nghiệp hóa; chênh lệch giàu nghèo lớn.</li></ul><h4>2. Nguyên nhân</h4><ul><li><strong>Lịch sử:</strong> Chế độ thực dân kéo dài để lại cơ cấu kinh tế độc canh, phụ thuộc bên ngoài.</li><li><strong>Kinh tế:</strong> Thiếu vốn, công nghệ và nhân lực chất lượng cao; cơ sở hạ tầng chưa đồng bộ; nợ nước ngoài.</li><li><strong>Xã hội:</strong> Bất bình đẳng thu nhập, tội phạm, di cư tự do, bất ổn chính trị ở một số nước.</li><li><strong>Tự nhiên:</strong> Thiên tai, biến đổi khí hậu, địa hình phức tạp gây khó khăn cho sản xuất và giao thông.</li></ul><h4>3. Kết luận</h4><p>Mỹ La-tinh có nhiều tiềm năng nhưng cần đa dạng hóa kinh tế, đầu tư giáo dục - công nghệ, giảm bất bình đẳng và tăng cường hợp tác khu vực để phát triển bền vững.</p>","n":98}];
+
+    const LETTERS = ["A", "B", "C", "D"];
+    const TOTAL = MCQ.length + TF.length + SHORT.length + ESSAY.length;
+    const STORE_KEY = "dia11.fluent.v1";
+    const DEFAULT_STATE = {
+      theme: null,
+      mcq: {},
+      tf: {},
+      short: {},
+      essayMastered: {},
+      pref: { shuffleQ: false, shuffleA: false, tfShuffleQ: false },
+      bankShow: false
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+    function clone(obj) { return JSON.parse(JSON.stringify(obj)); }
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORE_KEY);
+        if (!raw) return clone(DEFAULT_STATE);
+        const saved = JSON.parse(raw);
+        return {
+          ...clone(DEFAULT_STATE),
+          ...saved,
+          mcq: saved.mcq || {},
+          tf: saved.tf || {},
+          short: saved.short || {},
+          essayMastered: saved.essayMastered || {},
+          pref: { ...clone(DEFAULT_STATE.pref), ...(saved.pref || {}) }
+        };
+      } catch (err) {
+        return clone(DEFAULT_STATE);
+      }
+    }
+    let state = loadState();
+    function saveState() {
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      } catch (err) {}
+    }
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (ch) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[ch]));
+    }
+    function shuffle(list) {
+      const arr = [...list];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    /* ---------- Toast ---------- */
+    let toastTimer = null;
+    function showToast(message) {
+      const el = $("toast");
+      $("toastText").textContent = message;
+      el.hidden = false;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => { el.hidden = true; }, 2800);
+    }
+
+    /* ---------- Dialog ---------- */
+    let dialogAction = null;
+    function openDialog(options) {
+      $("dialogTitle").textContent = options.title || "Xác nhận";
+      $("dialogBody").textContent = options.body || "";
+      $("dialogConfirm").textContent = options.confirmText || "Xác nhận";
+      dialogAction = options.onConfirm || null;
+      $("overlay").hidden = false;
+      setTimeout(() => $("dialogCancel").focus(), 30);
+    }
+    function closeDialog() {
+      $("overlay").hidden = true;
+      dialogAction = null;
+    }
+    $("dialogCancel").addEventListener("click", closeDialog);
+    $("dialogConfirm").addEventListener("click", () => {
+      const action = dialogAction;
+      closeDialog();
+      if (action) action();
+    });
+    $("overlay").addEventListener("click", (event) => {
+      if (event.target === $("overlay")) closeDialog();
+    });
+
+    /* ---------- Theme ---------- */
+    const mediaTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", theme === "dark" ? "#1a1a1f" : "#eef2f8");
+    }
+    applyTheme(state.theme || (mediaTheme.matches ? "dark" : "light"));
+    $("themeBtn").addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      state.theme = next;
+      saveState();
+      applyTheme(next);
+      showToast(next === "dark" ? "Đã chuyển sang giao diện tối" : "Đã chuyển sang giao diện sáng");
+    });
+    mediaTheme.addEventListener("change", (event) => {
+      if (!state.theme) applyTheme(event.matches ? "dark" : "light");
+    });
+
+    /* ---------- Stats ---------- */
+    function getStats() {
+      const mcqEntries = Object.entries(state.mcq).filter(([, v]) => v && typeof v.sel === "number");
+      const mcqDone = mcqEntries.length;
+      const mcqCorrect = mcqEntries.filter(([, v]) => v.ok).length;
+
+      const tfEntries = Object.entries(state.tf).filter(([, v]) => v && Array.isArray(v.sel));
+      const tfDone = tfEntries.length;
+      const tfPerfect = tfEntries.filter(([, v]) => v.correct === 4).length;
+
+      const shortEntries = Object.entries(state.short).filter(([, v]) => v && v.done);
+      const shortDone = shortEntries.length;
+      const shortCorrect = shortEntries.filter(([, v]) => v.ok).length;
+
+      const essayCount = Object.keys(state.essayMastered || {}).length;
+
+      const done = mcqDone + tfDone + shortDone + essayCount;
+      const totalScore = done;
+      const pct = Math.round((done / TOTAL) * 100);
+
+      return {
+        mcqDone,
+        mcqCorrect,
+        mcqWrong: mcqDone - mcqCorrect,
+        tfDone,
+        tfPerfect,
+        shortDone,
+        shortCorrect,
+        essayCount,
+        done,
+        pct,
+        acc: mcqDone ? Math.round((mcqCorrect / mcqDone) * 100) : null
+      };
+    }
+
+    function syncStats() {
+      const s = getStats();
+      const set = (id, val) => { const el = $(id); if (el) el.textContent = val; };
+      const pctOf = (part, whole) => (whole ? Math.round((part / whole) * 100) : 0);
+      set("sidePct", s.pct + "%");
+      set("sideDone", s.done + " / " + TOTAL + " câu");
+      const sideBar = $("sideBar");
+      if (sideBar) sideBar.style.width = s.pct + "%";
+
+      set("heroPct", s.pct + "%");
+      set("heroDone", s.done);
+      const ring = $("heroRing");
+      if (ring) ring.style.setProperty("--p", String(s.pct));
+
+      set("statDone", s.done);
+      set("statAcc", s.acc === null ? "—" : s.acc + "%");
+      set("statTF", s.tfPerfect);
+      set("statShort", s.shortCorrect);
+      set("statEssay", s.essayCount);
+
+      set("countMcq", s.mcqDone + " / " + MCQ.length);
+      set("countTf", s.tfDone + " / " + TF.length);
+      set("countShort", s.shortDone + " / " + SHORT.length);
+      set("countEssay", s.essayCount + " / " + ESSAY.length);
+
+      const setBar = (id, part, whole) => { const el = $(id); if (el) el.style.width = pctOf(part, whole) + "%"; };
+      setBar("barMcq", s.mcqDone, MCQ.length);
+      setBar("barTf", s.tfDone, TF.length);
+      setBar("barShort", s.shortDone, SHORT.length);
+      setBar("barEssay", s.essayCount, ESSAY.length);
+    }
+
+    /* ---------- Navigation ---------- */
+    const VIEW_META = {
+      dashboard: { title: "Tổng quan ôn tập", desc: "Theo dõi tiến độ, xem thống kê và các bài học trọng tâm Giữa kì I." },
+      mcq: { title: "Trắc nghiệm 1 lựa chọn", desc: "64 câu &bull; Chọn một đáp án đúng, kiểm tra ngay kèm lời giải chi tiết." },
+      tf: { title: "Trắc nghiệm Đúng – Sai", desc: "10 câu (40 nhận định) &bull; Xác định Đúng/Sai cho từng nhận định a, b, c, d." },
+      short: { title: "Điền số & Trả lời ngắn", desc: "20 câu &bull; Nhập đáp số, tự kiểm tra và xem hướng dẫn giải chi tiết." },
+      essay: { title: "Tự luận", desc: "4 câu &bull; Hướng dẫn chấm và đáp án chi tiết." },
+      bank: { title: "Ngân hàng 98 câu hỏi", desc: "Tra cứu toàn diện toàn bộ đề cương ôn tập kèm đáp án chuẩn." }
+    };
+
+    function navigate(view, options) {
+      const meta = VIEW_META[view] || VIEW_META.dashboard;
+      $$(".view").forEach((section) => section.classList.toggle("active", section.id === "view-" + view));
+      $$("[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === view));
+      $("pageTitle").textContent = meta.title;
+      $("pageDesc").innerHTML = meta.desc;
+
+      if (!options || !options.keepScroll) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      if (view === "dashboard") syncStats();
+      if (view === "mcq") renderMcq();
+      if (view === "tf") renderTf();
+      if (view === "short") renderShort();
+      if (view === "essay") renderEssay();
+      if (view === "bank") renderBank();
+    }
+
+    document.addEventListener("click", (event) => {
+      const viewButton = event.target.closest("[data-view]");
+      if (viewButton) { navigate(viewButton.dataset.view); return; }
+      const goButton = event.target.closest("[data-go]");
+      if (goButton) navigate(goButton.dataset.go);
+    });
+    const dashBrowse = $("dashBrowse");
+    if (dashBrowse) dashBrowse.addEventListener("click", () => navigate("bank"));
+
+    /* =========================================================================
+       1. TRẮC NGHIỆM 1 LỰA CHỌN (MCQ) - 64 CÂU
+       ========================================================================= */
+    let mcqFiltered = [...MCQ];
+    let mcqOrder = [];
+    let mcqPos = 0;
+    const mcqPending = {};
+    let optionOrders = {};
+
+    function applyMcqFilter() {
+      const filter = $("mcqLessonFilter").value;
+      if (filter === "all") {
+        mcqFiltered = [...MCQ];
+      } else {
+        mcqFiltered = MCQ.filter((item) => item.lesson === Number(filter));
+      }
+      buildMcqOrder();
+    }
+
+    function buildMcqOrder(preserveId) {
+      const ids = mcqFiltered.map((item) => item.n);
+      mcqOrder = state.pref.shuffleQ ? shuffle(ids) : ids;
+      if (preserveId !== undefined && preserveId !== null) {
+        const at = mcqOrder.indexOf(preserveId);
+        mcqPos = at >= 0 ? at : 0;
+      } else {
+        const firstNew = mcqOrder.findIndex((id) => !state.mcq[id]);
+        mcqPos = firstNew >= 0 ? firstNew : 0;
+      }
+    }
+
+    function currentMcq() {
+      return MCQ.find((item) => item.n === mcqOrder[mcqPos]);
+    }
+
+    function getOptionOrder(question) {
+      if (!state.pref.shuffleA) return [0, 1, 2, 3];
+      if (!optionOrders[question.n]) optionOrders[question.n] = shuffle([0, 1, 2, 3]);
+      return optionOrders[question.n];
+    }
+
+    function renderMcq() {
+      if (!mcqOrder.length) buildMcqOrder();
+      const question = currentMcq();
+      if (!question) {
+        $("mcqTitle").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        $("mcqOptions").innerHTML = "";
+        return;
+      }
+      const rec = state.mcq[question.n];
+      const pending = rec ? rec.sel : mcqPending[question.n];
+      const order = getOptionOrder(question);
+
+      $("mcqEyebrow").textContent = "Câu " + question.n;
+      $("mcqLessonName").textContent = question.lessonName;
+      $("mcqChip").textContent = (mcqPos + 1) + " / " + mcqOrder.length;
+      $("mcqBar").style.width = ((mcqPos + 1) / mcqOrder.length) * 100 + "%";
+      $("mcqTitle").textContent = question.q;
+      $("mcqType").textContent = "Trắc nghiệm 1 lựa chọn";
+
+      const wrap = $("mcqOptions");
+      wrap.innerHTML = "";
+      order.forEach((orig, displayIndex) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option";
+        button.dataset.orig = String(orig);
+        let mark = "";
+        if (rec) {
+          button.disabled = true;
+          if (orig === question.a) {
+            button.classList.add("correct");
+            mark = "✓";
+          } else if (orig === rec.sel) {
+            button.classList.add("wrong");
+            mark = "✕";
+          } else {
+            button.classList.add("muted");
+          }
+        } else if (orig === pending) {
+          button.classList.add("selected");
+        }
+        button.innerHTML =
+          '<span class="letter">' + LETTERS[displayIndex] + "</span>" +
+          '<span class="option-text">' + escapeHtml(question.o[orig]) + "</span>" +
+          (mark ? '<span class="option-mark">' + mark + "</span>" : "");
+        wrap.appendChild(button);
+      });
+
+      const feedback = $("mcqFeedback");
+      if (rec) {
+        const correctDisplay = order.indexOf(question.a);
+        feedback.hidden = false;
+        feedback.className = "feedback " + (rec.ok ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (rec.ok ? "✓" : "✕") + "</span>" +
+          '<div class="feedback-body"><strong>' + (rec.ok ? "Chính xác!" : "Chưa chính xác.") + "</strong> " +
+          (rec.ok
+            ? "Bạn đã chọn đúng đáp án."
+            : "Đáp án đúng là <strong>" + LETTERS[correctDisplay] + ". " + escapeHtml(question.o[question.a]) + "</strong>.") +
+          (question.exp ? '<span class="feedback-note"><strong>Giải thích:</strong> ' + escapeHtml(question.exp) + "</span>" : "") +
+          "</div>";
+      } else {
+        feedback.hidden = true;
+        feedback.className = "feedback";
+        feedback.innerHTML = "";
+      }
+
+      $("mcqPrev").disabled = mcqPos === 0;
+      $("mcqNext").disabled = mcqPos === mcqOrder.length - 1;
+      $("mcqUndo").hidden = !rec;
+      $("mcqCheck").hidden = !!rec;
+
+      const nav = $("mcqNavGrid");
+      nav.innerHTML = "";
+      mcqOrder.forEach((id, index) => {
+        const record = state.mcq[id];
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "nav-cell";
+        if (record) cell.classList.add(record.ok ? "done-correct" : "done-wrong");
+        if (index === mcqPos) cell.classList.add("current");
+        cell.textContent = String(id);
+        cell.title = "Câu " + id + (record ? (record.ok ? " • Đúng" : " • Sai") : " • Chưa làm");
+        cell.setAttribute("aria-label", "Đi tới câu " + id);
+        cell.addEventListener("click", () => {
+          mcqPos = index;
+          renderMcq();
+        });
+        nav.appendChild(cell);
+      });
+
+      const s = getStats();
+      $("mcqNavStat").textContent = s.mcqDone + " / " + MCQ.length;
+      $("mcqCorrect").textContent = String(s.mcqCorrect);
+      $("mcqWrong").textContent = String(s.mcqWrong);
+      $("mcqLeft").textContent = String(MCQ.length - s.mcqDone);
+      syncStats();
+    }
+
+    function scrollCardOnMobile(id) {
+      if (!window.matchMedia("(max-width: 1000px)").matches) return;
+      const card = $(id);
+      if (card) card.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    function mcqNext() {
+      if (mcqPos < mcqOrder.length - 1) {
+        mcqPos++;
+        renderMcq();
+        scrollCardOnMobile("mcqCard");
+      }
+    }
+    function mcqPrev() {
+      if (mcqPos > 0) {
+        mcqPos--;
+        renderMcq();
+        scrollCardOnMobile("mcqCard");
+      }
+    }
+    function checkMcq() {
+      const question = currentMcq();
+      if (!question || state.mcq[question.n]) return;
+      const selected = mcqPending[question.n];
+      if (selected === undefined) {
+        const card = $("mcqCard");
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        showToast("Hãy chọn một đáp án trước khi kiểm tra.");
+        return;
+      }
+      state.mcq[question.n] = { sel: selected, ok: selected === question.a };
+      saveState();
+      renderMcq();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("mcqOptions").addEventListener("click", (event) => {
+      const button = event.target.closest(".option");
+      if (!button || button.disabled) return;
+      const question = currentMcq();
+      if (!question || state.mcq[question.n]) return;
+      mcqPending[question.n] = Number(button.dataset.orig);
+      renderMcq();
+    });
+    $("mcqCheck").addEventListener("click", checkMcq);
+    $("mcqNext").addEventListener("click", mcqNext);
+    $("mcqPrev").addEventListener("click", mcqPrev);
+    $("mcqUndo").addEventListener("click", () => {
+      const question = currentMcq();
+      if (!question) return;
+      delete state.mcq[question.n];
+      delete mcqPending[question.n];
+      saveState();
+      renderMcq();
+    });
+    $("mcqShuffleQ").addEventListener("change", (event) => {
+      const current = currentMcq();
+      state.pref.shuffleQ = event.target.checked;
+      saveState();
+      buildMcqOrder(current ? current.n : null);
+      renderMcq();
+    });
+    $("mcqShuffleA").addEventListener("change", (event) => {
+      state.pref.shuffleA = event.target.checked;
+      optionOrders = {};
+      saveState();
+      renderMcq();
+    });
+    $("mcqLessonFilter").addEventListener("change", () => {
+      applyMcqFilter();
+      renderMcq();
+    });
+    $("mcqRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần trắc nghiệm?",
+        body: "Toàn bộ 58 câu trắc nghiệm đã làm sẽ được đặt lại. Các phần khác không bị ảnh hưởng.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.mcq = {};
+          Object.keys(mcqPending).forEach((k) => delete mcqPending[k]);
+          optionOrders = {};
+          saveState();
+          buildMcqOrder();
+          renderMcq();
+          showToast("Đã làm mới phần trắc nghiệm.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       2. TRẮC NGHIỆM ĐÚNG / SAI (TF) - 10 CÂU (40 Ý)
+       ========================================================================= */
+    let tfFiltered = [...TF];
+    let tfOrder = [];
+    let tfPos = 0;
+    const tfPending = {};
+
+    function applyTfFilter() {
+      const filter = $("tfLessonFilter").value;
+      if (filter === "all") {
+        tfFiltered = [...TF];
+      } else {
+        tfFiltered = TF.filter((item) => item.lesson === Number(filter));
+      }
+      buildTfOrder();
+    }
+
+    function buildTfOrder(preserveId) {
+      const ids = tfFiltered.map((item) => item.n);
+      tfOrder = state.pref.tfShuffleQ ? shuffle(ids) : ids;
+      if (preserveId !== undefined && preserveId !== null) {
+        const at = tfOrder.indexOf(preserveId);
+        tfPos = at >= 0 ? at : 0;
+      } else {
+        const firstNew = tfOrder.findIndex((id) => !state.tf[id]);
+        tfPos = firstNew >= 0 ? firstNew : 0;
+      }
+    }
+
+    function currentTf() {
+      return TF.find((item) => item.n === tfOrder[tfPos]);
+    }
+
+    function renderTf() {
+      if (!tfOrder.length) buildTfOrder();
+      const question = currentTf();
+      if (!question) {
+        $("tfIntro").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        $("tfItems").innerHTML = "";
+        return;
+      }
+      const rec = state.tf[question.n];
+      const chosen = rec ? rec.sel : (tfPending[question.n] || []);
+
+      $("tfEyebrow").textContent = "Câu " + question.n;
+      $("tfLessonName").textContent = question.lessonName;
+      $("tfChip").textContent = (tfPos + 1) + " / " + tfOrder.length;
+      $("tfBar").style.width = ((tfPos + 1) / tfOrder.length) * 100 + "%";
+      $("tfIntro").textContent = question.intro;
+      $("tfType").textContent = "Đúng / Sai &bull; 4 nhận định";
+
+      const list = $("tfItems");
+      list.innerHTML = "";
+      question.items.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "tf-row";
+        const selected = chosen[index];
+        const isRight = rec && selected === item.a;
+        if (rec) row.classList.add(isRight ? "ok" : "bad");
+
+        const segTrue = document.createElement("button");
+        segTrue.type = "button";
+        segTrue.className = "seg";
+        segTrue.dataset.i = String(index);
+        segTrue.dataset.v = "true";
+        segTrue.textContent = "Đúng";
+
+        const segFalse = document.createElement("button");
+        segFalse.type = "button";
+        segFalse.className = "seg";
+        segFalse.dataset.i = String(index);
+        segFalse.dataset.v = "false";
+        segFalse.textContent = "Sai";
+
+        if (rec) {
+          segTrue.disabled = true;
+          segFalse.disabled = true;
+          if (item.a === true) segTrue.classList.add("correct");
+          if (item.a === false) segFalse.classList.add("correct");
+          if (selected === true && item.a !== true) segTrue.classList.add("wrong");
+          if (selected === false && item.a !== false) segFalse.classList.add("wrong");
+        } else {
+          if (selected === true) segTrue.classList.add("sel");
+          if (selected === false) segFalse.classList.add("sel");
+        }
+
+        const controls = document.createElement("div");
+        controls.className = "tf-controls";
+        const group = document.createElement("div");
+        group.className = "segmented";
+        group.append(segTrue, segFalse);
+        controls.appendChild(group);
+        if (rec) {
+          const status = document.createElement("span");
+          status.className = "tf-status " + (isRight ? "ok" : "bad");
+          status.textContent = isRight ? "✓" : "✕";
+          controls.appendChild(status);
+        }
+
+        const text = document.createElement("div");
+        text.className = "tf-text";
+        text.innerHTML =
+          '<span class="tf-letter">' + String.fromCharCode(97 + index) + ")</span>" +
+          '<div style="flex:1"><span>' + escapeHtml(item.text) + "</span>" +
+          (rec ? '<div class="tf-explain-box"><strong>' + (item.a ? "[ĐÚNG]" : "[SAI]") + "</strong> " + escapeHtml(item.exp) + "</div>" : "") +
+          "</div>";
+
+        row.append(text, controls);
+        list.appendChild(row);
+      });
+
+      const feedback = $("tfFeedback");
+      if (rec) {
+        const allRight = rec.correct === question.items.length;
+        feedback.hidden = false;
+        feedback.className = "feedback " + (allRight ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (allRight ? "✓" : "!") + "</span>" +
+          '<div class="feedback-body"><strong>Đúng ' + rec.correct + " / " + question.items.length + " nhận định.</strong> " +
+          (allRight ? "Bạn đã xác định chính xác toàn bộ 4 nhận định!" : "Xem lại lời giải chi tiết cho từng ý ở trên để nắm vững kiến thức.") +
+          "</div>";
+      } else {
+        feedback.hidden = true;
+        feedback.className = "feedback";
+        feedback.innerHTML = "";
+      }
+
+      $("tfPrev").disabled = tfPos === 0;
+      $("tfNext").disabled = tfPos === tfOrder.length - 1;
+      $("tfUndo").hidden = !rec;
+      $("tfCheck").hidden = !!rec;
+
+      const nav = $("tfNav");
+      nav.innerHTML = "";
+      tfOrder.forEach((id, index) => {
+        const item = TF.find((entry) => entry.n === id);
+        const record = state.tf[id];
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "tf-dot";
+        if (record) button.classList.add("done");
+        if (index === tfPos) button.classList.add("current");
+        const score = record ? record.correct + "/4" : "—";
+        button.innerHTML = '<span>Câu ' + id + '</span><span class="score">' + score + '</span>';
+        button.addEventListener("click", () => {
+          tfPos = index;
+          renderTf();
+        });
+        nav.appendChild(button);
+      });
+
+      $("tfNavStat").textContent = getStats().tfDone + " / " + TF.length;
+      syncStats();
+    }
+
+    function tfNext() {
+      if (tfPos < tfOrder.length - 1) {
+        tfPos++;
+        renderTf();
+        scrollCardOnMobile("tfCard");
+      }
+    }
+    function tfPrev() {
+      if (tfPos > 0) {
+        tfPos--;
+        renderTf();
+        scrollCardOnMobile("tfCard");
+      }
+    }
+    function checkTf() {
+      const question = currentTf();
+      if (!question || state.tf[question.n]) return;
+      const chosen = tfPending[question.n] || [];
+      const complete = question.items.every((_, index) => typeof chosen[index] === "boolean");
+      if (!complete) {
+        const card = $("tfCard");
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        showToast("Hãy chọn Đúng hoặc Sai cho đủ cả 4 nhận định.");
+        return;
+      }
+      const correct = question.items.reduce((total, item, index) => total + (chosen[index] === item.a ? 1 : 0), 0);
+      state.tf[question.n] = { sel: chosen.slice(), correct };
+      saveState();
+      renderTf();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("tfItems").addEventListener("click", (event) => {
+      const button = event.target.closest(".seg");
+      if (!button) return;
+      const question = currentTf();
+      if (!question || state.tf[question.n]) return;
+      const index = Number(button.dataset.i);
+      const value = button.dataset.v === "true";
+      const chosen = tfPending[question.n] ? [...tfPending[question.n]] : new Array(question.items.length).fill(undefined);
+      chosen[index] = value;
+      tfPending[question.n] = chosen;
+      const row = button.closest(".tf-row");
+      if (row) {
+        row.querySelectorAll(".seg").forEach((seg) => {
+          const active = chosen[Number(seg.dataset.i)] === (seg.dataset.v === "true");
+          seg.classList.toggle("sel", active);
+        });
+      }
+    });
+    $("tfCheck").addEventListener("click", checkTf);
+    $("tfNext").addEventListener("click", tfNext);
+    $("tfPrev").addEventListener("click", tfPrev);
+    $("tfUndo").addEventListener("click", () => {
+      const question = currentTf();
+      if (!question) return;
+      delete state.tf[question.n];
+      delete tfPending[question.n];
+      saveState();
+      renderTf();
+    });
+    $("tfShuffleQ").addEventListener("change", (event) => {
+      const current = currentTf();
+      state.pref.tfShuffleQ = event.target.checked;
+      saveState();
+      buildTfOrder(current ? current.n : null);
+      renderTf();
+    });
+    $("tfLessonFilter").addEventListener("change", () => {
+      applyTfFilter();
+      renderTf();
+    });
+    $("tfRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần Đúng / Sai?",
+        body: "Toàn bộ 18 câu Đúng/Sai đã làm sẽ được đặt lại. Các phần khác không bị ảnh hưởng.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.tf = {};
+          Object.keys(tfPending).forEach((k) => delete tfPending[k]);
+          saveState();
+          buildTfOrder();
+          renderTf();
+          showToast("Đã làm mới phần Đúng / Sai.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       3. ĐIỀN SỐ / TRẢ LỜI NGẮN (SHORT) - 20 CÂU
+       ========================================================================= */
+    let shortFiltered = [...SHORT];
+    let shortOrder = [];
+    let shortPos = 0;
+
+    function applyShortFilter() {
+      const filter = $("shortLessonFilter").value;
+      if (filter === "all") {
+        shortFiltered = [...SHORT];
+      } else {
+        shortFiltered = SHORT.filter((item) => item.lesson === Number(filter));
+      }
+      buildShortOrder();
+    }
+
+    function buildShortOrder() {
+      shortOrder = shortFiltered.map((item) => item.n);
+      const firstNew = shortOrder.findIndex((id) => !state.short[id]);
+      shortPos = firstNew >= 0 ? firstNew : 0;
+    }
+
+    function currentShort() {
+      return SHORT.find((item) => item.n === shortOrder[shortPos]);
+    }
+
+    function renderShort() {
+      if (!shortOrder.length) buildShortOrder();
+      const question = currentShort();
+      if (!question) {
+        $("shortTitle").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        return;
+      }
+      const rec = state.short[question.n];
+
+      $("shortEyebrow").textContent = "Câu " + question.n;
+      $("shortLessonName").textContent = question.lessonName;
+      $("shortChip").textContent = (shortPos + 1) + " / " + shortOrder.length;
+      $("shortBar").style.width = ((shortPos + 1) / shortOrder.length) * 100 + "%";
+      $("shortTitle").textContent = question.q;
+
+      const input = $("shortInput");
+      const checkBtn = $("shortCheck");
+      const undoBtn = $("shortUndo");
+      const feedback = $("shortFeedback");
+
+      if (rec) {
+        input.value = rec.val;
+        input.disabled = true;
+        checkBtn.hidden = true;
+        undoBtn.hidden = false;
+
+        feedback.hidden = false;
+        feedback.className = "feedback " + (rec.ok ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (rec.ok ? "✓" : "✕") + "</span>" +
+          '<div class="feedback-body"><strong>' + (rec.ok ? "Chính xác!" : "Chưa chính xác.") + "</strong> " +
+          "Đáp số đúng là: <strong>" + escapeHtml(question.ans) + "</strong>." +
+          '<span class="feedback-note"><strong>Hướng dẫn chi tiết:</strong> ' + escapeHtml(question.exp) + "</span>" +
+          "</div>";
+      } else {
+        input.value = "";
+        input.disabled = false;
+        checkBtn.hidden = false;
+        undoBtn.hidden = true;
+        feedback.hidden = true;
+        feedback.innerHTML = "";
+      }
+
+      $("shortPrev").disabled = shortPos === 0;
+      $("shortNext").disabled = shortPos === shortOrder.length - 1;
+
+      const nav = $("shortNavGrid");
+      nav.innerHTML = "";
+      shortOrder.forEach((id, index) => {
+        const record = state.short[id];
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "nav-cell";
+        if (record) cell.classList.add(record.ok ? "done-correct" : "done-wrong");
+        if (index === shortPos) cell.classList.add("current");
+        cell.textContent = String(id);
+        cell.addEventListener("click", () => {
+          shortPos = index;
+          renderShort();
+        });
+        nav.appendChild(cell);
+      });
+
+      $("shortNavStat").textContent = getStats().shortDone + " / " + SHORT.length;
+      syncStats();
+    }
+
+    function checkShort() {
+      const question = currentShort();
+      if (!question || state.short[question.n]) return;
+      const raw = $("shortInput").value.trim();
+      if (!raw) {
+        $("shortInput").focus();
+        showToast("Vui lòng nhập đáp số trước khi kiểm tra.");
+        return;
+      }
+      const normInput = raw.toLowerCase().replace(/,/g, ".").replace(/[^0-9.]/g, "");
+      const normAns = question.ans.toLowerCase().replace(/,/g, ".").replace(/[^0-9.]/g, "");
+      const isRight = normInput === normAns || raw.toLowerCase().includes(normAns);
+
+      state.short[question.n] = { val: raw, ok: isRight, done: true };
+      saveState();
+      renderShort();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("shortCheck").addEventListener("click", checkShort);
+    $("shortInput").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const question = currentShort();
+        if (state.short[question.n]) {
+          if (shortPos < shortOrder.length - 1) { shortPos++; renderShort(); }
+        } else {
+          checkShort();
+        }
+      }
+    });
+    $("shortNext").addEventListener("click", () => {
+      if (shortPos < shortOrder.length - 1) { shortPos++; renderShort(); scrollCardOnMobile("shortCard"); }
+    });
+    $("shortPrev").addEventListener("click", () => {
+      if (shortPos > 0) { shortPos--; renderShort(); scrollCardOnMobile("shortCard"); }
+    });
+    $("shortUndo").addEventListener("click", () => {
+      const question = currentShort();
+      if (!question) return;
+      delete state.short[question.n];
+      saveState();
+      renderShort();
+      $("shortInput").focus();
+    });
+    $("shortLessonFilter").addEventListener("change", () => {
+      applyShortFilter();
+      renderShort();
+    });
+    $("shortRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần Điền số?",
+        body: "Toàn bộ câu trả lời ngắn đã làm sẽ được đặt lại.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.short = {};
+          saveState();
+          buildShortOrder();
+          renderShort();
+          showToast("Đã làm mới phần Điền số.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       4. TỰ LUẬN (ESSAY) - 4 CÂU
+       ========================================================================= */
+    let essayShowAll = false;
+
+    function renderEssay() {
+      const filter = $("essayLessonFilter").value;
+      const list = $("essayList");
+      list.innerHTML = "";
+
+      const filtered = filter === "all" ? ESSAY : ESSAY.filter((item) => item.lesson === Number(filter));
+
+      filtered.forEach((item) => {
+        const article = document.createElement("article");
+        article.className = "card essay-card";
+        const isMastered = !!state.essayMastered[item.n];
+
+        article.innerHTML =
+          '<div class="essay-card-head">' +
+          '  <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap">' +
+          '    <span class="chip accent">Câu ' + item.n + '</span>' +
+          '    <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+          (isMastered ? '<span class="chip green">✓ Đã nắm vững</span>' : '') +
+          '  </div>' +
+          '  <button class="btn btn-ghost" type="button" data-master="' + item.n + '">' +
+          (isMastered ? 'Bỏ đánh dấu' : 'Đánh dấu đã hiểu') +
+          '  </button>' +
+          '</div>' +
+          '<h3 class="essay-q">' + escapeHtml(item.q) + '</h3>' +
+          '<button class="btn btn-secondary essay-toggle-btn" type="button" data-toggle-essay="' + item.n + '">' +
+          (essayShowAll ? 'Ẩn đáp án & biểu điểm' : 'Xem đáp án & biểu điểm chi tiết') +
+          '</button>' +
+          '<div class="essay-answer-box" id="essayAns-' + item.n + '" ' + (essayShowAll ? '' : 'hidden') + '>' +
+          item.content +
+          '</div>';
+
+        list.appendChild(article);
+      });
+      syncStats();
+    }
+
+    $("essayList").addEventListener("click", (e) => {
+      const toggleBtn = e.target.closest("[data-toggle-essay]");
+      if (toggleBtn) {
+        const id = toggleBtn.dataset.toggleEssay;
+        const box = $("essayAns-" + id);
+        if (box) {
+          const isHidden = box.hidden;
+          box.hidden = !isHidden;
+          toggleBtn.textContent = isHidden ? "Ẩn đáp án & biểu điểm" : "Xem đáp án & biểu điểm chi tiết";
+        }
+        return;
+      }
+      const masterBtn = e.target.closest("[data-master]");
+      if (masterBtn) {
+        const id = masterBtn.dataset.master;
+        if (state.essayMastered[id]) {
+          delete state.essayMastered[id];
+        } else {
+          state.essayMastered[id] = true;
+        }
+        saveState();
+        renderEssay();
+      }
+    });
+
+    $("essayLessonFilter").addEventListener("change", renderEssay);
+    $("essayToggleAll").addEventListener("click", () => {
+      essayShowAll = !essayShowAll;
+      $("essayToggleAll").textContent = essayShowAll ? "Ẩn tất cả đáp án" : "Hiện tất cả đáp án";
+      renderEssay();
+    });
+
+    /* =========================================================================
+       5. NGÂN HÀNG CÂU HỎI (BANK) - 98 CÂU
+       ========================================================================= */
+    let bankTypeFilter = "all";
+
+    function renderBank() {
+      const query = $("bankSearch").value.trim().toLowerCase();
+      const lessonFilter = $("bankLessonFilter").value;
+      const showAnswers = $("bankShowAns").checked;
+      const list = $("bankList");
+      list.innerHTML = "";
+      let count = 0;
+
+      const matchesQuery = (text) => !query || text.toLowerCase().includes(query);
+      const matchesLesson = (itemLesson) => lessonFilter === "all" || itemLesson === Number(lessonFilter);
+
+      // MCQ
+      if (bankTypeFilter === "all" || bankTypeFilter === "mcq") {
+        MCQ.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.o.join(" ") + " " + (item.exp || ""))) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          const options = item.o.map((text, index) =>
+            '<div class="bank-option' + (showAnswers && index === item.a ? " correct" : "") + '">' +
+            '<span class="letter">' + LETTERS[index] + "</span><span>" + escapeHtml(text) + "</span></div>"
+          ).join("");
+
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Trắc nghiệm</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            (showAnswers ? '<span class="chip green">Đáp án ' + LETTERS[item.a] + "</span>" : "") +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            '<div class="bank-options">' + options + '</div>' +
+            (showAnswers && item.exp ? '<div class="bank-note"><strong>Giải thích:</strong> ' + escapeHtml(item.exp) + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      // TF
+      if (bankTypeFilter === "all" || bankTypeFilter === "tf") {
+        TF.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.intro + " " + item.items.map((e) => e.text).join(" "))) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          const rows = item.items.map((entry, index) =>
+            '<div class="bank-tf"><span><span class="tf-letter">' + String.fromCharCode(97 + index) + ")</span> " +
+            escapeHtml(entry.text) + "</span>" +
+            (showAnswers
+              ? '<span class="chip ' + (entry.a ? "green" : "red") + '">' + (entry.a ? "Đúng" : "Sai") + "</span>"
+              : '<span class="chip">?</span>') +
+            "</div>" +
+            (showAnswers ? '<div class="tf-explain-box" style="margin-bottom:4px"><strong>' + (entry.a ? "[ĐÚNG]" : "[SAI]") + "</strong> " + escapeHtml(entry.exp) + "</div>" : "")
+          ).join("");
+
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Đúng / Sai</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            '</div>' +
+            '<p class="tf-intro" style="margin-bottom: 10px">' + escapeHtml(item.intro) + '</p>' +
+            '<div class="bank-tf-list">' + rows + '</div>';
+          list.appendChild(article);
+        });
+      }
+
+      // SHORT
+      if (bankTypeFilter === "all" || bankTypeFilter === "short") {
+        SHORT.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.exp)) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Điền số / Ngắn</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            (showAnswers ? '<span class="chip green">Đáp số: ' + escapeHtml(item.ans) + '</span>' : '') +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            (showAnswers ? '<div class="bank-note"><strong>Lời giải chi tiết:</strong> ' + escapeHtml(item.exp) + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      // ESSAY
+      if (bankTypeFilter === "all" || bankTypeFilter === "essay") {
+        ESSAY.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.content)) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Tự luận</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            (showAnswers ? '<div class="essay-answer-box" style="margin-top:10px">' + item.content + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      $("bankCount").textContent = count ? "Tìm thấy " + count + " câu hỏi phù hợp" : "";
+      if (!count) {
+        list.innerHTML =
+          '<div class="card empty">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>' +
+          "Không tìm thấy câu hỏi phù hợp. Thử từ khóa khác nhé.</div>";
+      }
+    }
+
+    $("bankSearch").addEventListener("input", renderBank);
+    $("bankShowAns").addEventListener("change", (e) => {
+      state.bankShow = e.target.checked;
+      saveState();
+      renderBank();
+    });
+    $("bankLessonFilter").addEventListener("change", renderBank);
+    $("bankTypeFilters").addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-type]");
+      if (!chip) return;
+      bankTypeFilter = chip.dataset.type;
+      $$("#bankTypeFilters .filter-chip").forEach((b) => b.classList.toggle("active", b === chip));
+      renderBank();
+    });
+
+    /* ---------- Reset tổng ---------- */
+    function resetAllProgress() {
+      openDialog({
+        title: "Đặt lại toàn bộ tiến độ?",
+        body: "Tất cả câu trả lời của các phần Trắc nghiệm, Đúng/Sai và Điền số sẽ bị xóa khỏi thiết bị này.",
+        confirmText: "Đặt lại tất cả",
+        onConfirm: () => {
+          state.mcq = {};
+          state.tf = {};
+          state.short = {};
+          state.essayMastered = {};
+          Object.keys(mcqPending).forEach((k) => delete mcqPending[k]);
+          Object.keys(tfPending).forEach((k) => delete tfPending[k]);
+          optionOrders = {};
+          saveState();
+          buildMcqOrder();
+          buildTfOrder();
+          buildShortOrder();
+          renderMcq();
+          renderTf();
+          renderShort();
+          renderEssay();
+          syncStats();
+          showToast("Đã đặt lại toàn bộ tiến độ học tập.");
+        }
+      });
+    }
+    $("sideReset").addEventListener("click", resetAllProgress);
+
+    /* ---------- Bàn phím ---------- */
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !$("overlay").hidden) {
+        closeDialog();
+        return;
+      }
+      const tag = (event.target.tagName || "").toLowerCase();
+      if (tag === "input" || tag === "textarea" || tag === "select") return;
+      const activeView = document.querySelector(".view.active");
+      if (!activeView) return;
+
+      if (activeView.id === "view-mcq") {
+        const question = currentMcq();
+        if (!question) return;
+        const rec = state.mcq[question.n];
+        if (!rec && /^[1-4]$/.test(event.key)) {
+          const displayIndex = Number(event.key) - 1;
+          const order = getOptionOrder(question);
+          if (displayIndex < order.length) {
+            event.preventDefault();
+            mcqPending[question.n] = order[displayIndex];
+            renderMcq();
+          }
+          return;
+        }
+        if (!rec && /^[a-dA-D]$/.test(event.key)) {
+          const displayIndex = LETTERS.indexOf(event.key.toUpperCase());
+          const order = getOptionOrder(question);
+          if (displayIndex >= 0 && displayIndex < order.length) {
+            event.preventDefault();
+            mcqPending[question.n] = order[displayIndex];
+            renderMcq();
+          }
+          return;
+        }
+        if (event.key === "Enter") {
+          event.preventDefault();
+          if (rec) mcqNext(); else checkMcq();
+          return;
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          mcqNext();
+          return;
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          mcqPrev();
+        }
+      } else if (activeView.id === "view-tf") {
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          tfNext();
+        } else if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          tfPrev();
+        }
+      } else if (activeView.id === "view-short") {
+        if (event.key === "ArrowRight" && shortPos < shortOrder.length - 1) {
+          event.preventDefault();
+          shortPos++;
+          renderShort();
+        } else if (event.key === "ArrowLeft" && shortPos > 0) {
+          event.preventDefault();
+          shortPos--;
+          renderShort();
+        }
+      }
+    });
+
+    /* ---------- Custom Fluent Combobox Dropdown ---------- */
+    function initCustomComboboxes() {
+      $$("select.filter-select").forEach((select) => {
+        if (select.dataset.customized === "true") return;
+        select.dataset.customized = "true";
+
+        const wrap = document.createElement("div");
+        wrap.className = "fluent-combobox";
+        wrap.dataset.selectId = select.id;
+
+        const trigger = document.createElement("button");
+        trigger.type = "button";
+        trigger.className = "combobox-trigger";
+        trigger.setAttribute("aria-haspopup", "listbox");
+        trigger.setAttribute("aria-expanded", "false");
+        trigger.setAttribute("title", select.getAttribute("aria-label") || "Lọc");
+
+        const label = document.createElement("span");
+        label.className = "combobox-label";
+        const curOpt = select.options[select.selectedIndex] || select.options[0];
+        label.textContent = curOpt ? curOpt.textContent : "";
+
+        trigger.appendChild(label);
+        trigger.insertAdjacentHTML(
+          "beforeend",
+          '<svg class="combobox-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="m6 9 6 6 6-6"></path></svg>'
+        );
+
+        const menu = document.createElement("div");
+        menu.className = "combobox-menu";
+        menu.setAttribute("role", "listbox");
+        menu.hidden = true;
+
+        Array.from(select.options).forEach((opt) => {
+          const item = document.createElement("div");
+          item.className = "combobox-item" + (opt.value === select.value ? " active" : "");
+          item.dataset.value = opt.value;
+          item.innerHTML =
+            '<span>' + escapeHtml(opt.textContent) + '</span>' +
+            '<svg class="combobox-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M20 6 9 17l-5-5"></path></svg>';
+
+          item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (select.value !== opt.value) {
+              select.value = opt.value;
+              select.dispatchEvent(new Event("change"));
+            }
+            label.textContent = opt.textContent;
+            menu.querySelectorAll(".combobox-item").forEach((it) => {
+              it.classList.toggle("active", it.dataset.value === opt.value);
+            });
+            closeCombobox(wrap);
+            trigger.focus();
+          });
+          menu.appendChild(item);
+        });
+
+        trigger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = wrap.classList.contains("open");
+          closeAllComboboxes();
+          if (!isOpen) {
+            wrap.classList.add("open");
+            trigger.setAttribute("aria-expanded", "true");
+            menu.hidden = false;
+          }
+        });
+
+        select.parentNode.insertBefore(wrap, select.nextSibling);
+        wrap.appendChild(trigger);
+        wrap.appendChild(menu);
+
+        select.addEventListener("change", () => {
+          const opt = select.options[select.selectedIndex];
+          if (opt) {
+            label.textContent = opt.textContent;
+            menu.querySelectorAll(".combobox-item").forEach((it) => {
+              it.classList.toggle("active", it.dataset.value === select.value);
+            });
+          }
+        });
+      });
+    }
+
+    function closeCombobox(wrap) {
+      wrap.classList.remove("open");
+      const trig = wrap.querySelector(".combobox-trigger");
+      const menu = wrap.querySelector(".combobox-menu");
+      if (trig) trig.setAttribute("aria-expanded", "false");
+      if (menu) menu.hidden = true;
+    }
+
+    function closeAllComboboxes() {
+      $$(".fluent-combobox.open").forEach(closeCombobox);
+    }
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".fluent-combobox")) {
+        closeAllComboboxes();
+      }
+    });
+
+    /* ---------- Khởi tạo ---------- */
+    $("mcqShuffleQ").checked = !!state.pref.shuffleQ;
+    $("mcqShuffleA").checked = !!state.pref.shuffleA;
+    $("tfShuffleQ").checked = !!state.pref.tfShuffleQ;
+    $("bankShowAns").checked = !!state.bankShow;
+
+    initCustomComboboxes();
+    buildMcqOrder();
+    buildTfOrder();
+    buildShortOrder();
+    renderMcq();
+    renderTf();
+    renderShort();
+    renderEssay();
+    renderBank();
+    syncStats();
+    navigate("dashboard", { keepScroll: true });
+  </script>
+</body>
+</html>
