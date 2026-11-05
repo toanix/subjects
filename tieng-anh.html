@@ -1,0 +1,2992 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#eef2f8" />
+  <title>Ôn tập Tiếng Anh 11 - Giữa học kì 1</title>
+  <meta name="description" content="Hệ thống 150 câu hỏi ôn tập giữa học kì 1 môn Tiếng Anh 11: 120 câu đọc hiểu & điền từ và 30 câu viết lại, kèm đáp án chi tiết, giao diện Fluent Design." />
+  <meta property="og:title" content="Ôn tập Tiếng Anh 11 - Giữa học kì 1" />
+  <meta property="og:description" content="Hệ thống 150 câu hỏi ôn tập giữa kì 1 môn Tiếng Anh 11 giao diện Fluent Design hiện đại." />
+  <style>
+    @property --p {
+      syntax: "<number>";
+      inherits: false;
+      initial-value: 0;
+    }
+    :root {
+      --bg: #eef2f8;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-2: rgba(255, 255, 255, 0.55);
+      --surface-3: rgba(9, 30, 66, 0.045);
+      --surface-solid: #ffffff;
+      --border: rgba(9, 30, 66, 0.09);
+      --border-2: rgba(9, 30, 66, 0.17);
+      --hover: rgba(9, 30, 66, 0.055);
+      --text: #17202b;
+      --text-2: #566273;
+      --text-3: #8692a3;
+      --accent: #0067c0;
+      --accent-2: #2b93e8;
+      --accent-soft: rgba(0, 103, 192, 0.1);
+      --on-accent: #ffffff;
+      --success: #0f7b0f;
+      --success-soft: rgba(15, 123, 15, 0.1);
+      --on-success: #ffffff;
+      --danger: #c42b1c;
+      --danger-soft: rgba(196, 43, 28, 0.1);
+      --on-danger: #ffffff;
+      --warning: #8a6100;
+      --warning-soft: rgba(196, 140, 0, 0.13);
+      --track: rgba(9, 30, 66, 0.09);
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 14px 34px -14px rgba(16, 24, 40, 0.2);
+      --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+      --hero: linear-gradient(130deg, #07549c 0%, #0a6fc2 48%, #2f9de8 100%);
+      --hero-text: #ffffff;
+      --blur: blur(28px) saturate(155%);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Inter", sans-serif;
+      --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, "Inter", sans-serif;
+    }
+    [data-theme="dark"] {
+      --bg: #1a1a1f;
+      --surface: rgba(255, 255, 255, 0.055);
+      --surface-2: rgba(255, 255, 255, 0.035);
+      --surface-3: rgba(255, 255, 255, 0.075);
+      --surface-solid: #2b2b2f;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-2: rgba(255, 255, 255, 0.17);
+      --hover: rgba(255, 255, 255, 0.07);
+      --text: #f4f5f7;
+      --text-2: #bdc3cc;
+      --text-3: #8f97a3;
+      --accent: #60cdff;
+      --accent-2: #38b6ea;
+      --accent-soft: rgba(96, 205, 255, 0.13);
+      --on-accent: #04263a;
+      --success: #6ccb5f;
+      --success-soft: rgba(108, 203, 95, 0.12);
+      --on-success: #0b2b0b;
+      --danger: #ff99a4;
+      --danger-soft: rgba(255, 153, 164, 0.12);
+      --on-danger: #3a0a0f;
+      --warning: #f5d76e;
+      --warning-soft: rgba(245, 215, 110, 0.12);
+      --track: rgba(255, 255, 255, 0.11);
+      --shadow: 0 2px 6px rgba(0, 0, 0, 0.28), 0 18px 44px -18px rgba(0, 0, 0, 0.55);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --hero: linear-gradient(130deg, #0a3355 0%, #0b4a72 50%, #0f6788 100%);
+      --hero-text: #f0fbff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    [hidden] {
+      display: none !important;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      min-height: 100vh;
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(900px 620px at 6% -12%, rgba(66, 146, 255, 0.22), transparent 62%),
+        radial-gradient(820px 560px at 102% -4%, rgba(150, 104, 255, 0.16), transparent 62%),
+        radial-gradient(900px 700px at 46% 112%, rgba(56, 196, 255, 0.17), transparent 66%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    [data-theme="dark"] body {
+      background-image:
+        radial-gradient(900px 620px at 6% -12%, rgba(32, 104, 190, 0.25), transparent 62%),
+        radial-gradient(820px 560px at 102% -4%, rgba(104, 62, 186, 0.2), transparent 62%),
+        radial-gradient(900px 700px at 46% 112%, rgba(0, 128, 168, 0.16), transparent 66%);
+    }
+    ::selection {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    button, input, select {
+      font: inherit;
+      color: inherit;
+    }
+    button {
+      cursor: pointer;
+    }
+    svg {
+      display: block;
+    }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---------- Layout ---------- */
+    .layout {
+      display: grid;
+      grid-template-columns: 275px minmax(0, 1fr);
+      gap: 18px;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 18px;
+      min-height: 100vh;
+    }
+    .main {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1;
+      padding-bottom: 26px;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 18px 14px 14px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 2px 6px 4px;
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: #fff;
+      background: linear-gradient(145deg, #107c41, #008272);
+      box-shadow: 0 6px 14px -6px rgba(16, 124, 65, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    [data-theme="dark"] .brand-icon {
+      color: var(--on-accent);
+      background: linear-gradient(145deg, #60cdff, #107c41);
+    }
+    .brand-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+    .brand-text strong {
+      font-family: var(--font-display);
+      font-size: 15.5px;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+    }
+    .brand-text span {
+      font-size: 11px;
+      color: var(--text-3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      overflow-y: auto;
+      flex: 1;
+      padding: 0 2px;
+    }
+    .nav-label {
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      padding: 12px 10px 5px;
+    }
+    .nav-label:first-child {
+      padding-top: 2px;
+    }
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      width: 100%;
+      padding: 8.5px 11px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 13.5px;
+      font-weight: 500;
+      text-align: left;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .nav-item svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      opacity: 0.9;
+    }
+    .nav-item:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+    .nav-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .nav-item.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 3px;
+      height: 16px;
+      border-radius: 2px;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+    .nav-badge {
+      margin-left: auto;
+      padding: 1px 7px;
+      border-radius: 20px;
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 10.5px;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+    .nav-item.active .nav-badge {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+    .sidebar-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 12px 6px 2px;
+      border-top: 1px solid var(--border);
+    }
+    .side-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 10px 11px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+    .side-progress-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-2);
+    }
+    .side-progress-row strong {
+      font-size: 12.5px;
+      color: var(--text);
+      font-weight: 650;
+    }
+    .bar {
+      height: 5px;
+      border-radius: 20px;
+      background: var(--track);
+      overflow: hidden;
+    }
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .side-note {
+      font-size: 10.5px;
+      color: var(--text-3);
+      text-align: center;
+      line-height: 1.45;
+      padding: 0 4px 2px;
+    }
+
+    /* ---------- Topbar ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 8px 14px;
+      margin: 0 -8px 14px;
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.3vw, 26px);
+      font-weight: 650;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      margin-top: 4px;
+    }
+    .page-desc {
+      margin-top: 3px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      max-width: 650px;
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex: none;
+      padding-bottom: 2px;
+    }
+    .icon-btn {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: none;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-2);
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .icon-btn:hover {
+      background: var(--hover);
+      color: var(--text);
+      border-color: var(--border-2);
+    }
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+    .sun { display: none; }
+    [data-theme="dark"] .sun { display: block; }
+    [data-theme="dark"] .moon { display: none; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease, filter 0.15s ease;
+    }
+    .btn:active:not(:disabled) { transform: translateY(1px); }
+    .btn:disabled { opacity: 0.42; cursor: default; }
+    .btn svg { width: 15px; height: 15px; }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--accent-2), var(--accent));
+      color: var(--on-accent);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+    .btn-primary:hover:not(:disabled) { filter: brightness(1.07); }
+    .btn-secondary {
+      background: var(--surface-2);
+      border-color: var(--border-2);
+      color: var(--text);
+    }
+    .btn-secondary:hover:not(:disabled) { background: var(--hover); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-2);
+      border-color: transparent;
+    }
+    .btn-ghost:hover:not(:disabled) { background: var(--hover); color: var(--text); }
+    .btn-danger {
+      background: var(--danger-soft);
+      border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+      color: var(--danger);
+    }
+    .btn-danger:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 18%, transparent); }
+    .btn-light {
+      background: #ffffff;
+      color: #09518c;
+      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.45);
+    }
+    .btn-light:hover:not(:disabled) { background: #f2f9ff; }
+    .btn-hero-ghost {
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.34);
+      color: #fff;
+      backdrop-filter: blur(8px);
+    }
+    .btn-hero-ghost:hover:not(:disabled) { background: rgba(255, 255, 255, 0.22); }
+    .btn.full { width: 100%; }
+
+    /* ---------- Cards & common ---------- */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+    }
+    .card-pad { padding: 22px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 9px;
+      border-radius: 20px;
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 10.5px;
+      font-weight: 600;
+      line-height: 1.7;
+      white-space: nowrap;
+    }
+    .chip.accent { background: var(--accent-soft); color: var(--accent); }
+    .chip.green { background: var(--success-soft); color: var(--success); }
+    .chip.red { background: var(--danger-soft); color: var(--danger); }
+    .chip.amber { background: var(--warning-soft); color: var(--warning); }
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .card-head h3, .card-head h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+    }
+    .card-head h4 { font-size: 14px; }
+    .sep { height: 1px; background: var(--border); margin: 14px 0; }
+
+    /* ---------- Dashboard ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 30px;
+      padding: 34px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: var(--hero);
+      color: var(--hero-text);
+      box-shadow: 0 24px 48px -26px rgba(0, 74, 148, 0.6);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(460px 280px at 82% 18%, rgba(255, 255, 255, 0.17), transparent 70%),
+        radial-gradient(360px 260px at 6% 108%, rgba(255, 255, 255, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-copy, .hero-progress { position: relative; z-index: 1; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.13);
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hero h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.4vw, 36px);
+      font-weight: 650;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 15px 0 10px;
+      max-width: 600px;
+    }
+    .hero-desc {
+      max-width: 560px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .hero-meta {
+      margin-top: 14px;
+      font-size: 11.5px;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    .hero-progress {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 11px;
+      flex: none;
+      padding-right: 6px;
+    }
+    .ring {
+      --p: 0;
+      display: grid;
+      place-items: center;
+      width: 134px;
+      height: 134px;
+      border-radius: 50%;
+      background: conic-gradient(#ffffff calc(var(--p) * 1%), rgba(255, 255, 255, 0.2) 0);
+      transition: --p 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 8px 28px -12px rgba(0, 0, 0, 0.45);
+    }
+    .ring-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: rgba(5, 39, 70, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      line-height: 1.15;
+    }
+    .ring-inner strong { font-family: var(--font-display); font-size: 25px; font-weight: 650; }
+    .ring-inner span { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255, 255, 255, 0.66); }
+    .hero-progress p { font-size: 11.5px; color: rgba(255, 255, 255, 0.72); text-align: center; }
+    .hero-progress p strong { color: #fff; font-weight: 650; }
+    .hero-deco {
+      position: absolute;
+      right: -62px;
+      bottom: -78px;
+      width: 300px;
+      height: 300px;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .stat {
+      padding: 16px 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .stat:hover { border-color: var(--border-2); transform: translateY(-2px); }
+    .stat-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .stat-label { font-size: 11.5px; font-weight: 500; color: var(--text-2); }
+    .stat-icon {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      flex: none;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .stat-icon svg { width: 16px; height: 16px; }
+    .stat-icon.green { background: var(--success-soft); color: var(--success); }
+    .stat-icon.amber { background: var(--warning-soft); color: var(--warning); }
+    .stat-icon.purple { background: rgba(138, 43, 226, 0.12); color: #8a2be2; }
+    .stat-value {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-family: var(--font-display);
+      font-size: 27px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .stat-value small { font-size: 12px; font-weight: 500; color: var(--text-3); letter-spacing: 0; }
+    .stat-foot { font-size: 10.5px; color: var(--text-3); }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .topic-list { display: flex; flex-direction: column; margin-top: 8px; }
+    .topic {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 2px;
+      border-bottom: 1px solid var(--border);
+    }
+    .topic:last-child { border-bottom: 0; padding-bottom: 2px; }
+    .topic-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      flex: none;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .topic:nth-child(2) .topic-icon { background: var(--success-soft); color: var(--success); }
+    .topic:nth-child(3) .topic-icon { background: var(--warning-soft); color: var(--warning); }
+    .topic:nth-child(4) .topic-icon { background: rgba(138, 43, 226, 0.12); color: #8a2be2; }
+    .topic-icon svg { width: 17px; height: 17px; }
+    .topic-body { min-width: 0; flex: 1; }
+    .topic-body strong { display: block; font-size: 13px; font-weight: 600; line-height: 1.45; }
+    .topic-body p { font-size: 11.5px; color: var(--text-3); line-height: 1.5; margin-top: 2px; }
+
+    .tips { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    .tip { display: flex; gap: 10px; font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
+    .tip-num {
+      display: grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      flex: none;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 10.5px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .plan { margin-top: 14px; }
+    .plan-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(80px, 1fr) auto auto;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .plan-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-size: 13px;
+      font-weight: 550;
+    }
+    .plan-name svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
+    .plan-name span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .plan-count { font-size: 11.5px; color: var(--text-3); min-width: 48px; text-align: right; }
+    .plan .btn { height: 31px; font-size: 12px; padding: 0 12px; }
+
+    /* ---------- Quiz toolbar ---------- */
+    .quiz-toolbar {
+      position: relative;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      padding: 13px 18px;
+      margin-bottom: 14px;
+      overflow: visible;
+    }
+    .toolbar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 210px;
+    }
+    .toolbar-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+    .toolbar-sub { font-size: 11.5px; color: var(--text-3); }
+    .toolbar-bar { width: 100%; max-width: 340px; height: 4px; }
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      overflow: visible;
+    }
+    /* ---------- Fluent Combobox Dropdown ---------- */
+    select.filter-select {
+      display: none !important;
+    }
+    .fluent-combobox {
+      position: relative;
+      display: inline-block;
+      user-select: none;
+      z-index: auto;
+    }
+    .fluent-combobox.open {
+      z-index: 2000;
+    }
+    .combobox-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      height: 34px;
+      padding: 0 11px 0 13px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 550;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+    }
+    .combobox-trigger:hover {
+      background: var(--hover);
+      border-color: var(--border-2);
+    }
+    .combobox-trigger:focus-visible,
+    .fluent-combobox.open .combobox-trigger {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+      outline: none;
+    }
+    .combobox-label {
+      max-width: 175px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+    .combobox-chevron {
+      width: 13px;
+      height: 13px;
+      flex: none;
+      color: var(--text-3);
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.15s ease;
+    }
+    .fluent-combobox.open .combobox-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+    .combobox-menu {
+      position: absolute;
+      top: calc(100% + 5px);
+      right: 0;
+      z-index: 9999;
+      min-width: 100%;
+      width: max-content;
+      max-width: 290px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 4px;
+      border-radius: 8px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border-2);
+      box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.1);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      animation: combobox-pop 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    [data-theme="dark"] .combobox-menu {
+      background: #25262c;
+      box-shadow: 0 14px 34px -6px rgba(0, 0, 0, 0.65), 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+    @keyframes combobox-pop {
+      from { opacity: 0; transform: translateY(-4px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .combobox-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 11px;
+      border-radius: 5px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+    }
+    .combobox-item:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+    .combobox-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .combobox-check {
+      width: 13px;
+      height: 13px;
+      flex: none;
+      color: var(--accent);
+      opacity: 0;
+    }
+    .combobox-item.active .combobox-check {
+      opacity: 1;
+    }
+    .switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-2);
+      cursor: pointer;
+      user-select: none;
+    }
+    .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .switch-track {
+      position: relative;
+      width: 38px;
+      height: 20px;
+      flex: none;
+      border-radius: 20px;
+      background: var(--track);
+      border: 1px solid var(--border-2);
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .switch-thumb {
+      position: absolute;
+      top: 50%;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--text-2);
+      transform: translateY(-50%);
+      transition: left 0.18s ease, width 0.18s ease, background 0.18s ease;
+    }
+    .switch input:checked + .switch-track { background: var(--accent); border-color: transparent; }
+    .switch input:checked + .switch-track .switch-thumb { left: 21px; background: var(--on-accent); }
+    .switch input:focus-visible + .switch-track { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ---------- Quiz Layout ---------- */
+    .quiz-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 292px;
+      align-items: start;
+      gap: 14px;
+    }
+    .question-card {
+      padding: 26px 28px;
+      scroll-margin-top: 96px;
+    }
+    .q-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .q-eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .q-title {
+      font-family: var(--font-display);
+      font-size: clamp(17.5px, 2vw, 20.5px);
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      margin: 12px 0 20px;
+      text-wrap: pretty;
+    }
+    .options { display: flex; flex-direction: column; gap: 9px; }
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+    }
+    .option:hover:not(:disabled) { background: var(--hover); border-color: var(--border-2); }
+    .option:active:not(:disabled) { transform: scale(0.996); }
+    .option:disabled { cursor: default; }
+    .option .letter {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      flex: none;
+      margin-top: 1px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface-3);
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 650;
+    }
+    .option-text { flex: 1; min-width: 0; }
+    .option-mark { flex: none; align-self: center; font-size: 15px; font-weight: 700; line-height: 1; }
+    .option.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+    .option.selected .letter { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+    .option.correct {
+      border-color: var(--success);
+      background: var(--success-soft);
+      box-shadow: inset 0 0 0 1px var(--success);
+    }
+    .option.correct .letter { background: var(--success); border-color: transparent; color: var(--on-success); }
+    .option.correct .option-mark { color: var(--success); }
+    .option.wrong {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+      box-shadow: inset 0 0 0 1px var(--danger);
+    }
+    .option.wrong .letter { background: var(--danger); border-color: transparent; color: var(--on-danger); }
+    .option.wrong .option-mark { color: var(--danger); }
+    .option.muted { opacity: 0.52; }
+
+    .feedback {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 15px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .feedback-icon {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      flex: none;
+      margin-top: 1px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .feedback-body { min-width: 0; }
+    .feedback-body strong { font-weight: 650; }
+    .feedback.success { background: var(--success-soft); border-color: color-mix(in srgb, var(--success) 34%, transparent); }
+    .feedback.success .feedback-icon { background: var(--success); color: var(--on-success); }
+    .feedback.success strong { color: var(--success); }
+    .feedback.danger { background: var(--danger-soft); border-color: color-mix(in srgb, var(--danger) 34%, transparent); }
+    .feedback.danger .feedback-icon { background: var(--danger); color: var(--on-danger); }
+    .feedback.danger strong { color: var(--danger); }
+    .feedback-note {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .q-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .q-actions-right { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-left: auto; }
+    .shake { animation: shake 0.34s ease; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    /* ---------- Side panel ---------- */
+    .quiz-side { display: flex; flex-direction: column; gap: 12px; }
+    .navigator { padding: 18px; }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 5px;
+      max-height: 340px;
+      overflow-y: auto;
+      padding-right: 2px;
+      margin-top: 12px;
+    }
+    .nav-cell {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 11px;
+      font-weight: 600;
+      transition: background 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+    }
+    .nav-cell:hover { border-color: var(--border-2); background: var(--hover); }
+    .nav-cell.done-correct {
+      background: var(--success-soft);
+      color: var(--success);
+      border-color: color-mix(in srgb, var(--success) 28%, transparent);
+    }
+    .nav-cell.done-wrong {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border-color: color-mix(in srgb, var(--danger) 28%, transparent);
+    }
+    .nav-cell.done-partial {
+      background: var(--warning-soft);
+      color: var(--warning);
+      border-color: color-mix(in srgb, var(--warning) 28%, transparent);
+    }
+    .nav-cell.current { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 8px;
+      margin-top: 13px;
+      font-size: 10.5px;
+      color: var(--text-3);
+    }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-2);
+    }
+    .legend i.ok { background: var(--success-soft); border-color: var(--success); }
+    .legend i.bad { background: var(--danger-soft); border-color: var(--danger); }
+    .legend i.now { background: transparent; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .mini-score {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 14px;
+      padding-top: 13px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .mini-score div { display: flex; flex-direction: column; gap: 1px; }
+    .mini-score span { font-size: 10px; color: var(--text-3); }
+    .mini-score strong { font-family: var(--font-display); font-size: 16px; font-weight: 650; }
+    .mini-score div:nth-child(1) strong { color: var(--success); }
+    .mini-score div:nth-child(2) strong { color: var(--danger); }
+    .shortcut-card { padding: 16px 18px; }
+    .shortcut { display: flex; align-items: center; gap: 6px; margin-top: 9px; font-size: 11px; color: var(--text-3); }
+    .shortcut span { margin-left: auto; text-align: right; }
+    kbd {
+      display: inline-grid;
+      place-items: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      border-radius: 4px;
+      border: 1px solid var(--border-2);
+      border-bottom-width: 2px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    /* ---------- True / False ---------- */
+    .tf-intro { margin: 10px 0 17px; font-size: 14px; line-height: 1.65; color: var(--text-2); }
+    .tf-list { display: flex; flex-direction: column; gap: 9px; }
+    .tf-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 18px;
+      flex-wrap: wrap;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .tf-row.ok {
+      border-color: color-mix(in srgb, var(--success) 30%, transparent);
+      background: color-mix(in srgb, var(--success-soft) 55%, var(--surface-2));
+    }
+    .tf-row.bad {
+      border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+      background: color-mix(in srgb, var(--danger-soft) 55%, var(--surface-2));
+    }
+    .tf-text { display: flex; gap: 9px; flex: 1; min-width: 230px; font-size: 13.5px; line-height: 1.55; }
+    .tf-letter { flex: none; font-weight: 700; color: var(--accent); }
+    .tf-controls { display: flex; align-items: center; gap: 9px; flex: none; }
+    .segmented {
+      display: inline-flex;
+      gap: 2px;
+      padding: 2px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-3);
+    }
+    .seg {
+      padding: 5px 13px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 600;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .seg:hover:not(:disabled) { color: var(--text); }
+    .seg.sel { background: var(--accent); color: var(--on-accent); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16); }
+    .seg.correct { background: var(--success); color: var(--on-success); }
+    .seg.wrong { background: var(--danger); color: var(--on-danger); }
+    .seg:disabled { cursor: default; }
+    .tf-status {
+      display: grid;
+      place-items: center;
+      width: 23px;
+      height: 23px;
+      flex: none;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .tf-status.ok { background: var(--success-soft); color: var(--success); }
+    .tf-status.bad { background: var(--danger-soft); color: var(--danger); }
+    .tf-nav { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; max-height: 330px; overflow-y: auto; padding-right: 2px; }
+    .tf-dot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 11px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 550;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .tf-dot:hover { background: var(--hover); border-color: var(--border-2); }
+    .tf-dot.current { box-shadow: 0 0 0 2px var(--accent); border-color: transparent; }
+    .tf-dot .score { font-size: 10.5px; color: var(--text-3); font-weight: 600; }
+    .tf-dot.done .score { color: var(--success); }
+    .tf-explain-box {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: var(--surface-3);
+      font-size: 11.5px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    /* ---------- Short Answer view ---------- */
+    .short-input-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0 10px;
+      flex-wrap: wrap;
+    }
+    .short-input {
+      flex: 1;
+      min-width: 200px;
+      height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      font-size: 14.5px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .short-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--surface);
+    }
+    .short-input:disabled { opacity: 0.65; }
+
+    /* ---------- Essay view ---------- */
+    .essay-card {
+      padding: 24px;
+      margin-bottom: 14px;
+    }
+    .essay-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .essay-q {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .essay-toggle-btn {
+      margin-bottom: 14px;
+    }
+    .essay-answer-box {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .essay-answer-box h4 {
+      font-size: 14px;
+      font-weight: 650;
+      margin: 10px 0 6px;
+      color: var(--accent);
+    }
+    .essay-answer-box h4:first-child { margin-top: 0; }
+    .essay-answer-box ul { padding-left: 20px; margin: 6px 0; }
+    .essay-answer-box li { margin-bottom: 4px; }
+
+    /* ---------- Bank ---------- */
+    .bank-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .search {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+    .search svg {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      color: var(--text-3);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .search input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px 0 35px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search input::placeholder { color: var(--text-3); }
+    .search input:hover { border-color: var(--border-2); }
+    .search input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--surface);
+    }
+    .filter-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+    .filter-chip {
+      height: 32px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 550;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .filter-chip:hover { border-color: var(--border-2); }
+    .filter-chip.active { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+    .bank-count { font-size: 11.5px; color: var(--text-3); margin: 0 2px 10px; }
+    .bank-list { display: flex; flex-direction: column; gap: 10px; }
+    .bank-item { padding: 18px 20px; }
+    .bank-item-head { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .bank-item-head .chip { max-width: 100%; white-space: normal; }
+    .bank-q {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.55;
+      margin: 9px 0 12px;
+      text-wrap: pretty;
+    }
+    .bank-options { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 10px; }
+    .bank-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 9px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+    .bank-option .letter { flex: none; font-size: 11px; font-weight: 700; color: var(--text-3); min-width: 13px; }
+    .bank-option.correct { background: var(--success-soft); color: var(--text); }
+    .bank-option.correct .letter { color: var(--success); }
+    .bank-tf-list { display: flex; flex-direction: column; gap: 5px; }
+    .bank-tf {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: var(--surface-2);
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+    .bank-tf .tf-letter { font-size: 11px; }
+    .bank-note {
+      margin-top: 9px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: var(--warning-soft);
+      color: var(--text-2);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+    .empty { padding: 42px 20px; text-align: center; color: var(--text-3); font-size: 13px; }
+    .empty svg { width: 34px; height: 34px; margin: 0 auto 10px; opacity: 0.5; }
+
+    /* ---------- Dialog & toast ---------- */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(8, 14, 24, 0.42);
+      backdrop-filter: blur(5px);
+      animation: fade-in 0.16s ease;
+    }
+    .dialog {
+      width: min(420px, 100%);
+      padding: 24px;
+      border-radius: 12px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.5);
+      animation: pop-in 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .dialog-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--danger-soft);
+      color: var(--danger);
+      margin-bottom: 12px;
+    }
+    .dialog-icon svg { width: 19px; height: 19px; }
+    .dialog h3 { font-family: var(--font-display); font-size: 18px; font-weight: 650; }
+    .dialog p { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--text-2); }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      z-index: 120;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.35);
+      font-size: 12.5px;
+      color: var(--text);
+      transform: translateX(-50%);
+      animation: toast-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      max-width: calc(100vw - 32px);
+    }
+    .toast svg { width: 16px; height: 16px; flex: none; color: var(--accent); }
+    @keyframes toast-in {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ---------- Views ---------- */
+    .view { display: none; }
+    .view.active { display: block; animation: view-in 0.28s cubic-bezier(0.2, 0.7, 0.2, 1); }
+    @keyframes view-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-tabs { display: none; }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 4px 4px;
+      margin-top: 6px;
+      border-top: 1px solid var(--border);
+      font-size: 10.5px;
+      color: var(--text-3);
+    }
+    .footer span { display: inline-flex; align-items: center; gap: 6px; }
+    .footer svg { width: 13px; height: 13px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1180px) {
+      .quiz-layout { grid-template-columns: minmax(0, 1fr) 260px; }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 1000px) {
+      .layout { display: block; padding: 0 12px 22px; }
+      .sidebar { display: none; }
+      .topbar {
+        position: static;
+        padding: 16px 4px 10px;
+        margin: 0 0 4px;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: 0;
+      }
+      .mobile-tabs {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        padding: 7px;
+        margin-bottom: 13px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        backdrop-filter: blur(18px) saturate(150%);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        scrollbar-width: none;
+      }
+      .mobile-tabs::-webkit-scrollbar { display: none; }
+      .mobile-tabs .nav-item { width: auto; flex: none; padding: 7px 11px; font-size: 12.5px; white-space: nowrap; }
+      .mobile-tabs .nav-item.active::before { display: none; }
+      .mobile-tabs .nav-item svg { width: 16px; height: 16px; }
+      .mobile-tabs .nav-badge { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 28px 26px; gap: 22px; }
+      .hero-progress { flex-direction: row; align-items: center; gap: 16px; padding: 0; }
+      .ring { width: 90px; height: 90px; }
+      .ring-inner { width: 72px; height: 72px; }
+      .ring-inner strong { font-size: 18px; }
+      .ring-inner span { font-size: 8.5px; }
+      .hero-progress p { text-align: left; }
+      .quiz-layout { grid-template-columns: 1fr; }
+      .quiz-side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+      .shortcut-card { display: none; }
+      .navigator { grid-column: 1 / -1; }
+      .nav-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 26px; }
+      .hero-desc { font-size: 12.5px; }
+      .plan-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; }
+      .plan-row .bar { grid-column: 1 / -1; order: 3; }
+      .plan-count { text-align: right; }
+      .plan-row .btn { grid-column: 2; grid-row: 1; }
+      .bank-options { grid-template-columns: 1fr; }
+      .question-card { padding: 20px 18px; }
+      .q-title { font-size: 17.5px; }
+      .option { padding: 11px 12px; font-size: 13.5px; }
+      .tf-row { align-items: flex-start; }
+      .tf-controls { width: 100%; justify-content: flex-end; }
+      .page-desc { display: none; }
+      .top-cta { display: none; }
+      .topbar { align-items: center; }
+      .stats-grid { gap: 9px; }
+      .stat { padding: 13px 14px; }
+      .stat-value { font-size: 23px; }
+      .combobox-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: calc(100vw - 28px);
+        width: auto;
+      }
+      @keyframes combobox-pop {
+        from { opacity: 0; transform: translate(-50%, -4px) scale(0.97); }
+        to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+      }
+    }
+    @media (max-width: 520px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 24px 20px; }
+      .hero-actions .btn { flex: 1; min-width: 140px; }
+      .toolbar-right { gap: 8px; }
+      .toolbar-right .switch span { display: none; }
+      .quiz-side { grid-template-columns: 1fr; }
+      .nav-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+      .q-actions .btn { flex: 1; }
+      .q-actions-right { width: 100%; }
+      .q-actions-right .btn { flex: 1; }
+      .bank-toolbar { gap: 9px; }
+      .bank-item { padding: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ---------- Reading passage ---------- */
+    .passage-box {
+      margin: 2px 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface-3);
+      overflow: hidden;
+    }
+    .passage-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 11px 14px;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      color: var(--text);
+    }
+    .passage-head:hover { background: var(--hover); }
+    .passage-kicker {
+      flex: none;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 3px 8px;
+    }
+    .passage-head strong {
+      flex: 1;
+      min-width: 0;
+      font-size: 13.5px;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+    .passage-chevron {
+      flex: none;
+      width: 17px;
+      height: 17px;
+      color: var(--text-3);
+      transition: transform 0.2s ease;
+    }
+    .passage-box.collapsed .passage-chevron { transform: rotate(-90deg); }
+    .passage-box.collapsed .passage-body { display: none; }
+    .passage-body {
+      max-height: 340px;
+      overflow: auto;
+      padding: 0 16px 15px;
+      border-top: 1px solid var(--border);
+    }
+    .passage-body p {
+      margin: 11px 0 0;
+      font-size: 13.5px;
+      line-height: 1.72;
+      color: var(--text-2);
+    }
+    .passage-body p:first-child { margin-top: 12px; }
+    .passage-body p:last-child { margin-bottom: 0; }
+    .bank-passage { margin: 8px 0 12px; }
+    .bank-passage summary {
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      user-select: none;
+    }
+    .bank-passage-body {
+      margin-top: 8px;
+      padding: 10px 13px;
+      max-height: 280px;
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-3);
+    }
+    .bank-passage-body p {
+      margin: 0 0 9px;
+      font-size: 12.50px;
+      line-height: 1.65;
+      color: var(--text-2);
+    }
+    .bank-passage-body p:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Điều hướng chính">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
+            <path d="M12 6v12"></path>
+            <path d="M16 10l-4-4-4 4"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Tiếng Anh 11</strong>
+          <span>Ôn tập Giữa kì 1</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <p class="nav-label">Học tập</p>
+        <button class="nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 21v-7h6v7"></path></svg>
+          <span>Tổng quan</span>
+        </button>
+        <button class="nav-item" data-view="mcq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path><path d="M8 15h8"></path></svg>
+          <span>Đọc hiểu &amp; điền từ</span>
+          <span class="nav-badge">120</span>
+        </button>
+        <button class="nav-item" data-view="essay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+          <span>Viết lại câu</span>
+          <span class="nav-badge">30</span>
+        </button>
+        <p class="nav-label">Tra cứu</p>
+        <button class="nav-item" data-view="bank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+          <span>Ngân hàng câu hỏi</span>
+          <span class="nav-badge">150</span>
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="side-progress">
+          <div class="side-progress-row"><span>Tiến độ tổng</span><strong id="sidePct">0%</strong></div>
+          <div class="bar"><span id="sideBar"></span></div>
+          <div class="side-progress-row"><span id="sideDone">0 / 150 câu</span><span>đã hoàn thành</span></div>
+        </div>
+        <button class="btn btn-ghost full" id="sideReset" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+          Đặt lại tiến độ
+        </button>
+        <p class="side-note">Tiến độ được tự động lưu trên trình duyệt của bạn</p>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="crumb">Tiếng Anh 11 &bull; Ôn tập Giữa kì 1</p>
+          <h1 class="page-title" id="pageTitle">Tổng quan ôn tập</h1>
+          <p class="page-desc" id="pageDesc">Hệ thống 150 câu hỏi đề cương Giữa kì 1: 120 câu đọc hiểu &amp; điền từ, 30 câu viết lại.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="Đổi giao diện sáng / tối" title="Đổi giao diện sáng / tối">
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          </button>
+          <button class="btn btn-primary top-cta" type="button" data-go="mcq">Luyện đọc hiểu</button>
+        </div>
+      </header>
+
+      <nav class="mobile-tabs" aria-label="Điều hướng trên thiết bị di động">
+        <button class="nav-item active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 21v-7h6v7"></path></svg>
+          <span>Tổng quan</span>
+        </button>
+        <button class="nav-item" data-view="mcq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path></svg>
+          <span>Đọc hiểu</span>
+        </button>
+        <button class="nav-item" data-view="essay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+          <span>Viết lại</span>
+        </button>
+        <button class="nav-item" data-view="bank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle></svg>
+          <span>Ngân hàng</span>
+        </button>
+      </nav>
+      <main class="content">
+        <!-- Dashboard -->
+        <section class="view active" id="view-dashboard">
+          <div class="hero card">
+            <div class="hero-copy">
+              <div class="hero-badges">
+                <span class="hero-badge">Đề cương chuẩn</span>
+                <span class="hero-badge">150 câu hỏi</span>
+                <span class="hero-badge">4 Reading + 3 Writing</span>
+              </div>
+              <h2>Ôn tập Tiếng Anh 11<br />Giữa Học Kỳ I</h2>
+              <p class="hero-desc">Hệ thống đầy đủ 150 câu hỏi từ đề cương chính thức: 4 phần Reading (20 bài đọc, 120 câu trắc nghiệm &amp; điền từ) và 3 phần Writing (30 câu viết lại). Làm bài và đối chiếu đáp án chi tiết tức thì.</p>
+              <div class="hero-actions">
+                <button class="btn btn-light" type="button" data-go="mcq">
+                  Bắt đầu Đọc hiểu (120 câu)
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+                </button>
+                <button class="btn btn-hero-ghost" type="button" data-go="essay">Luyện viết lại câu (30 câu)</button>
+                <button class="btn btn-hero-ghost" type="button" data-go="bank">Ngân hàng 150 câu</button>
+              </div>
+              <p class="hero-meta">120 Trắc nghiệm đọc hiểu &amp; điền từ &bull; 30 Viết lại câu &bull; Đáp án chi tiết</p>
+            </div>
+            <div class="hero-progress">
+              <div class="ring" id="heroRing" aria-hidden="true">
+                <div class="ring-inner">
+                  <strong id="heroPct">0%</strong>
+                  <span>hoàn thành</span>
+                </div>
+              </div>
+              <p>Đã làm <strong id="heroDone">0</strong> / 150 câu</p>
+            </div>
+            <svg class="hero-deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Tổng câu đã làm</span>
+                <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statDone">0</span><small>/ 150</small></div>
+              <p class="stat-foot">câu hỏi trên toàn bộ hệ thống</p>
+            </article>
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Độ chính xác TN</span>
+                <span class="stat-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg></span>
+              </div>
+              <div class="stat-value"><span id="statAcc">&mdash;</span></div>
+              <p class="stat-foot">tính trên phần đọc hiểu đã làm</p>
+            </article>
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Đọc hiểu đã làm</span>
+                <span class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statMcqDone">0</span><small>/ 120</small></div>
+              <p class="stat-foot">câu trắc nghiệm &amp; điền từ</p>
+            </article>
+            <article class="stat card">
+              <div class="stat-top">
+                <span class="stat-label">Viết lại đã nắm</span>
+                <span class="stat-icon purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+              </div>
+              <div class="stat-value"><span id="statEssay">0</span><small>/ 30</small></div>
+              <p class="stat-foot">câu viết lại đã đánh dấu hiểu</p>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Cấu trúc đề cương</p>
+                  <h3 style="margin-top: 4px">4 phần Reading &amp; 3 phần Writing</h3>
+                </div>
+                <span class="chip">150 câu</span>
+              </div>
+              <div class="topic-list">
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Reading 1 — Family, City &amp; Lifestyle (35 câu)</strong>
+                    <p>Nuclear &amp; extended family, Superstar City, Urban cities &amp; IoT, Healthy lifestyle, The last mile problem.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Reading 2 — Cloze: Food, Cities &amp; Family (25 câu)</strong>
+                    <p>Organic food, Smart cities transformation, Predictions about cities, Modern parenting, Generation gap.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg></span>
+                  <div class="topic-body">
+                    <strong>Reading 3 — Cloze: Health, Family &amp; Cities (30 câu)</strong>
+                    <p>Small daily choices, Bridging the divide, Smart living, Nourishing your body, Eco-friendly transportation.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Reading 4 — Cloze: Health, School &amp; Environment (30 câu)</strong>
+                    <p>Health and fitness, Teacher-student generation gap, Cities of the future, Green revolution, Cross-generational magic.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Writing 1 — Tenses &amp; Structures (10 câu)</strong>
+                    <p>Viết lại câu với thì hiện tại hoàn thành, so sánh và các cấu trúc tương đương.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Writing 2 — Modal Verbs (10 câu)</strong>
+                    <p>must, mustn’t, have to, should, shouldn’t và cách diễn đạt nghĩa tương đương.</p>
+                  </div>
+                </div>
+                <div class="topic">
+                  <span class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h7"></path></svg></span>
+                  <div class="topic-body">
+                    <strong>Writing 3 — Stative / Linking Verbs (10 câu)</strong>
+                    <p>belong to, think of, seem, have, feel, fan of và các động từ trạng thái / nối.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <p class="eyebrow">Chiến lược học tập</p>
+                  <h3 style="margin-top: 4px">Kinh nghiệm làm đề Tiếng Anh 11</h3>
+                </div>
+                <span class="chip accent">Chuẩn đề cương</span>
+              </div>
+              <div class="tips">
+                <div class="tip"><span class="tip-num">1</span><span><strong>Reading:</strong> Đọc câu hỏi trước, gạch chân từ khóa rồi quay lại đoạn văn tìm bằng chứng. Không dựa vào kiến thức bên ngoài.</span></div>
+                <div class="tip"><span class="tip-num">2</span><span><strong>Cloze:</strong> Đọc trọn cả câu, xác định loại từ và cấu trúc ngữ pháp, sau đó loại phương án sai nghĩa hoặc sai collocation.</span></div>
+                <div class="tip"><span class="tip-num">3</span><span><strong>Writing:</strong> Nhận diện dấu hiệu thì / cấu trúc, giữ nguyên nghĩa, chú ý chủ ngữ và dạng động từ sau khi viết lại.</span></div>
+                <div class="tip"><span class="tip-num">4</span><span><strong>Sử dụng phím tắt:</strong> Bấm <kbd>1</kbd>&ndash;<kbd>4</kbd> để chọn đáp án và <kbd>Enter</kbd> để kiểm tra / chuyển câu nhanh.</span></div>
+              </div>
+              <div class="sep"></div>
+              <button class="btn btn-secondary full" type="button" id="dashBrowse">Tra cứu toàn bộ 150 câu hỏi</button>
+            </section>
+          </div>
+
+          <section class="card card-pad plan">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">Tiến độ theo dạng</p>
+                <h3 style="margin-top: 4px">Các phần kiểm tra</h3>
+              </div>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="m8.5 9 1.8 1.8L14 7"></path></svg>
+                <span>Reading &mdash; Đọc hiểu &amp; điền từ</span>
+              </div>
+              <div class="bar"><span id="barMcq"></span></div>
+              <span class="plan-count" id="countMcq">0 / 120</span>
+              <button class="btn btn-secondary" type="button" data-go="mcq">Ôn ngay</button>
+            </div>
+            <div class="plan-row">
+              <div class="plan-name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                <span>Writing &mdash; Viết lại câu</span>
+              </div>
+              <div class="bar"><span id="barEssay"></span></div>
+              <span class="plan-count" id="countEssay">0 / 30</span>
+              <button class="btn btn-secondary" type="button" data-go="essay">Ôn ngay</button>
+            </div>
+          </section>
+        </section>
+
+        <!-- Trắc nghiệm (MCQ) -->
+        <section class="view" id="view-mcq">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent" id="mcqChip">Câu 1 / 120</span>
+                <span class="toolbar-sub" id="mcqLessonName">Reading 1 · Passage 1: Nuclear Family &amp; Extended Family</span>
+              </div>
+              <div class="bar toolbar-bar"><span id="mcqBar"></span></div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="mcqLessonFilter" aria-label="Lọc theo phần đọc hiểu">
+                <option value="all">Tất cả các phần (120 câu)</option>
+                <option value="1">Reading 1: Family, City &amp; Lifestyle (35 câu)</option>
+                <option value="2">Reading 2: Cloze – Food, Cities &amp; Family (25 câu)</option>
+                <option value="3">Reading 3: Cloze – Health, Family &amp; Cities (30 câu)</option>
+                <option value="4">Reading 4: Cloze – Health, School &amp; Environment (30 câu)</option>
+              </select>
+              <label class="switch">
+                <input type="checkbox" id="mcqShuffleQ" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn câu</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" id="mcqShuffleA" />
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+                <span>Xáo trộn đáp án</span>
+              </label>
+              <button class="icon-btn" type="button" id="mcqRestart" title="Làm lại phần trắc nghiệm" aria-label="Làm lại phần trắc nghiệm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4"></path><path d="M3 4v5h5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-layout">
+            <article class="card question-card" id="mcqCard">
+              <div class="q-top">
+                <span class="q-eyebrow" id="mcqEyebrow">Câu hỏi 1</span>
+                <span class="chip" id="mcqType">Trắc nghiệm</span>
+              </div>
+              <div class="passage-box" id="mcqPassageBox" hidden>
+                <button class="passage-head" id="mcqPassageToggle" type="button" aria-expanded="true" aria-controls="mcqPassageBody">
+                  <span class="passage-kicker">Đoạn văn</span>
+                  <strong id="mcqPassageTitle"></strong>
+                  <svg class="passage-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+                </button>
+                <div class="passage-body" id="mcqPassageBody"></div>
+              </div>
+              <h2 class="q-title" id="mcqTitle"></h2>
+              <div class="options" id="mcqOptions"></div>
+              <div class="feedback" id="mcqFeedback" hidden></div>
+              <div class="q-actions">
+                <button class="btn btn-secondary" type="button" id="mcqPrev">&larr; Câu trước</button>
+                <div class="q-actions-right">
+                  <button class="btn btn-ghost" type="button" id="mcqUndo" hidden>Làm lại</button>
+                  <button class="btn btn-primary" type="button" id="mcqCheck">Kiểm tra</button>
+                  <button class="btn btn-secondary" type="button" id="mcqNext">Câu tiếp &rarr;</button>
+                </div>
+              </div>
+            </article>
+
+            <aside class="quiz-side">
+              <div class="card navigator">
+                <div class="card-head">
+                  <h4>Bảng câu hỏi</h4>
+                  <span class="chip" id="mcqNavStat">0 / 120</span>
+                </div>
+                <div class="nav-grid" id="mcqNavGrid"></div>
+                <div class="legend">
+                  <span><i></i>Chưa làm</span>
+                  <span><i class="ok"></i>Đúng</span>
+                  <span><i class="bad"></i>Sai</span>
+                  <span><i class="now"></i>Đang xem</span>
+                </div>
+                <div class="mini-score">
+                  <div><span>Đúng</span><strong id="mcqCorrect">0</strong></div>
+                  <div><span>Sai</span><strong id="mcqWrong">0</strong></div>
+                  <div><span>Còn lại</span><strong id="mcqLeft">120</strong></div>
+                </div>
+              </div>
+              <div class="card shortcut-card">
+                <h4 style="font-size: 13px; font-weight: 650">Phím tắt nhanh</h4>
+                <div class="shortcut"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><span>chọn đáp án A, B, C, D</span></div>
+                <div class="shortcut"><kbd>Enter</kbd><span>kiểm tra / câu tiếp theo</span></div>
+                <div class="shortcut"><kbd>&larr;</kbd><kbd>&rarr;</kbd><span>chuyển câu trước / sau</span></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Viết lại câu (Essay) -->
+        <section class="view" id="view-essay">
+          <div class="quiz-toolbar card">
+            <div class="toolbar-left">
+              <div class="toolbar-title">
+                <span class="chip accent">Viết lại câu</span>
+                <span class="toolbar-sub">30 câu hỏi &bull; Đáp án chi tiết</span>
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <select class="filter-select" id="essayLessonFilter" aria-label="Lọc theo phần viết lại">
+                <option value="all">Tất cả các phần (30 câu)</option>
+                <option value="5">Writing 1: Tenses &amp; Structures (10 câu)</option>
+                <option value="6">Writing 2: Modal Verbs (10 câu)</option>
+                <option value="7">Writing 3: Stative / Linking Verbs (10 câu)</option>
+              </select>
+              <button class="btn btn-secondary" type="button" id="essayToggleAll">Hiện tất cả đáp án</button>
+            </div>
+          </div>
+
+          <div id="essayList"></div>
+        </section>
+
+        <!-- Ngân hàng câu hỏi (Bank) -->
+        <section class="view" id="view-bank">
+          <div class="bank-toolbar card">
+            <label class="search">
+              <span class="sr-only">Tìm câu hỏi</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+              <input type="search" id="bankSearch" placeholder="Tìm theo nội dung câu hỏi, từ khóa tiếng Anh..." autocomplete="off" />
+            </label>
+            <div class="filter-chips" id="bankTypeFilters">
+              <button class="filter-chip active" type="button" data-type="all">Tất cả (150)</button>
+              <button class="filter-chip" type="button" data-type="mcq">Đọc hiểu &amp; điền từ (120)</button>
+              <button class="filter-chip" type="button" data-type="essay">Viết lại câu (30)</button>
+            </div>
+            <select class="filter-select" id="bankLessonFilter" aria-label="Lọc theo phần">
+              <option value="all">Mọi phần học</option>
+              <option value="1">Reading 1: Family, City &amp; Lifestyle</option>
+              <option value="2">Reading 2: Cloze – Food, Cities &amp; Family</option>
+              <option value="3">Reading 3: Cloze – Health, Family &amp; Cities</option>
+              <option value="4">Reading 4: Cloze – Health, School &amp; Environment</option>
+              <option value="5">Writing 1: Tenses &amp; Structures</option>
+              <option value="6">Writing 2: Modal Verbs</option>
+              <option value="7">Writing 3: Stative / Linking Verbs</option>
+            </select>
+            <label class="switch">
+              <input type="checkbox" id="bankShowAns" />
+              <span class="switch-track"><span class="switch-thumb"></span></span>
+              <span>Hiện đáp án</span>
+            </label>
+          </div>
+          <p class="bank-count" id="bankCount"></p>
+          <div class="bank-list" id="bankList"></div>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Đề cương ôn tập Tiếng Anh 11 &bull; Nguồn: DE.txt &amp; DAPAN.txt
+        </span>
+        <span>Thiết kế theo chuẩn Fluent Design &bull; Tương thích mọi thiết bị</span>
+      </footer>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+      <div class="dialog-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v5M14 11v5"></path></svg>
+      </div>
+      <h3 id="dialogTitle">Đặt lại toàn bộ tiến độ?</h3>
+      <p id="dialogBody">Toàn bộ câu đã làm ở phần Đọc hiểu và đánh dấu Viết lại sẽ được xóa trắng khỏi thiết bị này.</p>
+      <div class="dialog-actions">
+        <button class="btn btn-secondary" type="button" id="dialogCancel">Hủy</button>
+        <button class="btn btn-danger" type="button" id="dialogConfirm">Đặt lại</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+    <span id="toastText"></span>
+  </div>
+
+  <script>
+    "use strict";
+
+    /* ===== DỮ LIỆU TIẾNG ANH 11: DE.txt + DAPAN.txt ===== */
+    const PASSAGES = {"r1p1":{"title":"Nuclear Family & Extended Family","paras":["The difference between the nuclear family and the extended family is that a nuclear family refers to a single basic family unit of parents and their children, whereas the extended family refers to their relatives such as grandparents, in-laws, aunts and uncles, etc. In many cultures, and particularly indigenous societies, the latter is the most common basic form of social organization.","A nuclear family is limited, according to Kristy Jackson of Colorado State University, to one or two parents (e.g., a father and mother) and their own child, or children, living together in a single house or other dwellings. In anthropology, they only must be related in this fashion; there is no upper or lower limit on the number of children in a nuclear family.","The extended family is a much more nebulous term, but in essence refers to kin or relations not covered by the above definition. In historical Europe and Asia as well as in Middle Eastern, African, and South American Aboriginal cultures, extended family groups were typically the most basic unit of social organization, The term can differ in specific cultural settings, but generally includes people related in age or by lineage.","Anthropologically, the term “extended family” refers to such a group living together in a household, often with three generations living together (grandparents, parents, and children) and headed in patriarchal societies by the eldest man or by some other chosen leadership figure. However, in common parlance, the term “extended family” is often used by people simply to refer to their cousins, aunts, uncles, and so on, even though they are not living together in a single group."]},"r1p2":{"title":"Superstar City (Barbara & Mark)","paras":["Now is the year 2060. Barbara is an engineer working for Hi-tech Operation Centre of Superstar City. Her job is to detect and analyse any threats to public safety such as floods, earthquakes, and even pollution. Thanks to various sensors installed in every home and public place, Barbara's centre can predict probable disasters, identify their locations and send a rescue team to help the people in danger. If warnings and assistance are given in good time, people's lives are well protected.","Barbara's husband, Mark, is working for Eco Infrastructure Network, whose main function is to deal with urban environmental problems to make Superstar City greener, cleaner and more sustainable. Mark and his colleagues are city planners. They design and carry out projects aiming to reduce fossil fuel consumption, find renewable fuels for public transport, and promote other clean air exerts. Thanks to these projects, city dwellers mainly use wind and sun energy for cooking, lighting and heating their homes. To ensure there is no shortage of fresh water, wastewater is treated and turned into drinking water. These projects have proved to be very effective in dealing with global climate change, which was considered an insoluble problem in the first thirty years of this century.","Like most Superstar City dwellers, Barbara and Mark are quite happy with their life and work. They have to work only four days a week, four hours a day. Everybody has more time for study, entertainment and relaxation. This safe, environmentally friendly city is like a paradise for its inhabitants who can enjoy the highest quality of life."]},"r1p3":{"title":"Urban Cities & The Internet of Things (IoT)","paras":["Today's urban cities are practically bursting at the seams. According to research from the United Nations, 54 percent of the world's population lives in urban cities areas, a percentage that is expected to increase to over 66 percent by 2050. In fact, India alone is projected to add 404 million urban dwellers to its population by 2050.","This rapid growth of the urban population has caused daunting problems for city planners, such as overcrowded roads, excessive energy consumption and unemployment. Therefore, to build more sustainable cities and accommodate the growing number of residents, many city leaders are turning to the Internet of things (IoT).","The IoT has forever changed the way urban cities operate. Cities that were once detached and inaccessible are now intelligent and highly connected. From Amsterdam to Seoul, cities are launching smart city projects to help improve quality of life residents and better support the environment. According to research from IHS Technology, there will be at least 88 smart cities globally by 2025, up from 21 in 2013.","San Francisco, for example, provides more than 100 charging stations in various locations to promote the use of hybrid and electric cars to reduce harmful greenhouse gas emissions. Copenhagen is also taking advantage of the lot to improve environmental protection and reduce road traffic by developing smart bikes equipped with sensors that generate date on air contamination and traffic congestion.","The possibilities afforded by the IoT are endless; however, designing smart cities quires comprehensive technology infrastructure that is capable of capturing and processing large amounts of data quickly and securely - which is where 4G LTE comes into play.","The future looks bright for urban cities. Soon they will be able to do things that only sci-fi enthusiasts could dream of before, like monitoring bridge conditions using intelligent sensors and conserving energy by automatically dimming street lights when no one is around."]},"r1p4":{"title":"Healthy Lifestyle","paras":["As a way of living, lifestyle is everyday behaviours, activities, and diet. It involves your work, leisure activities, food and drink consumption, and interaction with people. That is why it is important to have a healthy lifestyle. Although it is often difficult to change your habits, reorganising your daily activities to achieve a healthy lifestyle is not impossible. Here are some steps you need to take to have a better life and health.","Become more active","Scientists have proved that regular exercise can help to reduce cholesterol and the risk of heart disease. Remember that you do not need to do too much exercise – just a 30-minute walk a day will bring health benefits. But it is important that you do it regularly and safely. Simple things like walking or cycling to school, using the stairs instead of the lift, doing the housework and gardening can all contribute to good health.","Moreover, hobbies such as dancing, reading, listening to music, playing chess, and solving crossword or sudoku puzzles are also good ways to keep your body and mind engaged, and increase life expectancy. No matter where you are – at home, at work, or at play – always look for opportunities to be more active and energetic.","Eat healthily","‘Eat to live, not live to eat’ is the advice to follow. The food and drink we consume can dramatically affect our health. Bad nutrition based on fast food, and meals high in fat and sugar can lead to obesity, diabetes, some types of cancer and other chronic diseases. Planning and following a healthy and balanced diet is not difficult at all. Eat the right amount of calories to balance the energy you get from food and the energy you use. Make sure you have a wide range of foods to receive all the nutrients you need. Remember to eat less saturated fat, sugar and salt, and more fish, fruit, and vegetables.","Stay positive and be happy","Once you have started to be more active and eat more healthily, you can notice that you also feel happier. There is no doubt that daily worrying and stress can damage your heart and brain. When you are under a lot of stress, you may get angry easily. Anger and hostility have negative effects on the cardiovascular system. Recent research has confirmed that angry, hostile people live a shorter life. Try to control your anger, always look at the positive side of every situation and be optimistic. If necessary, practise meditation and yoga to help you to relieve your stress and anger, and enjoy life more."]},"r1p5":{"title":"The Last Mile Problem","paras":["The \"last mile problem\" refers to the final leg of a journey from a transportation hub to a destination. In many cities, this short distance creates big challenges. People often drive cars for these trips, causing traffic jams and pollution. Traditional public transportation cannot always solve this problem because bus and train routes don't reach every location. This gap between public transit and final destinations needs creative solutions.","Many cities are now testing new approaches to last mile transportation. Electric scooters and bike-sharing programs have become popular options in urban areas. These small vehicles take up less space than cars and produce zero emissions. Some companies have developed apps that help people find the closest available scooter or bike. Other solutions include on-demand shuttle services that can be requested through smartphones. These shuttles follow flexible routes based on passenger needs rather than fixed schedules.","Walking remains the most sustainable last mile solution, but it requires proper infrastructure. Cities must build safe sidewalks and crosswalks to encourage people to walk. Good lighting and security measures make walking more attractive, especially at night. Some urban planners are creating car-free zones in city centers where people can walk safely. These areas often become popular shopping and dining destinations. Trees and benches along walking routes provide shade and rest spots, making longer walks more comfortable.","The future of last mile transportation will likely combine multiple approaches. No single solution works for everyone in all situations. Weather conditions, physical abilities, and time constraints affect which option is best. Cities need to offer choices that work for different needs. Technology will play an important role in connecting these various transportation modes. Apps that show all available options and allow easy payment will help people make better choices."]},"r2p1":{"title":"Organic Food","paras":["Organic food is very popular these days. lt can also be very expensive. Some organic food costs twice as much as non-organic food. Parents of young children, and (19)             , will pay high prices for organic food if they think it’s healthier. But many others think organic food is just a waste of money.","The main difference between organic and non-organic food is that organic farms avoid agricultural chemicals like pesticides. In many countries, organic foods must have special labels to ensure they are genuinely organic. While organic was originally associated with local farming, it has become big business, with large companies growing organic products far from its source. Additionally, processed organic foods have gained popularity, and big food companies have entered the market, making it challenging for small organic companies to compete and (20) ______. Is organic food safer and more nutritious? (21)              , evidence is limited. Recent studies suggest organic produce may lower heart disease risk, but bacteria contamination remains a concern for both organic and non-organic foods. Washing produce and hands is crucial and (22) ______. Processed organic foods can still be unhealthy if they contain high sugar levels, reflecting the profit-driven motives of many good companies.","Most people agree that naturally grown food tastes better. ls tastier food worth the extra money? (23)            . Whether organic food is healthier or not is still not clear, so more research is needed. However, consumers of organic food Oren say \"Better safe than sorry” when it cornes to what we eat."]},"r2p2":{"title":"Smart Cities Transformation","paras":["Cities are built to accommodate human populations and foster economic growth. In recent years, urban planners (36) _______ to transform traditional urban areas into smart cities. Sensors installed throughout public spaces collect vast amounts of data, (37) _______. In addition to technological integration, future cities must prioritize sustainability. (38) _______, cities can significantly improve air quality and reduce high temperatures in urban heat islands. Public transportation will also undergo major changes, with autonomous electric vehicles replacing traditional petrol cars. As a result, (39) _______. However, transitioning to smart cities requires massive investments, (40) _______."]},"r2p3":{"title":"Predictions about the Cities of the Future","paras":["Cities are built to survive and prosper. Over the years, (16)_______ our surroundings according to our needs. We have cut through mountains to make more land and created artificial islands to make skyscrapers. City planning, as an organized profession, has existed for less than a century. However, a considerable amount of evidence (both archaeological and historical) (17)_______ in ancient times. Over the years, humans have made some mistakes in terms of using an excessive amount of resources for cities. This gives rise to the question of how sustainable the cities of the future would be.","(18)_______ in which street lights would only switch on when you are close by and traffic light would be eliminated by smart driving. The cities of the future would try to save our resources rather than deplete them.","An example of an advanced city is Kansas. Plans are in place to make Kansas a smart futuristic city in the future. Planners are considering introducing sensors to monitor the water mains. Warning would be issued to city officials when the infrastructure requires repair or replacement. In this way, (19)_______","(20)_____, a large amount of rational critique has called this plan an oversold dream. Amy Glasmier is an urban planning professor at MIT. She is a smart city skeptic who believes that all the research and talk is great but gravely oversold."]},"r2p4":{"title":"Modern Parenting","paras":["Raising children in today's world presents unique challenges (18)_______. One key aspect of modern parenting is ensuring that children are happy and healthy. This means providing not only for their physical needs (19)________. Parents today must balance work, household responsibilities, and finding personal time to create a nurturing environment for their children.","Another important aspect is education. (20) ________, parents need to monitor their children's education. This includes not only traditional schooling but also teaching them how to responsibly use digital devices and the internet. Additionally, instilling values such as empathy, respect, and responsibility is crucial for the development of well-rounded individuals.","Furthermore, maintaining open communication between parents and children is essential. Parents should make an effort to understand the perspectives of their children, which can sometimes be vastly different from their own (21)_______. However, parents can build a strong relationship with their children based on trust and mutual respect.","Lastly, it is important for parents to take care of themselves as well. Parenting can be overwhelming, and parents need to ensure they are in good health (22)________. This means finding time for self-care, seeking support from friends and family, and sometimes even professional help.","In conclusion, modern parenting requires a comprehensive approach that addresses both the traditional and contemporary  needs of children. By staying informed and adaptable, parents can successfully navigate the complexities of raising children in the 21st century."]},"r2p5":{"title":"Generation Gap in Modern Households","paras":["In many modern households, (21) _______ due to differences in values, communication styles, and lifestyle choices. While older generations often prioritize traditional career stability, (22) _______. Technology usage is another major area (23) _______. Parents may view constant smartphone use as a distraction from real-life relationships, whereas teenagers see digital devices as essential tools for connection. If family members take the time to practice active listening, (24) _______. Ultimately, bridging the generation gap requires mutual empathy, (25) _______."]},"r3p1":{"title":"Small Daily Choices, Decades of Vibrant Living","paras":["The revolutionary Quantum Aging approach transforms your aging process through (1) ______ decisions and positive daily habits. (2) ______ routines can add years to your life while improving your overall well-being and happiness. People (3) ______ the Quantum Aging philosophy experience remarkable improvements in energy levels, focus, and confidence. Our professional coaches explain longevity secrets (4) ______ participants during each personalized session, ensuring long-lasting results. Our experts will help you (5) ______ back on your feet after years of neglecting your health and wellness needs. (6) ______ a longer, more vibrant life requires making small but meaningful choices every day. Join Quantum Aging today and discover how daily actions can lead to decades of extraordinary health and vitality!"]},"r3p2":{"title":"Bridging the Divide, Building Stronger Families","paras":["Bridging the generational divide requires open communication and (1) ______ understanding between family members. Developing (2) ______ skills can help parents and teenagers connect on a deeper level. Young people (3) ______ in the digital age often have vastly different perspectives from their parents. Our expert counselors provide practical advice (4) ______ families struggling with communication barriers, ensuring long-lasting harmony. We will help you (5) ______ through difficult arguments and find common ground. (6) ______ time to listen to each other's viewpoints is the first step toward a more loving and supportive home environment. Join our workshop today to build a happier family!"]},"r3p3":{"title":"Smart Living, Sustainable Urban Futures","paras":["Transforming modern urban spaces into smart cities creates a more efficient and (1) ______ environment for all citizens. Implementing (2) ______ solutions can significantly lower carbon emissions while improving public transportation. Cities (3) ______ cutting-edge AI technology are capable of managing energy consumption automatically. Professional urban planners present innovative green designs (4) ______ city officials during international summits, inspiring global change. Our modern initiatives will help urban areas (5) ______ up with rapid population growth without harming the environment. (6) ______ sustainable energy sources into daily infrastructure guarantees a cleaner and brighter future for upcoming generations. Discover the future of urban living today!"]},"r3p4":{"title":"Nourishing Your Body, Extending Your Lifespan","paras":["Adopting a balanced diet is the cornerstone of achieving long-term physical health and (1) ______ vitality. Incorporating (2) ______ options into your daily meals can strengthen your immune system and protect against severe diseases. Individuals (3) ______ a plant-rich diet regularly report higher energy levels and better mental clarity. Nutritionists often demonstrate healthy cooking methods (4) ______ clients during private consultation sessions, promoting sustainable habits. Our wellness program will help you (5) ______ off bad eating habits that have accumulated over the years. (6) ______ active care of your body today is the most effective investment in your future longevity. Join our nutrition course today and start your journey toward a healthier tomorrow!"]},"r3p5":{"title":"Eco-Friendly Transportation for Tomorrow's Megacities","paras":["Reinventing urban transit is essential for creating cleaner and more (1) ______ environments in modern metropolises. Deploying (2) ______ networks allows commuters to travel rapidly while minimizing environmental impacts. Commuters (3) ______ electric autonomous buses enjoy quiet rides and reduced travel times every day. Engineers frequently present new zero-emission concepts (4) ______ local authorities to secure funding for urban development. These smart innovations will help city administrators (5) ______ away with outdated petrol-burning vehicles once and for all. (6) ______ green technology into public transport systems guarantees a sustainable future for our children. Register for our urban planning webinar today to explore future city solutions!"]},"r4p1":{"title":"Health and Fitness","paras":["Health and fitness is the most important (1) …………. of our life.  There is nothing more important than health for any human being.  When we are healthy and fit we are (2) …………. to enjoy our life well. We can talk to our near and dear one, we can laugh, smile, travel, enjoy food, and sleep well.","But when our health and fitness is not up to the mark, we are unable to do anything properly and stay behind. We cannot enjoy eating, watching sports or movies.  Our mood always remains negative and we are unable to talk nicely with our near and dear or even sleep properly.","Our health and fitness are more valued than our wealth.  In fact, our (3) ……………. were always been focused on the health and fitness part. They treasure it like wealth. To maintain good health and fitness at its best all the time, we need to take care of hygiene and sanitation around us.","We must eat a healthy and complete (4) …………...  We must eat vegetables, milk, egg, etc. Everyone should make a diet chart and ensure that we take a sufficient amount of carbohydrates, proteins, minerals, and vitamins.  Apart (5) ……………. eating we must maintain cleanliness in our room, house and nearby……….."]},"r4p2":{"title":"Teacher-Student Generation Gap","paras":["Generation gap occurs not only between parents and children but also between teachers and students.  Students are likely to enjoy the classes of an open-minded teacher, (1)______ shows mutual respect to the students. The teachers, who tend to keep their students under unnecessary strict disciplines and practise hard ways to make them (2)______ the orders, are usually disliked by the students. This narrows minded thinking, especially seen in the teachers of the older generation, eventually creates a gap between the students and teachers. Another difference is the use of technology. Young teachers tend to use more digital devices in class for their lessons that has a good (3)______ on the students. Students take more interest and participate actively in the class discussion. An old teacher has (4)________frequent use of electronic devices that makes lessons boring, which is not enjoyed by the students and it creates a gap between them.","To (5)_______ the generation gap, parents or teachers must be close to their children. They should show (6) __________ and give time to the children, have open communication, and allow the child to feel free in all the situations."]},"r4p3":{"title":"Predictions About Cities of the Future","paras":["Cities are built to survive and prosper. Over the years, we have learned to transform our surroundings according to our (1) _______. We have cut through mountains to make more land and created artificial islands to make skyscrapers. City planning, as an organized profession, has existed for less than a century. However, a considerable amount of evidence (both archaeological and historical) proves the existence of fully planned cities in ancient times. Over the years, humans have (2) _______  some mistakes in terms of using an excessive amount of resources for cities. This gives rise to the question of how sustainable the cities of the future would be.","We might be looking at smart cities in (3) _______  street lights would only switch on when you are close by and traffic light would be eliminated by smart driving. The cities of the future would try to save our resources rather than deplete them. An example of an advanced city is Kansas. Plans are in place to make Kansas a smart futuristic city in the future. Planners are considering introducing sensors to monitor the water mains. Warning would be issued to city officials when the infrastructure requires repair or replacement. In this way, the city would never be at (4) _______ of having broken pipes. While the idea sounds fantastic, a large (5) _______  of rational critique has called this plan an oversold dream. Amy Glasmier is an urban planning professor at MIT. She is a smart city (6) __________ who believes that all the research and talk is great but gravely oversold,."]},"r4p4":{"title":"7 Days To Change: The Green Revolution At Your Fingertips","paras":["Join our eco-friendly challenge and make a difference! While some people ignore climate change,","(7) _______   take small daily actions to protect our environment. It's time to (8) _______   usage in your everyday life for a cleaner planet plastic. The sustainability of our (9) _______   depends on the choices we make today. (10) _______   the challenges, making eco-friendly choices is easier than you think.","Our workshop teaches practical conservation (11) _______   you can use at home immediately. A(12) _______  of our participants report significant energy savings after just one week.","Start your green journey today! Register for our 7-day challenge and receive a free eco-friendly starter kit."]},"r4p5":{"title":"Cross-Generational Magic: Breaking Barriers Since 2025","paras":["Magical Connections","Some people enjoy technology, but (7) _______   prefer traditional communication methods. Our program helps families (8) _______   during special events.","The workshop offers (9) _______    for all ages from children to seniors. (10) _______    age differences, everyone can enjoy our magical sessions.","Our community welcomes people from all backgrounds and generations. We have (11) _______    activities planned for the whole year of","Join us today for an unforgettable cross-generational (12) _______    !"]}};
+
+    const MCQ = [{"n":1,"label":1,"lesson":1,"lessonName":"Reading 1 · Passage 1: Nuclear Family & Extended Family","p":"r1p1","q":"What is the passage mainly about?","o":["The dominance of nuclear families over extended ones","The dominance of extended families over nuclear ones","A distinction between nuclear families and extended ones","The changes of family types over times"],"a":2,"exp":"Bài viết so sánh và phân biệt giữa gia đình hạt nhân (nuclear family) và gia đình mở rộng (extended family)."},{"n":2,"label":2,"lesson":1,"lessonName":"Reading 1 · Passage 1: Nuclear Family & Extended Family","p":"r1p1","q":"The word “the latter” in paragraph 1 refers to_____ .","o":["family unit","relatives","the nuclear family","the extended family"],"a":3,"exp":"'The latter' là đối tượng thứ hai được nhắc đến (extended family)."},{"n":3,"label":3,"lesson":1,"lessonName":"Reading 1 · Passage 1: Nuclear Family & Extended Family","p":"r1p1","q":"Historically, extended families were the most basic unit of social organization in all of the following places EXCEPT_____ .","o":["The Middle East","Asia","North America","Europe"],"a":2,"exp":"Đoạn văn liệt kê Châu Âu, Châu Á, Trung Đông, Châu Phi và Nam Mỹ, không nhắc đến Bắc Mỹ."},{"n":4,"label":4,"lesson":1,"lessonName":"Reading 1 · Passage 1: Nuclear Family & Extended Family","p":"r1p1","q":"Which of the following is TRUE according to the passage?","o":["Since the 20th century, more and more American couples have lived in extended families because of the financial burdens.","Nuclear families are the most basic form of social organization all over the world.","The popularity of nuclear families in western countries helps to stabilize family arrangement","Traditional nuclear families have changed a lot over times."],"a":3,"exp":"Cấu trúc và đặc điểm của gia đình hạt nhân đã thay đổi nhiều theo thời gian."},{"n":5,"label":5,"lesson":1,"lessonName":"Reading 1 · Passage 1: Nuclear Family & Extended Family","p":"r1p1","q":"What can be inferred from the reading passage?","o":["Indigenous communities have been completely eradicated all over the world.","In the future, all extended families will be replaced by nuclear ones.","Anthropology is a science concerning human race and its development.","Couples with no children can’t be defined as families."],"a":2,"exp":"Anthropology (nhân học) là ngành khoa học nghiên cứu về con người và sự phát triển xã hội loài người."},{"n":6,"label":6,"lesson":1,"lessonName":"Reading 1 · Passage 1: Nuclear Family & Extended Family","p":"r1p1","q":"The word “relatives” is similar in meaning to:","o":["Friends","Family members","Neighbors","Classmates"],"a":1,"exp":"Relatives = family members (bà con, họ hàng, thành viên gia đình)."},{"n":7,"label":7,"lesson":1,"lessonName":"Reading 1 · Passage 1: Nuclear Family & Extended Family","p":"r1p1","q":"The opposite of “limited” (as used in “a nuclear family is limited to…”) is:","o":["Restricted","Expanded","Reduced","Narrow"],"a":1,"exp":"Limited (bị giới hạn) >< Expanded (được mở rộng)."},{"n":8,"label":1,"lesson":1,"lessonName":"Reading 1 · Passage 2: Superstar City (Barbara & Mark)","p":"r1p2","q":"What is the best title of the passage?","o":["Superstar City's Infrastructure Network","Superstar City - A Safe Place to Live","A Safe and Green City","Superstar City - A City of Green People"],"a":2,"exp":"Bài viết mô tả thành phố tương lai vừa an toàn (dự báo thiên tài) vừa xanh (năng lượng tái tạo)."},{"n":9,"label":2,"lesson":1,"lessonName":"Reading 1 · Passage 2: Superstar City (Barbara & Mark)","p":"r1p2","q":"What do Barbara and Mark do?","o":["Barbara is an engineer and Mark is a city planner.","Barbara is a city planner and her husband is an engineer.","Barbara and Mark are city planners.","Barbara and her husband are engineers."],"a":0,"exp":"Barbara là kỹ sư (engineer), còn Mark làm việc cùng các nhà quy hoạch đô thị (city planner)."},{"n":10,"label":3,"lesson":1,"lessonName":"Reading 1 · Passage 2: Superstar City (Barbara & Mark)","p":"r1p2","q":"How can Barbara's centre predict and locate disasters?","o":["It can predict and locate probable disaster by using the sensors installed in some houses and public place.","It can predict and locate probable disaster by using the sensors installed in every home and public place.","It can predict and locate probable disaster by using the sensors installed at her office.","It can predict and locate probable disaster by using the available sensors ."],"a":1,"exp":"Đoạn văn ghi rõ: 'thanks to various sensors installed in every home and public place'."},{"n":11,"label":4,"lesson":1,"lessonName":"Reading 1 · Passage 2: Superstar City (Barbara & Mark)","p":"r1p2","q":"What is the main function of Eco Infrastructure Network?","o":["Its main function is to deal with urban environmental problems to make Superstar City larger, cleaner and more sustainable.","Its main function is to deal with urban environmental problems to make Superstar City greener, cleaner and sustainable.","Its main function is to deal with urban environmental problems to make Superstar City greener, cleaner and more sustainable.","Its main function is to deal with rural environmental problems to make Superstar City greener, cleaner and more sustainable."],"a":2,"exp":"Trích đoạn: 'deal with urban environmental problems to make Superstar City greener, cleaner and more sustainable'."},{"n":12,"label":5,"lesson":1,"lessonName":"Reading 1 · Passage 2: Superstar City (Barbara & Mark)","p":"r1p2","q":"Why are Superstar City dwellers happy with their life and work?","o":["Because they have more time for study, entertainment and relaxation; they can enjoy the highest quality of life.","Because they have less time for study, entertainment and relaxation; they cannot enjoy the highest quality of life.","Because they do not have more time for study, entertainment and relaxation.","Because they have more time for entertainment and relaxation; they can enjoy the highest quality of life."],"a":0,"exp":"Cư dân có thêm thời gian cho học tập, giải trí và thư giãn."},{"n":13,"label":6,"lesson":1,"lessonName":"Reading 1 · Passage 2: Superstar City (Barbara & Mark)","p":"r1p2","q":"The word “sustainable” is similar in meaning to:","o":["Long-lasting","Temporary","Fragile","Weak"],"a":0,"exp":"Sustainable (bền vững) = Long-lasting (lâu dài)."},{"n":14,"label":7,"lesson":1,"lessonName":"Reading 1 · Passage 2: Superstar City (Barbara & Mark)","p":"r1p2","q":"The opposite of “fresh” (as in “fresh water”) is:","o":["Clean","Pure","Polluted","Clear"],"a":2,"exp":"Fresh water (nước sạch/nước ngọt) >< Polluted (bị ô nhiễm)."},{"n":15,"label":1,"lesson":1,"lessonName":"Reading 1 · Passage 3: Urban Cities & The Internet of Things (IoT)","p":"r1p3","q":"Some cities which follow this trend of the new technology ____.","o":["introduce smart bikes to escape air contamination and traffic congestion","provide charging stations in various locations for cars and bikes","make transportation more eco-friendly and more convenient","only allow the use of hybrid and electric cars to reduce pollution"],"a":2,"exp":"Ứng dụng công nghệ giúp giao thông trở nên thân thiện với môi trường và tiện lợi hơn."},{"n":16,"label":2,"lesson":1,"lessonName":"Reading 1 · Passage 3: Urban Cities & The Internet of Things (IoT)","p":"r1p3","q":"All of the following are the advantages of the IoT EXCEPT that ____","o":["the Internet of Things will be applied in several cities around the world","the number of smart cities decreases but the quality is much better","cities around the world become more intelligent and connected","we may improve quality of life and better support the environment"],"a":1,"exp":"Số lượng thành phố thông minh tăng (từ 21 năm 2013 lên ít nhất 88 năm 2025), không phải giảm."},{"n":17,"label":3,"lesson":1,"lessonName":"Reading 1 · Passage 3: Urban Cities & The Internet of Things (IoT)","p":"r1p3","q":"Today's urban cities ____.","o":["are in fact extremely crowded","are bursting around the world","account for 66 percent of the world's population","have more 404 million dwellers by 2050"],"a":0,"exp":"'bursting at the seams' có nghĩa là vô cùng đông đúc (extremely crowded)."},{"n":18,"label":4,"lesson":1,"lessonName":"Reading 1 · Passage 3: Urban Cities & The Internet of Things (IoT)","p":"r1p3","q":"The potential of the IoT includes all of the following EXCEPT that ____.","o":["intelligent sensors can help watch and check bridge conditions carefully","energy conservation can be done by automatically controlling street lights","things that only sci-fi enthusiasts could dream of before come true","comprehensive technology infrastructure to support the IoT is endless"],"a":3,"exp":"Khả năng của IoT là vô hạn, nhưng hạ tầng công nghệ không phải là 'endless' mà yêu cầu khắt khe."},{"n":19,"label":5,"lesson":1,"lessonName":"Reading 1 · Passage 3: Urban Cities & The Internet of Things (IoT)","p":"r1p3","q":"The Internet of Things allows the city planners and leaders ____.","o":["to develop the broadband Internet connectivity in urban cities","to forget daunting problems, such as overcrowded roads, and unemployment","to stop the rapid growth of the urban population in most cities","to make cities more sustainable and provide enough accommodation"],"a":3,"exp":"Giúp xây dựng thành phố bền vững hơn và đáp ứng chỗ ở cho cư dân ngày càng tăng."},{"n":20,"label":6,"lesson":1,"lessonName":"Reading 1 · Passage 3: Urban Cities & The Internet of Things (IoT)","p":"r1p3","q":"The word “rapid” in the passage is closest in meaning to:","o":["Slow","Gradual","Quick","Steady"],"a":2,"exp":"Rapid = Quick (nhanh chóng)."},{"n":21,"label":7,"lesson":1,"lessonName":"Reading 1 · Passage 3: Urban Cities & The Internet of Things (IoT)","p":"r1p3","q":"The opposite of “connected” (as in “highly connected”) is:","o":["Linked","Combined","Isolated","Joined"],"a":2,"exp":"Connected (kết nối) >< Isolated (cô lập, tách biệt)."},{"n":22,"label":1,"lesson":1,"lessonName":"Reading 1 · Passage 4: Healthy Lifestyle","p":"r1p4","q":"What is an important factor for healthy living?","o":["work","lifestyle","diet","activities"],"a":1,"exp":"Lối sống (lifestyle) là yếu tố quan trọng cho một cuộc sống khỏe mạnh."},{"n":23,"label":2,"lesson":1,"lessonName":"Reading 1 · Passage 4: Healthy Lifestyle","p":"r1p4","q":"What lifestyle changes does the writer recommend?","o":["Exercising regularly, eating balanced diet","Looking at every situation positively, controlling anger","Becoming more active, eating more healthily, and staying positive and happy","Having hobbies, practicing meditation and yoga"],"a":2,"exp":"Ba thay đổi chính: Tăng cường vận động, ăn uống lành mạnh hơn, sống tích cực và hạnh phúc."},{"n":24,"label":3,"lesson":1,"lessonName":"Reading 1 · Passage 4: Healthy Lifestyle","p":"r1p4","q":"What are the benefits of regular exercise according to the passage?","o":["Lessen the risk of heart disease","Increase cholesterol","Become active and energetic","Decrease cholesterol and the risk of heart disease"],"a":3,"exp":"Tập thể dục thường xuyên giúp giảm cholesterol và nguy cơ mắc bệnh tim."},{"n":25,"label":4,"lesson":1,"lessonName":"Reading 1 · Passage 4: Healthy Lifestyle","p":"r1p4","q":"What is the key to happier living?","o":["Reducing your stress, controlling your anger, being positive and optimistic","Reorganising your daily activities, doing the housework and gardening","Having a wide range of foods to receive all the nutrients you need","Keeping your body and mind engaged"],"a":0,"exp":"Giảm căng thẳng, kiểm soát giận dữ, luôn lạc quan và tích cực."},{"n":26,"label":5,"lesson":1,"lessonName":"Reading 1 · Passage 4: Healthy Lifestyle","p":"r1p4","q":"How can you keep your body and mind active?","o":["By having hobbies such as dancing, reading, listening to music, playing chess, and solving crossword or sudoku puzzles.","By doing regular exercise such as walking and cycling","By eating healthy food","By looking at the positive side of every situation and be optimistic"],"a":0,"exp":"Thực hiện các sở thích giải trí và trí tuệ như khiêu vũ, đọc sách, nghe nhạc, chơi cờ, giải đố..."},{"n":27,"label":6,"lesson":1,"lessonName":"Reading 1 · Passage 4: Healthy Lifestyle","p":"r1p4","q":"Find the word in the passage that has the same meaning as “cheerful”.","o":["active","energetic","positive","balanced"],"a":2,"exp":"Cheerful = positive / happy (vui vẻ, tích cực)."},{"n":28,"label":7,"lesson":1,"lessonName":"Reading 1 · Passage 4: Healthy Lifestyle","p":"r1p4","q":"The opposite of “regularly” (as in “do it regularly and safely”) is:","o":["Daily","Frequently","Rarely","Constantly"],"a":2,"exp":"Regularly (thường xuyên) >< Rarely (hiếm khi)."},{"n":29,"label":1,"lesson":1,"lessonName":"Reading 1 · Passage 5: The Last Mile Problem","p":"r1p5","q":"Which of the following is NOT mentioned as a last-mile solution in the passage?","o":["Electric scooters","Bike-sharing programs","On-demand shuttle services","Underground tunnels"],"a":3,"exp":"Đường hầm ngầm (Underground tunnels) không được đề cập làm giải pháp chặng cuối."},{"n":30,"label":2,"lesson":1,"lessonName":"Reading 1 · Passage 5: The Last Mile Problem","p":"r1p5","q":"The word “journey\" in paragraph 1 is OPPOSITE in meaning to","o":["standstill","trip","destination","routes"],"a":0,"exp":"Journey (hành trình/chuyển động) >< Standstill (sự đứng yên/trệ lại)."},{"n":31,"label":3,"lesson":1,"lessonName":"Reading 1 · Passage 5: The Last Mile Problem","p":"r1p5","q":"The word “emissions” in paragraph 2 could be best replaced by","o":["particles","gases","pollutants","chemicals"],"a":1,"exp":"Emissions = gases (khí thải)."},{"n":32,"label":4,"lesson":1,"lessonName":"Reading 1 · Passage 5: The Last Mile Problem","p":"r1p5","q":"The word “it” in paragraph 3 refers to","o":["last mile problem","walking","sustainable solution","transportation"],"a":1,"exp":"Trích đoạn: 'Walking remains the most sustainable... but it requires proper infrastructure' -> 'it' thay thế cho 'walking'."},{"n":33,"label":5,"lesson":1,"lessonName":"Reading 1 · Passage 5: The Last Mile Problem","p":"r1p5","q":"Which of the following best paraphrases the underlined sentence in paragraph 4?","o":["Various solutions will probably merge to address last mile travel needs in coming years.","Multiple transportation methods will compete for dominance in urban planning projects.","Future cities will prioritize single comprehensive systems for all transportation needs.","Urban planners must select one optimal approach from many available transit options."],"a":0,"exp":"Câu gốc: 'Tương lai của giao thông chặng cuối có thể sẽ kết hợp nhiều phương pháp tiếp cận.'"},{"n":34,"label":6,"lesson":1,"lessonName":"Reading 1 · Passage 5: The Last Mile Problem","p":"r1p5","q":"Which of the following is TRUE according to the passage?","o":["Traditional public transit can reach all final destinations in most urban environments.","Electric scooters and bikes require more space than cars in crowded city centers.","Car-free zones decrease the popularity of shopping and dining establishments.","Weather conditions can influence which transportation option works best for people."],"a":3,"exp":"Điều kiện thời tiết ảnh hưởng tới việc lựa chọn phương tiện giao thông phù hợp nhất."},{"n":35,"label":7,"lesson":1,"lessonName":"Reading 1 · Passage 5: The Last Mile Problem","p":"r1p5","q":"In which paragraph does the writer mention alternative transportation options for the last mile?","o":["Paragraph 3","Paragraph 1","Paragraph 2","Paragraph 4"],"a":2,"exp":"Đoạn 2 liệt kê xe tay ga điện, dịch vụ chia sẻ xe đạp, xe đưa đón theo yêu cầu..."},{"n":36,"label":19,"lesson":2,"lessonName":"Reading 2 · Passage 1: Organic Food","p":"r2p1","q":"","o":["even some pets owner","even some pet owners","or some owners of pets","or some pet’s owners"],"a":1,"exp":"Cấu trúc danh từ ghép: 'pet owners' (chủ nuôi thú cưng) ở dạng số nhiều."},{"n":37,"label":20,"lesson":2,"lessonName":"Reading 2 · Passage 1: Organic Food","p":"r2p1","q":"","o":["stay about business","go in business","go about business","stay in business"],"a":3,"exp":"Thành ngữ: 'stay in business' (duy trì hoạt động kinh doanh)."},{"n":38,"label":21,"lesson":2,"lessonName":"Reading 2 · Passage 1: Organic Food","p":"r2p1","q":"","o":["While some believe it is due to concerns about agricultural chemicals and cancer","As some believe it is due to concerns about agricultural chemicals and cancer","When some believe it due to concerns about agricultural chemicals and cancer","As some believe it due to concerns about agricultural chemicals and cancer"],"a":0,"exp":"Mệnh đề nhượng bộ: 'While some believe...' (Mặc dù một số người tin rằng...)"},{"n":39,"label":22,"lesson":2,"lessonName":"Reading 2 · Passage 1: Organic Food","p":"r2p1","q":"","o":["doctors widely supporting reducing sugar intake","reducing sugar intake is widely supported by doctors","reducing sugar intake widely supports doctors","intaking sugar is widely supported with reducing by doctors"],"a":1,"exp":"Mệnh đề bị động song song phù hợp ngữ pháp: 'reducing sugar intake is widely supported by doctors'."},{"n":40,"label":23,"lesson":2,"lessonName":"Reading 2 · Passage 1: Organic Food","p":"r2p1","q":"","o":["That’s a matter of opinion","This being a matter of opinion","This is the matter of","Which’s a matter of opinion"],"a":0,"exp":"Thành ngữ giao tiếp: 'That's a matter of opinion' (Đó là tùy thuộc vào quan điểm của mỗi người)."},{"n":41,"label":36,"lesson":2,"lessonName":"Reading 2 · Passage 2: Smart Cities Transformation","p":"r2p2","q":"","o":["have developed innovative strategies","developing innovative strategies","to develop innovative strategies","have been developed innovative strategies"],"a":0,"exp":"Thì Hiện tại hoàn thành chủ động với trạng từ 'In recent years': 'have developed'."},{"n":42,"label":37,"lesson":2,"lessonName":"Reading 2 · Passage 2: Smart Cities Transformation","p":"r2p2","q":"","o":["allowing central AI systems to optimize energy consumption","which allows central AI systems optimize energy consumption","allowed central AI systems to optimize energy consumption","that allowing central AI systems to optimize energy consumption"],"a":0,"exp":"Rút gọn mệnh đề quan hệ dạng hiện tại phân tử (V-ing) chỉ kết quả: 'allowing...'."},{"n":43,"label":38,"lesson":2,"lessonName":"Reading 2 · Passage 2: Smart Cities Transformation","p":"r2p2","q":"","o":["By incorporating vertical farms and green roofs","However vertical farms and green roofs","Because incorporating vertical farms and green roofs","Although vertical farms and green roofs"],"a":0,"exp":"Cụm giới từ chỉ phương thức: 'By + V-ing' (Bằng cách kết hợp trang trại thẳng đứng và mái nhà xanh)."},{"n":44,"label":39,"lesson":2,"lessonName":"Reading 2 · Passage 2: Smart Cities Transformation","p":"r2p2","q":"","o":["urban areas will experience a substantial reduction in carbon emissions","experiencing a substantial reduction in carbon emissions","which urban areas will experience a substantial reduction in carbon emissions","will urban areas experience a substantial reduction in carbon emissions"],"a":0,"exp":"Mệnh đề chính hoàn chỉnh chỉ kết quả trong tương lai: 'urban areas will experience...'."},{"n":45,"label":40,"lesson":2,"lessonName":"Reading 2 · Passage 2: Smart Cities Transformation","p":"r2p2","q":"","o":["which poses a significant financial challenge for many developing nations","that posing a significant financial challenge for many developing nations","it poses a significant financial challenge for many developing nations","posing which a significant financial challenge for many developing nations"],"a":0,"exp":"Mệnh đề quan hệ không xác định dùng 'which' để thay thế cho cả mệnh đề phía trước."},{"n":46,"label":16,"lesson":2,"lessonName":"Reading 2 · Passage 3: Predictions about the Cities of the Future","p":"r2p3","q":"","o":["have learned to transform","we having learned to transform","they have learned to transform","we have learned to transform"],"a":3,"exp":"Cấu trúc Chủ ngữ + Động từ thì Hiện tại hoàn thành: 'we have learned to transform'."},{"n":47,"label":17,"lesson":2,"lessonName":"Reading 2 · Passage 3: Predictions about the Cities of the Future","p":"r2p3","q":"","o":["to proves the existence of fully planned cities","proving the existence of fully planned cities","proves the existence of fully planned cities","they proves the existence of fully planned cities"],"a":2,"exp":"Động từ chính của câu ở thì Hiện tại đơn chia theo chủ ngữ số ít 'evidence': 'proves...'."},{"n":48,"label":18,"lesson":2,"lessonName":"Reading 2 · Passage 3: Predictions about the Cities of the Future","p":"r2p3","q":"","o":["We might be looking at smart cities","We might be looking at green cities","A smart cities might look at","Loo at smart cities"],"a":0,"exp":"Mệnh đề chính: 'We might be looking at smart cities in which...'"},{"n":49,"label":19,"lesson":2,"lessonName":"Reading 2 · Passage 3: Predictions about the Cities of the Future","p":"r2p3","q":"","o":["the city would never be at risk of having broken pipes.","the city would be at risk of having broken pipes.","I can use clean water .","there will be lots of broken pipes."],"a":0,"exp":"Kết quả tích cực: 'thành phố sẽ không bao giờ đứng trước nguy cơ vỡ đường ống nước'."},{"n":50,"label":20,"lesson":2,"lessonName":"Reading 2 · Passage 3: Predictions about the Cities of the Future","p":"r2p3","q":"","o":["While the idea sounds fantastic,","However the idea sounds fantastic,","And the idea sounds fantastic","Because the idea sounds fantastic"],"a":0,"exp":"Mệnh đề nhượng bộ: 'While the idea sounds fantastic...' (Mặc dù ý tưởng nghe có vẻ tuyệt vời...)"},{"n":51,"label":18,"lesson":2,"lessonName":"Reading 2 · Passage 4: Modern Parenting","p":"r2p4","q":"","o":["that were not faced by previous generations","that faced with previous generations","that are not faced by previous generations","that didn’t face with previous generations"],"a":0,"exp":"Mệnh đề quan hệ bị động ở quá khứ: 'that were not faced by previous generations'."},{"n":52,"label":19,"lesson":2,"lessonName":"Reading 2 · Passage 4: Modern Parenting","p":"r2p4","q":"","o":["but also for their emotional and mental well-being","in order to be for their emotional and mental well-being","between for their emotional and mental well-being","for their emotional and mental well-being"],"a":0,"exp":"Cấu trúc song song: 'not only... but also...'."},{"n":53,"label":20,"lesson":2,"lessonName":"Reading 2 · Passage 4: Modern Parenting","p":"r2p4","q":"","o":["With the technology of rapid advancement","With the rapid advancement of technology","Being rapid advancement of technology","Though the advancement of technology is rapid"],"a":1,"exp":"Cụm danh từ đúng trật tự: 'With the rapid advancement of technology'."},{"n":54,"label":21,"lesson":2,"lessonName":"Reading 2 · Passage 4: Modern Parenting","p":"r2p4","q":"","o":["with the generational gap","because the generational gap","due to the generational gap","because of the gap is generational"],"a":2,"exp":"Cụm từ chỉ nguyên nhân: 'due to + Noun Phrase'."},{"n":55,"label":22,"lesson":2,"lessonName":"Reading 2 · Passage 4: Modern Parenting","p":"r2p4","q":"","o":["to be able to support their children effectively","the ability to support their children effectively","effectively able to support their children","being able to support their children effectively"],"a":0,"exp":"Mục đích: 'to + V-bare' -> 'to be able to support...'."},{"n":56,"label":21,"lesson":2,"lessonName":"Reading 2 · Passage 5: Generation Gap in Modern Households","p":"r2p5","q":"","o":["parents and teenagers frequently experience misunderstandings","misunderstanding parents and teenagers experiencing","having experienced parents and teenagers misunderstandings","that parents and teenagers frequently experience misunderstandings"],"a":0,"exp":"Mệnh đề chính hoàn chỉnh: 'parents and teenagers frequently experience misunderstandings'."},{"n":57,"label":22,"lesson":2,"lessonName":"Reading 2 · Passage 5: Generation Gap in Modern Households","p":"r2p5","q":"","o":["younger people tend to seek flexibility and work-life balance","so younger people seek flexibility and work-life balance","because younger people tend to seek flexibility and work-life balance","younger people seeking which flexibility and work-life balance"],"a":0,"exp":"Mệnh đề đối lập song song với 'While': 'younger people tend to seek...'"},{"n":58,"label":23,"lesson":2,"lessonName":"Reading 2 · Passage 5: Generation Gap in Modern Households","p":"r2p5","q":"","o":["where conflicts frequently arise between different age groups","which conflicts frequently arise between different age groups","that conflicts arise in where different age groups","whose conflicts frequently arise between different age groups"],"a":0,"exp":"Trạng từ quan hệ chỉ nơi chốn/lĩnh vực: 'where conflicts frequently arise...'"},{"n":59,"label":24,"lesson":2,"lessonName":"Reading 2 · Passage 5: Generation Gap in Modern Households","p":"r2p5","q":"","o":["they will find it much easier to resolve their differences","they would find it much easier to resolve their differences","finding it much easier to resolve their differences","it will find them much easier to resolve differences"],"a":0,"exp":"Câu điều kiện loại 1: If + V(hiện tại), S + will + V."},{"n":60,"label":25,"lesson":2,"lessonName":"Reading 2 · Passage 5: Generation Gap in Modern Households","p":"r2p5","q":"","o":["which allows both generations to learn from each other's experiences","allowing both generations learn from each other's experiences","that both generations to learn from each other's experiences","in order to both generations can learn from each other"],"a":0,"exp":"Mệnh đề quan hệ không xác định: 'which allows both generations to learn...'"},{"n":61,"label":1,"lesson":3,"lessonName":"Reading 3 · Passage 1: Small Daily Choices, Decades of Vibrant Living","p":"r3p1","q":"","o":["mind","mindfully","mindful","mindfulness"],"a":2,"exp":"Cần tính từ đứng trước danh từ 'decisions' -> mindful."},{"n":62,"label":2,"lesson":3,"lessonName":"Reading 3 · Passage 1: Small Daily Choices, Decades of Vibrant Living","p":"r3p1","q":"","o":["Morning exercise consistent","Consistent morning exercise","Consistent exercise morning","Exercise morning consistent"],"a":1,"exp":"Trật tự từ: Tính từ + Cụm danh từ -> Consistent morning exercise."},{"n":63,"label":3,"lesson":3,"lessonName":"Reading 3 · Passage 1: Small Daily Choices, Decades of Vibrant Living","p":"r3p1","q":"","o":["adopting","which adopted","adopted","was adopted"],"a":0,"exp":"Rút gọn mệnh đề quan hệ dạng chủ động (People who adopt...) -> adopting."},{"n":64,"label":4,"lesson":3,"lessonName":"Reading 3 · Passage 1: Small Daily Choices, Decades of Vibrant Living","p":"r3p1","q":"","o":["to","for","with","at"],"a":0,"exp":"Cấu trúc: explain something to someone."},{"n":65,"label":5,"lesson":3,"lessonName":"Reading 3 · Passage 1: Small Daily Choices, Decades of Vibrant Living","p":"r3p1","q":"","o":["bring","take","do","get"],"a":3,"exp":"Thành ngữ: get back on one's feet (phục hồi sức khỏe/tài chính)."},{"n":66,"label":6,"lesson":3,"lessonName":"Reading 3 · Passage 1: Small Daily Choices, Decades of Vibrant Living","p":"r3p1","q":"","o":["Living","To live","To living","live"],"a":1,"exp":"Mục đích làm chủ ngữ: To live a longer... life requires..."},{"n":67,"label":1,"lesson":3,"lessonName":"Reading 3 · Passage 2: Bridging the Divide, Building Stronger Families","p":"r3p2","q":"","o":["mutual","mutually","mutuality","mutualize"],"a":0,"exp":"Tính từ bổ nghĩa cho danh từ 'understanding' -> mutual."},{"n":68,"label":2,"lesson":3,"lessonName":"Reading 3 · Passage 2: Bridging the Divide, Building Stronger Families","p":"r3p2","q":"","o":["listening active habits","Active habits listening","Active listening habits","Habits active listening"],"a":2,"exp":"Cụm danh từ: Active listening habits (thói quen lắng nghe tích cực)."},{"n":69,"label":3,"lesson":3,"lessonName":"Reading 3 · Passage 2: Bridging the Divide, Building Stronger Families","p":"r3p2","q":"","o":["growing up","which grew up","grown up","was grown up"],"a":0,"exp":"Rút gọn mệnh đề quan hệ dạng chủ động: Young people growing up..."},{"n":70,"label":4,"lesson":3,"lessonName":"Reading 3 · Passage 2: Bridging the Divide, Building Stronger Families","p":"r3p2","q":"","o":["to","for","with","at"],"a":1,"exp":"Cấu trúc: provide advice for families (hoặc to families)."},{"n":71,"label":5,"lesson":3,"lessonName":"Reading 3 · Passage 2: Bridging the Divide, Building Stronger Families","p":"r3p2","q":"","o":["get","take","do","bring"],"a":0,"exp":"Phrasal verb: get through (vượt qua khó khăn/tranh luận)."},{"n":72,"label":6,"lesson":3,"lessonName":"Reading 3 · Passage 2: Bridging the Divide, Building Stronger Families","p":"r3p2","q":"","o":["Taking","To taking","Take","Took"],"a":0,"exp":"Danh từ làm chủ ngữ (Gerund): Taking time to listen..."},{"n":73,"label":1,"lesson":3,"lessonName":"Reading 3 · Passage 3: Smart Living, Sustainable Urban Futures","p":"r3p3","q":"","o":["sustain","sustainably","sustainable","sustainability"],"a":2,"exp":"Tính từ song song với 'efficient' -> sustainable."},{"n":74,"label":2,"lesson":3,"lessonName":"Reading 3 · Passage 3: Smart Living, Sustainable Urban Futures","p":"r3p3","q":"","o":["transport clean public","Clean public transport","Public clean transport","Transport public clean"],"a":1,"exp":"Cụm danh từ: Clean public transport (giao thông công cộng sạch)."},{"n":75,"label":3,"lesson":3,"lessonName":"Reading 3 · Passage 3: Smart Living, Sustainable Urban Futures","p":"r3p3","q":"","o":["utilizing","which utilized","utilized","was utilized"],"a":0,"exp":"Rút gọn mệnh đề quan hệ dạng chủ động: Cities utilizing..."},{"n":76,"label":4,"lesson":3,"lessonName":"Reading 3 · Passage 3: Smart Living, Sustainable Urban Futures","p":"r3p3","q":"","o":["to","for","with","at"],"a":0,"exp":"Cấu trúc: present something to someone."},{"n":77,"label":5,"lesson":3,"lessonName":"Reading 3 · Passage 3: Smart Living, Sustainable Urban Futures","p":"r3p3","q":"","o":["keep","take","do","make"],"a":0,"exp":"Phrasal verb: keep up with (theo kịp)."},{"n":78,"label":6,"lesson":3,"lessonName":"Reading 3 · Passage 3: Smart Living, Sustainable Urban Futures","p":"r3p3","q":"","o":["Integrating","To integrating","Integrate","Integrated"],"a":0,"exp":"Danh từ làm chủ ngữ: Integrating sustainable energy..."},{"n":79,"label":1,"lesson":3,"lessonName":"Reading 3 · Passage 4: Nourishing Your Body, Extending Your Lifespan","p":"r3p4","q":"","o":["youthful","youthfully","youth","youthfulness"],"a":0,"exp":"Tính từ bổ nghĩa cho 'vitality' -> youthful."},{"n":80,"label":2,"lesson":3,"lessonName":"Reading 3 · Passage 4: Nourishing Your Body, Extending Your Lifespan","p":"r3p4","q":"","o":["fresh organic food","food fresh organic","organic food fresh","fresh food organic"],"a":0,"exp":"Trật tự từ: fresh organic food."},{"n":81,"label":3,"lesson":3,"lessonName":"Reading 3 · Passage 4: Nourishing Your Body, Extending Your Lifespan","p":"r3p4","q":"","o":["maintaining","which maintained","maintained","was maintained"],"a":0,"exp":"Rút gọn mệnh đề quan hệ dạng chủ động: Individuals maintaining..."},{"n":82,"label":4,"lesson":3,"lessonName":"Reading 3 · Passage 4: Nourishing Your Body, Extending Your Lifespan","p":"r3p4","q":"","o":["to","for","with","at"],"a":0,"exp":"Cấu trúc: demonstrate something to someone."},{"n":83,"label":5,"lesson":3,"lessonName":"Reading 3 · Passage 4: Nourishing Your Body, Extending Your Lifespan","p":"r3p4","q":"","o":["shake","take","do","get"],"a":0,"exp":"Phrasal verb: shake off (loại bỏ, rũ bỏ thói quen xấu)."},{"n":84,"label":6,"lesson":3,"lessonName":"Reading 3 · Passage 4: Nourishing Your Body, Extending Your Lifespan","p":"r3p4","q":"","o":["Taking","To taking","Take","Took"],"a":0,"exp":"Danh từ làm chủ ngữ: Taking active care of your body..."},{"n":85,"label":1,"lesson":3,"lessonName":"Reading 3 · Passage 5: Eco-Friendly Transportation for Tomorrow's Megacities","p":"r3p5","q":"","o":["liveable","liveably","liveability","live"],"a":0,"exp":"Tính từ song song với 'cleaner' -> liveable (đáng sống)."},{"n":86,"label":2,"lesson":3,"lessonName":"Reading 3 · Passage 5: Eco-Friendly Transportation for Tomorrow's Megacities","p":"r3p5","q":"","o":["high-speed electric transit","transit electric high-speed","electric transit high-speed","high-speed transit electric"],"a":0,"exp":"Cụm danh từ ghép: high-speed electric transit."},{"n":87,"label":3,"lesson":3,"lessonName":"Reading 3 · Passage 5: Eco-Friendly Transportation for Tomorrow's Megacities","p":"r3p5","q":"","o":["using","which used","used","was used"],"a":0,"exp":"Rút gọn mệnh đề quan hệ dạng chủ động: Commuters using electric autonomous buses..."},{"n":88,"label":4,"lesson":3,"lessonName":"Reading 3 · Passage 5: Eco-Friendly Transportation for Tomorrow's Megacities","p":"r3p5","q":"","o":["to","for","with","at"],"a":0,"exp":"Cấu trúc: present concepts to local authorities."},{"n":89,"label":5,"lesson":3,"lessonName":"Reading 3 · Passage 5: Eco-Friendly Transportation for Tomorrow's Megacities","p":"r3p5","q":"","o":["do","take","get","make"],"a":0,"exp":"Phrasal verb: do away with (loại bỏ, xóa bỏ)."},{"n":90,"label":6,"lesson":3,"lessonName":"Reading 3 · Passage 5: Eco-Friendly Transportation for Tomorrow's Megacities","p":"r3p5","q":"","o":["Integrating","To integrating","Integrate","Integrated"],"a":0,"exp":"Danh từ làm chủ ngữ: Integrating green technology..."},{"n":91,"label":1,"lesson":4,"lessonName":"Reading 4 · Passage 1: Health and Fitness","p":"r4p1","q":"","o":["role","situation","field","aspect"],"a":3,"exp":"Aspect of our life (khía cạnh cuộc sống)."},{"n":92,"label":2,"lesson":4,"lessonName":"Reading 4 · Passage 1: Health and Fitness","p":"r4p1","q":"","o":["capable","able","available","competent"],"a":1,"exp":"Cấu trúc: be able to + V-bare."},{"n":93,"label":3,"lesson":4,"lessonName":"Reading 4 · Passage 1: Health and Fitness","p":"r4p1","q":"","o":["adults","older","elder","elderly"],"a":3,"exp":"The elderly / older generations (người cao tuổi/thế hệ trước)."},{"n":94,"label":4,"lesson":4,"lessonName":"Reading 4 · Passage 1: Health and Fitness","p":"r4p1","q":"","o":["diet","food","meal","menu"],"a":0,"exp":"A healthy and complete diet (chế độ ăn uống lành mạnh)."},{"n":95,"label":5,"lesson":4,"lessonName":"Reading 4 · Passage 1: Health and Fitness","p":"r4p1","q":"","o":["on","from","in","for"],"a":1,"exp":"Cụm từ: Apart from (ngoài ra)."},{"n":96,"label":6,"lesson":4,"lessonName":"Reading 4 · Passage 1: Health and Fitness","p":"r4p1","q":"","o":["people","surroundings","animals","clothes"],"a":1,"exp":"Surroundings (môi trường xung quanh)."},{"n":97,"label":1,"lesson":4,"lessonName":"Reading 4 · Passage 2: Teacher-Student Generation Gap","p":"r4p2","q":"","o":["whom","who","that","which"],"a":1,"exp":"Đại từ quan hệ chỉ người làm chủ ngữ sau dấu phẩy: who."},{"n":98,"label":2,"lesson":4,"lessonName":"Reading 4 · Passage 2: Teacher-Student Generation Gap","p":"r4p2","q":"","o":["obey","obedient","obeyer","obedience"],"a":0,"exp":"Cấu trúc: make someone + V-bare -> obey."},{"n":99,"label":3,"lesson":4,"lessonName":"Reading 4 · Passage 2: Teacher-Student Generation Gap","p":"r4p2","q":"","o":["impact","force","power","act"],"a":0,"exp":"Cụm từ: have a good impact on (có ảnh hưởng tốt đến)."},{"n":100,"label":4,"lesson":4,"lessonName":"Reading 4 · Passage 2: Teacher-Student Generation Gap","p":"r4p2","q":"","o":["fewer","more","less","much"],"a":2,"exp":"Less frequent use (ít sử dụng thường xuyên hơn - 'use' là danh từ không đếm được)."},{"n":101,"label":5,"lesson":4,"lessonName":"Reading 4 · Passage 2: Teacher-Student Generation Gap","p":"r4p2","q":"","o":["give up","leave","make","reduce"],"a":3,"exp":"Reduce the generation gap (thu hẹp/giảm khoảng cách thế hệ)."},{"n":102,"label":6,"lesson":4,"lessonName":"Reading 4 · Passage 2: Teacher-Student Generation Gap","p":"r4p2","q":"","o":["interest","distance","advice","discipline"],"a":0,"exp":"Show interest (thể hiện sự quan tâm)."},{"n":103,"label":1,"lesson":4,"lessonName":"Reading 4 · Passage 3: Predictions About Cities of the Future","p":"r4p3","q":"","o":["need","needs","necessary","necessaries"],"a":1,"exp":"According to our needs (theo nhu cầu của chúng ta)."},{"n":104,"label":2,"lesson":4,"lessonName":"Reading 4 · Passage 3: Predictions About Cities of the Future","p":"r4p3","q":"","o":["do","take","made","got"],"a":2,"exp":"Cụm từ: make mistakes (phạm sai lầm)."},{"n":105,"label":3,"lesson":4,"lessonName":"Reading 4 · Passage 3: Predictions About Cities of the Future","p":"r4p3","q":"","o":["which","where","that","there"],"a":0,"exp":"Giới từ + đại từ quan hệ: in which."},{"n":106,"label":4,"lesson":4,"lessonName":"Reading 4 · Passage 3: Predictions About Cities of the Future","p":"r4p3","q":"","o":["risky","danger","dangerous","risk"],"a":3,"exp":"Cụm từ: at risk of (có nguy cơ)."},{"n":107,"label":5,"lesson":4,"lessonName":"Reading 4 · Passage 3: Predictions About Cities of the Future","p":"r4p3","q":"","o":["amount","number","amount","numbers"],"a":0,"exp":"A large amount of + danh từ không đếm được (critique)."},{"n":108,"label":6,"lesson":4,"lessonName":"Reading 4 · Passage 3: Predictions About Cities of the Future","p":"r4p3","q":"","o":["supporter","developer","skeptic","believer"],"a":2,"exp":"Skeptic (người hoài nghi) - phù hợp với bối cảnh 'believes talk is gravely oversold'."},{"n":109,"label":7,"lesson":4,"lessonName":"Reading 4 · Passage 4: 7 Days To Change: The Green Revolution At Your Fingertips","p":"r4p4","q":"","o":["the others","other","others","another"],"a":2,"exp":"Đối lập với 'some people': others (những người khác)."},{"n":110,"label":8,"lesson":4,"lessonName":"Reading 4 · Passage 4: 7 Days To Change: The Green Revolution At Your Fingertips","p":"r4p4","q":"","o":["look up to","give away","take after","cut down on"],"a":3,"exp":"Cut down on plastic usage (cắt giảm sử dụng nhựa)."},{"n":111,"label":9,"lesson":4,"lessonName":"Reading 4 · Passage 4: 7 Days To Change: The Green Revolution At Your Fingertips","p":"r4p4","q":"","o":["planet","economy","community","lifestyle"],"a":0,"exp":"The sustainability of our planet (sự bền vững của hành tinh chúng ta)."},{"n":112,"label":10,"lesson":4,"lessonName":"Reading 4 · Passage 4: 7 Days To Change: The Green Revolution At Your Fingertips","p":"r4p4","q":"","o":["As opposed to","In spite of","In view of","In advance of"],"a":1,"exp":"In spite of + Noun phrase (Mặc dù có những thách thức...)."},{"n":113,"label":11,"lesson":4,"lessonName":"Reading 4 · Passage 4: 7 Days To Change: The Green Revolution At Your Fingertips","p":"r4p4","q":"","o":["strategies","methods","techniques","approaches"],"a":2,"exp":"Conservation techniques / methods (phương pháp bảo tồn)."},{"n":114,"label":12,"lesson":4,"lessonName":"Reading 4 · Passage 4: 7 Days To Change: The Green Revolution At Your Fingertips","p":"r4p4","q":"","o":["number","majority","handful","lot"],"a":1,"exp":"A majority of (phần lớn)."},{"n":115,"label":7,"lesson":4,"lessonName":"Reading 4 · Passage 5: Cross-Generational Magic: Breaking Barriers Since 2025","p":"r4p5","q":"","o":["the others","others","other","another"],"a":1,"exp":"Đối lập với 'some people': others."},{"n":116,"label":8,"lesson":4,"lessonName":"Reading 4 · Passage 5: Cross-Generational Magic: Breaking Barriers Since 2025","p":"r4p5","q":"","o":["break apart","come together","show up","stand by"],"a":1,"exp":"Come together (xích lại gần nhau, gắn kết)."},{"n":117,"label":9,"lesson":4,"lessonName":"Reading 4 · Passage 5: Cross-Generational Magic: Breaking Barriers Since 2025","p":"r4p5","q":"","o":["equipment","entertainment","activities","programs"],"a":2,"exp":"Offers activities for all ages (cung cấp các hoạt động cho mọi lứa tuổi)."},{"n":118,"label":10,"lesson":4,"lessonName":"Reading 4 · Passage 5: Cross-Generational Magic: Breaking Barriers Since 2025","p":"r4p5","q":"","o":["In spite of","According to","On behalf of","In advance of"],"a":0,"exp":"In spite of age differences (Mặc dù có sự khác biệt về tuổi tác...)."},{"n":119,"label":11,"lesson":4,"lessonName":"Reading 4 · Passage 5: Cross-Generational Magic: Breaking Barriers Since 2025","p":"r4p5","q":"","o":["few","little","plenty","much"],"a":2,"exp":"Plenty of activities (rất nhiều hoạt động)."},{"n":120,"label":12,"lesson":4,"lessonName":"Reading 4 · Passage 5: Cross-Generational Magic: Breaking Barriers Since 2025","p":"r4p5","q":"","o":["debate","experience","competition","conflict"],"a":1,"exp":"An unforgettable experience (một trải nghiệm không thể quên)."}];
+
+    const ESSAY = [{"n":1,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"The last time she came back to her hometown was 4 years ago. → She hasn't …","content":"<p><strong>Đáp án:</strong> She hasn&#x27;t come back to her hometown for 4 years.</p>"},{"n":2,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"He started working as a bank clerk 3 months ago. → He has …","content":"<p><strong>Đáp án:</strong> He has been working as a bank clerk for 3 months.</p>"},{"n":3,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"I last had my hair cut in November. → I haven't …","content":"<p><strong>Đáp án:</strong> I haven&#x27;t had my hair cut since November.</p>"},{"n":4,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"The last time we called each other was 5 months ago. → We haven't …","content":"<p><strong>Đáp án:</strong> We haven&#x27;t called each other for 5 months.</p>"},{"n":5,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"It has been a long time since we last met. → We haven't …","content":"<p><strong>Đáp án:</strong> We last called each other 5 months ago.</p>"},{"n":6,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"When did you have it? → How long …?","content":"<p><strong>Đáp án:</strong> How long have you had it?</p>"},{"n":7,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"This is the first time I had such a delicious meal. → I have never …","content":"<p><strong>Đáp án:</strong> I have never eaten such a delicious meal before.</p>"},{"n":8,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"I haven't seen him for 8 days. → The last … / I last …","content":"<p><strong>Đáp án:</strong> The last time I saw him was 8 days ago. (Hoặc: I last saw him 8 days ago.)</p>"},{"n":9,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"I like rock climbing more than swimming. → I prefer …","content":"<p><strong>Đáp án:</strong> I prefer rock climbing to swimming.</p>"},{"n":10,"lesson":5,"lessonName":"Writing 1 · Ex 1: Tenses & Structures","title":"Viết lại câu – Thì & cấu trúc","q":"My sister thinks it’s better to buy books than borrow them. → My sister prefer …","content":"<p><strong>Đáp án:</strong> My sister prefers buying books to borrowing them.</p>"},{"n":11,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"You are required to ask your parents for permission before going out. (must) → You …","content":"<p><strong>Đáp án:</strong> You must ask your parents for permission before going out.</p>"},{"n":12,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"You are not allowed to colour your hair. (mustn’t) → You …","content":"<p><strong>Đáp án:</strong> You mustn’t colour your hair.</p>"},{"n":13,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"It is not necessary for children to go to kindergarten. (not have to) → Children …","content":"<p><strong>Đáp án:</strong> Children do not have to go to kindergarten.</p>"},{"n":14,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"It is a good idea for parents to try to understand their teenage children. (should) → Parents …","content":"<p><strong>Đáp án:</strong> Parents should try to understand their teenage children.</p>"},{"n":15,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"Women were responsible for all household chores in the past. (had to) → Women …","content":"<p><strong>Đáp án:</strong> Women had to do all household chores in the past.</p>"},{"n":16,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"It is not a good idea for you to study at night. (shouldn’t) → You …","content":"<p><strong>Đáp án:</strong> You shouldn’t study at night.</p>"},{"n":17,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"You are not allowed to stay overnight at your friend’s house. (mustn’t) → You …","content":"<p><strong>Đáp án:</strong> You mustn’t stay overnight at your friend’s house.</p>"},{"n":18,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"He is required to look after his younger brother when his parents are still at work. (has to) → He …","content":"<p><strong>Đáp án:</strong> He has to look after his younger brother when his parents are still at work.</p>"},{"n":19,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"You are banned to go into this area. (mustn’t) → You …","content":"<p><strong>Đáp án:</strong> You mustn’t go into this area.</p>"},{"n":20,"lesson":6,"lessonName":"Writing 2 · Ex 2: Modal Verbs","title":"Viết lại câu – Động từ khuyết thiếu","q":"Students are allowed to use books in this library to do the researches. (mustn’t) → Students …","content":"<p><strong>Đáp án:</strong> Students can use books in this library to do research.</p>"},{"n":21,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"Is this pen yours? (BELONG) → Does …?","content":"<p><strong>Đáp án:</strong> Does this pen belong to you?</p>"},{"n":22,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"We are planning to buy a new cottage. (THINKING) → We …","content":"<p><strong>Đáp án:</strong> We are thinking of buying a new cottage.</p>"},{"n":23,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"It is likely that Jim is disappointed with the announcement of the committee. (SEEMS) → Jim …","content":"<p><strong>Đáp án:</strong> Jim seems to be disappointed with the announcement of the committee.</p>"},{"n":24,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"Someone knocked at the door during our dinner. (HAVING) → …","content":"<p><strong>Đáp án:</strong> While we were having dinner, someone knocked at the door.</p>"},{"n":25,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"Mr. Smith bought this car 5 years ago. (HAD) → Mr. Smith …","content":"<p><strong>Đáp án:</strong> Mr. Smith has had this car for 5 years.</p>"},{"n":26,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"We plan to see the new movie this Saturday. (SEEING) → We …","content":"<p><strong>Đáp án:</strong> We are seeing the new movie this Saturday.</p>"},{"n":27,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"Would the idea of going to a concert appeal to you? (FEEL) → How … going to a concert?","content":"<p><strong>Đáp án:</strong> How do you feel about going to a concert?</p>"},{"n":28,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"My sister thinks Hugh Grant is wonderful. (FAN) → My sister … Hugh Grant.","content":"<p><strong>Đáp án:</strong> My sister is a big fan of Hugh Grant.</p>"},{"n":29,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"Do you own that stereo? (BELONG) → Does …?","content":"<p><strong>Đáp án:</strong> Does that stereo belong to you?</p>"},{"n":30,"lesson":7,"lessonName":"Writing 3 · Ex 3: Stative / Linking Verbs","title":"Viết lại câu – Động từ trạng thái / nối","q":"Barry wasn't strong enough to lift the box. (HAVE) → Barry …","content":"<p><strong>Đáp án:</strong> Barry didn&#x27;t have enough strength to lift the box.</p>"}];
+
+    const LETTERS = ["A", "B", "C", "D"];
+    const TOTAL = MCQ.length + ESSAY.length; // 120 + 30 = 150 câu
+    const STORE_KEY = "eng11.fluent.v1";
+    const DEFAULT_STATE = {
+      theme: null,
+      mcq: {},
+      essayMastered: {},
+      pref: { shuffleQ: false, shuffleA: false },
+      bankShow: false
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+    function clone(obj) { return JSON.parse(JSON.stringify(obj)); }
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORE_KEY);
+        if (!raw) return clone(DEFAULT_STATE);
+        const saved = JSON.parse(raw);
+        return {
+          theme: saved.theme || null,
+          mcq: saved.mcq || {},
+          essayMastered: saved.essayMastered || {},
+          pref: {
+            shuffleQ: !!(saved.pref && saved.pref.shuffleQ),
+            shuffleA: !!(saved.pref && saved.pref.shuffleA)
+          },
+          bankShow: !!saved.bankShow
+        };
+      } catch (err) {
+        return clone(DEFAULT_STATE);
+      }
+    }
+    let state = loadState();
+    function saveState() {
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      } catch (err) {}
+    }
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (ch) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[ch]));
+    }
+    function mcqQuestionText(item) {
+      return item.q || "Chỗ trống (" + item.label + ")";
+    }
+    function passageDetails(key) {
+      const passage = key ? PASSAGES[key] : null;
+      if (!passage) return "";
+      return '<details class="bank-passage"><summary>Đoạn văn: ' + escapeHtml(passage.title) + '</summary>' +
+        '<div class="bank-passage-body">' + passage.paras.map((p) => "<p>" + escapeHtml(p) + "</p>").join("") + '</div></details>';
+    }
+    function shuffle(list) {
+      const arr = [...list];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    /* ---------- Toast ---------- */
+    let toastTimer = null;
+    function showToast(message) {
+      const el = $("toast");
+      $("toastText").textContent = message;
+      el.hidden = false;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => { el.hidden = true; }, 2800);
+    }
+
+    /* ---------- Dialog ---------- */
+    let dialogAction = null;
+    function openDialog(options) {
+      $("dialogTitle").textContent = options.title || "Xác nhận";
+      $("dialogBody").textContent = options.body || "";
+      $("dialogConfirm").textContent = options.confirmText || "Xác nhận";
+      dialogAction = options.onConfirm || null;
+      $("overlay").hidden = false;
+      setTimeout(() => $("dialogCancel").focus(), 30);
+    }
+    function closeDialog() {
+      $("overlay").hidden = true;
+      dialogAction = null;
+    }
+    $("dialogCancel").addEventListener("click", closeDialog);
+    $("dialogConfirm").addEventListener("click", () => {
+      const action = dialogAction;
+      closeDialog();
+      if (action) action();
+    });
+    $("overlay").addEventListener("click", (event) => {
+      if (event.target === $("overlay")) closeDialog();
+    });
+
+    /* ---------- Theme ---------- */
+    const mediaTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", theme === "dark" ? "#1a1a1f" : "#eef2f8");
+    }
+    applyTheme(state.theme || (mediaTheme.matches ? "dark" : "light"));
+    $("themeBtn").addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      state.theme = next;
+      saveState();
+      applyTheme(next);
+      showToast(next === "dark" ? "Đã chuyển sang giao diện tối" : "Đã chuyển sang giao diện sáng");
+    });
+    mediaTheme.addEventListener("change", (event) => {
+      if (!state.theme) applyTheme(event.matches ? "dark" : "light");
+    });
+
+    /* ---------- Stats ---------- */
+    function getStats() {
+      const mcqEntries = Object.entries(state.mcq).filter(([, v]) => v && typeof v.sel === "number");
+      const mcqDone = mcqEntries.length;
+      const mcqCorrect = mcqEntries.filter(([, v]) => v.ok).length;
+      const essayCount = Object.keys(state.essayMastered || {}).length;
+
+      const done = mcqDone + essayCount;
+      const totalScore = done;
+      const pct = Math.round((done / TOTAL) * 100);
+
+      return {
+        mcqDone,
+        mcqCorrect,
+        mcqWrong: mcqDone - mcqCorrect,
+        essayCount,
+        done,
+        pct,
+        acc: mcqDone ? Math.round((mcqCorrect / mcqDone) * 100) : null
+      };
+    }
+
+    function syncStats() {
+      const s = getStats();
+      const set = (id, val) => { const el = $(id); if (el) el.textContent = val; };
+      set("sidePct", s.pct + "%");
+      set("sideDone", s.done + " / " + TOTAL + " câu");
+      const sideBar = $("sideBar");
+      if (sideBar) sideBar.style.width = s.pct + "%";
+
+      set("heroPct", s.pct + "%");
+      set("heroDone", s.done);
+      const ring = $("heroRing");
+      if (ring) ring.style.setProperty("--p", String(s.pct));
+
+      set("statDone", s.done);
+      set("statAcc", s.acc === null ? "—" : s.acc + "%");
+      set("statMcqDone", s.mcqDone);
+      set("statEssay", s.essayCount);
+
+      set("countMcq", s.mcqDone + " / " + MCQ.length);
+      set("countEssay", s.essayCount + " / " + ESSAY.length);
+
+      const bM = $("barMcq"); if (bM) bM.style.width = (s.mcqDone / MCQ.length) * 100 + "%";
+      const bE = $("barEssay"); if (bE) bE.style.width = (s.essayCount / ESSAY.length) * 100 + "%";
+    }
+
+    /* ---------- Navigation ---------- */
+    const VIEW_META = {
+      dashboard: { title: "Tổng quan ôn tập", desc: "Theo dõi tiến độ, xem thống kê và các phần trọng tâm Giữa kì 1." },
+      mcq: { title: "Đọc hiểu & điền từ", desc: "120 câu &bull; Đọc bài đọc, chọn đáp án đúng và xem đáp án chi tiết ngay sau khi kiểm tra." },
+      essay: { title: "Viết lại câu", desc: "30 câu &bull; Luyện thì, cấu trúc, động từ khuyết thiếu và động từ trạng thái / nối." },
+      bank: { title: "Ngân hàng 150 câu hỏi", desc: "Tra cứu toàn bộ đề cương ôn tập kèm đáp án và giải thích chi tiết." }
+    };
+
+    function navigate(view, options) {
+      const meta = VIEW_META[view] || VIEW_META.dashboard;
+      $$(".view").forEach((section) => section.classList.toggle("active", section.id === "view-" + view));
+      $$("[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === view));
+      $("pageTitle").textContent = meta.title;
+      $("pageDesc").innerHTML = meta.desc;
+
+      if (!options || !options.keepScroll) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      if (view === "dashboard") syncStats();
+      if (view === "mcq") renderMcq();
+      if (view === "essay") renderEssay();
+      if (view === "bank") renderBank();
+    }
+
+    document.addEventListener("click", (event) => {
+      const viewButton = event.target.closest("[data-view]");
+      if (viewButton) { navigate(viewButton.dataset.view); return; }
+      const goButton = event.target.closest("[data-go]");
+      if (goButton) navigate(goButton.dataset.go);
+    });
+    const dashBrowse = $("dashBrowse");
+    if (dashBrowse) dashBrowse.addEventListener("click", () => navigate("bank"));
+
+    /* =========================================================================
+       1. TRẮC NGHIỆM 1 LỰA CHỌN & ĐIỀN TỪ (MCQ) - 120 CÂU
+       ========================================================================= */
+    let mcqFiltered = [...MCQ];
+    let mcqOrder = [];
+    let mcqPos = 0;
+    const mcqPending = {};
+    let optionOrders = {};
+
+    function applyMcqFilter() {
+      const filter = $("mcqLessonFilter").value;
+      if (filter === "all") {
+        mcqFiltered = [...MCQ];
+      } else {
+        mcqFiltered = MCQ.filter((item) => item.lesson === Number(filter));
+      }
+      buildMcqOrder();
+    }
+
+    function buildMcqOrder(preserveId) {
+      const ids = mcqFiltered.map((item) => item.n);
+      mcqOrder = state.pref.shuffleQ ? shuffle(ids) : ids;
+      if (preserveId !== undefined && preserveId !== null) {
+        const at = mcqOrder.indexOf(preserveId);
+        mcqPos = at >= 0 ? at : 0;
+      } else {
+        const firstNew = mcqOrder.findIndex((id) => !state.mcq[id]);
+        mcqPos = firstNew >= 0 ? firstNew : 0;
+      }
+    }
+
+    function currentMcq() {
+      return MCQ.find((item) => item.n === mcqOrder[mcqPos]);
+    }
+
+    function getOptionOrder(question) {
+      if (!state.pref.shuffleA) return [0, 1, 2, 3];
+      if (!optionOrders[question.n]) optionOrders[question.n] = shuffle([0, 1, 2, 3]);
+      return optionOrders[question.n];
+    }
+
+    let passageOpen = true;
+    function renderMcqPassage(question) {
+      const box = $("mcqPassageBox");
+      const body = $("mcqPassageBody");
+      const title = $("mcqPassageTitle");
+      if (!box || !body || !title) return;
+      const passage = question.p ? PASSAGES[question.p] : null;
+      if (!passage) {
+        box.hidden = true;
+        body.innerHTML = "";
+        return;
+      }
+      box.hidden = false;
+      title.textContent = passage.title;
+      body.innerHTML = passage.paras.map((p) => "<p>" + escapeHtml(p) + "</p>").join("");
+      box.classList.toggle("collapsed", !passageOpen);
+      const toggle = $("mcqPassageToggle");
+      if (toggle) toggle.setAttribute("aria-expanded", passageOpen ? "true" : "false");
+    }
+
+    function renderMcq() {
+      if (!mcqOrder.length) buildMcqOrder();
+      const question = currentMcq();
+      if (!question) {
+        $("mcqTitle").textContent = "Không có câu hỏi phù hợp bộ lọc.";
+        $("mcqOptions").innerHTML = "";
+        return;
+      }
+      const rec = state.mcq[question.n];
+      const pending = rec ? rec.sel : mcqPending[question.n];
+      const order = getOptionOrder(question);
+
+      $("mcqEyebrow").textContent = "Câu " + question.n;
+      $("mcqLessonName").textContent = question.lessonName;
+      $("mcqChip").textContent = (mcqPos + 1) + " / " + mcqOrder.length;
+      $("mcqBar").style.width = ((mcqPos + 1) / mcqOrder.length) * 100 + "%";
+      $("mcqTitle").textContent = mcqQuestionText(question);
+      $("mcqType").textContent = question.q ? "Trắc nghiệm 1 lựa chọn" : "Điền từ vào chỗ trống";
+      renderMcqPassage(question);
+
+      const wrap = $("mcqOptions");
+      wrap.innerHTML = "";
+      order.forEach((orig, displayIndex) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option";
+        button.dataset.orig = String(orig);
+        let mark = "";
+        if (rec) {
+          button.disabled = true;
+          if (orig === question.a) {
+            button.classList.add("correct");
+            mark = "✓";
+          } else if (orig === rec.sel) {
+            button.classList.add("wrong");
+            mark = "✕";
+          } else {
+            button.classList.add("muted");
+          }
+        } else if (orig === pending) {
+          button.classList.add("selected");
+        }
+        button.innerHTML =
+          '<span class="letter">' + LETTERS[displayIndex] + "</span>" +
+          '<span class="option-text">' + escapeHtml(question.o[orig]) + "</span>" +
+          (mark ? '<span class="option-mark">' + mark + "</span>" : "");
+        wrap.appendChild(button);
+      });
+
+      const feedback = $("mcqFeedback");
+      if (rec) {
+        const correctDisplay = order.indexOf(question.a);
+        feedback.hidden = false;
+        feedback.className = "feedback " + (rec.ok ? "success" : "danger");
+        feedback.innerHTML =
+          '<span class="feedback-icon">' + (rec.ok ? "✓" : "✕") + "</span>" +
+          '<div class="feedback-body"><strong>' + (rec.ok ? "Chính xác!" : "Chưa chính xác.") + "</strong> " +
+          (rec.ok
+            ? "Bạn đã chọn đúng đáp án."
+            : "Đáp án đúng là <strong>" + LETTERS[correctDisplay] + ". " + escapeHtml(question.o[question.a]) + "</strong>.") +
+          (question.exp ? '<span class="feedback-note"><strong>Giải thích:</strong> ' + escapeHtml(question.exp) + "</span>" : "") +
+          "</div>";
+      } else {
+        feedback.hidden = true;
+        feedback.className = "feedback";
+        feedback.innerHTML = "";
+      }
+
+      $("mcqPrev").disabled = mcqPos === 0;
+      $("mcqNext").disabled = mcqPos === mcqOrder.length - 1;
+      $("mcqUndo").hidden = !rec;
+      $("mcqCheck").hidden = !!rec;
+
+      const nav = $("mcqNavGrid");
+      nav.innerHTML = "";
+      mcqOrder.forEach((id, index) => {
+        const record = state.mcq[id];
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "nav-cell";
+        if (record) cell.classList.add(record.ok ? "done-correct" : "done-wrong");
+        if (index === mcqPos) cell.classList.add("current");
+        cell.textContent = String(id);
+        cell.title = "Câu " + id + (record ? (record.ok ? " • Đúng" : " • Sai") : " • Chưa làm");
+        cell.setAttribute("aria-label", "Đi tới câu " + id);
+        cell.addEventListener("click", () => {
+          mcqPos = index;
+          renderMcq();
+        });
+        nav.appendChild(cell);
+      });
+
+      const s = getStats();
+      $("mcqNavStat").textContent = s.mcqDone + " / " + MCQ.length;
+      $("mcqCorrect").textContent = String(s.mcqCorrect);
+      $("mcqWrong").textContent = String(s.mcqWrong);
+      $("mcqLeft").textContent = String(MCQ.length - s.mcqDone);
+      syncStats();
+    }
+
+    function scrollCardOnMobile(id) {
+      if (!window.matchMedia("(max-width: 1000px)").matches) return;
+      const card = $(id);
+      if (card) card.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    function mcqNext() {
+      if (mcqPos < mcqOrder.length - 1) {
+        mcqPos++;
+        renderMcq();
+        scrollCardOnMobile("mcqCard");
+      }
+    }
+    function mcqPrev() {
+      if (mcqPos > 0) {
+        mcqPos--;
+        renderMcq();
+        scrollCardOnMobile("mcqCard");
+      }
+    }
+    function checkMcq() {
+      const question = currentMcq();
+      if (!question || state.mcq[question.n]) return;
+      const selected = mcqPending[question.n];
+      if (selected === undefined) {
+        const card = $("mcqCard");
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        showToast("Hãy chọn một đáp án trước khi kiểm tra.");
+        return;
+      }
+      state.mcq[question.n] = { sel: selected, ok: selected === question.a };
+      saveState();
+      renderMcq();
+      if (getStats().done === TOTAL) showToast("Xuất sắc! Bạn đã hoàn thành toàn bộ câu hỏi.");
+    }
+
+    $("mcqOptions").addEventListener("click", (event) => {
+      const button = event.target.closest(".option");
+      if (!button || button.disabled) return;
+      const question = currentMcq();
+      if (!question || state.mcq[question.n]) return;
+      mcqPending[question.n] = Number(button.dataset.orig);
+      renderMcq();
+    });
+    const mcqPassageToggle = $("mcqPassageToggle");
+    if (mcqPassageToggle) {
+      mcqPassageToggle.addEventListener("click", () => {
+        passageOpen = !passageOpen;
+        const box = $("mcqPassageBox");
+        if (box) box.classList.toggle("collapsed", !passageOpen);
+        mcqPassageToggle.setAttribute("aria-expanded", passageOpen ? "true" : "false");
+      });
+    }
+    $("mcqCheck").addEventListener("click", checkMcq);
+    $("mcqNext").addEventListener("click", mcqNext);
+    $("mcqPrev").addEventListener("click", mcqPrev);
+    $("mcqUndo").addEventListener("click", () => {
+      const question = currentMcq();
+      if (!question) return;
+      delete state.mcq[question.n];
+      delete mcqPending[question.n];
+      saveState();
+      renderMcq();
+    });
+    $("mcqShuffleQ").addEventListener("change", (event) => {
+      const current = currentMcq();
+      state.pref.shuffleQ = event.target.checked;
+      saveState();
+      buildMcqOrder(current ? current.n : null);
+      renderMcq();
+    });
+    $("mcqShuffleA").addEventListener("change", (event) => {
+      state.pref.shuffleA = event.target.checked;
+      optionOrders = {};
+      saveState();
+      renderMcq();
+    });
+    $("mcqLessonFilter").addEventListener("change", () => {
+      applyMcqFilter();
+      renderMcq();
+    });
+    $("mcqRestart").addEventListener("click", () => {
+      openDialog({
+        title: "Làm lại phần trắc nghiệm?",
+        body: "Toàn bộ 120 câu đọc hiểu & điền từ đã làm sẽ được đặt lại. Các phần khác không bị ảnh hưởng.",
+        confirmText: "Làm lại",
+        onConfirm: () => {
+          state.mcq = {};
+          Object.keys(mcqPending).forEach((k) => delete mcqPending[k]);
+          optionOrders = {};
+          saveState();
+          buildMcqOrder();
+          renderMcq();
+          showToast("Đã làm mới phần trắc nghiệm.");
+        }
+      });
+    });
+
+    /* =========================================================================
+       4. VIẾT LẠI CÂU (ESSAY) - 30 CÂU
+       ========================================================================= */
+    let essayShowAll = false;
+
+    function renderEssay() {
+      const filter = $("essayLessonFilter").value;
+      const list = $("essayList");
+      list.innerHTML = "";
+
+      const filtered = filter === "all" ? ESSAY : ESSAY.filter((item) => item.lesson === Number(filter));
+
+      filtered.forEach((item) => {
+        const article = document.createElement("article");
+        article.className = "card essay-card";
+        const isMastered = !!state.essayMastered[item.n];
+
+        article.innerHTML =
+          '<div class="essay-card-head">' +
+          '  <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap">' +
+          '    <span class="chip accent">Câu ' + item.n + '</span>' +
+          '    <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+          (isMastered ? '<span class="chip green">✓ Đã nắm vững</span>' : '') +
+          '  </div>' +
+          '  <button class="btn btn-ghost" type="button" data-master="' + item.n + '">' +
+          (isMastered ? 'Bỏ đánh dấu' : 'Đánh dấu đã hiểu') +
+          '  </button>' +
+          '</div>' +
+          '<h3 class="essay-q">' + escapeHtml(item.q) + '</h3>' +
+          '<button class="btn btn-secondary essay-toggle-btn" type="button" data-toggle-essay="' + item.n + '">' +
+          (essayShowAll ? 'Ẩn đáp án chi tiết' : 'Xem đáp án chi tiết') +
+          '</button>' +
+          '<div class="essay-answer-box" id="essayAns-' + item.n + '" ' + (essayShowAll ? '' : 'hidden') + '>' +
+          item.content +
+          '</div>';
+
+        list.appendChild(article);
+      });
+      syncStats();
+    }
+
+    $("essayList").addEventListener("click", (e) => {
+      const toggleBtn = e.target.closest("[data-toggle-essay]");
+      if (toggleBtn) {
+        const id = toggleBtn.dataset.toggleEssay;
+        const box = $("essayAns-" + id);
+        if (box) {
+          const isHidden = box.hidden;
+          box.hidden = !isHidden;
+          toggleBtn.textContent = isHidden ? "Ẩn đáp án chi tiết" : "Xem đáp án chi tiết";
+        }
+        return;
+      }
+      const masterBtn = e.target.closest("[data-master]");
+      if (masterBtn) {
+        const id = masterBtn.dataset.master;
+        if (state.essayMastered[id]) {
+          delete state.essayMastered[id];
+        } else {
+          state.essayMastered[id] = true;
+        }
+        saveState();
+        renderEssay();
+      }
+    });
+
+    $("essayLessonFilter").addEventListener("change", renderEssay);
+    $("essayToggleAll").addEventListener("click", () => {
+      essayShowAll = !essayShowAll;
+      $("essayToggleAll").textContent = essayShowAll ? "Ẩn tất cả đáp án" : "Hiện tất cả đáp án";
+      renderEssay();
+    });
+
+    /* =========================================================================
+       5. NGÂN HÀNG CÂU HỎI (BANK) - 150 CÂU
+       ========================================================================= */
+    let bankTypeFilter = "all";
+
+    function renderBank() {
+      const query = $("bankSearch").value.trim().toLowerCase();
+      const lessonFilter = $("bankLessonFilter").value;
+      const showAnswers = $("bankShowAns").checked;
+      const list = $("bankList");
+      list.innerHTML = "";
+      let count = 0;
+
+      const matchesQuery = (text) => !query || text.toLowerCase().includes(query);
+      const matchesLesson = (itemLesson) => lessonFilter === "all" || itemLesson === Number(lessonFilter);
+
+      // MCQ
+      if (bankTypeFilter === "all" || bankTypeFilter === "mcq") {
+        MCQ.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(mcqQuestionText(item) + " " + item.lessonName + " " + item.o.join(" ") + " " + (item.exp || ""))) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          const options = item.o.map((text, index) =>
+            '<div class="bank-option' + (showAnswers && index === item.a ? " correct" : "") + '">' +
+            '<span class="letter">' + LETTERS[index] + "</span><span>" + escapeHtml(text) + "</span></div>"
+          ).join("");
+
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Trắc nghiệm</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            (showAnswers ? '<span class="chip green">Đáp án ' + LETTERS[item.a] + "</span>" : "") +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(mcqQuestionText(item)) + '</h3>' +
+            passageDetails(item.p) +
+            '<div class="bank-options">' + options + '</div>' +
+            (showAnswers && item.exp ? '<div class="bank-note"><strong>Giải thích:</strong> ' + escapeHtml(item.exp) + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      // ESSAY
+      if (bankTypeFilter === "all" || bankTypeFilter === "essay") {
+        ESSAY.forEach((item) => {
+          if (!matchesLesson(item.lesson)) return;
+          if (!matchesQuery(item.q + " " + item.content)) return;
+          count++;
+
+          const article = document.createElement("article");
+          article.className = "bank-item card";
+          article.innerHTML =
+            '<div class="bank-item-head">' +
+            '  <span class="chip accent">Câu ' + item.n + '</span>' +
+            '  <span class="chip">Viết lại câu</span>' +
+            '  <span class="chip">' + escapeHtml(item.lessonName) + '</span>' +
+            '</div>' +
+            '<h3 class="bank-q">' + escapeHtml(item.q) + '</h3>' +
+            (showAnswers ? '<div class="essay-answer-box" style="margin-top:10px">' + item.content + '</div>' : '');
+          list.appendChild(article);
+        });
+      }
+
+      $("bankCount").textContent = count ? "Tìm thấy " + count + " câu hỏi phù hợp" : "";
+      if (!count) {
+        list.innerHTML =
+          '<div class="card empty">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>' +
+          "Không tìm thấy câu hỏi phù hợp. Thử từ khóa khác nhé.</div>";
+      }
+    }
+
+    $("bankSearch").addEventListener("input", renderBank);
+    $("bankShowAns").addEventListener("change", (e) => {
+      state.bankShow = e.target.checked;
+      saveState();
+      renderBank();
+    });
+    $("bankLessonFilter").addEventListener("change", renderBank);
+    $("bankTypeFilters").addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-type]");
+      if (!chip) return;
+      bankTypeFilter = chip.dataset.type;
+      $$("#bankTypeFilters .filter-chip").forEach((b) => b.classList.toggle("active", b === chip));
+      renderBank();
+    });
+
+    /* ---------- Reset tổng ---------- */
+    function resetAllProgress() {
+      openDialog({
+        title: "Đặt lại toàn bộ tiến độ?",
+        body: "Tất cả câu trả lời của phần Đọc hiểu và đánh dấu Viết lại sẽ bị xóa khỏi thiết bị này.",
+        confirmText: "Đặt lại tất cả",
+        onConfirm: () => {
+          state.mcq = {};
+          state.essayMastered = {};
+          Object.keys(mcqPending).forEach((k) => delete mcqPending[k]);
+          optionOrders = {};
+          saveState();
+          buildMcqOrder();
+          renderMcq();
+          renderEssay();
+          syncStats();
+          showToast("Đã đặt lại toàn bộ tiến độ học tập.");
+        }
+      });
+    }
+    $("sideReset").addEventListener("click", resetAllProgress);
+
+    /* ---------- Bàn phím ---------- */
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !$("overlay").hidden) {
+        closeDialog();
+        return;
+      }
+      const tag = (event.target.tagName || "").toLowerCase();
+      if (tag === "input" || tag === "textarea" || tag === "select") return;
+      const activeView = document.querySelector(".view.active");
+      if (!activeView) return;
+
+      if (activeView.id === "view-mcq") {
+        const question = currentMcq();
+        if (!question) return;
+        const rec = state.mcq[question.n];
+        if (!rec && /^[1-4]$/.test(event.key)) {
+          const displayIndex = Number(event.key) - 1;
+          const order = getOptionOrder(question);
+          if (displayIndex < order.length) {
+            event.preventDefault();
+            mcqPending[question.n] = order[displayIndex];
+            renderMcq();
+          }
+          return;
+        }
+        if (!rec && /^[a-dA-D]$/.test(event.key)) {
+          const displayIndex = LETTERS.indexOf(event.key.toUpperCase());
+          const order = getOptionOrder(question);
+          if (displayIndex >= 0 && displayIndex < order.length) {
+            event.preventDefault();
+            mcqPending[question.n] = order[displayIndex];
+            renderMcq();
+          }
+          return;
+        }
+        if (event.key === "Enter") {
+          event.preventDefault();
+          if (rec) mcqNext(); else checkMcq();
+          return;
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          mcqNext();
+          return;
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          mcqPrev();
+        }
+      }
+    });
+
+    /* ---------- Custom Fluent Combobox Dropdown ---------- */
+    function initCustomComboboxes() {
+      $$("select.filter-select").forEach((select) => {
+        if (select.dataset.customized === "true") return;
+        select.dataset.customized = "true";
+
+        const wrap = document.createElement("div");
+        wrap.className = "fluent-combobox";
+        wrap.dataset.selectId = select.id;
+
+        const trigger = document.createElement("button");
+        trigger.type = "button";
+        trigger.className = "combobox-trigger";
+        trigger.setAttribute("aria-haspopup", "listbox");
+        trigger.setAttribute("aria-expanded", "false");
+        trigger.setAttribute("title", select.getAttribute("aria-label") || "Lọc");
+
+        const label = document.createElement("span");
+        label.className = "combobox-label";
+        const curOpt = select.options[select.selectedIndex] || select.options[0];
+        label.textContent = curOpt ? curOpt.textContent : "";
+
+        trigger.appendChild(label);
+        trigger.insertAdjacentHTML(
+          "beforeend",
+          '<svg class="combobox-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="m6 9 6 6 6-6"></path></svg>'
+        );
+
+        const menu = document.createElement("div");
+        menu.className = "combobox-menu";
+        menu.setAttribute("role", "listbox");
+        menu.hidden = true;
+
+        Array.from(select.options).forEach((opt) => {
+          const item = document.createElement("div");
+          item.className = "combobox-item" + (opt.value === select.value ? " active" : "");
+          item.dataset.value = opt.value;
+          item.innerHTML =
+            '<span>' + escapeHtml(opt.textContent) + '</span>' +
+            '<svg class="combobox-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M20 6 9 17l-5-5"></path></svg>';
+
+          item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (select.value !== opt.value) {
+              select.value = opt.value;
+              select.dispatchEvent(new Event("change"));
+            }
+            label.textContent = opt.textContent;
+            menu.querySelectorAll(".combobox-item").forEach((it) => {
+              it.classList.toggle("active", it.dataset.value === opt.value);
+            });
+            closeCombobox(wrap);
+            trigger.focus();
+          });
+          menu.appendChild(item);
+        });
+
+        trigger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = wrap.classList.contains("open");
+          closeAllComboboxes();
+          if (!isOpen) {
+            wrap.classList.add("open");
+            trigger.setAttribute("aria-expanded", "true");
+            menu.hidden = false;
+          }
+        });
+
+        select.parentNode.insertBefore(wrap, select.nextSibling);
+        wrap.appendChild(trigger);
+        wrap.appendChild(menu);
+
+        select.addEventListener("change", () => {
+          const opt = select.options[select.selectedIndex];
+          if (opt) {
+            label.textContent = opt.textContent;
+            menu.querySelectorAll(".combobox-item").forEach((it) => {
+              it.classList.toggle("active", it.dataset.value === select.value);
+            });
+          }
+        });
+      });
+    }
+
+    function closeCombobox(wrap) {
+      wrap.classList.remove("open");
+      const trig = wrap.querySelector(".combobox-trigger");
+      const menu = wrap.querySelector(".combobox-menu");
+      if (trig) trig.setAttribute("aria-expanded", "false");
+      if (menu) menu.hidden = true;
+    }
+
+    function closeAllComboboxes() {
+      $$(".fluent-combobox.open").forEach(closeCombobox);
+    }
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".fluent-combobox")) {
+        closeAllComboboxes();
+      }
+    });
+
+    /* ---------- Khởi tạo ---------- */
+    $("mcqShuffleQ").checked = !!state.pref.shuffleQ;
+    $("mcqShuffleA").checked = !!state.pref.shuffleA;
+    $("bankShowAns").checked = !!state.bankShow;
+
+    initCustomComboboxes();
+    buildMcqOrder();
+    renderMcq();
+    renderEssay();
+    renderBank();
+    syncStats();
+    navigate("dashboard", { keepScroll: true });
+  </script>
+</body>
+</html>
